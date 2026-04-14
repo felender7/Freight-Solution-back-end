@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  invoice_number: MyString
+  vendor_id: 1
+  amount: 9.99
+  status: MyString
+  due_date: 2026-04-14
+  paid_date: 2026-04-14
+
+two:
+  invoice_number: MyString
+  vendor_id: 1
+  amount: 9.99
+  status: MyString
+  due_date: 2026-04-14
+  paid_date: 2026-04-14

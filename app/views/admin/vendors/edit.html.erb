@@ -1,0 +1,30 @@
+<header class="main-header">
+  <h1 class="page-title">Edit Vendor</h1>
+</header>
+
+<div class="main-body">
+  <a href="<%= admin_vendors_path %>" class="back-link">
+    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+    Back to Vendors
+  </a>
+
+  <div class="card" style="margin-top: 24px;">
+    <div class="card-body">
+      <%= form_with model: [:admin, @vendor], local: true do |form| %>
+        <div class="form-row">
+          <div class="form-group-full"><%= form.label :name %><%= form.text_field :name, required: true %></div>
+          <div class="form-group-full"><%= form.label :email %><%= form.email_field :email, required: true %></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group-full"><%= form.label :phone %><%= form.text_field :phone %></div>
+          <div class="form-group-full"><%= form.label :bank_reference %><%= form.text_field :bank_reference %></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group-full"><%= form.label :status %><%= form.select :status, ['active', 'inactive'] %></div>
+          <div class="form-group-full"><%= form.label :address %><%= form.text_area :address, rows: 3 %></div>
+        </div>
+        <div style="margin-top: 24px;"><%= form.submit 'Update Vendor', class: 'btn btn-blue' %></div>
+      <% end %>
+    </div>
+  </div>
+</div>

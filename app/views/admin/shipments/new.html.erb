@@ -1,0 +1,13 @@
+<header class="main-header"><h1 class="page-title">New Shipment</h1></header>
+<div class="main-body">
+  <a href="<%= admin_shipments_path %>" class="back-link"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>Back</a>
+  <div class="card" style="margin-top: 24px;"><div class="card-body">
+    <%= form_with model: [:admin, @shipment], local: true do |f| %>
+      <div class="form-row"><div class="form-group-full"><%= f.label :container_number %><%= f.text_field :container_number, required: true %></div><div class="form-group-full"><%= f.label :booking_reference %><%= f.text_field :booking_reference %></div></div>
+      <div class="form-row"><div class="form-group-full"><%= f.label :origin %><%= f.text_field :origin, required: true %></div><div class="form-group-full"><%= f.label :destination %><%= f.text_field :destination, required: true %></div></div>
+      <div class="form-row"><div class="form-group-full"><%= f.label :status %><%= f.select :status, ['pending', 'in_transit', 'delivered'], selected: 'pending' %></div><div class="form-group-full"><%= f.label :ship_date %><%= f.date_field :ship_date %></div></div>
+      <div class="form-group-full"><%= f.label :estimated_arrival %><%= f.date_field :estimated_arrival %></div>
+      <div style="margin-top: 24px;"><%= f.submit 'Create', class: 'btn btn-blue' %></div>
+    <% end %>
+  </div></div>
+</div>

@@ -1,0 +1,13 @@
+<header class="main-header">
+  <h1 class="page-title">Invoices</h1>
+  <div class="header-actions"><a href="<%= new_admin_invoice_path %>" class="btn btn-blue"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/></svg>Add Invoice</a></div>
+</header>
+<div class="main-body">
+  <% if notice %><div class="alert alert-success"><%= notice %></div><% end %>
+  <div class="card"><div class="card-body">
+    <% if @invoices.any? %>
+      <table><thead><tr><th>Invoice #</th><th>Vendor</th><th>Amount</th><th>Status</th><th>Due Date</th><th>Actions</th></tr></thead><tbody>
+        <% @invoices.each do |i| %><tr><td><strong><%= i.invoice_number %></strong></td><td><%= i.vendor ? i.vendor.name : '-' %></td><td>R<%= number_with_delimiter(i.amount.round(2)) %></td><td><span class="badge <%= i.status=='paid'?'badge-success':i.status=='pending'?'badge-warning':'badge-error' %>"><%= i.status||'pending' %></span></td><td><%= i.due_date ? i.due_date.strftime('%Y-%m-%d') : '-' %></td><td><div class="actions"><a href="<%= admin_invoice_path(i) %>" class="btn btn-sm btn-secondary">View</a><a href="<%= edit_admin_invoice_path(i) %>" class="btn btn-sm btn-secondary">Edit</a><%= button_to 'Delete', admin_invoice_path(i), method: :delete, data: { confirm: 'Sure?' }, class: 'btn btn-sm btn-danger' %></div></td></tr><% end %></tbody></table>
+    <% else %><div class="empty-state"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg><p>No invoices</p></div><% end %>
+  </div></div>
+</div>

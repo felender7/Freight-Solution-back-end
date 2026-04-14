@@ -1,0 +1,58 @@
+<header class="main-header">
+  <h1 class="page-title">Employees</h1>
+  <div class="header-actions">
+    <a href="<%= new_admin_employee_path %>" class="btn btn-blue">
+      <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/></svg>
+      Add Employee
+    </a>
+  </div>
+</header>
+
+<div class="main-body">
+  <% if notice %><div class="alert alert-success"><%= notice %></div><% end %>
+  
+  <div class="card">
+    <div class="card-body">
+      <% if @employees.any? %>
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Phone</th>
+              <th>Position</th>
+              <th>Department</th>
+              <th>Hire Date</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @employees.each do |employee| %>
+              <tr>
+                <td><strong><%= employee.first_name %> <%= employee.last_name %></strong></td>
+                <td><%= employee.email %></td>
+                <td><%= employee.phone || '-' %></td>
+                <td><%= employee.position || '-' %></td>
+                <td><%= employee.department || '-' %></td>
+                <td><%= employee.hire_date ? employee.hire_date.strftime('%Y-%m-%d') : '-' %></td>
+                <td>
+                  <div class="actions">
+                    <a href="<%= admin_employee_path(employee) %>" class="btn btn-sm btn-secondary">View</a>
+                    <a href="<%= edit_admin_employee_path(employee) %>" class="btn btn-sm btn-secondary">Edit</a>
+                    <%= button_to 'Delete', admin_employee_path(employee), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' %>
+                  </div>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      <% else %>
+        <div class="empty-state">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+          <p>No employees found</p>
+          <a href="<%= new_admin_employee_path %>" class="btn btn-blue" style="margin-top: 16px;">Add First Employee</a>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

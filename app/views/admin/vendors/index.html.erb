@@ -1,0 +1,60 @@
+<header class="main-header">
+  <h1 class="page-title">Vendors</h1>
+  <div class="header-actions">
+    <a href="<%= new_admin_vendor_path %>" class="btn btn-blue">
+      <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/></svg>
+      Add Vendor
+    </a>
+  </div>
+</header>
+
+<div class="main-body">
+  <% if notice %><div class="alert alert-success"><%= notice %></div><% end %>
+  
+  <div class="card">
+    <div class="card-body">
+      <% if @vendors.any? %>
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Phone</th>
+              <th>Bank Reference</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @vendors.each do |vendor| %>
+              <tr>
+                <td><strong><%= vendor.name %></strong></td>
+                <td><%= vendor.email %></td>
+                <td><%= vendor.phone %></td>
+                <td><%= vendor.bank_reference || '-' %></td>
+                <td>
+                  <span class="badge <%= vendor.status == 'active' ? 'badge-success' : 'badge-error' %>">
+                    <%= vendor.status || 'inactive' %>
+                  </span>
+                </td>
+                <td>
+                  <div class="actions">
+                    <a href="<%= admin_vendor_path(vendor) %>" class="btn btn-sm btn-secondary">View</a>
+                    <a href="<%= edit_admin_vendor_path(vendor) %>" class="btn btn-sm btn-secondary">Edit</a>
+                    <%= button_to 'Delete', admin_vendor_path(vendor), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' %>
+                  </div>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      <% else %>
+        <div class="empty-state">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+          <p>No vendors found</p>
+          <a href="<%= new_admin_vendor_path %>" class="btn btn-blue" style="margin-top: 16px;">Add First Vendor</a>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

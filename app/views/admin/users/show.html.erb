@@ -1,0 +1,10 @@
+<header class="main-header"><h1 class="page-title">User Details</h1><div class="header-actions"><a href="<%= edit_admin_user_path(@user) %>" class="btn btn-blue">Edit</a></div></header>
+<div class="main-body">
+  <a href="<%= admin_users_path %>" class="back-link"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>Back</a>
+  <div class="card" style="margin-top: 24px;"><div class="card-body"><div class="two-column">
+    <div><p style="color:#64748b;font-size:14px;margin-bottom:4px;">Name</p><p style="color:#f8fafc;font-size:18px;font-weight:500;"><%= @user.first_name %> <%= @user.last_name %></p></div>
+    <div><p style="color:#64748b;font-size:14px;margin-bottom:4px;">Email</p><p style="color:#f8fafc;font-size:18px;"><%= @user.email %></p></div>
+    <div><p style="color:#64748b;font-size:14px;margin-bottom:4px;">Role</p><span class="badge <%= @user.role=='admin'?'badge-info':'badge-warning' %>"><%= @user.role %></span></div>
+    <div><p style="color:#64748b;font-size:14px;margin-bottom:4px;">Status</p><span class="badge <%= @user.must_update_password?'badge-error':'badge-success' %>"><%= @user.must_update_password ? 'Password needed' : 'Active' %></span></div>
+  </div></div></div>
+</div>

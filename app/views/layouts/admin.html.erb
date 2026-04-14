@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tswalanang Freight - Admin</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0f172a; }
+    .dashboard-layout { display: flex; min-height: 100vh; }
+    .sidebar { width: 280px; background: #1e293b; border-right: 1px solid #334155; display: flex; flex-direction: column; position: fixed; height: 100vh; }
+    .sidebar-header { padding: 24px; border-bottom: 1px solid #334155; }
+    .sidebar-logo { display: flex; align-items: center; gap: 12px; }
+    .sidebar-logo-box { width: 40px; height: 40px; background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; }
+    .sidebar-logo-box svg { width: 24px; height: 24px; color: white; }
+    .sidebar-logo-text { color: #f8fafc; font-size: 18px; font-weight: 700; }
+    .sidebar-nav { flex: 1; padding: 16px; overflow-y: auto; }
+    .nav-section { margin-bottom: 24px; }
+    .nav-section-title { color: #64748b; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; padding: 0 16px; margin-bottom: 8px; }
+    .nav-item { display: flex; align-items: center; gap: 12px; padding: 12px 16px; color: #94a3b8; text-decoration: none; border-radius: 10px; transition: all 0.2s; margin-bottom: 2px; }
+    .nav-item:hover { background: #334155; color: #f8fafc; }
+    .nav-item.active { background: rgba(59, 130, 246, 0.1); color: #3b82f6; }
+    .nav-item svg { width: 20px; height: 20px; flex-shrink: 0; }
+    .sidebar-footer { padding: 16px; border-top: 1px solid #334155; }
+    .user-info { display: flex; align-items: center; gap: 12px; }
+    .user-avatar { width: 40px; height: 40px; background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white; font-weight: 600; font-size: 14px; }
+    .user-details { flex: 1; min-width: 0; }
+    .user-name { color: #f8fafc; font-size: 14px; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .user-role { color: #64748b; font-size: 12px; text-transform: capitalize; }
+    .logout-btn { background: none; border: none; color: #94a3b8; cursor: pointer; padding: 8px; border-radius: 8px; transition: all 0.2s; }
+    .logout-btn:hover { background: #334155; color: #fca5a5; }
+    .logout-btn svg { width: 20px; height: 20px; }
+    
+    .main-content { flex: 1; margin-left: 280px; background: #0f172a; min-height: 100vh; }
+    .main-header { background: #1e293b; border-bottom: 1px solid #334155; padding: 20px 32px; display: flex; justify-content: space-between; align-items: center; }
+    .page-title { color: #f8fafc; font-size: 24px; font-weight: 700; }
+    .header-actions { display: flex; align-items: center; gap: 16px; }
+    .notification-btn { background: none; border: none; color: #94a3b8; cursor: pointer; padding: 8px; border-radius: 8px; position: relative; }
+    .notification-btn:hover { background: #334155; color: #f8fafc; }
+    .notification-btn svg { width: 24px; height: 24px; }
+    .notification-badge { position: absolute; top: 4px; right: 4px; width: 8px; height: 8px; background: #ef4444; border-radius: 50%; }
+    .main-body { padding: 32px 40px; }
+    
+    .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; margin-bottom: 32px; }
+    .stat-card { background: #1e293b; border-radius: 16px; padding: 28px; border: 1px solid #334155; }
+    .stat-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px; }
+    .stat-icon { width: 52px; height: 52px; border-radius: 14px; display: flex; align-items: center; justify-content: center; }
+    .stat-icon.blue { background: rgba(59, 130, 246, 0.1); color: #3b82f6; }
+    .stat-icon.green { background: rgba(34, 197, 94, 0.1); color: #22c55e; }
+    .stat-icon.yellow { background: rgba(234, 179, 8, 0.1); color: #eab308; }
+    .stat-icon.purple { background: rgba(168, 85, 247, 0.1); color: #a855f7; }
+    .stat-icon svg { width: 26px; height: 26px; }
+    .stat-value { color: #f8fafc; font-size: 36px; font-weight: 700; margin-bottom: 4px; }
+    .stat-label { color: #94a3b8; font-size: 15px; }
+    .stat-change { font-size: 13px; margin-top: 10px; }
+    .stat-change.positive { color: #22c55e; }
+    .stat-change.negative { color: #ef4444; }
+    
+    .card { background: #1e293b; border-radius: 16px; border: 1px solid #334155; overflow: hidden; margin-bottom: 32px; }
+    .card-header { padding: 24px 28px; border-bottom: 1px solid #334155; display: flex; justify-content: space-between; align-items: center; }
+    .card-title { color: #f8fafc; font-size: 18px; font-weight: 600; }
+    .card-body { padding: 24px; }
+    
+    table { width: 100%; border-collapse: collapse; }
+    th { background: #0f172a; color: #94a3b8; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; padding: 16px 24px; text-align: left; border-bottom: 1px solid #334155; }
+    td { padding: 20px 24px; border-bottom: 1px solid #334155; color: #e2e8f0; font-size: 14px; }
+    tr:last-child td { border-bottom: none; }
+    tr:hover { background: rgba(59, 130, 246, 0.05); }
+    
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 16px; border-radius: 10px; font-size: 14px; font-weight: 500; cursor: pointer; transition: all 0.2s; text-decoration: none; border: none; }
+    .btn-blue { background: #3b82f6; color: white; }
+    .btn-blue:hover { background: #2563eb; }
+    .btn-secondary { background: #334155; color: #e2e8f0; }
+    .btn-secondary:hover { background: #475569; }
+    .btn-danger { background: #dc2626; color: white; }
+    .btn-danger:hover { background: #b91c1c; }
+    .btn-sm { padding: 6px 12px; font-size: 13px; }
+    .btn-link { background: none; border: none; color: #3b82f6; padding: 0; }
+    .btn-link:hover { color: #60a5fa; }
+    
+    .badge { display: inline-block; padding: 4px 12px; border-radius: 9999px; font-size: 12px; font-weight: 500; }
+    .badge-success { background: rgba(34, 197, 94, 0.1); color: #22c55e; }
+    .badge-warning { background: rgba(234, 179, 8, 0.1); color: #eab308; }
+    .badge-error { background: rgba(239, 68, 68, 0.1); color: #f87171; }
+    .badge-info { background: rgba(59, 130, 246, 0.1); color: #60a5fa; }
+    
+    .alert { padding: 16px; border-radius: 10px; margin-bottom: 24px; }
+    .alert-success { background: rgba(34, 197, 94, 0.1); border: 1px solid rgba(34, 197, 94, 0.3); color: #4ade80; }
+    .alert-error { background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.3); color: #f87171; }
+    
+    .empty-state { text-align: center; padding: 60px 20px; color: #64748b; }
+    .empty-state svg { width: 64px; height: 64px; margin-bottom: 16px; opacity: 0.5; }
+    
+    .form-row { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-bottom: 24px; }
+    .form-group-full { margin-bottom: 24px; }
+    .form-group-full label { display: block; color: #e2e8f0; font-size: 14px; font-weight: 500; margin-bottom: 10px; }
+    .form-group-full input, .form-group-full select, .form-group-full textarea { width: 100%; padding: 14px 18px; background: #0f172a; border: 1px solid #334155; border-radius: 10px; color: #f8fafc; font-size: 14px; }
+    .form-group-full input:focus, .form-group-full select:focus, .form-group-full textarea:focus { outline: none; border-color: #3b82f6; box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15); }
+    .form-group-full select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2394a3b8'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; background-size: 20px; padding-right: 44px; }
+    
+    .back-link { color: #3b82f6; text-decoration: none; font-size: 14px; display: inline-flex; align-items: center; gap: 8px; }
+    .back-link:hover { color: #60a5fa; }
+    .actions { display: flex; gap: 8px; }
+    
+    .two-column { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    @media (max-width: 1024px) { .two-column { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <div class="dashboard-layout">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-logo">
+          <div class="sidebar-logo-box">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/>
+            </svg>
+          </div>
+          <span class="sidebar-logo-text">Tswalanang</span>
+        </div>
+      </div>
+      
+      <nav class="sidebar-nav">
+        <div class="nav-section">
+          <p class="nav-section-title">Main</p>
+          <a href="<%= admin_dashboard_path %>" class="nav-item <%= 'active' if controller_path == 'admin/dashboard' %>">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/></svg>
+            <span>Dashboard</span>
+          </a>
+        </div>
+        
+        <div class="nav-section">
+          <p class="nav-section-title">Management</p>
+          <a href="<%= admin_employees_path %>" class="nav-item <%= 'active' if controller_path == 'admin/employees' %>">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+            <span>Employees</span>
+          </a>
+          <a href="<%= admin_vendors_path %>" class="nav-item <%= 'active' if controller_path == 'admin/vendors' %>">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+            <span>Vendors</span>
+          </a>
+          <a href="<%= admin_shipments_path %>" class="nav-item <%= 'active' if controller_path == 'admin/shipments' %>">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/></svg>
+            <span>Shipments</span>
+          </a>
+          <a href="<%= admin_invoices_path %>" class="nav-item <%= 'active' if controller_path == 'admin/invoices' %>">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+            <span>Invoices</span>
+          </a>
+        </div>
+        
+        <div class="nav-section">
+          <p class="nav-section-title">System</p>
+          <a href="<%= admin_users_path %>" class="nav-item <%= 'active' if controller_path == 'admin/users' %>">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"/></svg>
+            <span>Users</span>
+          </a>
+        </div>
+      </nav>
+      
+      <div class="sidebar-footer">
+        <div class="user-info">
+          <div class="user-avatar"><%= current_user ? current_user.first_name[0] + current_user.last_name[0] : 'A' %></div>
+          <div class="user-details">
+            <p class="user-name"><%= current_user ? "#{current_user.first_name} #{current_user.last_name}" : 'Admin' %></p>
+            <p class="user-role"><%= current_user&.role || 'admin' %></p>
+          </div>
+          <a href="<%= admin_logout_path %>" class="logout-btn" title="Logout">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/></svg>
+          </a>
+        </div>
+      </div>
+    </aside>
+
+    <div class="main-content">
+      <%= yield %>
+    </div>
+  </div>
+</body>
+</html>

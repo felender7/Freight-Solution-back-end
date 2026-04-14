@@ -1,0 +1,20 @@
+<header class="main-header">
+  <h1 class="page-title">Vendor Details</h1>
+  <div class="header-actions"><a href="<%= edit_admin_vendor_path(@vendor) %>" class="btn btn-blue">Edit</a></div>
+</header>
+
+<div class="main-body">
+  <a href="<%= admin_vendors_path %>" class="back-link"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>Back to Vendors</a>
+  <div class="card" style="margin-top: 24px;">
+    <div class="card-body">
+      <div class="two-column">
+        <div><p style="color: #64748b; font-size: 14px; margin-bottom: 4px;">Name</p><p style="color: #f8fafc; font-size: 18px; font-weight: 500;"><%= @vendor.name %></p></div>
+        <div><p style="color: #64748b; font-size: 14px; margin-bottom: 4px;">Email</p><p style="color: #f8fafc; font-size: 18px;"><%= @vendor.email %></p></div>
+        <div><p style="color: #64748b; font-size: 14px; margin-bottom: 4px;">Phone</p><p style="color: #f8fafc; font-size: 18px;"><%= @vendor.phone || '-' %></p></div>
+        <div><p style="color: #64748b; font-size: 14px; margin-bottom: 4px;">Bank Reference</p><p style="color: #f8fafc; font-size: 18px;"><%= @vendor.bank_reference || '-' %></p></div>
+        <div><p style="color: #64748b; font-size: 14px; margin-bottom: 4px;">Status</p><span class="badge <%= @vendor.status == 'active' ? 'badge-success' : 'badge-error' %>"><%= @vendor.status || 'inactive' %></span></div>
+        <div><p style="color: #64748b; font-size: 14px; margin-bottom: 4px;">Address</p><p style="color: #f8fafc; font-size: 18px;"><%= @vendor.address || '-' %></p></div>
+      </div>
+    </div>
+  </div>
+</div>

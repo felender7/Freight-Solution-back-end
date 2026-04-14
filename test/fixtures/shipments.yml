@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  container_number: MyString
+  booking_reference: MyString
+  origin: MyString
+  destination: MyString
+  status: MyString
+  ship_date: 2026-04-14
+  estimated_arrival: 2026-04-14
+
+two:
+  container_number: MyString
+  booking_reference: MyString
+  origin: MyString
+  destination: MyString
+  status: MyString
+  ship_date: 2026-04-14
+  estimated_arrival: 2026-04-14

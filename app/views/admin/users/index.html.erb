@@ -1,0 +1,10 @@
+<header class="main-header"><h1 class="page-title">Users</h1><div class="header-actions"><a href="<%= new_admin_user_path %>" class="btn btn-blue"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/></svg>Add User</a></div></header>
+<div class="main-body">
+  <% if notice %><div class="alert alert-success"><%= notice %></div><% end %>
+  <div class="card"><div class="card-body">
+    <% if @users.any? %>
+      <table><thead><tr><th>Name</th><th>Email</th><th>Role</th><th>Status</th><th>Actions</th></tr></thead><tbody>
+        <% @users.each do |u| %><tr><td><strong><%= u.first_name %> <%= u.last_name %></strong></td><td><%= u.email %></td><td><span class="badge <%= u.role == 'admin' ? 'badge-info' : 'badge-warning' %>"><%= u.role %></span></td><td><span class="badge <%= u.must_update_password ? 'badge-error' : 'badge-success' %>"><%= u.must_update_password ? 'Password needed' : 'Active' %></span></td><td><div class="actions"><a href="<%= admin_user_path(u) %>" class="btn btn-sm btn-secondary">View</a><a href="<%= edit_admin_user_path(u) %>" class="btn btn-sm btn-secondary">Edit</a><%= button_to 'Delete', admin_user_path(u), method: :delete, data: { confirm: 'Sure?' }, class: 'btn btn-sm btn-danger' %></div></td></tr><% end %></tbody></table>
+    <% else %><div class="empty-state"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"/></svg><p>No users</p></div><% end %>
+  </div></div>
+</div>

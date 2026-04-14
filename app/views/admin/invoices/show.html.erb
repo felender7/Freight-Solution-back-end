@@ -1,0 +1,12 @@
+<header class="main-header"><h1 class="page-title">Invoice Details</h1><div class="header-actions"><a href="<%= edit_admin_invoice_path(@invoice) %>" class="btn btn-blue">Edit</a></div></header>
+<div class="main-body">
+  <a href="<%= admin_invoices_path %>" class="back-link"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>Back</a>
+  <div class="card" style="margin-top: 24px;"><div class="card-body"><div class="two-column">
+    <div><p style="color:#64748b;font-size:14px;margin-bottom:4px;">Invoice #</p><p style="color:#f8fafc;font-size:18px;"><%= @invoice.invoice_number %></p></div>
+    <div><p style="color:#64748b;font-size:14px;margin-bottom:4px;">Vendor</p><p style="color:#f8fafc;font-size:18px;"><%= @invoice.vendor ? @invoice.vendor.name : '-' %></p></div>
+    <div><p style="color:#64748b;font-size:14px;margin-bottom:4px;">Amount</p><p style="color:#f8fafc;font-size:18px;">R<%= number_with_delimiter(@invoice.amount.round(2)) %></p></div>
+    <div><p style="color:#64748b;font-size:14px;margin-bottom:4px;">Status</p><span class="badge <%= @invoice.status=='paid'?'badge-success':@invoice.status=='pending'?'badge-warning':'badge-error' %>"><%= @invoice.status||'pending' %></span></div>
+    <div><p style="color:#64748b;font-size:14px;margin-bottom:4px;">Due Date</p><p style="color:#f8fafc;font-size:18px;"><%= @invoice.due_date ? @invoice.due_date.strftime('%Y-%m-%d') : '-' %></p></div>
+    <div><p style="color:#64748b;font-size:14px;margin-bottom:4px;">Paid Date</p><p style="color:#f8fafc;font-size:18px;"><%= @invoice.paid_date ? @invoice.paid_date.strftime('%Y-%m-%d') : '-' %></p></div>
+  </div></div></div>
+</div>

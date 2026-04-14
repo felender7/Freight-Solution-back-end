@@ -1,0 +1,64 @@
+<header class="main-header">
+  <h1 class="page-title">Edit Employee</h1>
+</header>
+
+<div class="main-body">
+  <a href="<%= admin_employees_path %>" class="back-link">
+    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+    Back to Employees
+  </a>
+
+  <div class="card" style="margin-top: 24px;">
+    <div class="card-body">
+      <%= form_with model: [:admin, @employee], local: true do |form| %>
+        <div class="form-row">
+          <div class="form-group-full">
+            <%= form.label :first_name %>
+            <%= form.text_field :first_name, required: true %>
+          </div>
+          <div class="form-group-full">
+            <%= form.label :last_name %>
+            <%= form.text_field :last_name, required: true %>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group-full">
+            <%= form.label :email %>
+            <%= form.email_field :email, required: true %>
+          </div>
+          <div class="form-group-full">
+            <%= form.label :phone %>
+            <%= form.text_field :phone %>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group-full">
+            <%= form.label :position %>
+            <%= form.text_field :position %>
+          </div>
+          <div class="form-group-full">
+            <%= form.label :department %>
+            <%= form.text_field :department %>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group-full">
+            <%= form.label :salary %>
+            <%= form.number_field :salary, step: '0.01' %>
+          </div>
+          <div class="form-group-full">
+            <%= form.label :hire_date %>
+            <%= form.date_field :hire_date %>
+          </div>
+        </div>
+
+        <div style="margin-top: 24px;">
+          <%= form.submit 'Update Employee', class: 'btn btn-blue' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
