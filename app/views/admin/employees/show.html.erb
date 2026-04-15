@@ -1,52 +1,82 @@
-<header class="main-header">
-  <h1 class="page-title">Employee Details</h1>
-  <div class="header-actions">
-    <a href="<%= edit_admin_employee_path(@employee) %>" class="btn btn-blue">Edit</a>
-  </div>
-</header>
+<div class="p-8">
 
-<div class="main-body">
-  <a href="<%= admin_employees_path %>" class="back-link">
-    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
-    Back to Employees
-  </a>
+  <div class="bg-slate-800 rounded-xl border border-slate-700 overflow-hidden w-full">
+    
+    <!-- Header -->
+    <div class="px-8 py-6 border-b border-slate-700 flex items-center justify-between">
+      <div>
+        <h1 class="text-2xl font-bold text-slate-100">Employee Details</h1>
+        <p class="text-slate-400 text-sm mt-1">
+          View employee information and records
+        </p>
+      </div>
 
-  <div class="card" style="margin-top: 24px;">
-    <div class="card-body">
-      <div class="two-column">
-        <div>
-          <p style="color: #64748b; font-size: 14px; margin-bottom: 4px;">First Name</p>
-          <p style="color: #f8fafc; font-size: 18px; font-weight: 500;"><%= @employee.first_name %></p>
-        </div>
-        <div>
-          <p style="color: #64748b; font-size: 14px; margin-bottom: 4px;">Last Name</p>
-          <p style="color: #f8fafc; font-size: 18px; font-weight: 500;"><%= @employee.last_name %></p>
-        </div>
-        <div>
-          <p style="color: #64748b; font-size: 14px; margin-bottom: 4px;">Email</p>
-          <p style="color: #f8fafc; font-size: 18px;"><%= @employee.email %></p>
-        </div>
-        <div>
-          <p style="color: #64748b; font-size: 14px; margin-bottom: 4px;">Phone</p>
-          <p style="color: #f8fafc; font-size: 18px;"><%= @employee.phone || '-' %></p>
-        </div>
-        <div>
-          <p style="color: #64748b; font-size: 14px; margin-bottom: 4px;">Position</p>
-          <p style="color: #f8fafc; font-size: 18px;"><%= @employee.position || '-' %></p>
-        </div>
-        <div>
-          <p style="color: #64748b; font-size: 14px; margin-bottom: 4px;">Department</p>
-          <p style="color: #f8fafc; font-size: 18px;"><%= @employee.department || '-' %></p>
-        </div>
-        <div>
-          <p style="color: #64748b; font-size: 14px; margin-bottom: 4px;">Salary</p>
-          <p style="color: #f8fafc; font-size: 18px;"><%= @employee.salary ? "R#{number_with_delimiter(@employee.salary.round(2))}" : '-' %></p>
-        </div>
-        <div>
-          <p style="color: #64748b; font-size: 14px; margin-bottom: 4px;">Hire Date</p>
-          <p style="color: #f8fafc; font-size: 18px;"><%= @employee.hire_date ? @employee.hire_date.strftime('%Y-%m-%d') : '-' %></p>
-        </div>
+      <div class="flex items-center gap-3">
+        <a href="<%= admin_employees_path %>" 
+           class="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 text-sm transition-colors">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+          </svg>
+          Back
+        </a>
+
+        <a href="<%= edit_admin_employee_path(@employee) %>" 
+           class="inline-flex items-center gap-2 px-4 py-2.5 bg-blue-500 hover:bg-blue-600 text-white rounded-lg font-medium transition-all">
+          Edit
+        </a>
       </div>
     </div>
+
+    <!-- Content -->
+    <div class="p-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+        <div>
+          <p class="text-slate-500 text-sm mb-1">First Name</p>
+          <p class="text-slate-100 text-lg font-medium"><%= @employee.first_name %></p>
+        </div>
+
+        <div>
+          <p class="text-slate-500 text-sm mb-1">Last Name</p>
+          <p class="text-slate-100 text-lg font-medium"><%= @employee.last_name %></p>
+        </div>
+
+        <div>
+          <p class="text-slate-500 text-sm mb-1">Email</p>
+          <p class="text-slate-100 text-lg"><%= @employee.email %></p>
+        </div>
+
+        <div>
+          <p class="text-slate-500 text-sm mb-1">Phone</p>
+          <p class="text-slate-100 text-lg"><%= @employee.phone || '-' %></p>
+        </div>
+
+        <div>
+          <p class="text-slate-500 text-sm mb-1">Position</p>
+          <p class="text-slate-100 text-lg"><%= @employee.position || '-' %></p>
+        </div>
+
+        <div>
+          <p class="text-slate-500 text-sm mb-1">Department</p>
+          <p class="text-slate-100 text-lg"><%= @employee.department || '-' %></p>
+        </div>
+
+        <div>
+          <p class="text-slate-500 text-sm mb-1">Salary</p>
+          <p class="text-slate-100 text-lg">
+            <%= @employee.salary ? "R#{number_with_delimiter(@employee.salary.round(2))}" : '-' %>
+          </p>
+        </div>
+
+        <div>
+          <p class="text-slate-500 text-sm mb-1">Hire Date</p>
+          <p class="text-slate-100 text-lg">
+            <%= @employee.hire_date ? @employee.hire_date.strftime('%Y-%m-%d') : '-' %>
+          </p>
+        </div>
+
+      </div>
+    </div>
+
   </div>
 </div>

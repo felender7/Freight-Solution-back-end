@@ -1,12 +1,99 @@
-<header class="main-header"><h1 class="page-title">New User</h1></header>
-<div class="main-body">
-  <a href="<%= admin_users_path %>" class="back-link"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>Back</a>
-  <div class="card" style="margin-top: 24px;"><div class="card-body">
-    <%= form_with model: [:admin, @user], local: true do |f| %>
-      <div class="form-row"><div class="form-group-full"><%= f.label :first_name %><%= f.text_field :first_name, required: true %></div><div class="form-group-full"><%= f.label :last_name %><%= f.text_field :last_name, required: true %></div></div>
-      <div class="form-row"><div class="form-group-full"><%= f.label :email %><%= f.email_field :email, required: true %></div><div class="form-group-full"><%= f.label :role %><%= f.select :role, ['user', 'admin'], selected: 'user' %></div></div>
-      <div class="form-row"><div class="form-group-full"><%= f.label :password %><%= f.password_field :password %></div><div class="form-group-full"><%= f.label :password_confirmation %><%= f.password_field :password_confirmation %></div></div>
-      <div style="margin-top: 24px;"><%= f.submit 'Create', class: 'btn btn-blue' %></div>
-    <% end %>
-  </div></div>
+<div class="p-8">
+
+  <div class="bg-slate-800 rounded-xl border border-slate-700 overflow-hidden w-full">
+
+    <!-- Header -->
+    <div class="px-8 py-6 border-b border-slate-700 flex items-center justify-between">
+      <div>
+        <h1 class="text-2xl font-bold text-slate-100">New User</h1>
+        <p class="text-slate-400 text-sm mt-1">
+          Create a new system user account
+        </p>
+      </div>
+
+      <a href="<%= admin_users_path %>" 
+         class="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 text-sm transition-colors">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+        </svg>
+        Back
+      </a>
+    </div>
+
+    <!-- Form -->
+    <div class="p-8">
+
+      <%= form_with model: [:admin, @user], local: true do |f| %>
+
+        <% if @user.errors.any? %>
+          <div class="mb-6 p-4 bg-red-500/10 border border-red-500/30 text-red-400 rounded-lg">
+            <ul class="list-disc list-inside">
+              <% @user.errors.full_messages.each do |m| %>
+                <li><%= m %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <!-- Name -->
+        <div class="grid grid-cols-2 gap-6 mb-6">
+
+          <div>
+            <label class="block text-slate-300 text-sm font-medium mb-2.5">First Name</label>
+            <%= f.text_field :first_name, required: true,
+              class: "w-full px-4 py-3 bg-slate-900 border border-slate-600 rounded-lg text-slate-100 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all" %>
+          </div>
+
+          <div>
+            <label class="block text-slate-300 text-sm font-medium mb-2.5">Last Name</label>
+            <%= f.text_field :last_name, required: true,
+              class: "w-full px-4 py-3 bg-slate-900 border border-slate-600 rounded-lg text-slate-100 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all" %>
+          </div>
+
+        </div>
+
+        <!-- Email + Role -->
+        <div class="grid grid-cols-2 gap-6 mb-6">
+
+          <div>
+            <label class="block text-slate-300 text-sm font-medium mb-2.5">Email</label>
+            <%= f.email_field :email, required: true,
+              class: "w-full px-4 py-3 bg-slate-900 border border-slate-600 rounded-lg text-slate-100 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all" %>
+          </div>
+
+          <div>
+            <label class="block text-slate-300 text-sm font-medium mb-2.5">Role</label>
+            <%= f.select :role, ['user', 'admin'], { selected: 'user' },
+              class: "w-full px-4 py-3 bg-slate-900 border border-slate-600 rounded-lg text-slate-100 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all" %>
+          </div>
+
+        </div>
+
+        <!-- Password -->
+        <div class="grid grid-cols-2 gap-6 mb-8">
+
+          <div>
+            <label class="block text-slate-300 text-sm font-medium mb-2.5">Password</label>
+            <%= f.password_field :password,
+              class: "w-full px-4 py-3 bg-slate-900 border border-slate-600 rounded-lg text-slate-100 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all" %>
+          </div>
+
+          <div>
+            <label class="block text-slate-300 text-sm font-medium mb-2.5">Confirm Password</label>
+            <%= f.password_field :password_confirmation,
+              class: "w-full px-4 py-3 bg-slate-900 border border-slate-600 rounded-lg text-slate-100 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all" %>
+          </div>
+
+        </div>
+
+        <!-- Submit -->
+        <div class="flex justify-end">
+          <%= f.submit "Create User",
+            class: "px-6 py-3 bg-blue-500 hover:bg-blue-600 text-white rounded-lg font-medium transition-all cursor-pointer" %>
+        </div>
+
+      <% end %>
+
+    </div>
+  </div>
 </div>

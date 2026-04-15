@@ -1,8 +1,7 @@
 class AdminController < ApplicationController
   skip_before_action :verify_authenticity_token, only: [ :login ]
-  before_action :require_login, except: [ :login ]
   layout "admin_login", only: [ :login ]
-  after_action :set_layout, except: [ :login ]
+  helper_method :current_user
 
   def login
     if request.post?
@@ -24,13 +23,7 @@ class AdminController < ApplicationController
 
   private
 
-  def require_login
-    unless session[:user_id]
-      redirect_to admin_login_path, alert: "Please log in first"
-    end
-  end
-
-  def set_layout
-    self.class.layout "admin"
+  def current_user
+    @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id]
   end
 end

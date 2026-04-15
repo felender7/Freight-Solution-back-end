@@ -1,12 +1,90 @@
-<header class="main-header"><h1 class="page-title">Invoice Details</h1><div class="header-actions"><a href="<%= edit_admin_invoice_path(@invoice) %>" class="btn btn-blue">Edit</a></div></header>
-<div class="main-body">
-  <a href="<%= admin_invoices_path %>" class="back-link"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>Back</a>
-  <div class="card" style="margin-top: 24px;"><div class="card-body"><div class="two-column">
-    <div><p style="color:#64748b;font-size:14px;margin-bottom:4px;">Invoice #</p><p style="color:#f8fafc;font-size:18px;"><%= @invoice.invoice_number %></p></div>
-    <div><p style="color:#64748b;font-size:14px;margin-bottom:4px;">Vendor</p><p style="color:#f8fafc;font-size:18px;"><%= @invoice.vendor ? @invoice.vendor.name : '-' %></p></div>
-    <div><p style="color:#64748b;font-size:14px;margin-bottom:4px;">Amount</p><p style="color:#f8fafc;font-size:18px;">R<%= number_with_delimiter(@invoice.amount.round(2)) %></p></div>
-    <div><p style="color:#64748b;font-size:14px;margin-bottom:4px;">Status</p><span class="badge <%= @invoice.status=='paid'?'badge-success':@invoice.status=='pending'?'badge-warning':'badge-error' %>"><%= @invoice.status||'pending' %></span></div>
-    <div><p style="color:#64748b;font-size:14px;margin-bottom:4px;">Due Date</p><p style="color:#f8fafc;font-size:18px;"><%= @invoice.due_date ? @invoice.due_date.strftime('%Y-%m-%d') : '-' %></p></div>
-    <div><p style="color:#64748b;font-size:14px;margin-bottom:4px;">Paid Date</p><p style="color:#f8fafc;font-size:18px;"><%= @invoice.paid_date ? @invoice.paid_date.strftime('%Y-%m-%d') : '-' %></p></div>
-  </div></div></div>
+<div class="p-8">
+
+  <div class="bg-slate-800 rounded-xl border border-slate-700 overflow-hidden w-full">
+
+    <!-- Header -->
+    <div class="px-8 py-6 border-b border-slate-700 flex items-center justify-between">
+      <div>
+        <h1 class="text-2xl font-bold text-slate-100">Invoice Details</h1>
+        <p class="text-slate-400 text-sm mt-1">
+          View billing information, status, and payment details
+        </p>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <a href="<%= admin_invoices_path %>" 
+           class="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 text-sm transition-colors">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+          </svg>
+          Back
+        </a>
+
+        <a href="<%= edit_admin_invoice_path(@invoice) %>" 
+           class="inline-flex items-center gap-2 px-4 py-2.5 bg-blue-500 hover:bg-blue-600 text-white rounded-lg font-medium transition-all">
+          Edit
+        </a>
+      </div>
+    </div>
+
+    <!-- Content -->
+    <div class="p-8">
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+        <div>
+          <p class="text-slate-500 text-sm mb-1">Invoice #</p>
+          <p class="text-slate-100 text-lg font-medium">
+            <%= @invoice.invoice_number || '-' %>
+          </p>
+        </div>
+
+        <div>
+          <p class="text-slate-500 text-sm mb-1">Vendor</p>
+          <p class="text-slate-100 text-lg">
+            <%= @invoice.vendor ? @invoice.vendor.name : '-' %>
+          </p>
+        </div>
+
+        <div>
+          <p class="text-slate-500 text-sm mb-1">Amount</p>
+          <p class="text-slate-100 text-lg font-semibold">
+            R<%= number_with_delimiter(@invoice.amount.round(2)) %>
+          </p>
+        </div>
+
+        <div>
+          <p class="text-slate-500 text-sm mb-1">Status</p>
+          <span class="inline-flex px-3 py-1 rounded-full text-xs font-medium border
+            <%= case @invoice.status
+              when 'paid'
+                'bg-green-500/10 text-green-400 border-green-500/20'
+              when 'pending'
+                'bg-yellow-500/10 text-yellow-400 border-yellow-500/20'
+              else
+                'bg-red-500/10 text-red-400 border-red-500/20'
+            end %>">
+            <%= @invoice.status || 'pending' %>
+          </span>
+        </div>
+
+        <div>
+          <p class="text-slate-500 text-sm mb-1">Due Date</p>
+          <p class="text-slate-100 text-lg">
+            <%= @invoice.due_date ? @invoice.due_date.strftime('%Y-%m-%d') : '-' %>
+          </p>
+        </div>
+
+        <div>
+          <p class="text-slate-500 text-sm mb-1">Paid Date</p>
+          <p class="text-slate-100 text-lg">
+            <%= @invoice.paid_date ? @invoice.paid_date.strftime('%Y-%m-%d') : '-' %>
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
 </div>

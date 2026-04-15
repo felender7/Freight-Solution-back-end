@@ -1,67 +1,28 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Tswalanang Freight - Admin Login</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <%= csrf_meta_tags %>
-  <%= csp_meta_tag %>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0f172a; min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 20px; background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); }
-    .login-container { width: 100%; max-width: 420px; }
-    .login-logo { display: flex; justify-content: center; margin-bottom: 32px; }
-    .login-logo-box { width: 72px; height: 72px; background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); border-radius: 20px; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 40px rgba(59, 130, 246, 0.3); }
-    .login-logo-box svg { width: 40px; height: 40px; color: white; }
-    .login-title { text-align: center; margin-bottom: 8px; color: #f8fafc; font-size: 28px; font-weight: 700; }
-    .login-subtitle { text-align: center; color: #94a3b8; font-size: 14px; margin-bottom: 32px; }
-    .login-card { background: #1e293b; border-radius: 16px; padding: 32px; border: 1px solid #334155; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5); }
-    .login-card-title { color: #f8fafc; font-size: 20px; font-weight: 600; margin-bottom: 24px; }
-    .form-group { margin-bottom: 20px; }
-    .form-label { display: block; color: #e2e8f0; font-size: 14px; font-weight: 500; margin-bottom: 8px; }
-    .form-input { width: 100%; padding: 12px 16px; background: #0f172a; border: 1px solid #334155; border-radius: 10px; color: #f8fafc; font-size: 14px; transition: all 0.2s; }
-    .form-input:focus { outline: none; border-color: #3b82f6; box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2); }
-    .form-input::placeholder { color: #64748b; }
-    .btn-primary { width: 100%; padding: 14px; background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); color: white; border: none; border-radius: 10px; font-size: 16px; font-weight: 600; cursor: pointer; transition: all 0.2s; }
-    .btn-primary:hover { background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%); transform: translateY(-1px); }
-    .btn-primary:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
-    .alert-error { padding: 14px; background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.3); border-radius: 10px; color: #fca5a5; font-size: 14px; margin-bottom: 20px; }
-    .login-footer { text-align: center; margin-top: 24px; color: #64748b; font-size: 13px; }
-  </style>
-</head>
-<body>
-  <div class="login-container">
-    <div class="login-logo">
-      <div class="login-logo-box">
-        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/>
-        </svg>
-      </div>
-    </div>
-    <h1 class="login-title">Tswalanang Freight</h1>
-    <p class="login-subtitle">Freight Management System</p>
-    
-    <div class="login-card">
-      <h3 class="login-card-title">Sign in to your account</h3>
-      
-      <% if flash[:error] %>
-        <div class="alert-error"><%= flash[:error] %></div>
-      <% end %>
-      
-      <%= form_with url: admin_login_path, method: :post do %>
-        <div class="form-group">
-          <label class="form-label">Email address</label>
-          <input type="email" name="email" class="form-input" placeholder="you@company.com" required>
-        </div>
-        <div class="form-group">
-          <label class="form-label">Password</label>
-          <input type="password" name="password" class="form-input" placeholder="Enter your password" required>
-        </div>
-        <button type="submit" class="btn-primary">Sign In</button>
-      <% end %>
-    </div>
-    
-    <p class="login-footer">© 2024 Tswalanang Freight. All rights reserved.</p>
+<div class="w-full max-w-md">
+  <div class="flex justify-center mb-8">
+    <img src="/images/tswalanang-group-logo.png" alt="Tswalanang Freight" class="h-50 w-auto object-contain">
   </div>
-</body>
-</html>
+  <p class="text-center text-slate-400 text-sm mb-8">Freight Management System</p>
+  
+  <div class="bg-slate-800 rounded-2xl p-8 border border-slate-700 shadow-2xl">
+    <h3 class="text-slate-100 text-xl font-semibold mb-6">Sign in to your account</h3>
+    
+    <% if flash[:error] %>
+      <div class="mb-5 p-3.5 bg-red-500/10 border border-red-500/30 text-red-400 text-sm rounded-lg"><%= flash[:error] %></div>
+    <% end %>
+    
+    <%= form_with url: admin_login_path, method: :post do %>
+      <div class="mb-5">
+        <label class="block text-slate-300 text-sm font-medium mb-2">Email address</label>
+        <input type="email" name="email" class="w-full px-4 py-3 bg-slate-900 border border-slate-600 rounded-lg text-slate-100 placeholder-slate-500 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all" placeholder="you@company.com" required>
+      </div>
+      <div class="mb-6">
+        <label class="block text-slate-300 text-sm font-medium mb-2">Password</label>
+        <input type="password" name="password" class="w-full px-4 py-3 bg-slate-900 border border-slate-600 rounded-lg text-slate-100 placeholder-slate-500 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all" placeholder="Enter your password" required>
+      </div>
+      <button type="submit" class="w-full py-3.5 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white rounded-lg font-semibold transition-all hover:-translate-y-0.5">Sign In</button>
+    <% end %>
+  </div>
+  
+  <p class="text-center text-slate-500 text-sm mt-6">© 2024 Tswalanang Freight. All rights reserved.</p>
+</div>

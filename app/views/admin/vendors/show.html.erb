@@ -1,20 +1,71 @@
-<header class="main-header">
-  <h1 class="page-title">Vendor Details</h1>
-  <div class="header-actions"><a href="<%= edit_admin_vendor_path(@vendor) %>" class="btn btn-blue">Edit</a></div>
-</header>
+<div class="p-8">
 
-<div class="main-body">
-  <a href="<%= admin_vendors_path %>" class="back-link"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>Back to Vendors</a>
-  <div class="card" style="margin-top: 24px;">
-    <div class="card-body">
-      <div class="two-column">
-        <div><p style="color: #64748b; font-size: 14px; margin-bottom: 4px;">Name</p><p style="color: #f8fafc; font-size: 18px; font-weight: 500;"><%= @vendor.name %></p></div>
-        <div><p style="color: #64748b; font-size: 14px; margin-bottom: 4px;">Email</p><p style="color: #f8fafc; font-size: 18px;"><%= @vendor.email %></p></div>
-        <div><p style="color: #64748b; font-size: 14px; margin-bottom: 4px;">Phone</p><p style="color: #f8fafc; font-size: 18px;"><%= @vendor.phone || '-' %></p></div>
-        <div><p style="color: #64748b; font-size: 14px; margin-bottom: 4px;">Bank Reference</p><p style="color: #f8fafc; font-size: 18px;"><%= @vendor.bank_reference || '-' %></p></div>
-        <div><p style="color: #64748b; font-size: 14px; margin-bottom: 4px;">Status</p><span class="badge <%= @vendor.status == 'active' ? 'badge-success' : 'badge-error' %>"><%= @vendor.status || 'inactive' %></span></div>
-        <div><p style="color: #64748b; font-size: 14px; margin-bottom: 4px;">Address</p><p style="color: #f8fafc; font-size: 18px;"><%= @vendor.address || '-' %></p></div>
+  <div class="bg-slate-800 rounded-xl border border-slate-700 overflow-hidden w-full">
+    
+    <!-- Header -->
+    <div class="px-8 py-6 border-b border-slate-700 flex items-center justify-between">
+      <div>
+        <h1 class="text-2xl font-bold text-slate-100">Vendor Details</h1>
+        <p class="text-slate-400 text-sm mt-1">
+          View vendor information and status
+        </p>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <a href="<%= admin_vendors_path %>" 
+           class="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 text-sm transition-colors">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+          </svg>
+          Back
+        </a>
+
+        <a href="<%= edit_admin_vendor_path(@vendor) %>" 
+           class="inline-flex items-center gap-2 px-4 py-2.5 bg-blue-500 hover:bg-blue-600 text-white rounded-lg font-medium transition-all">
+          Edit
+        </a>
       </div>
     </div>
+
+    <!-- Content -->
+    <div class="p-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+        <div>
+          <p class="text-slate-500 text-sm mb-1">Name</p>
+          <p class="text-slate-100 text-lg font-medium"><%= @vendor.name %></p>
+        </div>
+
+        <div>
+          <p class="text-slate-500 text-sm mb-1">Email</p>
+          <p class="text-slate-100 text-lg"><%= @vendor.email %></p>
+        </div>
+
+        <div>
+          <p class="text-slate-500 text-sm mb-1">Phone</p>
+          <p class="text-slate-100 text-lg"><%= @vendor.phone || '-' %></p>
+        </div>
+
+        <div>
+          <p class="text-slate-500 text-sm mb-1">Bank Reference</p>
+          <p class="text-slate-100 text-lg"><%= @vendor.bank_reference || '-' %></p>
+        </div>
+
+        <div>
+          <p class="text-slate-500 text-sm mb-1">Status</p>
+          <span class="inline-flex px-3 py-1 rounded-full text-xs font-medium 
+            <%= @vendor.status == 'active' ? 'bg-green-500/10 text-green-400 border border-green-500/20' : 'bg-red-500/10 text-red-400 border border-red-500/20' %>">
+            <%= @vendor.status || 'inactive' %>
+          </span>
+        </div>
+
+        <div>
+          <p class="text-slate-500 text-sm mb-1">Address</p>
+          <p class="text-slate-100 text-lg"><%= @vendor.address || '-' %></p>
+        </div>
+
+      </div>
+    </div>
+
   </div>
 </div>
