@@ -61,3 +61,7 @@ coverage/
 
 # Ignore if using Kamal for deployment
 /.kamal
+
+# Ignore key files for decrypting credentials and more.
+/config/credentials/*.key
+
