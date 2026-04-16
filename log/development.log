@@ -23837,3 +23837,77 @@ Processing by ActiveStorage::DiskController#show as PNG
 Completed 200 OK in 1ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
 
 
+Started GET "/admin/dashboard" for ::1 at 2026-04-16 14:39:24 +0200
+Processing by Admin::DashboardController#index as HTML
+  [1m[36mEmployee Count (10.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='FreightSolutionBackEnd',controller='dashboard'*/[0m
+  ↳ app/controllers/admin/dashboard_controller.rb:3:in 'Admin::DashboardController#index'
+  [1m[36mVendor Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "vendors" /*action='index',application='FreightSolutionBackEnd',controller='dashboard'*/[0m
+  ↳ app/controllers/admin/dashboard_controller.rb:4:in 'Admin::DashboardController#index'
+  [1m[36mShipment Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "shipments" /*action='index',application='FreightSolutionBackEnd',controller='dashboard'*/[0m
+  ↳ app/controllers/admin/dashboard_controller.rb:5:in 'Admin::DashboardController#index'
+  [1m[36mInvoice Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "invoices" /*action='index',application='FreightSolutionBackEnd',controller='dashboard'*/[0m
+  ↳ app/controllers/admin/dashboard_controller.rb:6:in 'Admin::DashboardController#index'
+  [1m[36mInvoice Sum (0.5ms)[0m  [1m[34mSELECT SUM("invoices"."amount") FROM "invoices" WHERE "invoices"."status" = 'paid' /*action='index',application='FreightSolutionBackEnd',controller='dashboard'*/[0m
+  ↳ app/controllers/admin/dashboard_controller.rb:7:in 'Admin::DashboardController#index'
+  [1m[36mInvoice Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "invoices" WHERE "invoices"."status" = 'pending' /*action='index',application='FreightSolutionBackEnd',controller='dashboard'*/[0m
+  ↳ app/controllers/admin/dashboard_controller.rb:8:in 'Admin::DashboardController#index'
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/dashboard/index.html.erb within layouts/admin
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='dashboard'*/[0m
+  ↳ app/controllers/admin/base_controller.rb:15:in 'Admin::BaseController#current_user'
+  [1m[36mShipment Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "shipments" LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='dashboard'*/[0m
+  ↳ app/views/admin/dashboard/index.html.erb:119
+  [1m[36mShipment Load (0.4ms)[0m  [1m[34mSELECT "shipments".* FROM "shipments" ORDER BY "shipments"."created_at" DESC LIMIT 5 /*action='index',application='FreightSolutionBackEnd',controller='dashboard'*/[0m
+  ↳ app/views/admin/dashboard/index.html.erb:121
+  [1m[36mInvoice Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "invoices" LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='dashboard'*/[0m
+  ↳ app/views/admin/dashboard/index.html.erb:175
+  Rendered admin/dashboard/index.html.erb within layouts/admin (Duration: 3.6ms | GC: 0.0ms)
+  Rendered layout layouts/admin.html.erb (Duration: 4.1ms | GC: 0.0ms)
+Completed 200 OK in 22ms (Views: 3.4ms | ActiveRecord: 16.8ms (10 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/dashboard/stats" for ::1 at 2026-04-16 14:44:41 +0200
+Processing by Api::V1::DashboardController#stats as JSON
+  Parameters: {"dashboard" => {}}
+  [1m[36mUser Load (21.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='stats',application='FreightSolutionBackEnd',controller='dashboard'*/[0m
+  ↳ app/controllers/concerns/authentication.rb:11:in 'Authentication#authenticate_request'
+  [1m[36mEmployee Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='stats',application='FreightSolutionBackEnd',controller='dashboard'*/[0m
+  ↳ app/controllers/api/v1/dashboard_controller.rb:6:in 'Api::V1::DashboardController#stats'
+  [1m[36mShipment Count (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "shipments" WHERE "shipments"."status" NOT IN ('delivered', 'cancelled') /*action='stats',application='FreightSolutionBackEnd',controller='dashboard'*/[0m
+  ↳ app/controllers/api/v1/dashboard_controller.rb:7:in 'Api::V1::DashboardController#stats'
+  [1m[36mInvoice Sum (0.5ms)[0m  [1m[34mSELECT SUM("invoices"."amount") FROM "invoices" WHERE "invoices"."status" = 'paid' /*action='stats',application='FreightSolutionBackEnd',controller='dashboard'*/[0m
+  ↳ app/controllers/api/v1/dashboard_controller.rb:8:in 'Api::V1::DashboardController#stats'
+  [1m[36mVendor Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "vendors" /*action='stats',application='FreightSolutionBackEnd',controller='dashboard'*/[0m
+  ↳ app/controllers/api/v1/dashboard_controller.rb:9:in 'Api::V1::DashboardController#stats'
+Completed 200 OK in 39ms (Views: 0.2ms | ActiveRecord: 32.5ms (5 queries, 0 cached) | GC: 4.8ms)
+
+
+Started GET "/admin/dashboard" for ::1 at 2026-04-16 14:57:17 +0200
+Processing by Admin::DashboardController#index as HTML
+  [1m[36mEmployee Count (8.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='FreightSolutionBackEnd',controller='dashboard'*/[0m
+  ↳ app/controllers/admin/dashboard_controller.rb:3:in 'Admin::DashboardController#index'
+  [1m[36mVendor Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "vendors" /*action='index',application='FreightSolutionBackEnd',controller='dashboard'*/[0m
+  ↳ app/controllers/admin/dashboard_controller.rb:4:in 'Admin::DashboardController#index'
+  [1m[36mShipment Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "shipments" /*action='index',application='FreightSolutionBackEnd',controller='dashboard'*/[0m
+  ↳ app/controllers/admin/dashboard_controller.rb:5:in 'Admin::DashboardController#index'
+  [1m[36mInvoice Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "invoices" /*action='index',application='FreightSolutionBackEnd',controller='dashboard'*/[0m
+  ↳ app/controllers/admin/dashboard_controller.rb:6:in 'Admin::DashboardController#index'
+  [1m[36mInvoice Sum (0.3ms)[0m  [1m[34mSELECT SUM("invoices"."amount") FROM "invoices" WHERE "invoices"."status" = 'paid' /*action='index',application='FreightSolutionBackEnd',controller='dashboard'*/[0m
+  ↳ app/controllers/admin/dashboard_controller.rb:7:in 'Admin::DashboardController#index'
+  [1m[36mInvoice Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "invoices" WHERE "invoices"."status" = 'pending' /*action='index',application='FreightSolutionBackEnd',controller='dashboard'*/[0m
+  ↳ app/controllers/admin/dashboard_controller.rb:8:in 'Admin::DashboardController#index'
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/dashboard/index.html.erb within layouts/admin
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='dashboard'*/[0m
+  ↳ app/controllers/admin/base_controller.rb:15:in 'Admin::BaseController#current_user'
+  [1m[36mShipment Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "shipments" LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='dashboard'*/[0m
+  ↳ app/views/admin/dashboard/index.html.erb:119
+  [1m[36mShipment Load (0.2ms)[0m  [1m[34mSELECT "shipments".* FROM "shipments" ORDER BY "shipments"."created_at" DESC LIMIT 5 /*action='index',application='FreightSolutionBackEnd',controller='dashboard'*/[0m
+  ↳ app/views/admin/dashboard/index.html.erb:121
+  [1m[36mInvoice Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "invoices" LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='dashboard'*/[0m
+  ↳ app/views/admin/dashboard/index.html.erb:175
+  Rendered admin/dashboard/index.html.erb within layouts/admin (Duration: 3.7ms | GC: 0.9ms)
+  Rendered layout layouts/admin.html.erb (Duration: 4.7ms | GC: 0.9ms)
+Completed 200 OK in 18ms (Views: 4.5ms | ActiveRecord: 12.4ms (10 queries, 0 cached) | GC: 2.3ms)
+
+

@@ -1,0 +1,21 @@
+# Postman API Setup
+
+## 1. Login to get token
+URL: POST https://freight-solution-back-end.onrender.com/api/v1/auth/login
+Body (JSON):
+{
+  "email": "your_email",
+  "password": "your_password"
+}
+
+## 2. Copy the token from response
+
+## 3. Make authenticated requests
+Add header:
+- Key: Authorization
+- Value: Bearer <your_token>
+
+## CORS Allowed Origins
+- http://localhost:4200 (Angular dev)
+- http://localhost:3000 (Rails dev)
+- https://freight-solution-front.web.app (Production frontend)
