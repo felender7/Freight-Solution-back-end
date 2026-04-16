@@ -21243,3 +21243,12 @@ Processing by Admin::DashboardController#index as HTML
 Completed 200 OK in 67ms (Views: 9.1ms | ActiveRecord: 7.3ms (10 queries, 0 cached) | GC: 10.8ms)
 
 
+Started GET "/api-docs" for ::1 at 2026-04-16 09:45:24 +0200
+Started GET "/api-docs/index.html" for ::1 at 2026-04-16 09:45:24 +0200
+Started GET "/api-docs/swagger-ui.css" for ::1 at 2026-04-16 09:45:24 +0200
+Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2026-04-16 09:45:24 +0200
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2026-04-16 09:45:24 +0200
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2026-04-16 09:45:24 +0200
+Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2026-04-16 09:45:24 +0200
+Started GET "/api-docs/v1/swagger.yaml" for ::1 at 2026-04-16 09:45:26 +0200
+Started GET "/api-docs/favicon-32x32.png" for ::1 at 2026-04-16 09:45:26 +0200
