@@ -13,8 +13,8 @@ gem "bcrypt", "~> 3.1.7"
 # JWT for authentication
 gem "jwt"
 
-# AWS SDK for S3 (Cloudflare R2 uses S3 protocol)
-gem "aws-sdk-s3", require: false
+# Cloudinary for file storage
+gem "cloudinary"
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin Ajax possible
 gem "rack-cors"

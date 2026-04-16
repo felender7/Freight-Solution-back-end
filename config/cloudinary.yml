@@ -1,0 +1,18 @@
+---
+development:
+  cloud_name: dvrtlutgi
+  api_key: 232871654938575
+  api_secret: cX6ZrnGSyBt3zhNzEEhNJYi8Qas
+  secure: true
+
+production:
+  cloud_name: dvrtlutgi
+  api_key: 232871654938575
+  api_secret: cX6ZrnGSyBt3zhNzEEhNJYi8Qas
+  secure: true
+
+test:
+  cloud_name: dvrtlutgi
+  api_key: 232871654938575
+  api_secret: cX6ZrnGSyBt3zhNzEEhNJYi8Qas
+  secure: true
