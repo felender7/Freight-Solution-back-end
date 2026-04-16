@@ -1,4 +1,4 @@
-class Admin::LeaveRequestsController < ApplicationController
+class Admin::LeaveRequestsController < Admin::BaseController
   before_action :set_leave_request, only: [ :show, :edit, :update, :destroy ]
 
   def index
@@ -21,7 +21,7 @@ class Admin::LeaveRequestsController < ApplicationController
     else
       @employees = Employee.all
       @users = User.all
-      render :new
+      render :new, status: :unprocessable_content
     end
   end
 
@@ -36,7 +36,7 @@ class Admin::LeaveRequestsController < ApplicationController
     else
       @employees = Employee.all
       @users = User.all
-      render :edit
+      render :edit, status: :unprocessable_content
     end
   end
 

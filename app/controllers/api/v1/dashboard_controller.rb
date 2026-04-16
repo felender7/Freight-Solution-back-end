@@ -3,10 +3,10 @@ class Api::V1::DashboardController < ApplicationController
 
   def stats
     render json: {
-      employees: 45,
-      activeShipments: 12,
-      revenue: 125000,
-      vendors: 28
+      employees: Employee.count,
+      activeShipments: Shipment.where.not(status: ["delivered", "cancelled"]).count,
+      revenue: Invoice.where(status: "paid").sum(:amount),
+      vendors: Vendor.count
     }
   end
 end

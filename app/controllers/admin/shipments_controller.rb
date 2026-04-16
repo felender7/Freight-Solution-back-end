@@ -16,7 +16,7 @@ class Admin::ShipmentsController < Admin::BaseController
     if @shipment.save
       redirect_to admin_shipments_path, notice: "Shipment was successfully created."
     else
-      render :new
+      render :new, status: :unprocessable_content
     end
   end
 
@@ -29,7 +29,7 @@ class Admin::ShipmentsController < Admin::BaseController
     if @shipment.update(shipment_params)
       redirect_to admin_shipments_path, notice: "Shipment was successfully updated."
     else
-      render :edit
+      render :edit, status: :unprocessable_content
     end
   end
 

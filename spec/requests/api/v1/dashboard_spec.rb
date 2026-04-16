@@ -1,4 +1,4 @@
-require 'rails_helper'
+require 'swagger_helper'
 
 RSpec.describe 'Api::V1::Dashboard', type: :request do
   path '/api/v1/dashboard/stats' do

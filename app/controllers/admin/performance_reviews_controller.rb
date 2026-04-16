@@ -1,4 +1,4 @@
-class Admin::PerformanceReviewsController < ApplicationController
+class Admin::PerformanceReviewsController < Admin::BaseController
   before_action :set_performance_review, only: [ :show, :edit, :update, :destroy ]
 
   def index
@@ -19,7 +19,7 @@ class Admin::PerformanceReviewsController < ApplicationController
       redirect_to admin_performance_reviews_path, notice: "Performance review was successfully created."
     else
       @employees = Employee.all
-      render :new
+      render :new, status: :unprocessable_content
     end
   end
 
@@ -34,7 +34,7 @@ class Admin::PerformanceReviewsController < ApplicationController
     else
       @employees = Employee.all
       @users = User.all
-      render :edit
+      render :edit, status: :unprocessable_content
     end
   end
 

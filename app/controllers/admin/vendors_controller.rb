@@ -16,7 +16,7 @@ class Admin::VendorsController < Admin::BaseController
     if @vendor.save
       redirect_to admin_vendors_path, notice: "Vendor was successfully created."
     else
-      render :new
+      render :new, status: :unprocessable_content
     end
   end
 
@@ -29,7 +29,7 @@ class Admin::VendorsController < Admin::BaseController
     if @vendor.update(vendor_params)
       redirect_to admin_vendors_path, notice: "Vendor was successfully updated."
     else
-      render :edit
+      render :edit, status: :unprocessable_content
     end
   end
 

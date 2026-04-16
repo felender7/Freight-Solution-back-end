@@ -1,6 +1,4 @@
 class Admin::HrmDashboardController < Admin::BaseController
-  before_action :require_login
-
   def index
     @total_employees = Employee.count
     @total_users = User.where(role: [ "employee", "hr_manager" ]).count

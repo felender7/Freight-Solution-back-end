@@ -1,4 +1,4 @@
-require 'rails_helper'
+require 'swagger_helper'
 
 RSpec.describe 'Api::V1::Auth', type: :request do
   path '/api/v1/auth/login' do
