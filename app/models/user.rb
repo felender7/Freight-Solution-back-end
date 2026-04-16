@@ -4,7 +4,15 @@ class User < ApplicationRecord
   before_validation :set_default_values
 
   validates :email, presence: true, uniqueness: true
-  validates :role, inclusion: { in: %w[admin user] }
+  validates :role, inclusion: { in: %w[admin hr_manager employee user] }
+
+  has_one :employee
+
+  has_many :created_tasks, class_name: "Task", foreign_key: "assigned_by_id"
+  has_many :approved_attendance_records, class_name: "AttendanceRecord", foreign_key: "user_id"
+  has_many :approved_leave_requests, class_name: "LeaveRequest", foreign_key: "approved_by_id"
+  has_many :approved_timesheets, class_name: "Timesheet", foreign_key: "approved_by_id"
+  has_many :activity_logs
 
   def set_default_values
     self.role ||= "user"

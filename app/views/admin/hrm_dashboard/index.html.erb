@@ -1,0 +1,153 @@
+<div class="animate-fade-in space-y-8">
+  <!-- Header Section -->
+  <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-slate-800/50 p-8 rounded-2xl border border-slate-700/50 backdrop-blur-xl">
+    <div>
+      <h1 class="text-3xl font-bold text-slate-100">HRM Command Center</h1>
+      <p class="text-slate-400 mt-1">Enterprise Human Resource Management & Analytics</p>
+    </div>
+    <div class="flex items-center gap-3 bg-slate-900/50 px-4 py-2 rounded-xl border border-slate-700">
+      <div class="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></div>
+      <span class="text-slate-300 text-sm font-medium"><%= Date.today.strftime("%B %d, %Y") %></span>
+    </div>
+  </div>
+
+  <!-- Key Metrics Grid -->
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+    <div class="glass-card glow-blue p-6 rounded-2xl group hover:bg-slate-800/80 transition-all">
+      <div class="flex items-center justify-between mb-4">
+        <div class="w-12 h-12 bg-blue-500/10 rounded-xl flex items-center justify-center text-blue-400 group-hover:scale-110 transition-transform">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+        </div>
+        <span class="text-blue-500 text-xs font-bold bg-blue-500/10 px-2 py-1 rounded-lg">Active</span>
+      </div>
+      <p class="text-slate-400 text-sm font-medium uppercase tracking-wider">Total Workforce</p>
+      <p class="text-3xl font-bold text-slate-100 mt-1"><%= @total_employees %></p>
+    </div>
+
+    <div class="glass-card glow-yellow p-6 rounded-2xl group hover:bg-slate-800/80 transition-all">
+      <div class="flex items-center justify-between mb-4">
+        <div class="w-12 h-12 bg-yellow-500/10 rounded-xl flex items-center justify-center text-yellow-400 group-hover:scale-110 transition-transform">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+        </div>
+        <span class="text-yellow-500 text-xs font-bold bg-yellow-500/10 px-2 py-1 rounded-lg">Pending</span>
+      </div>
+      <p class="text-slate-400 text-sm font-medium uppercase tracking-wider">Leave Requests</p>
+      <p class="text-3xl font-bold text-slate-100 mt-1"><%= @pending_leaves %></p>
+    </div>
+
+    <div class="glass-card glow-green p-6 rounded-2xl group hover:bg-slate-800/80 transition-all">
+      <div class="flex items-center justify-between mb-4">
+        <div class="w-12 h-12 bg-green-500/10 rounded-xl flex items-center justify-center text-green-400 group-hover:scale-110 transition-transform">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        </div>
+        <span class="text-green-500 text-xs font-bold bg-green-500/10 px-2 py-1 rounded-lg">Today</span>
+      </div>
+      <p class="text-slate-400 text-sm font-medium uppercase tracking-wider">Daily Attendance</p>
+      <p class="text-3xl font-bold text-slate-100 mt-1"><%= @attendance_today %></p>
+    </div>
+
+    <div class="glass-card glow-purple p-6 rounded-2xl group hover:bg-slate-800/80 transition-all">
+      <div class="flex items-center justify-between mb-4">
+        <div class="w-12 h-12 bg-purple-500/10 rounded-xl flex items-center justify-center text-purple-400 group-hover:scale-110 transition-transform">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+        </div>
+        <span class="text-purple-500 text-xs font-bold bg-purple-500/10 px-2 py-1 rounded-lg">Programs</span>
+      </div>
+      <p class="text-slate-400 text-sm font-medium uppercase tracking-wider">Active Training</p>
+      <p class="text-3xl font-bold text-slate-100 mt-1"><%= @training_courses %></p>
+    </div>
+  </div>
+
+  <!-- Modular Card Grid -->
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <!-- Employees Module -->
+    <a href="<%= admin_employees_path %>" class="group relative bg-slate-800/40 border border-slate-700/50 rounded-3xl p-8 hover:bg-slate-800 transition-all hover:border-blue-500/30 overflow-hidden">
+      <div class="absolute top-0 right-0 w-32 h-32 bg-blue-500/5 rounded-full -mr-16 -mt-16 group-hover:bg-blue-500/10 transition-all"></div>
+      <div class="relative">
+        <div class="w-14 h-14 bg-blue-500/10 rounded-2xl flex items-center justify-center text-blue-400 mb-6 group-hover:scale-110 transition-transform">
+          <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+        </div>
+        <h3 class="text-xl font-bold text-slate-100">Workforce Management</h3>
+        <p class="text-slate-400 mt-2 text-sm leading-relaxed">Administer employee lifecycle from onboarding to offboarding. Manage profiles, contracts, and digital records.</p>
+        <div class="mt-8 flex items-center text-blue-400 text-sm font-bold gap-2">
+          Manage Employees <svg class="w-4 h-4 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </div>
+      </div>
+    </a>
+
+    <!-- Attendance Module -->
+    <a href="<%= admin_attendance_records_path %>" class="group relative bg-slate-800/40 border border-slate-700/50 rounded-3xl p-8 hover:bg-slate-800 transition-all hover:border-green-500/30 overflow-hidden">
+      <div class="absolute top-0 right-0 w-32 h-32 bg-green-500/5 rounded-full -mr-16 -mt-16 group-hover:bg-green-500/10 transition-all"></div>
+      <div class="relative">
+        <div class="w-14 h-14 bg-green-500/10 rounded-2xl flex items-center justify-center text-green-400 mb-6 group-hover:scale-110 transition-transform">
+          <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        </div>
+        <h3 class="text-xl font-bold text-slate-100">Attendance Monitoring</h3>
+        <p class="text-slate-400 mt-2 text-sm leading-relaxed">Real-time visibility into staff availability. Monitor clock-in/out patterns and daily attendance health.</p>
+        <div class="mt-8 flex items-center text-green-400 text-sm font-bold gap-2">
+          Track Attendance <svg class="w-4 h-4 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </div>
+      </div>
+    </a>
+
+    <!-- Leave Module -->
+    <a href="<%= admin_leave_requests_path %>" class="group relative bg-slate-800/40 border border-slate-700/50 rounded-3xl p-8 hover:bg-slate-800 transition-all hover:border-yellow-500/30 overflow-hidden">
+      <div class="absolute top-0 right-0 w-32 h-32 bg-yellow-500/5 rounded-full -mr-16 -mt-16 group-hover:bg-yellow-500/10 transition-all"></div>
+      <div class="relative">
+        <div class="w-14 h-14 bg-yellow-500/10 rounded-2xl flex items-center justify-center text-yellow-400 mb-6 group-hover:scale-110 transition-transform">
+          <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+        </div>
+        <h3 class="text-xl font-bold text-slate-100">Leave Administration</h3>
+        <p class="text-slate-400 mt-2 text-sm leading-relaxed">Review and authorize time-off requests. Manage leave balances and ensure optimal team coverage.</p>
+        <div class="mt-8 flex items-center text-yellow-400 text-sm font-bold gap-2">
+          Manage Leave <svg class="w-4 h-4 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </div>
+      </div>
+    </a>
+
+    <!-- Performance Module -->
+    <a href="<%= admin_performance_reviews_path %>" class="group relative bg-slate-800/40 border border-slate-700/50 rounded-3xl p-8 hover:bg-slate-800 transition-all hover:border-amber-500/30 overflow-hidden">
+      <div class="absolute top-0 right-0 w-32 h-32 bg-amber-500/5 rounded-full -mr-16 -mt-16 group-hover:bg-amber-500/10 transition-all"></div>
+      <div class="relative">
+        <div class="w-14 h-14 bg-amber-500/10 rounded-2xl flex items-center justify-center text-amber-400 mb-6 group-hover:scale-110 transition-transform">
+          <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+        </div>
+        <h3 class="text-xl font-bold text-slate-100">Performance & Growth</h3>
+        <p class="text-slate-400 mt-2 text-sm leading-relaxed">Execute performance evaluation cycles. Track KPIs, feedback, and organizational development goals.</p>
+        <div class="mt-8 flex items-center text-amber-400 text-sm font-bold gap-2">
+          Execute Reviews <svg class="w-4 h-4 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </div>
+      </div>
+    </a>
+
+    <!-- Tasks Module -->
+    <a href="<%= admin_hrm_tasks_path %>" class="group relative bg-slate-800/40 border border-slate-700/50 rounded-3xl p-8 hover:bg-slate-800 transition-all hover:border-rose-500/30 overflow-hidden">
+      <div class="absolute top-0 right-0 w-32 h-32 bg-rose-500/5 rounded-full -mr-16 -mt-16 group-hover:bg-rose-500/10 transition-all"></div>
+      <div class="relative">
+        <div class="w-14 h-14 bg-rose-500/10 rounded-2xl flex items-center justify-center text-rose-400 mb-6 group-hover:scale-110 transition-transform">
+          <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
+        </div>
+        <h3 class="text-xl font-bold text-slate-100">Task Orchestration</h3>
+        <p class="text-slate-400 mt-2 text-sm leading-relaxed">Delegate responsibilities and track execution. Maintain operational efficiency through structured tasking.</p>
+        <div class="mt-8 flex items-center text-rose-400 text-sm font-bold gap-2">
+          Assign Tasks <svg class="w-4 h-4 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </div>
+      </div>
+    </a>
+
+    <!-- Training Module -->
+    <a href="<%= admin_training_courses_path %>" class="group relative bg-slate-800/40 border border-slate-700/50 rounded-3xl p-8 hover:bg-slate-800 transition-all hover:border-cyan-500/30 overflow-hidden">
+      <div class="absolute top-0 right-0 w-32 h-32 bg-cyan-500/5 rounded-full -mr-16 -mt-16 group-hover:bg-cyan-500/10 transition-all"></div>
+      <div class="relative">
+        <div class="w-14 h-14 bg-cyan-500/10 rounded-2xl flex items-center justify-center text-cyan-400 mb-6 group-hover:scale-110 transition-transform">
+          <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+        </div>
+        <h3 class="text-xl font-bold text-slate-100">Learning & Development</h3>
+        <p class="text-slate-400 mt-2 text-sm leading-relaxed">Manage corporate training catalogs. Enroll staff and track professional certification progress.</p>
+        <div class="mt-8 flex items-center text-cyan-400 text-sm font-bold gap-2">
+          Manage Training <svg class="w-4 h-4 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </div>
+      </div>
+    </a>
+  </div>
+</div>

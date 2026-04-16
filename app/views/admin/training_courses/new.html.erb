@@ -1,0 +1,47 @@
+<header class="bg-slate-800 border-b border-slate-700 px-8 py-5">
+  <h1 class="text-slate-100 text-2xl font-bold">New Training Course</h1>
+</header>
+
+<div class="p-8">
+  <a href="<%= admin_training_courses_path %>" class="inline-flex items-center gap-2 text-blue-400 text-sm mb-6">
+    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+    Back
+  </a>
+
+  <div class="bg-slate-800 rounded-xl border border-slate-700 w-full">
+    <div class="p-8">
+      <%= form_with model: [:admin, @training_course], local: true do |form| %>
+        <% if @training_course.errors.any? %>
+          <div class="mb-6 p-4 bg-red-500/10 border border-red-500/30 text-red-400 rounded-lg">
+            <ul class="list-disc list-inside"><% @training_course.errors.full_messages.each do |m| %><li><%= m %></li><% end %></ul>
+          </div>
+        <% end %>
+        <div class="grid grid-cols-2 gap-6 mb-6">
+          <div>
+            <label class="block text-slate-300 text-sm font-medium mb-2.5">Title</label>
+            <%= form.text_field :title, class: "w-full px-4 py-3 bg-slate-900 border border-slate-600 rounded-lg text-slate-100" %>
+          </div>
+          <div>
+            <label class="block text-slate-300 text-sm font-medium mb-2.5">Category</label>
+            <%= form.text_field :category, placeholder: 'e.g., Safety, Technical', class: "w-full px-4 py-3 bg-slate-900 border border-slate-600 rounded-lg text-slate-100" %>
+          </div>
+        </div>
+        <div class="grid grid-cols-2 gap-6 mb-6">
+          <div>
+            <label class="block text-slate-300 text-sm font-medium mb-2.5">Duration (hours)</label>
+            <%= form.number_field :duration_hours, class: "w-full px-4 py-3 bg-slate-900 border border-slate-600 rounded-lg text-slate-100" %>
+          </div>
+          <div>
+            <label class="block text-slate-300 text-sm font-medium mb-2.5">Status</label>
+            <%= form.select :is_active, options_for_select([['Active', true], ['Inactive', false]], true), {}, class: "w-full px-4 py-3 bg-slate-900 border border-slate-600 rounded-lg text-slate-100" %>
+          </div>
+        </div>
+        <div class="mb-8">
+          <label class="block text-slate-300 text-sm font-medium mb-2.5">Description</label>
+          <%= form.text_area :description, rows: 4, class: "w-full px-4 py-3 bg-slate-900 border border-slate-600 rounded-lg text-slate-100" %>
+        </div>
+        <%= form.submit 'Create Course', class: "px-6 py-3 bg-blue-500 hover:bg-blue-600 text-white rounded-lg font-medium" %>
+      <% end %>
+    </div>
+  </div>
+</div>

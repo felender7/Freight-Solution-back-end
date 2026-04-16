@@ -63,7 +63,7 @@
 
           <div>
             <label class="block text-slate-300 text-sm font-medium mb-2.5">Role</label>
-            <%= f.select :role, ['user', 'admin'], {},
+            <%= f.select :role, [['User', 'user'], ['Admin', 'admin'], ['HR Manager', 'hr_manager'], ['Employee', 'employee']], {},
               class: "w-full px-4 py-3 bg-slate-900 border border-slate-600 rounded-lg text-slate-100 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all" %>
           </div>
 

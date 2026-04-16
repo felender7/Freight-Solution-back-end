@@ -1,18 +1,13 @@
 <div class="p-8">
-
   <div class="bg-slate-800 rounded-xl border border-slate-700 overflow-hidden w-full">
-    
     <!-- Header -->
     <div class="px-8 py-6 border-b border-slate-700 flex items-center justify-between">
       <div>
         <h1 class="text-2xl font-bold text-slate-100">New Employee</h1>
-        <p class="text-slate-400 text-sm mt-1">
-          Fill in the details to create a new employee record
-        </p>
+        <p class="text-slate-400 text-sm mt-1">Fill in the details to create a new employee record</p>
       </div>
 
-      <a href="<%= admin_employees_path %>" 
-         class="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 text-sm transition-colors">
+      <a href="<%= admin_employees_path %>" class="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 text-sm transition-colors">
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
         </svg>
@@ -22,86 +17,7 @@
 
     <!-- Form -->
     <div class="p-8">
-      <%= form_with model: [:admin, @employee], local: true do |form| %>
-
-        <% if @employee.errors.any? %>
-          <div class="mb-6 p-4 bg-red-500/10 border border-red-500/30 text-red-400 rounded-lg">
-            <ul class="list-disc list-inside">
-              <% @employee.errors.full_messages.each do |message| %>
-                <li><%= message %></li>
-              <% end %>
-            </ul>
-          </div>
-        <% end %>
-
-        <!-- Name -->
-        <div class="grid grid-cols-2 gap-6 mb-6">
-          <div>
-            <label class="block text-slate-300 text-sm font-medium mb-2.5">First Name</label>
-            <%= form.text_field :first_name, required: true,
-              class: "w-full px-4 py-3 bg-slate-900 border border-slate-600 rounded-lg text-slate-100 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all" %>
-          </div>
-
-          <div>
-            <label class="block text-slate-300 text-sm font-medium mb-2.5">Last Name</label>
-            <%= form.text_field :last_name, required: true,
-              class: "w-full px-4 py-3 bg-slate-900 border border-slate-600 rounded-lg text-slate-100 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all" %>
-          </div>
-        </div>
-
-        <!-- Contact -->
-        <div class="grid grid-cols-2 gap-6 mb-6">
-          <div>
-            <label class="block text-slate-300 text-sm font-medium mb-2.5">Email</label>
-            <%= form.email_field :email, required: true,
-              class: "w-full px-4 py-3 bg-slate-900 border border-slate-600 rounded-lg text-slate-100 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all" %>
-          </div>
-
-          <div>
-            <label class="block text-slate-300 text-sm font-medium mb-2.5">Phone</label>
-            <%= form.text_field :phone,
-              class: "w-full px-4 py-3 bg-slate-900 border border-slate-600 rounded-lg text-slate-100 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all" %>
-          </div>
-        </div>
-
-        <!-- Job Info -->
-        <div class="grid grid-cols-2 gap-6 mb-6">
-          <div>
-            <label class="block text-slate-300 text-sm font-medium mb-2.5">Position</label>
-            <%= form.text_field :position,
-              class: "w-full px-4 py-3 bg-slate-900 border border-slate-600 rounded-lg text-slate-100 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all" %>
-          </div>
-
-          <div>
-            <label class="block text-slate-300 text-sm font-medium mb-2.5">Department</label>
-            <%= form.text_field :department,
-              class: "w-full px-4 py-3 bg-slate-900 border border-slate-600 rounded-lg text-slate-100 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all" %>
-          </div>
-        </div>
-
-        <!-- Salary & Date -->
-        <div class="grid grid-cols-2 gap-6 mb-8">
-          <div>
-            <label class="block text-slate-300 text-sm font-medium mb-2.5">Salary</label>
-            <%= form.number_field :salary, step: '0.01',
-              class: "w-full px-4 py-3 bg-slate-900 border border-slate-600 rounded-lg text-slate-100 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all" %>
-          </div>
-
-          <div>
-            <label class="block text-slate-300 text-sm font-medium mb-2.5">Hire Date</label>
-            <%= form.date_field :hire_date,
-              class: "w-full px-4 py-3 bg-slate-900 border border-slate-600 rounded-lg text-slate-100 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all" %>
-          </div>
-        </div>
-
-        <!-- Submit -->
-        <div>
-          <%= form.submit 'Create Employee',
-            class: "px-6 py-3 bg-blue-500 hover:bg-blue-600 text-white rounded-lg font-medium transition-all cursor-pointer" %>
-        </div>
-
-      <% end %>
+      <%= render 'form', employee: @employee %>
     </div>
-
   </div>
 </div>

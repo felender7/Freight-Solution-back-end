@@ -56,6 +56,10 @@ class Admin::EmployeesController < Admin::BaseController
   end
 
   def employee_params
-    params.require(:employee).permit(:first_name, :last_name, :email, :phone, :position, :department, :salary, :hire_date)
+    params.require(:employee).permit(
+      :first_name, :last_name, :email, :phone, :position, :department, :salary, :hire_date,
+      :address, :city, :state, :country, :zip_code, :employee_code, :manager_id, :employment_status, :education_background,
+      :profile_photo, :contract, :appointment_letter, :user_id
+    )
   end
 end

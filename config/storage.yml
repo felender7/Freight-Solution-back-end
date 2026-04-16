@@ -1,0 +1,15 @@
+test:
+  service: Disk
+  root: <%= Rails.root.join("tmp/storage") %>
+
+local:
+  service: Disk
+  root: <%= Rails.root.join("storage") %>
+
+cloudflare:
+  service: S3
+  access_key_id: <%= Rails.application.credentials.dig(:cloudflare, :access_key_id) %>
+  secret_access_key: <%= Rails.application.credentials.dig(:cloudflare, :secret_access_key) %>
+  region: auto
+  bucket: <%= Rails.application.credentials.dig(:cloudflare, :bucket) %>
+  endpoint: <%= Rails.application.credentials.dig(:cloudflare, :endpoint) %>

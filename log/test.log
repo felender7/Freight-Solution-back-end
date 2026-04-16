@@ -1,0 +1,446 @@
+Generating image variants require the image_processing gem. Please add `gem "image_processing", "~> 1.2"` to your Gemfile or set `config.active_storage.variant_processor = :disabled`.
+Generating image variants require the image_processing gem. Please add `gem "image_processing", "~> 1.2"` to your Gemfile or set `config.active_storage.variant_processor = :disabled`.
+  [1m[35mSQL (0.0ms)[0m  [1m[35mSET search_path TO public[0m
+  [1m[35m (30.3ms)[0m  [1m[35mDROP DATABASE IF EXISTS "freight_solution_back_end_test"[0m
+  [1m[35m (41.3ms)[0m  [1m[35mCREATE DATABASE "freight_solution_back_end_test" ENCODING = 'unicode'[0m
+  [1m[35mSQL (19.4ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql" SCHEMA pg_catalog[0m
+  [1m[35m (0.6ms)[0m  [1m[35mDROP TABLE IF EXISTS "active_storage_attachments" CASCADE[0m
+  [1m[35m (7.4ms)[0m  [1m[35mCREATE TABLE "active_storage_attachments" ("id" bigserial primary key, "blob_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "name" character varying NOT NULL, "record_id" bigint NOT NULL, "record_type" character varying NOT NULL)[0m
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE INDEX "index_active_storage_attachments_on_blob_id" ON "active_storage_attachments" ("blob_id")[0m
+  [1m[35m (2.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_attachments_uniqueness" ON "active_storage_attachments" ("record_type", "record_id", "name", "blob_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "active_storage_blobs" CASCADE[0m
+  [1m[35m (5.8ms)[0m  [1m[35mCREATE TABLE "active_storage_blobs" ("id" bigserial primary key, "byte_size" bigint NOT NULL, "checksum" character varying, "content_type" character varying, "created_at" timestamp(6) NOT NULL, "filename" character varying NOT NULL, "key" character varying NOT NULL, "metadata" text, "service_name" character varying NOT NULL)[0m
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_blobs_on_key" ON "active_storage_blobs" ("key")[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "active_storage_variant_records" CASCADE[0m
+  [1m[35m (5.4ms)[0m  [1m[35mCREATE TABLE "active_storage_variant_records" ("id" bigserial primary key, "blob_id" bigint NOT NULL, "variation_digest" character varying NOT NULL)[0m
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_variant_records_uniqueness" ON "active_storage_variant_records" ("blob_id", "variation_digest")[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "activity_logs" CASCADE[0m
+  [1m[35m (5.3ms)[0m  [1m[35mCREATE TABLE "activity_logs" ("id" bigserial primary key, "action" character varying, "actor_id" bigint, "created_at" timestamp(6) NOT NULL, "entity_id" integer, "entity_type" character varying, "metadata" json, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE INDEX "index_activity_logs_on_actor_id" ON "activity_logs" ("actor_id")[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "attendance_records" CASCADE[0m
+  [1m[35m (5.0ms)[0m  [1m[35mCREATE TABLE "attendance_records" ("id" bigserial primary key, "clock_in" timestamp(6), "clock_out" timestamp(6), "created_at" timestamp(6) NOT NULL, "date" date, "employee_id" bigint NOT NULL, "ip_address" character varying, "status" character varying DEFAULT 'present', "updated_at" timestamp(6) NOT NULL, "user_id" bigint)[0m
+  [1m[35m (2.8ms)[0m  [1m[35mCREATE INDEX "index_attendance_records_on_employee_id" ON "attendance_records" ("employee_id")[0m
+  [1m[35m (2.3ms)[0m  [1m[35mCREATE INDEX "index_attendance_records_on_user_id" ON "attendance_records" ("user_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "employees" CASCADE[0m
+  [1m[35m (4.7ms)[0m  [1m[35mCREATE TABLE "employees" ("id" bigserial primary key, "address" character varying, "city" character varying, "country" character varying, "created_at" timestamp(6) NOT NULL, "department" character varying, "education_background" text, "email" character varying, "employee_code" character varying, "employment_status" character varying, "first_name" character varying, "hire_date" date, "last_name" character varying, "manager_id" bigint, "phone" character varying, "position" character varying, "salary" decimal, "state" character varying, "updated_at" timestamp(6) NOT NULL, "user_id" bigint, "zip_code" character varying)[0m
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE INDEX "index_employees_on_manager_id" ON "employees" ("manager_id")[0m
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE INDEX "index_employees_on_user_id" ON "employees" ("user_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "enrollments" CASCADE[0m
+  [1m[35m (5.2ms)[0m  [1m[35mCREATE TABLE "enrollments" ("id" bigserial primary key, "certificate_url" character varying, "completed_at" date, "created_at" timestamp(6) NOT NULL, "employee_id" bigint NOT NULL, "is_completed" boolean DEFAULT FALSE, "progress" integer DEFAULT 0, "training_course_id" bigint NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE INDEX "index_enrollments_on_employee_id" ON "enrollments" ("employee_id")[0m
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE INDEX "index_enrollments_on_training_course_id" ON "enrollments" ("training_course_id")[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "invoices" CASCADE[0m
+  [1m[35m (5.4ms)[0m  [1m[35mCREATE TABLE "invoices" ("id" bigserial primary key, "amount" decimal, "created_at" timestamp(6) NOT NULL, "due_date" date, "invoice_number" character varying, "paid_date" date, "status" character varying, "updated_at" timestamp(6) NOT NULL, "vendor_id" integer)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "leave_requests" CASCADE[0m
+  [1m[35m (4.8ms)[0m  [1m[35mCREATE TABLE "leave_requests" ("id" bigserial primary key, "approved_by_id" bigint, "created_at" timestamp(6) NOT NULL, "employee_id" bigint NOT NULL, "end_date" date, "leave_type" character varying, "reason" text, "start_date" date, "status" character varying DEFAULT 'pending', "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (2.3ms)[0m  [1m[35mCREATE INDEX "index_leave_requests_on_approved_by_id" ON "leave_requests" ("approved_by_id")[0m
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE INDEX "index_leave_requests_on_employee_id" ON "leave_requests" ("employee_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "performance_reviews" CASCADE[0m
+  [1m[35m (5.2ms)[0m  [1m[35mCREATE TABLE "performance_reviews" ("id" bigserial primary key, "created_at" timestamp(6) NOT NULL, "employee_id" bigint NOT NULL, "feedback" text, "rating" integer, "review_cycle" character varying, "review_date" date, "reviewer_id" bigint, "status" character varying DEFAULT 'pending', "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE INDEX "index_performance_reviews_on_employee_id" ON "performance_reviews" ("employee_id")[0m
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE INDEX "index_performance_reviews_on_reviewer_id" ON "performance_reviews" ("reviewer_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "shipments" CASCADE[0m
+  [1m[35m (5.5ms)[0m  [1m[35mCREATE TABLE "shipments" ("id" bigserial primary key, "booking_reference" character varying, "container_number" character varying, "created_at" timestamp(6) NOT NULL, "destination" character varying, "estimated_arrival" date, "origin" character varying, "ship_date" date, "status" character varying, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "tasks" CASCADE[0m
+  [1m[35m (4.9ms)[0m  [1m[35mCREATE TABLE "tasks" ("id" bigserial primary key, "assigned_by_id" bigint, "created_at" timestamp(6) NOT NULL, "description" text, "due_date" date, "employee_id" bigint NOT NULL, "priority" character varying DEFAULT 'medium', "status" character varying DEFAULT 'todo', "title" character varying, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE INDEX "index_tasks_on_assigned_by_id" ON "tasks" ("assigned_by_id")[0m
+  [1m[35m (2.3ms)[0m  [1m[35mCREATE INDEX "index_tasks_on_employee_id" ON "tasks" ("employee_id")[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "timesheets" CASCADE[0m
+  [1m[35m (5.3ms)[0m  [1m[35mCREATE TABLE "timesheets" ("id" bigserial primary key, "approved_by_id" bigint, "created_at" timestamp(6) NOT NULL, "date" date, "description" text, "employee_id" bigint NOT NULL, "hours_worked" decimal, "status" character varying DEFAULT 'pending', "task_id" bigint, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE INDEX "index_timesheets_on_approved_by_id" ON "timesheets" ("approved_by_id")[0m
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE INDEX "index_timesheets_on_employee_id" ON "timesheets" ("employee_id")[0m
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE INDEX "index_timesheets_on_task_id" ON "timesheets" ("task_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "training_courses" CASCADE[0m
+  [1m[35m (5.0ms)[0m  [1m[35mCREATE TABLE "training_courses" ("id" bigserial primary key, "category" character varying, "certificate_url" character varying, "created_at" timestamp(6) NOT NULL, "description" text, "duration_hours" integer, "is_active" boolean DEFAULT TRUE, "title" character varying, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (4.9ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "created_at" timestamp(6) NOT NULL, "email" character varying, "first_name" character varying, "last_name" character varying, "must_update_password" boolean, "password_digest" character varying, "role" character varying, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "vendors" CASCADE[0m
+  [1m[35m (5.2ms)[0m  [1m[35mCREATE TABLE "vendors" ("id" bigserial primary key, "address" text, "bank_reference" character varying, "created_at" timestamp(6) NOT NULL, "email" character varying, "name" character varying, "phone" character varying, "status" character varying, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (2.8ms)[0m  [1m[35mALTER TABLE "active_storage_attachments" ADD CONSTRAINT "fk_rails_c3b3935057"
+FOREIGN KEY ("blob_id")
+  REFERENCES "active_storage_blobs" ("id")
+[0m
+  [1m[35m (2.2ms)[0m  [1m[35mALTER TABLE "active_storage_variant_records" ADD CONSTRAINT "fk_rails_993965df05"
+FOREIGN KEY ("blob_id")
+  REFERENCES "active_storage_blobs" ("id")
+[0m
+  [1m[35m (2.0ms)[0m  [1m[35mALTER TABLE "activity_logs" ADD CONSTRAINT "fk_rails_e05e7e3481"
+FOREIGN KEY ("actor_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (1.8ms)[0m  [1m[35mALTER TABLE "attendance_records" ADD CONSTRAINT "fk_rails_4d91438cb8"
+FOREIGN KEY ("employee_id")
+  REFERENCES "employees" ("id")
+[0m
+  [1m[35m (1.5ms)[0m  [1m[35mALTER TABLE "attendance_records" ADD CONSTRAINT "fk_rails_2511abf751"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (1.7ms)[0m  [1m[35mALTER TABLE "employees" ADD CONSTRAINT "fk_rails_0fe1519b79"
+FOREIGN KEY ("manager_id")
+  REFERENCES "employees" ("id")
+[0m
+  [1m[35m (1.7ms)[0m  [1m[35mALTER TABLE "employees" ADD CONSTRAINT "fk_rails_dcfd3d4fc3"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (1.7ms)[0m  [1m[35mALTER TABLE "enrollments" ADD CONSTRAINT "fk_rails_0d5a8f85f8"
+FOREIGN KEY ("employee_id")
+  REFERENCES "employees" ("id")
+[0m
+  [1m[35m (1.7ms)[0m  [1m[35mALTER TABLE "enrollments" ADD CONSTRAINT "fk_rails_4f4bfe7db5"
+FOREIGN KEY ("training_course_id")
+  REFERENCES "training_courses" ("id")
+[0m
+  [1m[35m (1.7ms)[0m  [1m[35mALTER TABLE "leave_requests" ADD CONSTRAINT "fk_rails_1554fc19c3"
+FOREIGN KEY ("employee_id")
+  REFERENCES "employees" ("id")
+[0m
+  [1m[35m (1.4ms)[0m  [1m[35mALTER TABLE "leave_requests" ADD CONSTRAINT "fk_rails_271fbe7bb2"
+FOREIGN KEY ("approved_by_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (1.6ms)[0m  [1m[35mALTER TABLE "performance_reviews" ADD CONSTRAINT "fk_rails_5a077795a8"
+FOREIGN KEY ("employee_id")
+  REFERENCES "employees" ("id")
+[0m
+  [1m[35m (1.5ms)[0m  [1m[35mALTER TABLE "performance_reviews" ADD CONSTRAINT "fk_rails_e5bbd882a9"
+FOREIGN KEY ("reviewer_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (1.7ms)[0m  [1m[35mALTER TABLE "tasks" ADD CONSTRAINT "fk_rails_1538297be1"
+FOREIGN KEY ("employee_id")
+  REFERENCES "employees" ("id")
+[0m
+  [1m[35m (1.5ms)[0m  [1m[35mALTER TABLE "tasks" ADD CONSTRAINT "fk_rails_034a3a58b2"
+FOREIGN KEY ("assigned_by_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (1.8ms)[0m  [1m[35mALTER TABLE "timesheets" ADD CONSTRAINT "fk_rails_28c9d6300c"
+FOREIGN KEY ("employee_id")
+  REFERENCES "employees" ("id")
+[0m
+  [1m[35m (1.6ms)[0m  [1m[35mALTER TABLE "timesheets" ADD CONSTRAINT "fk_rails_894c1bfa9c"
+FOREIGN KEY ("task_id")
+  REFERENCES "tasks" ("id")
+[0m
+  [1m[35m (1.7ms)[0m  [1m[35mALTER TABLE "timesheets" ADD CONSTRAINT "fk_rails_5ac8905221"
+FOREIGN KEY ("approved_by_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (4.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20260415101210)[0m
+  [1m[35m (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20260415101206),
+(20260415090139),
+(20260415090138),
+(20260415090137),
+(20260415090136),
+(20260415090135),
+(20260415090134),
+(20260415090133),
+(20260415090132),
+(20260415090048),
+(20260414120113),
+(20260414120107),
+(20260414120101),
+(20260414120100),
+(20260414115027);[0m
+  [1m[35m (4.7ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Create (1.0ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'test', '2026-04-15 14:34:35.700719', '2026-04-15 14:34:35.700725') RETURNING "key"[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::InternalMetadata Create (0.7ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('schema_sha1', 'db9cbf96efb24d0fa88e9c84552870d150a19505', '2026-04-15 14:34:35.704617', '2026-04-15 14:34:35.704622') RETURNING "key"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.4ms)[0m  [1m[35mALTER TABLE "active_storage_variant_records" DISABLE TRIGGER ALL;ALTER TABLE "activity_logs" DISABLE TRIGGER ALL;ALTER TABLE "employees" DISABLE TRIGGER ALL;ALTER TABLE "attendance_records" DISABLE TRIGGER ALL;ALTER TABLE "active_storage_blobs" DISABLE TRIGGER ALL;ALTER TABLE "invoices" DISABLE TRIGGER ALL;ALTER TABLE "shipments" DISABLE TRIGGER ALL;ALTER TABLE "timesheets" DISABLE TRIGGER ALL;ALTER TABLE "tasks" DISABLE TRIGGER ALL;ALTER TABLE "training_courses" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "vendors" DISABLE TRIGGER ALL;ALTER TABLE "active_storage_attachments" DISABLE TRIGGER ALL;ALTER TABLE "enrollments" DISABLE TRIGGER ALL;ALTER TABLE "leave_requests" DISABLE TRIGGER ALL;ALTER TABLE "performance_reviews" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[36mFixtures Load (1.3ms)[0m  [1m[31mDELETE FROM "employees";
+DELETE FROM "invoices";
+DELETE FROM "shipments";
+DELETE FROM "vendors";
+INSERT INTO "employees" ("id", "address", "city", "country", "created_at", "department", "education_background", "email", "employee_code", "employment_status", "first_name", "hire_date", "last_name", "manager_id", "phone", "position", "salary", "state", "updated_at", "user_id", "zip_code") VALUES (980190962, DEFAULT, DEFAULT, DEFAULT, '2026-04-15 14:34:35.914548', 'MyString', DEFAULT, 'MyString', DEFAULT, DEFAULT, 'MyString', '2026-04-14', 'MyString', DEFAULT, 'MyString', 'MyString', 9.99, DEFAULT, '2026-04-15 14:34:35.914548', DEFAULT, DEFAULT), (298486374, DEFAULT, DEFAULT, DEFAULT, '2026-04-15 14:34:35.914548', 'MyString', DEFAULT, 'MyString', DEFAULT, DEFAULT, 'MyString', '2026-04-14', 'MyString', DEFAULT, 'MyString', 'MyString', 9.99, DEFAULT, '2026-04-15 14:34:35.914548', DEFAULT, DEFAULT);
+INSERT INTO "invoices" ("id", "amount", "created_at", "due_date", "invoice_number", "paid_date", "status", "updated_at", "vendor_id") VALUES (980190962, 9.99, '2026-04-15 14:34:35.926693', '2026-04-14', 'MyString', '2026-04-14', 'MyString', '2026-04-15 14:34:35.926693', 1), (298486374, 9.99, '2026-04-15 14:34:35.926693', '2026-04-14', 'MyString', '2026-04-14', 'MyString', '2026-04-15 14:34:35.926693', 1);
+INSERT INTO "shipments" ("id", "booking_reference", "container_number", "created_at", "destination", "estimated_arrival", "origin", "ship_date", "status", "updated_at") VALUES (980190962, 'MyString', 'MyString', '2026-04-15 14:34:35.928492', 'MyString', '2026-04-14', 'MyString', '2026-04-14', 'MyString', '2026-04-15 14:34:35.928492'), (298486374, 'MyString', 'MyString', '2026-04-15 14:34:35.928492', 'MyString', '2026-04-14', 'MyString', '2026-04-14', 'MyString', '2026-04-15 14:34:35.928492');
+INSERT INTO "vendors" ("id", "address", "bank_reference", "created_at", "email", "name", "phone", "status", "updated_at") VALUES (980190962, 'MyText', 'MyString', '2026-04-15 14:34:35.930035', 'MyString', 'MyString', 'MyString', 'MyString', '2026-04-15 14:34:35.930035'), (298486374, 'MyText', 'MyString', '2026-04-15 14:34:35.930035', 'MyString', 'MyString', 'MyString', 'MyString', '2026-04-15 14:34:35.930035')[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (1.2ms)[0m  [1m[35mALTER TABLE "active_storage_variant_records" ENABLE TRIGGER ALL;ALTER TABLE "activity_logs" ENABLE TRIGGER ALL;ALTER TABLE "employees" ENABLE TRIGGER ALL;ALTER TABLE "attendance_records" ENABLE TRIGGER ALL;ALTER TABLE "active_storage_blobs" ENABLE TRIGGER ALL;ALTER TABLE "invoices" ENABLE TRIGGER ALL;ALTER TABLE "shipments" ENABLE TRIGGER ALL;ALTER TABLE "timesheets" ENABLE TRIGGER ALL;ALTER TABLE "tasks" ENABLE TRIGGER ALL;ALTER TABLE "training_courses" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "vendors" ENABLE TRIGGER ALL;ALTER TABLE "active_storage_attachments" ENABLE TRIGGER ALL;ALTER TABLE "enrollments" ENABLE TRIGGER ALL;ALTER TABLE "leave_requests" ENABLE TRIGGER ALL;ALTER TABLE "performance_reviews" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (19.0ms)[0m  [1m[35mdo $$
+  declare r record;
+BEGIN
+FOR r IN (
+  SELECT FORMAT(
+    'UPDATE pg_catalog.pg_constraint SET convalidated=false WHERE conname = ''%1$I'' AND connamespace::regnamespace = ''%2$I''::regnamespace; ALTER TABLE %2$I.%3$I VALIDATE CONSTRAINT %1$I;',
+    constraint_name,
+    table_schema,
+    table_name
+  ) AS constraint_check
+  FROM information_schema.table_constraints WHERE constraint_type = 'FOREIGN KEY'
+)
+  LOOP
+    EXECUTE (r.constraint_check);
+  END LOOP;
+END;
+$$;
+[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------------------
+EmployeesControllerTest: test_should_create_employee
+----------------------------------------------------
+  [1m[36mEmployee Load (0.6ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = $1 LIMIT $2[0m  [["id", 980190962], ["LIMIT", 1]]
+  [1m[36mEmployee Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees"[0m
+EmployeesControllerTest - test_should_create_employee: NameError raised.
+If you expected this exception, use `assert_raises` as near to the code that raises as possible.
+Other block based assertions (e.g. `assert_difference`) can be used, as long as `assert_raises` is inside their block.
+
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+Generating image variants require the image_processing gem. Please add `gem "image_processing", "~> 1.2"` to your Gemfile or set `config.active_storage.variant_processor = :disabled`.
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.2ms)[0m  [1m[35mALTER TABLE "active_storage_variant_records" DISABLE TRIGGER ALL;ALTER TABLE "activity_logs" DISABLE TRIGGER ALL;ALTER TABLE "employees" DISABLE TRIGGER ALL;ALTER TABLE "attendance_records" DISABLE TRIGGER ALL;ALTER TABLE "active_storage_blobs" DISABLE TRIGGER ALL;ALTER TABLE "invoices" DISABLE TRIGGER ALL;ALTER TABLE "shipments" DISABLE TRIGGER ALL;ALTER TABLE "timesheets" DISABLE TRIGGER ALL;ALTER TABLE "tasks" DISABLE TRIGGER ALL;ALTER TABLE "training_courses" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "vendors" DISABLE TRIGGER ALL;ALTER TABLE "active_storage_attachments" DISABLE TRIGGER ALL;ALTER TABLE "enrollments" DISABLE TRIGGER ALL;ALTER TABLE "leave_requests" DISABLE TRIGGER ALL;ALTER TABLE "performance_reviews" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[36mFixtures Load (0.7ms)[0m  [1m[31mDELETE FROM "employees";
+DELETE FROM "invoices";
+DELETE FROM "shipments";
+DELETE FROM "vendors";
+INSERT INTO "employees" ("id", "address", "city", "country", "created_at", "department", "education_background", "email", "employee_code", "employment_status", "first_name", "hire_date", "last_name", "manager_id", "phone", "position", "salary", "state", "updated_at", "user_id", "zip_code") VALUES (980190962, DEFAULT, DEFAULT, DEFAULT, '2026-04-15 14:35:03.546905', 'MyString', DEFAULT, 'MyString', DEFAULT, DEFAULT, 'MyString', '2026-04-14', 'MyString', DEFAULT, 'MyString', 'MyString', 9.99, DEFAULT, '2026-04-15 14:35:03.546905', DEFAULT, DEFAULT), (298486374, DEFAULT, DEFAULT, DEFAULT, '2026-04-15 14:35:03.546905', 'MyString', DEFAULT, 'MyString', DEFAULT, DEFAULT, 'MyString', '2026-04-14', 'MyString', DEFAULT, 'MyString', 'MyString', 9.99, DEFAULT, '2026-04-15 14:35:03.546905', DEFAULT, DEFAULT);
+INSERT INTO "invoices" ("id", "amount", "created_at", "due_date", "invoice_number", "paid_date", "status", "updated_at", "vendor_id") VALUES (980190962, 9.99, '2026-04-15 14:35:03.552008', '2026-04-14', 'MyString', '2026-04-14', 'MyString', '2026-04-15 14:35:03.552008', 1), (298486374, 9.99, '2026-04-15 14:35:03.552008', '2026-04-14', 'MyString', '2026-04-14', 'MyString', '2026-04-15 14:35:03.552008', 1);
+INSERT INTO "shipments" ("id", "booking_reference", "container_number", "created_at", "destination", "estimated_arrival", "origin", "ship_date", "status", "updated_at") VALUES (980190962, 'MyString', 'MyString', '2026-04-15 14:35:03.553806', 'MyString', '2026-04-14', 'MyString', '2026-04-14', 'MyString', '2026-04-15 14:35:03.553806'), (298486374, 'MyString', 'MyString', '2026-04-15 14:35:03.553806', 'MyString', '2026-04-14', 'MyString', '2026-04-14', 'MyString', '2026-04-15 14:35:03.553806');
+INSERT INTO "vendors" ("id", "address", "bank_reference", "created_at", "email", "name", "phone", "status", "updated_at") VALUES (980190962, 'MyText', 'MyString', '2026-04-15 14:35:03.555522', 'MyString', 'MyString', 'MyString', 'MyString', '2026-04-15 14:35:03.555522'), (298486374, 'MyText', 'MyString', '2026-04-15 14:35:03.555522', 'MyString', 'MyString', 'MyString', 'MyString', '2026-04-15 14:35:03.555522')[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.9ms)[0m  [1m[35mALTER TABLE "active_storage_variant_records" ENABLE TRIGGER ALL;ALTER TABLE "activity_logs" ENABLE TRIGGER ALL;ALTER TABLE "employees" ENABLE TRIGGER ALL;ALTER TABLE "attendance_records" ENABLE TRIGGER ALL;ALTER TABLE "active_storage_blobs" ENABLE TRIGGER ALL;ALTER TABLE "invoices" ENABLE TRIGGER ALL;ALTER TABLE "shipments" ENABLE TRIGGER ALL;ALTER TABLE "timesheets" ENABLE TRIGGER ALL;ALTER TABLE "tasks" ENABLE TRIGGER ALL;ALTER TABLE "training_courses" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "vendors" ENABLE TRIGGER ALL;ALTER TABLE "active_storage_attachments" ENABLE TRIGGER ALL;ALTER TABLE "enrollments" ENABLE TRIGGER ALL;ALTER TABLE "leave_requests" ENABLE TRIGGER ALL;ALTER TABLE "performance_reviews" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (10.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (16.5ms)[0m  [1m[35mdo $$
+  declare r record;
+BEGIN
+FOR r IN (
+  SELECT FORMAT(
+    'UPDATE pg_catalog.pg_constraint SET convalidated=false WHERE conname = ''%1$I'' AND connamespace::regnamespace = ''%2$I''::regnamespace; ALTER TABLE %2$I.%3$I VALIDATE CONSTRAINT %1$I;',
+    constraint_name,
+    table_schema,
+    table_name
+  ) AS constraint_check
+  FROM information_schema.table_constraints WHERE constraint_type = 'FOREIGN KEY'
+)
+  LOOP
+    EXECUTE (r.constraint_check);
+  END LOOP;
+END;
+$$;
+[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+---------------------------------------------
+EmployeesControllerTest: test_should_get_edit
+---------------------------------------------
+  [1m[36mEmployee Load (0.5ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = $1 LIMIT $2[0m  [["id", 980190962], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------------------
+EmployeesControllerTest: test_should_create_employee
+----------------------------------------------------
+  [1m[36mEmployee Load (0.3ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = $1 LIMIT $2[0m  [["id", 980190962], ["LIMIT", 1]]
+  [1m[36mEmployee Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees"[0m
+EmployeesControllerTest - test_should_create_employee: NameError raised.
+If you expected this exception, use `assert_raises` as near to the code that raises as possible.
+Other block based assertions (e.g. `assert_difference`) can be used, as long as `assert_raises` is inside their block.
+
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+--------------------------------------------
+EmployeesControllerTest: test_should_get_new
+--------------------------------------------
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = $1 LIMIT $2[0m  [["id", 980190962], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------------
+EmployeesControllerTest: test_should_get_index
+----------------------------------------------
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = $1 LIMIT $2[0m  [["id", 980190962], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+--------------------------------------------------
+EmployeesControllerTest: test_should_show_employee
+--------------------------------------------------
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = $1 LIMIT $2[0m  [["id", 980190962], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------------------
+EmployeesControllerTest: test_should_update_employee
+----------------------------------------------------
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = $1 LIMIT $2[0m  [["id", 980190962], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+-----------------------------------------------------
+EmployeesControllerTest: test_should_destroy_employee
+-----------------------------------------------------
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = $1 LIMIT $2[0m  [["id", 980190962], ["LIMIT", 1]]
+  [1m[36mEmployee Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees"[0m
+EmployeesControllerTest - test_should_destroy_employee: NoMethodError raised.
+If you expected this exception, use `assert_raises` as near to the code that raises as possible.
+Other block based assertions (e.g. `assert_difference`) can be used, as long as `assert_raises` is inside their block.
+
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+--------------------------------------------
+InvoicesControllerTest: test_should_get_edit
+--------------------------------------------
+  [1m[36mInvoice Load (0.2ms)[0m  [1m[34mSELECT "invoices".* FROM "invoices" WHERE "invoices"."id" = $1 LIMIT $2[0m  [["id", 980190962], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+--------------------------------------------------
+InvoicesControllerTest: test_should_create_invoice
+--------------------------------------------------
+  [1m[36mInvoice Load (0.3ms)[0m  [1m[34mSELECT "invoices".* FROM "invoices" WHERE "invoices"."id" = $1 LIMIT $2[0m  [["id", 980190962], ["LIMIT", 1]]
+  [1m[36mInvoice Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "invoices"[0m
+InvoicesControllerTest - test_should_create_invoice: NameError raised.
+If you expected this exception, use `assert_raises` as near to the code that raises as possible.
+Other block based assertions (e.g. `assert_difference`) can be used, as long as `assert_raises` is inside their block.
+
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+-------------------------------------------
+InvoicesControllerTest: test_should_get_new
+-------------------------------------------
+  [1m[36mInvoice Load (0.2ms)[0m  [1m[34mSELECT "invoices".* FROM "invoices" WHERE "invoices"."id" = $1 LIMIT $2[0m  [["id", 980190962], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+---------------------------------------------
+InvoicesControllerTest: test_should_get_index
+---------------------------------------------
+  [1m[36mInvoice Load (0.2ms)[0m  [1m[34mSELECT "invoices".* FROM "invoices" WHERE "invoices"."id" = $1 LIMIT $2[0m  [["id", 980190962], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+------------------------------------------------
+InvoicesControllerTest: test_should_show_invoice
+------------------------------------------------
+  [1m[36mInvoice Load (0.1ms)[0m  [1m[34mSELECT "invoices".* FROM "invoices" WHERE "invoices"."id" = $1 LIMIT $2[0m  [["id", 980190962], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+--------------------------------------------------
+InvoicesControllerTest: test_should_update_invoice
+--------------------------------------------------
+  [1m[36mInvoice Load (0.2ms)[0m  [1m[34mSELECT "invoices".* FROM "invoices" WHERE "invoices"."id" = $1 LIMIT $2[0m  [["id", 980190962], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+---------------------------------------------------
+InvoicesControllerTest: test_should_destroy_invoice
+---------------------------------------------------
+  [1m[36mInvoice Load (0.2ms)[0m  [1m[34mSELECT "invoices".* FROM "invoices" WHERE "invoices"."id" = $1 LIMIT $2[0m  [["id", 980190962], ["LIMIT", 1]]
+  [1m[36mInvoice Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "invoices"[0m
+InvoicesControllerTest - test_should_destroy_invoice: NoMethodError raised.
+If you expected this exception, use `assert_raises` as near to the code that raises as possible.
+Other block based assertions (e.g. `assert_difference`) can be used, as long as `assert_raises` is inside their block.
+
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+---------------------------------------------
+ShipmentsControllerTest: test_should_get_edit
+---------------------------------------------
+  [1m[36mShipment Load (0.2ms)[0m  [1m[34mSELECT "shipments".* FROM "shipments" WHERE "shipments"."id" = $1 LIMIT $2[0m  [["id", 980190962], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------------------
+ShipmentsControllerTest: test_should_create_shipment
+----------------------------------------------------
+  [1m[36mShipment Load (0.2ms)[0m  [1m[34mSELECT "shipments".* FROM "shipments" WHERE "shipments"."id" = $1 LIMIT $2[0m  [["id", 980190962], ["LIMIT", 1]]
+  [1m[36mShipment Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "shipments"[0m
+ShipmentsControllerTest - test_should_create_shipment: NameError raised.
+If you expected this exception, use `assert_raises` as near to the code that raises as possible.
+Other block based assertions (e.g. `assert_difference`) can be used, as long as `assert_raises` is inside their block.
+
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+--------------------------------------------
+ShipmentsControllerTest: test_should_get_new
+--------------------------------------------
+  [1m[36mShipment Load (0.2ms)[0m  [1m[34mSELECT "shipments".* FROM "shipments" WHERE "shipments"."id" = $1 LIMIT $2[0m  [["id", 980190962], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------------
+ShipmentsControllerTest: test_should_get_index
+----------------------------------------------
+  [1m[36mShipment Load (0.2ms)[0m  [1m[34mSELECT "shipments".* FROM "shipments" WHERE "shipments"."id" = $1 LIMIT $2[0m  [["id", 980190962], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+--------------------------------------------------
+ShipmentsControllerTest: test_should_show_shipment
+--------------------------------------------------
+  [1m[36mShipment Load (0.2ms)[0m  [1m[34mSELECT "shipments".* FROM "shipments" WHERE "shipments"."id" = $1 LIMIT $2[0m  [["id", 980190962], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------------------
+ShipmentsControllerTest: test_should_update_shipment
+----------------------------------------------------
+  [1m[36mShipment Load (0.2ms)[0m  [1m[34mSELECT "shipments".* FROM "shipments" WHERE "shipments"."id" = $1 LIMIT $2[0m  [["id", 980190962], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+-----------------------------------------------------
+ShipmentsControllerTest: test_should_destroy_shipment
+-----------------------------------------------------
+  [1m[36mShipment Load (0.1ms)[0m  [1m[34mSELECT "shipments".* FROM "shipments" WHERE "shipments"."id" = $1 LIMIT $2[0m  [["id", 980190962], ["LIMIT", 1]]
+  [1m[36mShipment Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "shipments"[0m
+ShipmentsControllerTest - test_should_destroy_shipment: NoMethodError raised.
+If you expected this exception, use `assert_raises` as near to the code that raises as possible.
+Other block based assertions (e.g. `assert_difference`) can be used, as long as `assert_raises` is inside their block.
+
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+-------------------------------------------
+VendorsControllerTest: test_should_get_edit
+-------------------------------------------
+  [1m[36mVendor Load (0.3ms)[0m  [1m[34mSELECT "vendors".* FROM "vendors" WHERE "vendors"."id" = $1 LIMIT $2[0m  [["id", 980190962], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+------------------------------------------------
+VendorsControllerTest: test_should_create_vendor
+------------------------------------------------
+  [1m[36mVendor Load (0.2ms)[0m  [1m[34mSELECT "vendors".* FROM "vendors" WHERE "vendors"."id" = $1 LIMIT $2[0m  [["id", 980190962], ["LIMIT", 1]]
+  [1m[36mVendor Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "vendors"[0m
+VendorsControllerTest - test_should_create_vendor: NameError raised.
+If you expected this exception, use `assert_raises` as near to the code that raises as possible.
+Other block based assertions (e.g. `assert_difference`) can be used, as long as `assert_raises` is inside their block.
+
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+------------------------------------------
+VendorsControllerTest: test_should_get_new
+------------------------------------------
+  [1m[36mVendor Load (0.2ms)[0m  [1m[34mSELECT "vendors".* FROM "vendors" WHERE "vendors"."id" = $1 LIMIT $2[0m  [["id", 980190962], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+--------------------------------------------
+VendorsControllerTest: test_should_get_index
+--------------------------------------------
+  [1m[36mVendor Load (0.3ms)[0m  [1m[34mSELECT "vendors".* FROM "vendors" WHERE "vendors"."id" = $1 LIMIT $2[0m  [["id", 980190962], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------------
+VendorsControllerTest: test_should_show_vendor
+----------------------------------------------
+  [1m[36mVendor Load (0.2ms)[0m  [1m[34mSELECT "vendors".* FROM "vendors" WHERE "vendors"."id" = $1 LIMIT $2[0m  [["id", 980190962], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+------------------------------------------------
+VendorsControllerTest: test_should_update_vendor
+------------------------------------------------
+  [1m[36mVendor Load (0.2ms)[0m  [1m[34mSELECT "vendors".* FROM "vendors" WHERE "vendors"."id" = $1 LIMIT $2[0m  [["id", 980190962], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+-------------------------------------------------
+VendorsControllerTest: test_should_destroy_vendor
+-------------------------------------------------
+  [1m[36mVendor Load (0.1ms)[0m  [1m[34mSELECT "vendors".* FROM "vendors" WHERE "vendors"."id" = $1 LIMIT $2[0m  [["id", 980190962], ["LIMIT", 1]]
+  [1m[36mVendor Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "vendors"[0m
+VendorsControllerTest - test_should_destroy_vendor: NoMethodError raised.
+If you expected this exception, use `assert_raises` as near to the code that raises as possible.
+Other block based assertions (e.g. `assert_difference`) can be used, as long as `assert_raises` is inside their block.
+
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
