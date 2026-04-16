@@ -86,7 +86,4 @@ test:
 #
 production:
   <<: *default
-  database: freight_solution_back_end_production
-  host: <%= ENV["DATABASE_HOST"] || "/var/run/postgresql" %>
-  username: <%= ENV["DATABASE_USERNAME"] || "postgres" %>
-  password: <%= ENV["DATABASE_PASSWORD"] || "" %>
+  url: <%= ENV["DATABASE_URL"] %>
