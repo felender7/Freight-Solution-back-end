@@ -11,6 +11,7 @@
   <script>
     function confirmDelete(event, itemName) {
       event.preventDefault();
+      const form = event.target.closest('form');
       Swal.fire({
         title: 'Delete this item?',
         text: `Are you sure you want to delete "${itemName}"? This action cannot be undone.`,
@@ -23,8 +24,8 @@
         backdrop: true,
         customClass: { container: 'swal-dark' }
       }).then((result) => {
-        if (result.isConfirmed) {
-          event.target.submit();
+        if (result.isConfirmed && form) {
+          form.submit();
         }
       });
     }
