@@ -32,6 +32,7 @@ namespace :api do
       get "auth/me", to: "auth#me"
       get "dashboard/stats", to: "dashboard#stats"
 
+      resources :vendors
       get "logistics/bookings", to: "logistics#bookings"
       post "logistics/bookings", to: "logistics#bookings"
       get "logistics/bookings/:id", to: "logistics#booking"

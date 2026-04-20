@@ -1,0 +1,211 @@
+<%= form_with model: [:admin, vendor], local: true, class: "space-y-8" do |form| %>
+
+  <% if vendor.errors.any? %>
+    <div class="p-4 bg-red-500/10 border border-red-500/30 text-red-400 rounded-lg">
+      <ul class="list-disc list-inside">
+        <% vendor.errors.full_messages.each do |m| %>
+          <li><%= m %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <!-- Section 1: Basic Information -->
+  <div class="bg-slate-900/50 p-6 rounded-xl border border-slate-700">
+    <h3 class="text-lg font-semibold text-slate-100 mb-6 flex items-center gap-2">
+      <svg class="w-5 h-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+      </svg>
+      Basic Information
+    </h3>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div>
+        <label class="block text-slate-300 text-sm font-medium mb-2.5">Vendor Name</label>
+        <%= form.text_field :name, required: true,
+          class: "w-full px-4 py-3 bg-slate-900 border border-slate-600 rounded-lg text-slate-100 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all" %>
+      </div>
+
+      <div>
+        <label class="block text-slate-300 text-sm font-medium mb-2.5">Email Address</label>
+        <%= form.email_field :email, required: true,
+          class: "w-full px-4 py-3 bg-slate-900 border border-slate-600 rounded-lg text-slate-100 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all" %>
+      </div>
+
+      <div>
+        <label class="block text-slate-300 text-sm font-medium mb-2.5">Phone Number</label>
+        <%= form.text_field :phone,
+          class: "w-full px-4 py-3 bg-slate-900 border border-slate-600 rounded-lg text-slate-100 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all" %>
+      </div>
+
+      <div>
+        <label class="block text-slate-300 text-sm font-medium mb-2.5">Status</label>
+        <%= form.select :status, ['active', 'inactive'], {},
+          class: "w-full px-4 py-3 bg-slate-900 border border-slate-600 rounded-lg text-slate-100 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all" %>
+      </div>
+
+      <div class="md:col-span-2">
+        <label class="block text-slate-300 text-sm font-medium mb-2.5">Physical Address</label>
+        <%= form.text_area :address, rows: 2,
+          class: "w-full px-4 py-3 bg-slate-900 border border-slate-600 rounded-lg text-slate-100 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all" %>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 2: Vendor Onboarding & Category -->
+  <div class="bg-slate-900/50 p-6 rounded-xl border border-slate-700">
+    <h3 class="text-lg font-semibold text-slate-100 mb-6 flex items-center gap-2">
+      <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/>
+      </svg>
+      Onboarding & Compliance
+    </h3>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+      <div>
+        <label class="block text-slate-300 text-sm font-medium mb-2.5">Category</label>
+        <%= form.select :category, Vendor::CATEGORIES, { include_blank: "Select Category" },
+          class: "w-full px-4 py-3 bg-slate-900 border border-slate-600 rounded-lg text-slate-100 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all" %>
+      </div>
+
+      <div>
+        <label class="block text-slate-300 text-sm font-medium mb-2.5">Risk Score (0-100)</label>
+        <%= form.number_field :risk_score, min: 0, max: 100,
+          class: "w-full px-4 py-3 bg-slate-900 border border-slate-600 rounded-lg text-slate-100 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all" %>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="space-y-2">
+        <label class="block text-slate-300 text-sm font-medium mb-2">Company Registration</label>
+        <%= form.file_field :company_registration_doc, class: "block w-full text-sm text-slate-400 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-500 file:text-white hover:file:bg-blue-600" %>
+      </div>
+      <div class="space-y-2">
+        <label class="block text-slate-300 text-sm font-medium mb-2">Tax Clearance</label>
+        <%= form.file_field :tax_clearance_doc, class: "block w-full text-sm text-slate-400 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-500 file:text-white hover:file:bg-blue-600" %>
+      </div>
+      <div class="space-y-2">
+        <label class="block text-slate-300 text-sm font-medium mb-2">Insurance Certificate</label>
+        <%= form.file_field :insurance_certificate_doc, class: "block w-full text-sm text-slate-400 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-500 file:text-white hover:file:bg-blue-600" %>
+      </div>
+      <div class="space-y-2">
+        <label class="block text-slate-300 text-sm font-medium mb-2">Bank Confirmation Letter</label>
+        <%= form.file_field :bank_confirmation_letter_doc, class: "block w-full text-sm text-slate-400 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-500 file:text-white hover:file:bg-blue-600" %>
+      </div>
+      <div class="space-y-2">
+        <label class="block text-slate-300 text-sm font-medium mb-2">BBBEE Certificate</label>
+        <%= form.file_field :bbbee_certificate_doc, class: "block w-full text-sm text-slate-400 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-500 file:text-white hover:file:bg-blue-600" %>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 3: Vendor KYC (Bank Standard) -->
+  <div class="bg-slate-900/50 p-6 rounded-xl border border-slate-700">
+    <h3 class="text-lg font-semibold text-slate-100 mb-6 flex items-center gap-2">
+      <svg class="w-5 h-5 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+      </svg>
+      KYC & FICA Compliance
+    </h3>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+      <div>
+        <label class="block text-slate-300 text-sm font-medium mb-2.5">CIPC Registration Number</label>
+        <%= form.text_field :registration_number,
+          class: "w-full px-4 py-3 bg-slate-900 border border-slate-600 rounded-lg text-slate-100 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all" %>
+      </div>
+      <div>
+        <label class="block text-slate-300 text-sm font-medium mb-2.5">VAT Number</label>
+        <%= form.text_field :vat_number,
+          class: "w-full px-4 py-3 bg-slate-900 border border-slate-600 rounded-lg text-slate-100 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all" %>
+      </div>
+      <div>
+        <label class="block text-slate-300 text-sm font-medium mb-2.5">Bank Reference</label>
+        <%= form.text_field :bank_reference,
+          class: "w-full px-4 py-3 bg-slate-900 border border-slate-600 rounded-lg text-slate-100 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all" %>
+      </div>
+      <div>
+        <label class="block text-slate-300 text-sm font-medium mb-2.5">KYC Status</label>
+        <%= form.select :kyc_status, Vendor::KYC_STATUSES, {},
+          class: "w-full px-4 py-3 bg-slate-900 border border-slate-600 rounded-lg text-slate-100 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all" %>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+      <div class="flex items-center gap-2">
+        <%= form.check_box :fica_compliant, class: "w-4 h-4 rounded border-slate-600 bg-slate-900 text-blue-500 focus:ring-blue-500/20" %>
+        <label class="text-slate-300 text-sm">FICA Compliant</label>
+      </div>
+      <div class="flex items-center gap-2">
+        <%= form.check_box :aml_checked, class: "w-4 h-4 rounded border-slate-600 bg-slate-900 text-blue-500 focus:ring-blue-500/20" %>
+        <label class="text-slate-300 text-sm">AML Checked</label>
+      </div>
+      <div class="flex items-center gap-2">
+        <%= form.check_box :sanctions_screened, class: "w-4 h-4 rounded border-slate-600 bg-slate-900 text-blue-500 focus:ring-blue-500/20" %>
+        <label class="text-slate-300 text-sm">Sanctions Screened</label>
+      </div>
+      <div class="flex items-center gap-2">
+        <%= form.check_box :bank_verified, class: "w-4 h-4 rounded border-slate-600 bg-slate-900 text-blue-500 focus:ring-blue-500/20" %>
+        <label class="text-slate-300 text-sm">Bank Verified</label>
+      </div>
+      <div class="flex items-center gap-2">
+        <%= form.check_box :beneficial_ownership_declared, class: "w-4 h-4 rounded border-slate-600 bg-slate-900 text-blue-500 focus:ring-blue-500/20" %>
+        <label class="text-slate-300 text-sm">Beneficial Ownership</label>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 4: Contract Management -->
+  <div class="bg-slate-900/50 p-6 rounded-xl border border-slate-700">
+    <h3 class="text-lg font-semibold text-slate-100 mb-6 flex items-center gap-2">
+      <svg class="w-5 h-5 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+      </svg>
+      Contract Management
+    </h3>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+      <div>
+        <label class="block text-slate-300 text-sm font-medium mb-2.5">Contract Start Date</label>
+        <%= form.date_field :contract_start_date,
+          class: "w-full px-4 py-3 bg-slate-900 border border-slate-600 rounded-lg text-slate-100 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all" %>
+      </div>
+      <div>
+        <label class="block text-slate-300 text-sm font-medium mb-2.5">Contract End Date</label>
+        <%= form.date_field :contract_end_date,
+          class: "w-full px-4 py-3 bg-slate-900 border border-slate-600 rounded-lg text-slate-100 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all" %>
+      </div>
+      <div class="md:col-span-2">
+        <label class="block text-slate-300 text-sm font-medium mb-2.5">SLA Details</label>
+        <%= form.text_area :sla_details, rows: 2,
+          class: "w-full px-4 py-3 bg-slate-900 border border-slate-600 rounded-lg text-slate-100 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all" %>
+      </div>
+      <div class="md:col-span-2">
+        <label class="block text-slate-300 text-sm font-medium mb-2.5">Rate Card & Pricing</label>
+        <%= form.text_area :rate_card_details, rows: 2,
+          class: "w-full px-4 py-3 bg-slate-900 border border-slate-600 rounded-lg text-slate-100 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all" %>
+      </div>
+      <div class="md:col-span-2">
+        <label class="block text-slate-300 text-sm font-medium mb-2.5">Penalty Clauses</label>
+        <%= form.text_area :penalty_clauses, rows: 2,
+          class: "w-full px-4 py-3 bg-slate-900 border border-slate-600 rounded-lg text-slate-100 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all" %>
+      </div>
+      <div class="md:col-span-2">
+        <label class="block text-slate-300 text-sm font-medium mb-2.5">Upload Contracts</label>
+        <%= form.file_field :contracts, multiple: true, class: "block w-full text-sm text-slate-400 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-500 file:text-white hover:file:bg-blue-600" %>
+      </div>
+    </div>
+  </div>
+
+  <!-- Actions -->
+  <div class="flex items-center gap-4 pt-4">
+    <%= form.submit (vendor.new_record? ? 'Create Vendor' : 'Update Vendor'),
+      class: "px-8 py-3 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white rounded-lg font-medium transition-all cursor-pointer shadow-lg shadow-blue-500/20" %>
+
+    <a href="<%= admin_vendors_path %>" 
+       class="px-8 py-3 bg-slate-700 hover:bg-slate-600 text-slate-200 rounded-lg font-medium transition-all">
+      Cancel
+    </a>
+  </div>
+
+<% end %>

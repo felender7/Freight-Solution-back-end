@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_04_15_101210) do
+ActiveRecord::Schema[8.1].define(version: 2026_04_20_085356) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -209,13 +209,30 @@ ActiveRecord::Schema[8.1].define(version: 2026_04_15_101210) do
 
   create_table "vendors", force: :cascade do |t|
     t.text "address"
+    t.boolean "aml_checked", default: false
     t.string "bank_reference"
+    t.boolean "bank_verified", default: false
+    t.boolean "beneficial_ownership_declared", default: false
+    t.string "category"
+    t.date "contract_end_date"
+    t.date "contract_start_date"
     t.datetime "created_at", null: false
     t.string "email"
+    t.boolean "fica_compliant", default: false
+    t.string "kyc_status", default: "pending"
     t.string "name"
+    t.text "penalty_clauses"
     t.string "phone"
+    t.text "rate_card_details"
+    t.string "registration_number"
+    t.integer "risk_score", default: 0
+    t.boolean "sanctions_screened", default: false
+    t.text "sla_details"
     t.string "status"
     t.datetime "updated_at", null: false
+    t.string "vat_number"
+    t.index ["category"], name: "index_vendors_on_category"
+    t.index ["kyc_status"], name: "index_vendors_on_kyc_status"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"

@@ -117,9 +117,9 @@
                         </svg>
                       </a>
 
-                      <%= link_to admin_shipment_path(shipment),
+                      <%= button_to admin_shipment_path(shipment),
                         method: :delete,
-                        data: { turbo: false, confirm: "Are you sure you want to delete '#{shipment.container_number}'? This action cannot be undone." },
+                        form: { class: 'inline-block', data: { turbo: false, confirm: "Are you sure you want to delete '#{shipment.container_number}'? This action cannot be undone." } },
                         class: 'p-2 bg-red-600 hover:bg-red-700 text-white rounded-lg transition-colors cursor-pointer',
                         title: 'Delete' do %>
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

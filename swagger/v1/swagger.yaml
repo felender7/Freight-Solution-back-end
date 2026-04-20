@@ -410,6 +410,99 @@ paths:
       responses:
         '200':
           description: Returns enrollment
+  "/api/v1/vendors":
+    get:
+      summary: List Vendors
+      tags:
+      - Vendors
+      security:
+      - BearerAuth: []
+      responses:
+        '200':
+          description: Returns list of vendors
+    post:
+      summary: Create Vendor
+      tags:
+      - Vendors
+      security:
+      - BearerAuth: []
+      parameters: []
+      responses:
+        '201':
+          description: Vendor created
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                email:
+                  type: string
+                phone:
+                  type: string
+                address:
+                  type: string
+                bank_reference:
+                  type: string
+                status:
+                  type: string
+              required:
+              - name
+  "/api/v1/vendors/{id}":
+    parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        type: integer
+    get:
+      summary: Get Vendor
+      tags:
+      - Vendors
+      security:
+      - BearerAuth: []
+      responses:
+        '200':
+          description: Returns vendor
+    put:
+      summary: Update Vendor
+      tags:
+      - Vendors
+      security:
+      - BearerAuth: []
+      parameters: []
+      responses:
+        '200':
+          description: Vendor updated
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                email:
+                  type: string
+                phone:
+                  type: string
+                address:
+                  type: string
+                bank_reference:
+                  type: string
+                status:
+                  type: string
+    delete:
+      summary: Delete Vendor
+      tags:
+      - Vendors
+      security:
+      - BearerAuth: []
+      responses:
+        '204':
+          description: Vendor deleted
   "/api/v1/logistics/bookings":
     get:
       summary: List Bookings

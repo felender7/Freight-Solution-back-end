@@ -5536,3 +5536,98 @@ Redirected to http://www.example.com/admin/vendors
 Completed 302 Found in 2ms (ActiveRecord: 0.5ms (1 query, 0 cached) | GC: 0.0ms)
   [1m[36mVendor Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "vendors"[0m
   [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+Generating image variants require the image_processing gem. Please add `gem "image_processing", "~> 1.2"` to your Gemfile or set `config.active_storage.variant_processor = :disabled`.
+  [1m[36mActiveRecord::InternalMetadata Load (2.4ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+Generating image variants require the image_processing gem. Please add `gem "image_processing", "~> 1.2"` to your Gemfile or set `config.active_storage.variant_processor = :disabled`.
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/api/v1/vendors" for 127.0.0.1 at 2026-04-20 10:19:29 +0200
+Processing by Api::V1::VendorsController#index as JSON
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/vendors" for 127.0.0.1 at 2026-04-20 10:19:29 +0200
+Processing by Api::V1::VendorsController#create as JSON
+  Parameters: {"name" => "New Vendor", "email" => "[FILTERED]", "vendor" => {"email" => "[FILTERED]", "name" => "New Vendor"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mVendor Create (1.0ms)[0m  [1m[32mINSERT INTO "vendors" ("address", "bank_reference", "created_at", "email", "name", "phone", "status", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["address", nil], ["bank_reference", nil], ["created_at", "2026-04-20 08:19:29.994908"], ["email", "[FILTERED]"], ["name", "New Vendor"], ["phone", nil], ["status", nil], ["updated_at", "2026-04-20 08:19:29.994908"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 201 Created in 3ms (Views: 0.1ms | ActiveRecord: 1.3ms (1 query, 0 cached) | GC: 0.3ms)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/api/v1/vendors/1" for 127.0.0.1 at 2026-04-20 10:19:29 +0200
+Processing by Api::V1::VendorsController#show as JSON
+  Parameters: {"id" => "1"}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.2ms)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/api/v1/vendors/999" for 127.0.0.1 at 2026-04-20 10:19:30 +0200
+Processing by Api::V1::VendorsController#show as JSON
+  Parameters: {"id" => "999"}
+Filter chain halted as :set_vendor rendered or redirected
+Completed 404 Not Found in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+Started PUT "/api/v1/vendors/1" for 127.0.0.1 at 2026-04-20 10:19:30 +0200
+Processing by Api::V1::VendorsController#update as JSON
+  Parameters: {"name" => "Updated Vendor", "id" => "1", "vendor" => {"name" => "Updated Vendor"}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+Started DELETE "/api/v1/vendors/1" for 127.0.0.1 at 2026-04-20 10:19:30 +0200
+Processing by Api::V1::VendorsController#destroy as HTML
+  Parameters: {"id" => "1"}
+Completed 204 No Content in 1ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.3ms)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+Generating image variants require the image_processing gem. Please add `gem "image_processing", "~> 1.2"` to your Gemfile or set `config.active_storage.variant_processor = :disabled`.
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+Started GET "/api/v1/vendors" for 127.0.0.1 at 2026-04-20 10:19:41 +0200
+Processing by Api::V1::VendorsController#index as JSON
+Completed 200 OK in 2ms (Views: 0.8ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.3ms)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/vendors" for 127.0.0.1 at 2026-04-20 10:19:41 +0200
+Processing by Api::V1::VendorsController#create as JSON
+  Parameters: {"name" => "New Vendor", "email" => "[FILTERED]", "vendor" => {"email" => "[FILTERED]", "name" => "New Vendor"}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mVendor Create (0.7ms)[0m  [1m[32mINSERT INTO "vendors" ("address", "bank_reference", "created_at", "email", "name", "phone", "status", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["address", nil], ["bank_reference", nil], ["created_at", "2026-04-20 08:19:41.455600"], ["email", "[FILTERED]"], ["name", "New Vendor"], ["phone", nil], ["status", nil], ["updated_at", "2026-04-20 08:19:41.455600"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 201 Created in 3ms (Views: 0.2ms | ActiveRecord: 1.0ms (1 query, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+Started GET "/api/v1/vendors/1" for 127.0.0.1 at 2026-04-20 10:19:41 +0200
+Processing by Api::V1::VendorsController#show as JSON
+  Parameters: {"id" => "1"}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/api/v1/vendors/999" for 127.0.0.1 at 2026-04-20 10:19:41 +0200
+Processing by Api::V1::VendorsController#show as JSON
+  Parameters: {"id" => "999"}
+Filter chain halted as :set_vendor rendered or redirected
+Completed 404 Not Found in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started PUT "/api/v1/vendors/1" for 127.0.0.1 at 2026-04-20 10:19:41 +0200
+Processing by Api::V1::VendorsController#update as JSON
+  Parameters: {"name" => "Updated Vendor", "id" => "1", "vendor" => {"name" => "Updated Vendor"}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started DELETE "/api/v1/vendors/1" for 127.0.0.1 at 2026-04-20 10:19:41 +0200
+Processing by Api::V1::VendorsController#destroy as HTML
+  Parameters: {"id" => "1"}
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m

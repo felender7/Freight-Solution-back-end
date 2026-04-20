@@ -42,6 +42,14 @@ class Admin::VendorsController < Admin::BaseController
   private
 
   def vendor_params
-    params.require(:vendor).permit(:name, :email, :phone, :address, :bank_reference, :status)
+    params.require(:vendor).permit(
+      :name, :email, :phone, :address, :bank_reference, :status,
+      :category, :registration_number, :vat_number, :kyc_status, :risk_score,
+      :fica_compliant, :aml_checked, :sanctions_screened, :bank_verified,
+      :beneficial_ownership_declared, :contract_start_date, :contract_end_date,
+      :sla_details, :rate_card_details, :penalty_clauses,
+      :company_registration_doc, :tax_clearance_doc, :insurance_certificate_doc,
+      :bank_confirmation_letter_doc, :bbbee_certificate_doc, contracts: []
+    )
   end
 end
