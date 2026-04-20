@@ -137,11 +137,13 @@
           <span class="text-sm font-medium">HRM Dashboard</span>
         </a>
         
+        <% if current_user && (current_user.role == 'Admin' || current_user.role == 'admin') %>
         <p class="text-slate-500 text-[10px] font-semibold uppercase tracking-wider px-3 mb-2 mt-4">System</p>
         <a href="<%= admin_users_path %>" class="sidebar-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-400 hover:text-slate-200 hover:bg-slate-700/30 transition-all <%= 'active bg-slate-700/50 text-blue-400' if controller_path == 'admin/users' %>">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"/></svg>
           <span class="text-sm font-medium">Users</span>
         </a>
+        <% end %>
 
         <a href="<%= admin_logout_path %>" class="flex items-center gap-3 px-3 py-2.5 mt-4 w-full rounded-lg text-red-400 hover:bg-red-500/10 hover:text-red-300 transition-all">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
