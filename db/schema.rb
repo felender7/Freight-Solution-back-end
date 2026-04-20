@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_04_20_085356) do
+ActiveRecord::Schema[8.1].define(version: 2026_04_20_090615) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -65,6 +65,33 @@ ActiveRecord::Schema[8.1].define(version: 2026_04_20_085356) do
     t.bigint "user_id"
     t.index ["employee_id"], name: "index_attendance_records_on_employee_id"
     t.index ["user_id"], name: "index_attendance_records_on_user_id"
+  end
+
+  create_table "clients", force: :cascade do |t|
+    t.text "address"
+    t.boolean "aml_checked", default: false
+    t.boolean "bank_verified", default: false
+    t.string "category"
+    t.datetime "created_at", null: false
+    t.decimal "credit_limit", precision: 15, scale: 2, default: "0.0"
+    t.integer "credit_score", default: 0
+    t.string "email", null: false
+    t.boolean "fica_compliant", default: false
+    t.decimal "fx_exposure", precision: 15, scale: 2, default: "0.0"
+    t.string "kyc_status", default: "pending"
+    t.string "name", null: false
+    t.string "payment_terms"
+    t.string "phone"
+    t.string "registration_number"
+    t.string "risk_category"
+    t.boolean "sanctions_screened", default: false
+    t.string "status", default: "active"
+    t.datetime "updated_at", null: false
+    t.string "vat_number"
+    t.index ["category"], name: "index_clients_on_category"
+    t.index ["email"], name: "index_clients_on_email", unique: true
+    t.index ["kyc_status"], name: "index_clients_on_kyc_status"
+    t.index ["status"], name: "index_clients_on_status"
   end
 
   create_table "employees", force: :cascade do |t|

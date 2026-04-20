@@ -30553,3 +30553,309 @@ Migrating to AddVmsFieldsToVendors (20260420085356)
   [1m[35mSQL (0.0ms)[0m  [1m[35mSET search_path TO "$user", public /*application='FreightSolutionBackEnd'*/[0m
   [1m[35mSQL (0.0ms)[0m  [1m[35mSET search_path TO public /*application='FreightSolutionBackEnd'*/[0m
   [1m[35mSQL (0.0ms)[0m  [1m[35mSET search_path TO "$user", public /*application='FreightSolutionBackEnd'*/[0m
+Started GET "/admin/users" for ::1 at 2026-04-20 11:03:56 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='FreightSolutionBackEnd'*/[0m
+Processing by Admin::UsersController#index as HTML
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/users/index.html.erb within layouts/admin
+  [1m[36mUser Exists? (6.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='users'*/[0m
+  ↳ app/views/admin/users/index.html.erb:46
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."created_at" DESC /*action='index',application='FreightSolutionBackEnd',controller='users'*/[0m
+  ↳ app/views/admin/users/index.html.erb:60
+  Rendered admin/users/index.html.erb within layouts/admin (Duration: 12.5ms | GC: 2.7ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='users'*/[0m
+  ↳ app/controllers/admin/base_controller.rb:15:in 'Admin::BaseController#current_user'
+  Rendered layout layouts/admin.html.erb (Duration: 14.7ms | GC: 2.8ms)
+Completed 200 OK in 22ms (Views: 6.1ms | ActiveRecord: 9.4ms (3 queries, 0 cached) | GC: 5.9ms)
+
+
+Started GET "/admin/vendors" for ::1 at 2026-04-20 11:03:59 +0200
+Processing by Admin::VendorsController#index as HTML
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/vendors/index.html.erb within layouts/admin
+  [1m[36mVendor Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "vendors" LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='vendors'*/[0m
+  ↳ app/views/admin/vendors/index.html.erb:46
+  [1m[36mVendor Load (0.3ms)[0m  [1m[34mSELECT "vendors".* FROM "vendors" ORDER BY "vendors"."created_at" DESC /*action='index',application='FreightSolutionBackEnd',controller='vendors'*/[0m
+  ↳ app/views/admin/vendors/index.html.erb:61
+  Rendered admin/vendors/index.html.erb within layouts/admin (Duration: 6.1ms | GC: 0.6ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='vendors'*/[0m
+  ↳ app/controllers/admin/base_controller.rb:15:in 'Admin::BaseController#current_user'
+  Rendered layout layouts/admin.html.erb (Duration: 7.6ms | GC: 0.6ms)
+Completed 200 OK in 19ms (Views: 7.1ms | ActiveRecord: 0.9ms (3 queries, 0 cached) | GC: 1.6ms)
+
+
+Started GET "/admin/vendors/new" for ::1 at 2026-04-20 11:04:02 +0200
+Processing by Admin::VendorsController#new as HTML
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/vendors/new.html.erb within layouts/admin
+  Rendered admin/vendors/_form.html.erb (Duration: 5.2ms | GC: 0.4ms)
+  Rendered admin/vendors/new.html.erb within layouts/admin (Duration: 5.8ms | GC: 0.4ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='new',application='FreightSolutionBackEnd',controller='vendors'*/[0m
+  ↳ app/controllers/admin/base_controller.rb:15:in 'Admin::BaseController#current_user'
+  Rendered layout layouts/admin.html.erb (Duration: 7.3ms | GC: 0.4ms)
+Completed 200 OK in 8ms (Views: 7.4ms | ActiveRecord: 0.3ms (1 query, 0 cached) | GC: 0.4ms)
+
+
+Started GET "/admin/users" for ::1 at 2026-04-20 11:05:11 +0200
+Processing by Admin::UsersController#index as HTML
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/users/index.html.erb within layouts/admin
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='users'*/[0m
+  ↳ app/views/admin/users/index.html.erb:46
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."created_at" DESC /*action='index',application='FreightSolutionBackEnd',controller='users'*/[0m
+  ↳ app/views/admin/users/index.html.erb:60
+  Rendered admin/users/index.html.erb within layouts/admin (Duration: 3.9ms | GC: 0.3ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='users'*/[0m
+  ↳ app/controllers/admin/base_controller.rb:15:in 'Admin::BaseController#current_user'
+  Rendered layout layouts/admin.html.erb (Duration: 5.9ms | GC: 0.3ms)
+Completed 200 OK in 7ms (Views: 5.6ms | ActiveRecord: 0.8ms (3 queries, 0 cached) | GC: 0.3ms)
+
+
+Started GET "/admin/dashboard" for ::1 at 2026-04-20 11:05:15 +0200
+Processing by Admin::DashboardController#index as HTML
+  [1m[36mEmployee Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='FreightSolutionBackEnd',controller='dashboard'*/[0m
+  ↳ app/controllers/admin/dashboard_controller.rb:3:in 'Admin::DashboardController#index'
+  [1m[36mVendor Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "vendors" /*action='index',application='FreightSolutionBackEnd',controller='dashboard'*/[0m
+  ↳ app/controllers/admin/dashboard_controller.rb:4:in 'Admin::DashboardController#index'
+  [1m[36mShipment Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "shipments" /*action='index',application='FreightSolutionBackEnd',controller='dashboard'*/[0m
+  ↳ app/controllers/admin/dashboard_controller.rb:5:in 'Admin::DashboardController#index'
+  [1m[36mInvoice Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "invoices" /*action='index',application='FreightSolutionBackEnd',controller='dashboard'*/[0m
+  ↳ app/controllers/admin/dashboard_controller.rb:6:in 'Admin::DashboardController#index'
+  [1m[36mInvoice Sum (0.4ms)[0m  [1m[34mSELECT SUM("invoices"."amount") FROM "invoices" WHERE "invoices"."status" = 'paid' /*action='index',application='FreightSolutionBackEnd',controller='dashboard'*/[0m
+  ↳ app/controllers/admin/dashboard_controller.rb:7:in 'Admin::DashboardController#index'
+  [1m[36mInvoice Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "invoices" WHERE "invoices"."status" = 'pending' /*action='index',application='FreightSolutionBackEnd',controller='dashboard'*/[0m
+  ↳ app/controllers/admin/dashboard_controller.rb:8:in 'Admin::DashboardController#index'
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/dashboard/index.html.erb within layouts/admin
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='dashboard'*/[0m
+  ↳ app/controllers/admin/base_controller.rb:15:in 'Admin::BaseController#current_user'
+  [1m[36mShipment Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "shipments" LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='dashboard'*/[0m
+  ↳ app/views/admin/dashboard/index.html.erb:119
+  [1m[36mInvoice Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "invoices" LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='dashboard'*/[0m
+  ↳ app/views/admin/dashboard/index.html.erb:175
+  Rendered admin/dashboard/index.html.erb within layouts/admin (Duration: 2.4ms | GC: 0.0ms)
+  Rendered layout layouts/admin.html.erb (Duration: 2.9ms | GC: 0.0ms)
+Completed 200 OK in 16ms (Views: 2.9ms | ActiveRecord: 1.8ms (9 queries, 0 cached) | GC: 0.5ms)
+
+
+Generating image variants require the image_processing gem. Please add `gem "image_processing", "~> 1.2"` to your Gemfile or set `config.active_storage.variant_processor = :disabled`.
+Generating image variants require the image_processing gem. Please add `gem "image_processing", "~> 1.2"` to your Gemfile or set `config.active_storage.variant_processor = :disabled`.
+Generating image variants require the image_processing gem. Please add `gem "image_processing", "~> 1.2"` to your Gemfile or set `config.active_storage.variant_processor = :disabled`.
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT pg_try_advisory_lock(393442119656133765) /*application='FreightSolutionBackEnd'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='FreightSolutionBackEnd'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='FreightSolutionBackEnd'*/[0m
+Migrating to CreateClients (20260420090615)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='FreightSolutionBackEnd'*/[0m
+  [1m[35m (6.1ms)[0m  [1m[35mCREATE TABLE "clients" ("id" bigserial primary key, "name" character varying NOT NULL, "email" character varying NOT NULL, "phone" character varying, "address" text, "status" character varying DEFAULT 'active', "category" character varying, "registration_number" character varying, "vat_number" character varying, "kyc_status" character varying DEFAULT 'pending', "credit_score" integer DEFAULT 0, "credit_limit" decimal(15,2) DEFAULT 0.0, "payment_terms" character varying, "risk_category" character varying, "fx_exposure" decimal(15,2) DEFAULT 0.0, "fica_compliant" boolean DEFAULT FALSE, "aml_checked" boolean DEFAULT FALSE, "bank_verified" boolean DEFAULT FALSE, "sanctions_screened" boolean DEFAULT FALSE, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL) /*application='FreightSolutionBackEnd'*/[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_clients_on_email" ON "clients" ("email") /*application='FreightSolutionBackEnd'*/[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE INDEX "index_clients_on_category" ON "clients" ("category") /*application='FreightSolutionBackEnd'*/[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE INDEX "index_clients_on_status" ON "clients" ("status") /*application='FreightSolutionBackEnd'*/[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE INDEX "index_clients_on_kyc_status" ON "clients" ("kyc_status") /*application='FreightSolutionBackEnd'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20260420090615') RETURNING "version" /*application='FreightSolutionBackEnd'*/[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT /*application='FreightSolutionBackEnd'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(393442119656133765) /*application='FreightSolutionBackEnd'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='FreightSolutionBackEnd'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mSET search_path TO public /*application='FreightSolutionBackEnd'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mSET search_path TO "$user", public /*application='FreightSolutionBackEnd'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mSET search_path TO public /*application='FreightSolutionBackEnd'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mSET search_path TO "$user", public /*application='FreightSolutionBackEnd'*/[0m
+Started GET "/admin/dashboard" for ::1 at 2026-04-20 11:07:46 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='FreightSolutionBackEnd'*/[0m
+Processing by Admin::DashboardController#index as HTML
+  [1m[36mEmployee Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='FreightSolutionBackEnd',controller='dashboard'*/[0m
+  ↳ app/controllers/admin/dashboard_controller.rb:3:in 'Admin::DashboardController#index'
+  [1m[36mVendor Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "vendors" /*action='index',application='FreightSolutionBackEnd',controller='dashboard'*/[0m
+  ↳ app/controllers/admin/dashboard_controller.rb:4:in 'Admin::DashboardController#index'
+  [1m[36mShipment Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "shipments" /*action='index',application='FreightSolutionBackEnd',controller='dashboard'*/[0m
+  ↳ app/controllers/admin/dashboard_controller.rb:5:in 'Admin::DashboardController#index'
+  [1m[36mInvoice Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "invoices" /*action='index',application='FreightSolutionBackEnd',controller='dashboard'*/[0m
+  ↳ app/controllers/admin/dashboard_controller.rb:6:in 'Admin::DashboardController#index'
+  [1m[36mInvoice Sum (0.1ms)[0m  [1m[34mSELECT SUM("invoices"."amount") FROM "invoices" WHERE "invoices"."status" = 'paid' /*action='index',application='FreightSolutionBackEnd',controller='dashboard'*/[0m
+  ↳ app/controllers/admin/dashboard_controller.rb:7:in 'Admin::DashboardController#index'
+  [1m[36mInvoice Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "invoices" WHERE "invoices"."status" = 'pending' /*action='index',application='FreightSolutionBackEnd',controller='dashboard'*/[0m
+  ↳ app/controllers/admin/dashboard_controller.rb:8:in 'Admin::DashboardController#index'
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/dashboard/index.html.erb within layouts/admin
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='dashboard'*/[0m
+  ↳ app/controllers/admin/base_controller.rb:15:in 'Admin::BaseController#current_user'
+  [1m[36mShipment Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "shipments" LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='dashboard'*/[0m
+  ↳ app/views/admin/dashboard/index.html.erb:119
+  [1m[36mInvoice Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "invoices" LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='dashboard'*/[0m
+  ↳ app/views/admin/dashboard/index.html.erb:175
+  Rendered admin/dashboard/index.html.erb within layouts/admin (Duration: 9.1ms | GC: 0.5ms)
+  Rendered layout layouts/admin.html.erb (Duration: 10.0ms | GC: 0.5ms)
+Completed 200 OK in 34ms (Views: 9.3ms | ActiveRecord: 6.0ms (9 queries, 0 cached) | GC: 0.8ms)
+
+
+Started GET "/admin/vendors" for ::1 at 2026-04-20 11:07:49 +0200
+Processing by Admin::VendorsController#index as HTML
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/vendors/index.html.erb within layouts/admin
+  [1m[36mVendor Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "vendors" LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='vendors'*/[0m
+  ↳ app/views/admin/vendors/index.html.erb:46
+  [1m[36mVendor Load (0.2ms)[0m  [1m[34mSELECT "vendors".* FROM "vendors" ORDER BY "vendors"."created_at" DESC /*action='index',application='FreightSolutionBackEnd',controller='vendors'*/[0m
+  ↳ app/views/admin/vendors/index.html.erb:61
+  Rendered admin/vendors/index.html.erb within layouts/admin (Duration: 9.0ms | GC: 0.0ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='vendors'*/[0m
+  ↳ app/controllers/admin/base_controller.rb:15:in 'Admin::BaseController#current_user'
+  Rendered layout layouts/admin.html.erb (Duration: 10.2ms | GC: 0.0ms)
+Completed 200 OK in 15ms (Views: 9.8ms | ActiveRecord: 2.7ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/admin/vendors/3/edit" for ::1 at 2026-04-20 11:07:53 +0200
+Processing by Admin::VendorsController#edit as HTML
+  Parameters: {"id" => "3"}
+  [1m[36mVendor Load (0.4ms)[0m  [1m[34mSELECT "vendors".* FROM "vendors" WHERE "vendors"."id" = 3 LIMIT 1 /*action='edit',application='FreightSolutionBackEnd',controller='vendors'*/[0m
+  ↳ app/controllers/admin/vendors_controller.rb:24:in 'Admin::VendorsController#edit'
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/vendors/edit.html.erb within layouts/admin
+  Rendered admin/vendors/_form.html.erb (Duration: 8.8ms | GC: 5.9ms)
+  Rendered admin/vendors/edit.html.erb within layouts/admin (Duration: 9.8ms | GC: 5.9ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='edit',application='FreightSolutionBackEnd',controller='vendors'*/[0m
+  ↳ app/controllers/admin/base_controller.rb:15:in 'Admin::BaseController#current_user'
+  Rendered layout layouts/admin.html.erb (Duration: 11.4ms | GC: 5.9ms)
+Completed 200 OK in 15ms (Views: 11.6ms | ActiveRecord: 0.6ms (2 queries, 0 cached) | GC: 5.9ms)
+
+
+Started PATCH "/admin/vendors/3" for ::1 at 2026-04-20 11:08:35 +0200
+Processing by Admin::VendorsController#update as HTML
+  Parameters: {"authenticity_token" => "[FILTERED]", "vendor" => {"name" => "Red Transport Company (Pty) Ltd ", "email" => "[FILTERED]", "phone" => "071 170 6153", "status" => "active", "address" => "1 Orion Rd, Brackenfell, Cape Town, 7561, South Africa", "category" => "Shipping lines", "risk_score" => "0", "company_registration_doc" => #<ActionDispatch::Http::UploadedFile:0x00007e7ffd766500 @tempfile=#<Tempfile:/tmp/RackMultipart20260420-635889-a8le7w.pdf>, @content_type="application/pdf", @original_filename="infrastructure-specs.pdf", @headers="Content-Disposition: form-data; name=\"vendor[company_registration_doc]\"; filename=\"infrastructure-specs.pdf\"\r\nContent-Type: application/pdf\r\n">, "registration_number" => "", "vat_number" => "", "bank_reference" => "203 067 533", "kyc_status" => "pending", "fica_compliant" => "0", "aml_checked" => "0", "sanctions_screened" => "0", "bank_verified" => "0", "beneficial_ownership_declared" => "0", "contract_start_date" => "", "contract_end_date" => "", "sla_details" => "", "rate_card_details" => "", "penalty_clauses" => "", "contracts" => [""]}, "commit" => "Update Vendor", "id" => "3"}
+  [1m[36mVendor Load (0.2ms)[0m  [1m[34mSELECT "vendors".* FROM "vendors" WHERE "vendors"."id" = 3 LIMIT 1 /*action='update',application='FreightSolutionBackEnd',controller='vendors'*/[0m
+  ↳ app/controllers/admin/vendors_controller.rb:28:in 'Admin::VendorsController#update'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*action='update',application='FreightSolutionBackEnd',controller='vendors'*/[0m
+  ↳ app/controllers/admin/vendors_controller.rb:29:in 'Admin::VendorsController#update'
+  [1m[36mVendor Update (0.5ms)[0m  [1m[33mUPDATE "vendors" SET "updated_at" = '2026-04-20 09:08:35.622979', "category" = 'Shipping lines', "registration_number" = '', "vat_number" = '', "sla_details" = '', "rate_card_details" = '', "penalty_clauses" = '' WHERE "vendors"."id" = 3 /*action='update',application='FreightSolutionBackEnd',controller='vendors'*/[0m
+  ↳ app/controllers/admin/vendors_controller.rb:29:in 'Admin::VendorsController#update'
+  [1m[36mActiveStorage::Blob Load (0.6ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" INNER JOIN "active_storage_attachments" ON "active_storage_blobs"."id" = "active_storage_attachments"."blob_id" WHERE "active_storage_attachments"."record_id" = 3 AND "active_storage_attachments"."record_type" = 'Vendor' AND "active_storage_attachments"."name" = 'company_registration_doc' LIMIT 1 /*action='update',application='FreightSolutionBackEnd',controller='vendors'*/[0m
+  ↳ app/controllers/admin/vendors_controller.rb:29:in 'Admin::VendorsController#update'
+  [1m[36mActiveStorage::Attachment Load (0.4ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 3 AND "active_storage_attachments"."record_type" = 'Vendor' AND "active_storage_attachments"."name" = 'company_registration_doc' LIMIT 1 /*action='update',application='FreightSolutionBackEnd',controller='vendors'*/[0m
+  ↳ app/controllers/admin/vendors_controller.rb:29:in 'Admin::VendorsController#update'
+  [1m[36mActiveStorage::Blob Create (0.2ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "service_name", "byte_size", "checksum", "created_at") VALUES ('5etvv9etzfxb9sbdo9jctc7app81', 'infrastructure-specs.pdf', 'application/pdf', '{"identified":true}', 'local', 3730199, 'X0l9UOtn7GygMtY844UgGw==', '2026-04-20 09:08:35.638125') RETURNING "id" /*action='update',application='FreightSolutionBackEnd',controller='vendors'*/[0m
+  ↳ app/controllers/admin/vendors_controller.rb:29:in 'Admin::VendorsController#update'
+  [1m[36mActiveStorage::Attachment Create (0.3ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES ('company_registration_doc', 'Vendor', 3, 8, '2026-04-20 09:08:35.640544') RETURNING "id" /*action='update',application='FreightSolutionBackEnd',controller='vendors'*/[0m
+  ↳ app/controllers/admin/vendors_controller.rb:29:in 'Admin::VendorsController#update'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 3 AND "active_storage_attachments"."record_type" = 'Vendor' AND "active_storage_attachments"."name" = 'contracts' /*action='update',application='FreightSolutionBackEnd',controller='vendors'*/[0m
+  ↳ app/controllers/admin/vendors_controller.rb:29:in 'Admin::VendorsController#update'
+  [1m[36mVendor Update (0.2ms)[0m  [1m[33mUPDATE "vendors" SET "updated_at" = '2026-04-20 09:08:35.643335' WHERE "vendors"."id" = 3 /*action='update',application='FreightSolutionBackEnd',controller='vendors'*/[0m
+  ↳ app/controllers/admin/vendors_controller.rb:29:in 'Admin::VendorsController#update'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT /*action='update',application='FreightSolutionBackEnd',controller='vendors'*/[0m
+  ↳ app/controllers/admin/vendors_controller.rb:29:in 'Admin::VendorsController#update'
+[36m  Disk Storage (6.0ms) [0m[32mUploaded file to key: 5etvv9etzfxb9sbdo9jctc7app81 (checksum: X0l9UOtn7GygMtY844UgGw==)[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*action='update',application='FreightSolutionBackEnd',controller='vendors'*/[0m
+  ↳ app/controllers/admin/vendors_controller.rb:29:in 'Admin::VendorsController#update'
+  [1m[36mActiveStorage::Blob Update (1.7ms)[0m  [1m[33mUPDATE "active_storage_blobs" SET "metadata" = '{"identified":true,"analyzed":true}' WHERE "active_storage_blobs"."id" = 8 /*action='update',application='FreightSolutionBackEnd',controller='vendors'*/[0m
+  ↳ app/controllers/admin/vendors_controller.rb:29:in 'Admin::VendorsController#update'
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."blob_id" = 8 /*action='update',application='FreightSolutionBackEnd',controller='vendors'*/[0m
+  ↳ app/controllers/admin/vendors_controller.rb:29:in 'Admin::VendorsController#update'
+  [1m[36mVendor Load (0.2ms)[0m  [1m[34mSELECT "vendors".* FROM "vendors" WHERE "vendors"."id" = 3 /*action='update',application='FreightSolutionBackEnd',controller='vendors'*/[0m
+  ↳ app/controllers/admin/vendors_controller.rb:29:in 'Admin::VendorsController#update'
+  [1m[36mVendor Update (0.2ms)[0m  [1m[33mUPDATE "vendors" SET "updated_at" = '2026-04-20 09:08:35.665514' WHERE "vendors"."id" = 3 /*action='update',application='FreightSolutionBackEnd',controller='vendors'*/[0m
+  ↳ app/controllers/admin/vendors_controller.rb:29:in 'Admin::VendorsController#update'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*action='update',application='FreightSolutionBackEnd',controller='vendors'*/[0m
+  ↳ app/controllers/admin/vendors_controller.rb:29:in 'Admin::VendorsController#update'
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 8 AND "active_storage_attachments"."record_type" = 'ActiveStorage::Blob' AND "active_storage_attachments"."name" = 'preview_image' LIMIT 1 /*action='update',application='FreightSolutionBackEnd',controller='vendors'*/[0m
+  ↳ app/controllers/admin/vendors_controller.rb:29:in 'Admin::VendorsController#update'
+Redirected to http://[::1]:3000/admin/vendors
+↳ app/controllers/admin/vendors_controller.rb:30:in 'Admin::VendorsController#update'
+Completed 302 Found in 93ms (ActiveRecord: 11.0ms (13 queries, 0 cached) | GC: 8.4ms)
+
+
+Started GET "/admin/vendors" for ::1 at 2026-04-20 11:08:35 +0200
+Processing by Admin::VendorsController#index as HTML
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/vendors/index.html.erb within layouts/admin
+  [1m[36mVendor Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "vendors" LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='vendors'*/[0m
+  ↳ app/views/admin/vendors/index.html.erb:46
+  [1m[36mVendor Load (0.3ms)[0m  [1m[34mSELECT "vendors".* FROM "vendors" ORDER BY "vendors"."created_at" DESC /*action='index',application='FreightSolutionBackEnd',controller='vendors'*/[0m
+  ↳ app/views/admin/vendors/index.html.erb:61
+  Rendered admin/vendors/index.html.erb within layouts/admin (Duration: 4.3ms | GC: 0.2ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='vendors'*/[0m
+  ↳ app/controllers/admin/base_controller.rb:15:in 'Admin::BaseController#current_user'
+  Rendered layout layouts/admin.html.erb (Duration: 12.3ms | GC: 0.5ms)
+Completed 200 OK in 14ms (Views: 11.4ms | ActiveRecord: 2.0ms (3 queries, 0 cached) | GC: 0.5ms)
+
+
+Started GET "/admin/vendors/3" for ::1 at 2026-04-20 11:08:38 +0200
+Processing by Admin::VendorsController#show as HTML
+  Parameters: {"id" => "3"}
+  [1m[36mVendor Load (0.4ms)[0m  [1m[34mSELECT "vendors".* FROM "vendors" WHERE "vendors"."id" = 3 LIMIT 1 /*action='show',application='FreightSolutionBackEnd',controller='vendors'*/[0m
+  ↳ app/controllers/admin/vendors_controller.rb:7:in 'Admin::VendorsController#show'
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/vendors/show.html.erb within layouts/admin
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 3 AND "active_storage_attachments"."record_type" = 'Vendor' AND "active_storage_attachments"."name" = 'company_registration_doc' LIMIT 1 /*action='show',application='FreightSolutionBackEnd',controller='vendors'*/[0m
+  ↳ app/views/admin/vendors/show.html.erb:178
+  [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = 8 LIMIT 1 /*action='show',application='FreightSolutionBackEnd',controller='vendors'*/[0m
+  ↳ app/views/admin/vendors/show.html.erb:179
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 3 AND "active_storage_attachments"."record_type" = 'Vendor' AND "active_storage_attachments"."name" = 'tax_clearance_doc' LIMIT 1 /*action='show',application='FreightSolutionBackEnd',controller='vendors'*/[0m
+  ↳ app/views/admin/vendors/show.html.erb:178
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 3 AND "active_storage_attachments"."record_type" = 'Vendor' AND "active_storage_attachments"."name" = 'insurance_certificate_doc' LIMIT 1 /*action='show',application='FreightSolutionBackEnd',controller='vendors'*/[0m
+  ↳ app/views/admin/vendors/show.html.erb:178
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 3 AND "active_storage_attachments"."record_type" = 'Vendor' AND "active_storage_attachments"."name" = 'bank_confirmation_letter_doc' LIMIT 1 /*action='show',application='FreightSolutionBackEnd',controller='vendors'*/[0m
+  ↳ app/views/admin/vendors/show.html.erb:178
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 3 AND "active_storage_attachments"."record_type" = 'Vendor' AND "active_storage_attachments"."name" = 'bbbee_certificate_doc' LIMIT 1 /*action='show',application='FreightSolutionBackEnd',controller='vendors'*/[0m
+  ↳ app/views/admin/vendors/show.html.erb:178
+  [1m[36mActiveStorage::Attachment Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 3 AND "active_storage_attachments"."record_type" = 'Vendor' AND "active_storage_attachments"."name" = 'contracts' LIMIT 1 /*action='show',application='FreightSolutionBackEnd',controller='vendors'*/[0m
+  ↳ app/views/admin/vendors/show.html.erb:236
+  Rendered admin/vendors/show.html.erb within layouts/admin (Duration: 11.1ms | GC: 0.1ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='show',application='FreightSolutionBackEnd',controller='vendors'*/[0m
+  ↳ app/controllers/admin/base_controller.rb:15:in 'Admin::BaseController#current_user'
+  Rendered layout layouts/admin.html.erb (Duration: 12.2ms | GC: 0.1ms)
+Completed 200 OK in 15ms (Views: 11.4ms | ActiveRecord: 1.7ms (9 queries, 0 cached) | GC: 0.1ms)
+
+
+Started GET "/admin/vendors" for ::1 at 2026-04-20 11:08:54 +0200
+Processing by Admin::VendorsController#index as HTML
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/vendors/index.html.erb within layouts/admin
+  [1m[36mVendor Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "vendors" LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='vendors'*/[0m
+  ↳ app/views/admin/vendors/index.html.erb:46
+  [1m[36mVendor Load (0.1ms)[0m  [1m[34mSELECT "vendors".* FROM "vendors" ORDER BY "vendors"."created_at" DESC /*action='index',application='FreightSolutionBackEnd',controller='vendors'*/[0m
+  ↳ app/views/admin/vendors/index.html.erb:61
+  Rendered admin/vendors/index.html.erb within layouts/admin (Duration: 8.5ms | GC: 0.2ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='vendors'*/[0m
+  ↳ app/controllers/admin/base_controller.rb:15:in 'Admin::BaseController#current_user'
+  Rendered layout layouts/admin.html.erb (Duration: 16.1ms | GC: 0.5ms)
+Completed 200 OK in 29ms (Views: 14.8ms | ActiveRecord: 3.6ms (3 queries, 0 cached) | GC: 2.1ms)
+
+
+Started GET "/admin/vendors/2" for ::1 at 2026-04-20 11:08:58 +0200
+Processing by Admin::VendorsController#show as HTML
+  Parameters: {"id" => "2"}
+  [1m[36mVendor Load (0.4ms)[0m  [1m[34mSELECT "vendors".* FROM "vendors" WHERE "vendors"."id" = 2 LIMIT 1 /*action='show',application='FreightSolutionBackEnd',controller='vendors'*/[0m
+  ↳ app/controllers/admin/vendors_controller.rb:7:in 'Admin::VendorsController#show'
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/vendors/show.html.erb within layouts/admin
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 2 AND "active_storage_attachments"."record_type" = 'Vendor' AND "active_storage_attachments"."name" = 'company_registration_doc' LIMIT 1 /*action='show',application='FreightSolutionBackEnd',controller='vendors'*/[0m
+  ↳ app/views/admin/vendors/show.html.erb:178
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 2 AND "active_storage_attachments"."record_type" = 'Vendor' AND "active_storage_attachments"."name" = 'tax_clearance_doc' LIMIT 1 /*action='show',application='FreightSolutionBackEnd',controller='vendors'*/[0m
+  ↳ app/views/admin/vendors/show.html.erb:178
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 2 AND "active_storage_attachments"."record_type" = 'Vendor' AND "active_storage_attachments"."name" = 'insurance_certificate_doc' LIMIT 1 /*action='show',application='FreightSolutionBackEnd',controller='vendors'*/[0m
+  ↳ app/views/admin/vendors/show.html.erb:178
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 2 AND "active_storage_attachments"."record_type" = 'Vendor' AND "active_storage_attachments"."name" = 'bank_confirmation_letter_doc' LIMIT 1 /*action='show',application='FreightSolutionBackEnd',controller='vendors'*/[0m
+  ↳ app/views/admin/vendors/show.html.erb:178
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 2 AND "active_storage_attachments"."record_type" = 'Vendor' AND "active_storage_attachments"."name" = 'bbbee_certificate_doc' LIMIT 1 /*action='show',application='FreightSolutionBackEnd',controller='vendors'*/[0m
+  ↳ app/views/admin/vendors/show.html.erb:178
+  [1m[36mActiveStorage::Attachment Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 2 AND "active_storage_attachments"."record_type" = 'Vendor' AND "active_storage_attachments"."name" = 'contracts' LIMIT 1 /*action='show',application='FreightSolutionBackEnd',controller='vendors'*/[0m
+  ↳ app/views/admin/vendors/show.html.erb:236
+  Rendered admin/vendors/show.html.erb within layouts/admin (Duration: 10.1ms | GC: 0.2ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='show',application='FreightSolutionBackEnd',controller='vendors'*/[0m
+  ↳ app/controllers/admin/base_controller.rb:15:in 'Admin::BaseController#current_user'
+  Rendered layout layouts/admin.html.erb (Duration: 11.6ms | GC: 0.4ms)
+Completed 200 OK in 15ms (Views: 10.3ms | ActiveRecord: 2.1ms (8 queries, 0 cached) | GC: 0.4ms)
+
+
+Started GET "/admin/vendors" for ::1 at 2026-04-20 11:09:01 +0200
+Processing by Admin::VendorsController#index as HTML
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/vendors/index.html.erb within layouts/admin
+  [1m[36mVendor Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "vendors" LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='vendors'*/[0m
+  ↳ app/views/admin/vendors/index.html.erb:46
+  [1m[36mVendor Load (0.2ms)[0m  [1m[34mSELECT "vendors".* FROM "vendors" ORDER BY "vendors"."created_at" DESC /*action='index',application='FreightSolutionBackEnd',controller='vendors'*/[0m
+  ↳ app/views/admin/vendors/index.html.erb:61
+  Rendered admin/vendors/index.html.erb within layouts/admin (Duration: 3.4ms | GC: 0.0ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='vendors'*/[0m
+  ↳ app/controllers/admin/base_controller.rb:15:in 'Admin::BaseController#current_user'
+  Rendered layout layouts/admin.html.erb (Duration: 5.3ms | GC: 0.0ms)
+Completed 200 OK in 6ms (Views: 4.9ms | ActiveRecord: 0.8ms (3 queries, 0 cached) | GC: 0.0ms)
+
+

@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     resources :users
     resources :employees
     resources :vendors
+    resources :clients
     resources :shipments
     resources :invoices
     resources :performance_reviews
