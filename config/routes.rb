@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  mount Rswag::Ui::Engine => '/api-docs'
-  mount Rswag::Api::Engine => '/api-docs'
+  mount Rswag::Ui::Engine => "/api-docs"
+  mount Rswag::Api::Engine => "/api-docs"
   get "up" => "rails/health#show", as: :rails_health_check
 
   # Admin routes
@@ -33,7 +33,11 @@ namespace :api do
       get "auth/me", to: "auth#me"
       get "dashboard/stats", to: "dashboard#stats"
 
-      resources :vendors
+      resources :vendors do
+        collection do
+          get :stats
+        end
+      end
       get "logistics/bookings", to: "logistics#bookings"
       post "logistics/bookings", to: "logistics#bookings"
       get "logistics/bookings/:id", to: "logistics#booking"
@@ -52,18 +56,18 @@ namespace :api do
       namespace :hrm do
         get "me", to: "profile#show"
         patch "me", to: "profile#update"
-        resources :attendance_records, only: [:index, :create] do
+        resources :attendance_records, only: [ :index, :create ] do
           post "clock_in", on: :collection
           post "clock_out", on: :collection
         end
-        resources :performance_reviews, only: [:index, :show, :update]
-        resources :leave_requests, only: [:index, :create, :show, :destroy]
-        resources :tasks, only: [:index, :show, :update]
-        resources :timesheets, only: [:index, :create, :show, :destroy]
-        resources :training_courses, only: [:index, :show] do
+        resources :performance_reviews, only: [ :index, :show, :update ]
+        resources :leave_requests, only: [ :index, :create, :show, :destroy ]
+        resources :tasks, only: [ :index, :show, :update ]
+        resources :timesheets, only: [ :index, :create, :show, :destroy ]
+        resources :training_courses, only: [ :index, :show ] do
           post "enroll", on: :member
         end
-        resources :enrollments, only: [:index, :show, :update]
+        resources :enrollments, only: [ :index, :show, :update ]
       end
     end
   end
