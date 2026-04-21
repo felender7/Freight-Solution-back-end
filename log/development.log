@@ -64566,3 +64566,346 @@ Processing by Api::V1::Hrm::AttendanceRecordsController#current_status as JSON
 Completed 200 OK in 10ms (Views: 0.3ms | ActiveRecord: 2.0ms (4 queries, 0 cached) | GC: 0.0ms)
 
 
+Started GET "/api/v1/hrm/attendance_records/current_status" for ::1 at 2026-04-21 09:08:18 +0200
+Processing by Api::V1::Hrm::AttendanceRecordsController#current_status as JSON
+  Parameters: {"attendance_record" => {}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='current_status',application='FreightSolutionBackEnd',controller='attendance_records'*/[0m
+  ↳ app/controllers/concerns/authentication.rb:11:in 'Authentication#authenticate_request'
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = 1 LIMIT 1 /*action='current_status',application='FreightSolutionBackEnd',controller='attendance_records'*/[0m
+  ↳ app/controllers/api/v1/hrm/base_controller.rb:9:in 'Api::V1::Hrm::BaseController#ensure_employee_record'
+  [1m[36mAttendanceRecord Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "attendance_records" WHERE "attendance_records"."clock_out" IS NULL AND "attendance_records"."employee_id" = 2 AND "attendance_records"."date" = '2026-04-21' LIMIT 1 /*action='current_status',application='FreightSolutionBackEnd',controller='attendance_records'*/[0m
+  ↳ app/models/attendance_record.rb:18:in 'AttendanceRecord.has_active_session?'
+  [1m[36mAttendanceRecord Load (0.2ms)[0m  [1m[34mSELECT "attendance_records".* FROM "attendance_records" WHERE "attendance_records"."clock_out" IS NULL AND "attendance_records"."employee_id" = 2 AND "attendance_records"."date" = '2026-04-21' ORDER BY "attendance_records"."id" DESC LIMIT 1 /*action='current_status',application='FreightSolutionBackEnd',controller='attendance_records'*/[0m
+  ↳ app/models/attendance_record.rb:22:in 'AttendanceRecord.current_session'
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 0.8ms (4 queries, 0 cached) | GC: 0.3ms)
+
+
+Started GET "/api/v1/hrm/attendance_records/current_status" for ::1 at 2026-04-21 09:09:17 +0200
+Processing by Api::V1::Hrm::AttendanceRecordsController#current_status as JSON
+  Parameters: {"attendance_record" => {}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='current_status',application='FreightSolutionBackEnd',controller='attendance_records'*/[0m
+  ↳ app/controllers/concerns/authentication.rb:11:in 'Authentication#authenticate_request'
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = 1 LIMIT 1 /*action='current_status',application='FreightSolutionBackEnd',controller='attendance_records'*/[0m
+  ↳ app/controllers/api/v1/hrm/base_controller.rb:9:in 'Api::V1::Hrm::BaseController#ensure_employee_record'
+  [1m[36mAttendanceRecord Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "attendance_records" WHERE "attendance_records"."clock_out" IS NULL AND "attendance_records"."employee_id" = 2 AND "attendance_records"."date" = '2026-04-21' LIMIT 1 /*action='current_status',application='FreightSolutionBackEnd',controller='attendance_records'*/[0m
+  ↳ app/models/attendance_record.rb:18:in 'AttendanceRecord.has_active_session?'
+  [1m[36mAttendanceRecord Load (0.2ms)[0m  [1m[34mSELECT "attendance_records".* FROM "attendance_records" WHERE "attendance_records"."clock_out" IS NULL AND "attendance_records"."employee_id" = 2 AND "attendance_records"."date" = '2026-04-21' ORDER BY "attendance_records"."id" DESC LIMIT 1 /*action='current_status',application='FreightSolutionBackEnd',controller='attendance_records'*/[0m
+  ↳ app/models/attendance_record.rb:22:in 'AttendanceRecord.current_session'
+Completed 200 OK in 5ms (Views: 0.2ms | ActiveRecord: 0.8ms (4 queries, 0 cached) | GC: 0.3ms)
+
+
+Started GET "/api/v1/hrm/attendance_records/current_status" for ::1 at 2026-04-21 09:10:18 +0200
+Processing by Api::V1::Hrm::AttendanceRecordsController#current_status as JSON
+  Parameters: {"attendance_record" => {}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='current_status',application='FreightSolutionBackEnd',controller='attendance_records'*/[0m
+  ↳ app/controllers/concerns/authentication.rb:11:in 'Authentication#authenticate_request'
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = 1 LIMIT 1 /*action='current_status',application='FreightSolutionBackEnd',controller='attendance_records'*/[0m
+  ↳ app/controllers/api/v1/hrm/base_controller.rb:9:in 'Api::V1::Hrm::BaseController#ensure_employee_record'
+  [1m[36mAttendanceRecord Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "attendance_records" WHERE "attendance_records"."clock_out" IS NULL AND "attendance_records"."employee_id" = 2 AND "attendance_records"."date" = '2026-04-21' LIMIT 1 /*action='current_status',application='FreightSolutionBackEnd',controller='attendance_records'*/[0m
+  ↳ app/models/attendance_record.rb:18:in 'AttendanceRecord.has_active_session?'
+  [1m[36mAttendanceRecord Load (0.2ms)[0m  [1m[34mSELECT "attendance_records".* FROM "attendance_records" WHERE "attendance_records"."clock_out" IS NULL AND "attendance_records"."employee_id" = 2 AND "attendance_records"."date" = '2026-04-21' ORDER BY "attendance_records"."id" DESC LIMIT 1 /*action='current_status',application='FreightSolutionBackEnd',controller='attendance_records'*/[0m
+  ↳ app/models/attendance_record.rb:22:in 'AttendanceRecord.current_session'
+Completed 200 OK in 5ms (Views: 0.1ms | ActiveRecord: 0.8ms (4 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/hrm/attendance_records/current_status" for ::1 at 2026-04-21 09:11:18 +0200
+Processing by Api::V1::Hrm::AttendanceRecordsController#current_status as JSON
+  Parameters: {"attendance_record" => {}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='current_status',application='FreightSolutionBackEnd',controller='attendance_records'*/[0m
+  ↳ app/controllers/concerns/authentication.rb:11:in 'Authentication#authenticate_request'
+  [1m[36mEmployee Load (0.3ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = 1 LIMIT 1 /*action='current_status',application='FreightSolutionBackEnd',controller='attendance_records'*/[0m
+  ↳ app/controllers/api/v1/hrm/base_controller.rb:9:in 'Api::V1::Hrm::BaseController#ensure_employee_record'
+  [1m[36mAttendanceRecord Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "attendance_records" WHERE "attendance_records"."clock_out" IS NULL AND "attendance_records"."employee_id" = 2 AND "attendance_records"."date" = '2026-04-21' LIMIT 1 /*action='current_status',application='FreightSolutionBackEnd',controller='attendance_records'*/[0m
+  ↳ app/models/attendance_record.rb:18:in 'AttendanceRecord.has_active_session?'
+  [1m[36mAttendanceRecord Load (0.3ms)[0m  [1m[34mSELECT "attendance_records".* FROM "attendance_records" WHERE "attendance_records"."clock_out" IS NULL AND "attendance_records"."employee_id" = 2 AND "attendance_records"."date" = '2026-04-21' ORDER BY "attendance_records"."id" DESC LIMIT 1 /*action='current_status',application='FreightSolutionBackEnd',controller='attendance_records'*/[0m
+  ↳ app/models/attendance_record.rb:22:in 'AttendanceRecord.current_session'
+Completed 200 OK in 6ms (Views: 0.3ms | ActiveRecord: 1.1ms (4 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/hrm/attendance_records/current_status" for ::1 at 2026-04-21 09:12:17 +0200
+Processing by Api::V1::Hrm::AttendanceRecordsController#current_status as JSON
+  Parameters: {"attendance_record" => {}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='current_status',application='FreightSolutionBackEnd',controller='attendance_records'*/[0m
+  ↳ app/controllers/concerns/authentication.rb:11:in 'Authentication#authenticate_request'
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = 1 LIMIT 1 /*action='current_status',application='FreightSolutionBackEnd',controller='attendance_records'*/[0m
+  ↳ app/controllers/api/v1/hrm/base_controller.rb:9:in 'Api::V1::Hrm::BaseController#ensure_employee_record'
+  [1m[36mAttendanceRecord Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "attendance_records" WHERE "attendance_records"."clock_out" IS NULL AND "attendance_records"."employee_id" = 2 AND "attendance_records"."date" = '2026-04-21' LIMIT 1 /*action='current_status',application='FreightSolutionBackEnd',controller='attendance_records'*/[0m
+  ↳ app/models/attendance_record.rb:18:in 'AttendanceRecord.has_active_session?'
+  [1m[36mAttendanceRecord Load (0.2ms)[0m  [1m[34mSELECT "attendance_records".* FROM "attendance_records" WHERE "attendance_records"."clock_out" IS NULL AND "attendance_records"."employee_id" = 2 AND "attendance_records"."date" = '2026-04-21' ORDER BY "attendance_records"."id" DESC LIMIT 1 /*action='current_status',application='FreightSolutionBackEnd',controller='attendance_records'*/[0m
+  ↳ app/models/attendance_record.rb:22:in 'AttendanceRecord.current_session'
+Completed 200 OK in 5ms (Views: 0.2ms | ActiveRecord: 0.8ms (4 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/hrm/attendance_records/current_status" for ::1 at 2026-04-21 09:13:17 +0200
+Processing by Api::V1::Hrm::AttendanceRecordsController#current_status as JSON
+  Parameters: {"attendance_record" => {}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='current_status',application='FreightSolutionBackEnd',controller='attendance_records'*/[0m
+  ↳ app/controllers/concerns/authentication.rb:11:in 'Authentication#authenticate_request'
+  [1m[36mEmployee Load (0.3ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = 1 LIMIT 1 /*action='current_status',application='FreightSolutionBackEnd',controller='attendance_records'*/[0m
+  ↳ app/controllers/api/v1/hrm/base_controller.rb:9:in 'Api::V1::Hrm::BaseController#ensure_employee_record'
+  [1m[36mAttendanceRecord Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "attendance_records" WHERE "attendance_records"."clock_out" IS NULL AND "attendance_records"."employee_id" = 2 AND "attendance_records"."date" = '2026-04-21' LIMIT 1 /*action='current_status',application='FreightSolutionBackEnd',controller='attendance_records'*/[0m
+  ↳ app/models/attendance_record.rb:18:in 'AttendanceRecord.has_active_session?'
+  [1m[36mAttendanceRecord Load (0.2ms)[0m  [1m[34mSELECT "attendance_records".* FROM "attendance_records" WHERE "attendance_records"."clock_out" IS NULL AND "attendance_records"."employee_id" = 2 AND "attendance_records"."date" = '2026-04-21' ORDER BY "attendance_records"."id" DESC LIMIT 1 /*action='current_status',application='FreightSolutionBackEnd',controller='attendance_records'*/[0m
+  ↳ app/models/attendance_record.rb:22:in 'AttendanceRecord.current_session'
+Completed 200 OK in 5ms (Views: 0.2ms | ActiveRecord: 1.0ms (4 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/hrm/attendance_records/current_status" for ::1 at 2026-04-21 09:14:17 +0200
+Processing by Api::V1::Hrm::AttendanceRecordsController#current_status as JSON
+  Parameters: {"attendance_record" => {}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='current_status',application='FreightSolutionBackEnd',controller='attendance_records'*/[0m
+  ↳ app/controllers/concerns/authentication.rb:11:in 'Authentication#authenticate_request'
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = 1 LIMIT 1 /*action='current_status',application='FreightSolutionBackEnd',controller='attendance_records'*/[0m
+  ↳ app/controllers/api/v1/hrm/base_controller.rb:9:in 'Api::V1::Hrm::BaseController#ensure_employee_record'
+  [1m[36mAttendanceRecord Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "attendance_records" WHERE "attendance_records"."clock_out" IS NULL AND "attendance_records"."employee_id" = 2 AND "attendance_records"."date" = '2026-04-21' LIMIT 1 /*action='current_status',application='FreightSolutionBackEnd',controller='attendance_records'*/[0m
+  ↳ app/models/attendance_record.rb:18:in 'AttendanceRecord.has_active_session?'
+  [1m[36mAttendanceRecord Load (0.2ms)[0m  [1m[34mSELECT "attendance_records".* FROM "attendance_records" WHERE "attendance_records"."clock_out" IS NULL AND "attendance_records"."employee_id" = 2 AND "attendance_records"."date" = '2026-04-21' ORDER BY "attendance_records"."id" DESC LIMIT 1 /*action='current_status',application='FreightSolutionBackEnd',controller='attendance_records'*/[0m
+  ↳ app/models/attendance_record.rb:22:in 'AttendanceRecord.current_session'
+Completed 200 OK in 5ms (Views: 0.2ms | ActiveRecord: 0.9ms (4 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/hrm/attendance_records/current_status" for ::1 at 2026-04-21 09:15:18 +0200
+Processing by Api::V1::Hrm::AttendanceRecordsController#current_status as JSON
+  Parameters: {"attendance_record" => {}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='current_status',application='FreightSolutionBackEnd',controller='attendance_records'*/[0m
+  ↳ app/controllers/concerns/authentication.rb:11:in 'Authentication#authenticate_request'
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = 1 LIMIT 1 /*action='current_status',application='FreightSolutionBackEnd',controller='attendance_records'*/[0m
+  ↳ app/controllers/api/v1/hrm/base_controller.rb:9:in 'Api::V1::Hrm::BaseController#ensure_employee_record'
+  [1m[36mAttendanceRecord Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "attendance_records" WHERE "attendance_records"."clock_out" IS NULL AND "attendance_records"."employee_id" = 2 AND "attendance_records"."date" = '2026-04-21' LIMIT 1 /*action='current_status',application='FreightSolutionBackEnd',controller='attendance_records'*/[0m
+  ↳ app/models/attendance_record.rb:18:in 'AttendanceRecord.has_active_session?'
+  [1m[36mAttendanceRecord Load (0.2ms)[0m  [1m[34mSELECT "attendance_records".* FROM "attendance_records" WHERE "attendance_records"."clock_out" IS NULL AND "attendance_records"."employee_id" = 2 AND "attendance_records"."date" = '2026-04-21' ORDER BY "attendance_records"."id" DESC LIMIT 1 /*action='current_status',application='FreightSolutionBackEnd',controller='attendance_records'*/[0m
+  ↳ app/models/attendance_record.rb:22:in 'AttendanceRecord.current_session'
+Completed 200 OK in 5ms (Views: 0.2ms | ActiveRecord: 0.8ms (4 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/hrm/attendance_records/current_status" for ::1 at 2026-04-21 09:16:18 +0200
+Processing by Api::V1::Hrm::AttendanceRecordsController#current_status as JSON
+  Parameters: {"attendance_record" => {}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='current_status',application='FreightSolutionBackEnd',controller='attendance_records'*/[0m
+  ↳ app/controllers/concerns/authentication.rb:11:in 'Authentication#authenticate_request'
+  [1m[36mEmployee Load (0.3ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = 1 LIMIT 1 /*action='current_status',application='FreightSolutionBackEnd',controller='attendance_records'*/[0m
+  ↳ app/controllers/api/v1/hrm/base_controller.rb:9:in 'Api::V1::Hrm::BaseController#ensure_employee_record'
+  [1m[36mAttendanceRecord Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "attendance_records" WHERE "attendance_records"."clock_out" IS NULL AND "attendance_records"."employee_id" = 2 AND "attendance_records"."date" = '2026-04-21' LIMIT 1 /*action='current_status',application='FreightSolutionBackEnd',controller='attendance_records'*/[0m
+  ↳ app/models/attendance_record.rb:18:in 'AttendanceRecord.has_active_session?'
+  [1m[36mAttendanceRecord Load (0.3ms)[0m  [1m[34mSELECT "attendance_records".* FROM "attendance_records" WHERE "attendance_records"."clock_out" IS NULL AND "attendance_records"."employee_id" = 2 AND "attendance_records"."date" = '2026-04-21' ORDER BY "attendance_records"."id" DESC LIMIT 1 /*action='current_status',application='FreightSolutionBackEnd',controller='attendance_records'*/[0m
+  ↳ app/models/attendance_record.rb:22:in 'AttendanceRecord.current_session'
+Completed 200 OK in 7ms (Views: 0.2ms | ActiveRecord: 1.1ms (4 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/hrm/attendance_records/current_status" for ::1 at 2026-04-21 09:17:18 +0200
+Processing by Api::V1::Hrm::AttendanceRecordsController#current_status as JSON
+  Parameters: {"attendance_record" => {}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='current_status',application='FreightSolutionBackEnd',controller='attendance_records'*/[0m
+  ↳ app/controllers/concerns/authentication.rb:11:in 'Authentication#authenticate_request'
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = 1 LIMIT 1 /*action='current_status',application='FreightSolutionBackEnd',controller='attendance_records'*/[0m
+  ↳ app/controllers/api/v1/hrm/base_controller.rb:9:in 'Api::V1::Hrm::BaseController#ensure_employee_record'
+  [1m[36mAttendanceRecord Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "attendance_records" WHERE "attendance_records"."clock_out" IS NULL AND "attendance_records"."employee_id" = 2 AND "attendance_records"."date" = '2026-04-21' LIMIT 1 /*action='current_status',application='FreightSolutionBackEnd',controller='attendance_records'*/[0m
+  ↳ app/models/attendance_record.rb:18:in 'AttendanceRecord.has_active_session?'
+  [1m[36mAttendanceRecord Load (0.1ms)[0m  [1m[34mSELECT "attendance_records".* FROM "attendance_records" WHERE "attendance_records"."clock_out" IS NULL AND "attendance_records"."employee_id" = 2 AND "attendance_records"."date" = '2026-04-21' ORDER BY "attendance_records"."id" DESC LIMIT 1 /*action='current_status',application='FreightSolutionBackEnd',controller='attendance_records'*/[0m
+  ↳ app/models/attendance_record.rb:22:in 'AttendanceRecord.current_session'
+Completed 200 OK in 4ms (Views: 0.2ms | ActiveRecord: 0.7ms (4 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/hrm/attendance_records/current_status" for ::1 at 2026-04-21 09:18:18 +0200
+Processing by Api::V1::Hrm::AttendanceRecordsController#current_status as JSON
+  Parameters: {"attendance_record" => {}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='current_status',application='FreightSolutionBackEnd',controller='attendance_records'*/[0m
+  ↳ app/controllers/concerns/authentication.rb:11:in 'Authentication#authenticate_request'
+  [1m[36mEmployee Load (0.3ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = 1 LIMIT 1 /*action='current_status',application='FreightSolutionBackEnd',controller='attendance_records'*/[0m
+  ↳ app/controllers/api/v1/hrm/base_controller.rb:9:in 'Api::V1::Hrm::BaseController#ensure_employee_record'
+  [1m[36mAttendanceRecord Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "attendance_records" WHERE "attendance_records"."clock_out" IS NULL AND "attendance_records"."employee_id" = 2 AND "attendance_records"."date" = '2026-04-21' LIMIT 1 /*action='current_status',application='FreightSolutionBackEnd',controller='attendance_records'*/[0m
+  ↳ app/models/attendance_record.rb:18:in 'AttendanceRecord.has_active_session?'
+  [1m[36mAttendanceRecord Load (0.4ms)[0m  [1m[34mSELECT "attendance_records".* FROM "attendance_records" WHERE "attendance_records"."clock_out" IS NULL AND "attendance_records"."employee_id" = 2 AND "attendance_records"."date" = '2026-04-21' ORDER BY "attendance_records"."id" DESC LIMIT 1 /*action='current_status',application='FreightSolutionBackEnd',controller='attendance_records'*/[0m
+  ↳ app/models/attendance_record.rb:22:in 'AttendanceRecord.current_session'
+Completed 200 OK in 8ms (Views: 0.3ms | ActiveRecord: 1.4ms (4 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/hrm/attendance_records/current_status" for ::1 at 2026-04-21 09:19:18 +0200
+Processing by Api::V1::Hrm::AttendanceRecordsController#current_status as JSON
+  Parameters: {"attendance_record" => {}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='current_status',application='FreightSolutionBackEnd',controller='attendance_records'*/[0m
+  ↳ app/controllers/concerns/authentication.rb:11:in 'Authentication#authenticate_request'
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = 1 LIMIT 1 /*action='current_status',application='FreightSolutionBackEnd',controller='attendance_records'*/[0m
+  ↳ app/controllers/api/v1/hrm/base_controller.rb:9:in 'Api::V1::Hrm::BaseController#ensure_employee_record'
+  [1m[36mAttendanceRecord Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "attendance_records" WHERE "attendance_records"."clock_out" IS NULL AND "attendance_records"."employee_id" = 2 AND "attendance_records"."date" = '2026-04-21' LIMIT 1 /*action='current_status',application='FreightSolutionBackEnd',controller='attendance_records'*/[0m
+  ↳ app/models/attendance_record.rb:18:in 'AttendanceRecord.has_active_session?'
+  [1m[36mAttendanceRecord Load (0.2ms)[0m  [1m[34mSELECT "attendance_records".* FROM "attendance_records" WHERE "attendance_records"."clock_out" IS NULL AND "attendance_records"."employee_id" = 2 AND "attendance_records"."date" = '2026-04-21' ORDER BY "attendance_records"."id" DESC LIMIT 1 /*action='current_status',application='FreightSolutionBackEnd',controller='attendance_records'*/[0m
+  ↳ app/models/attendance_record.rb:22:in 'AttendanceRecord.current_session'
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 1.1ms (4 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/hrm/attendance_records/current_status" for ::1 at 2026-04-21 09:20:18 +0200
+Processing by Api::V1::Hrm::AttendanceRecordsController#current_status as JSON
+  Parameters: {"attendance_record" => {}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='current_status',application='FreightSolutionBackEnd',controller='attendance_records'*/[0m
+  ↳ app/controllers/concerns/authentication.rb:11:in 'Authentication#authenticate_request'
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = 1 LIMIT 1 /*action='current_status',application='FreightSolutionBackEnd',controller='attendance_records'*/[0m
+  ↳ app/controllers/api/v1/hrm/base_controller.rb:9:in 'Api::V1::Hrm::BaseController#ensure_employee_record'
+  [1m[36mAttendanceRecord Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "attendance_records" WHERE "attendance_records"."clock_out" IS NULL AND "attendance_records"."employee_id" = 2 AND "attendance_records"."date" = '2026-04-21' LIMIT 1 /*action='current_status',application='FreightSolutionBackEnd',controller='attendance_records'*/[0m
+  ↳ app/models/attendance_record.rb:18:in 'AttendanceRecord.has_active_session?'
+  [1m[36mAttendanceRecord Load (0.2ms)[0m  [1m[34mSELECT "attendance_records".* FROM "attendance_records" WHERE "attendance_records"."clock_out" IS NULL AND "attendance_records"."employee_id" = 2 AND "attendance_records"."date" = '2026-04-21' ORDER BY "attendance_records"."id" DESC LIMIT 1 /*action='current_status',application='FreightSolutionBackEnd',controller='attendance_records'*/[0m
+  ↳ app/models/attendance_record.rb:22:in 'AttendanceRecord.current_session'
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 0.9ms (4 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/hrm/attendance_records/current_status" for ::1 at 2026-04-21 09:21:18 +0200
+Processing by Api::V1::Hrm::AttendanceRecordsController#current_status as JSON
+  Parameters: {"attendance_record" => {}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='current_status',application='FreightSolutionBackEnd',controller='attendance_records'*/[0m
+  ↳ app/controllers/concerns/authentication.rb:11:in 'Authentication#authenticate_request'
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = 1 LIMIT 1 /*action='current_status',application='FreightSolutionBackEnd',controller='attendance_records'*/[0m
+  ↳ app/controllers/api/v1/hrm/base_controller.rb:9:in 'Api::V1::Hrm::BaseController#ensure_employee_record'
+  [1m[36mAttendanceRecord Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "attendance_records" WHERE "attendance_records"."clock_out" IS NULL AND "attendance_records"."employee_id" = 2 AND "attendance_records"."date" = '2026-04-21' LIMIT 1 /*action='current_status',application='FreightSolutionBackEnd',controller='attendance_records'*/[0m
+  ↳ app/models/attendance_record.rb:18:in 'AttendanceRecord.has_active_session?'
+  [1m[36mAttendanceRecord Load (0.1ms)[0m  [1m[34mSELECT "attendance_records".* FROM "attendance_records" WHERE "attendance_records"."clock_out" IS NULL AND "attendance_records"."employee_id" = 2 AND "attendance_records"."date" = '2026-04-21' ORDER BY "attendance_records"."id" DESC LIMIT 1 /*action='current_status',application='FreightSolutionBackEnd',controller='attendance_records'*/[0m
+  ↳ app/models/attendance_record.rb:22:in 'AttendanceRecord.current_session'
+Completed 200 OK in 4ms (Views: 0.2ms | ActiveRecord: 0.8ms (4 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/hrm/attendance_records/current_status" for ::1 at 2026-04-21 09:22:18 +0200
+Processing by Api::V1::Hrm::AttendanceRecordsController#current_status as JSON
+  Parameters: {"attendance_record" => {}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='current_status',application='FreightSolutionBackEnd',controller='attendance_records'*/[0m
+  ↳ app/controllers/concerns/authentication.rb:11:in 'Authentication#authenticate_request'
+  [1m[36mEmployee Load (0.3ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = 1 LIMIT 1 /*action='current_status',application='FreightSolutionBackEnd',controller='attendance_records'*/[0m
+  ↳ app/controllers/api/v1/hrm/base_controller.rb:9:in 'Api::V1::Hrm::BaseController#ensure_employee_record'
+  [1m[36mAttendanceRecord Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "attendance_records" WHERE "attendance_records"."clock_out" IS NULL AND "attendance_records"."employee_id" = 2 AND "attendance_records"."date" = '2026-04-21' LIMIT 1 /*action='current_status',application='FreightSolutionBackEnd',controller='attendance_records'*/[0m
+  ↳ app/models/attendance_record.rb:18:in 'AttendanceRecord.has_active_session?'
+  [1m[36mAttendanceRecord Load (0.3ms)[0m  [1m[34mSELECT "attendance_records".* FROM "attendance_records" WHERE "attendance_records"."clock_out" IS NULL AND "attendance_records"."employee_id" = 2 AND "attendance_records"."date" = '2026-04-21' ORDER BY "attendance_records"."id" DESC LIMIT 1 /*action='current_status',application='FreightSolutionBackEnd',controller='attendance_records'*/[0m
+  ↳ app/models/attendance_record.rb:22:in 'AttendanceRecord.current_session'
+Completed 200 OK in 9ms (Views: 0.3ms | ActiveRecord: 1.1ms (4 queries, 0 cached) | GC: 2.0ms)
+
+
+Started GET "/api/v1/hrm/attendance_records/current_status" for ::1 at 2026-04-21 09:23:18 +0200
+Processing by Api::V1::Hrm::AttendanceRecordsController#current_status as JSON
+  Parameters: {"attendance_record" => {}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='current_status',application='FreightSolutionBackEnd',controller='attendance_records'*/[0m
+  ↳ app/controllers/concerns/authentication.rb:11:in 'Authentication#authenticate_request'
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = 1 LIMIT 1 /*action='current_status',application='FreightSolutionBackEnd',controller='attendance_records'*/[0m
+  ↳ app/controllers/api/v1/hrm/base_controller.rb:9:in 'Api::V1::Hrm::BaseController#ensure_employee_record'
+  [1m[36mAttendanceRecord Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "attendance_records" WHERE "attendance_records"."clock_out" IS NULL AND "attendance_records"."employee_id" = 2 AND "attendance_records"."date" = '2026-04-21' LIMIT 1 /*action='current_status',application='FreightSolutionBackEnd',controller='attendance_records'*/[0m
+  ↳ app/models/attendance_record.rb:18:in 'AttendanceRecord.has_active_session?'
+  [1m[36mAttendanceRecord Load (0.2ms)[0m  [1m[34mSELECT "attendance_records".* FROM "attendance_records" WHERE "attendance_records"."clock_out" IS NULL AND "attendance_records"."employee_id" = 2 AND "attendance_records"."date" = '2026-04-21' ORDER BY "attendance_records"."id" DESC LIMIT 1 /*action='current_status',application='FreightSolutionBackEnd',controller='attendance_records'*/[0m
+  ↳ app/models/attendance_record.rb:22:in 'AttendanceRecord.current_session'
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 0.8ms (4 queries, 0 cached) | GC: 0.7ms)
+
+
+Started GET "/api/v1/hrm/attendance_records/current_status" for ::1 at 2026-04-21 09:24:17 +0200
+Processing by Api::V1::Hrm::AttendanceRecordsController#current_status as JSON
+  Parameters: {"attendance_record" => {}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='current_status',application='FreightSolutionBackEnd',controller='attendance_records'*/[0m
+  ↳ app/controllers/concerns/authentication.rb:11:in 'Authentication#authenticate_request'
+  [1m[36mEmployee Load (0.4ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = 1 LIMIT 1 /*action='current_status',application='FreightSolutionBackEnd',controller='attendance_records'*/[0m
+  ↳ app/controllers/api/v1/hrm/base_controller.rb:9:in 'Api::V1::Hrm::BaseController#ensure_employee_record'
+  [1m[36mAttendanceRecord Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "attendance_records" WHERE "attendance_records"."clock_out" IS NULL AND "attendance_records"."employee_id" = 2 AND "attendance_records"."date" = '2026-04-21' LIMIT 1 /*action='current_status',application='FreightSolutionBackEnd',controller='attendance_records'*/[0m
+  ↳ app/models/attendance_record.rb:18:in 'AttendanceRecord.has_active_session?'
+  [1m[36mAttendanceRecord Load (0.2ms)[0m  [1m[34mSELECT "attendance_records".* FROM "attendance_records" WHERE "attendance_records"."clock_out" IS NULL AND "attendance_records"."employee_id" = 2 AND "attendance_records"."date" = '2026-04-21' ORDER BY "attendance_records"."id" DESC LIMIT 1 /*action='current_status',application='FreightSolutionBackEnd',controller='attendance_records'*/[0m
+  ↳ app/models/attendance_record.rb:22:in 'AttendanceRecord.current_session'
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 1.0ms (4 queries, 0 cached) | GC: 0.7ms)
+
+
+Started GET "/api/v1/hrm/attendance_records/current_status" for ::1 at 2026-04-21 09:25:17 +0200
+Processing by Api::V1::Hrm::AttendanceRecordsController#current_status as JSON
+  Parameters: {"attendance_record" => {}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='current_status',application='FreightSolutionBackEnd',controller='attendance_records'*/[0m
+  ↳ app/controllers/concerns/authentication.rb:11:in 'Authentication#authenticate_request'
+  [1m[36mEmployee Load (0.3ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = 1 LIMIT 1 /*action='current_status',application='FreightSolutionBackEnd',controller='attendance_records'*/[0m
+  ↳ app/controllers/api/v1/hrm/base_controller.rb:9:in 'Api::V1::Hrm::BaseController#ensure_employee_record'
+  [1m[36mAttendanceRecord Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "attendance_records" WHERE "attendance_records"."clock_out" IS NULL AND "attendance_records"."employee_id" = 2 AND "attendance_records"."date" = '2026-04-21' LIMIT 1 /*action='current_status',application='FreightSolutionBackEnd',controller='attendance_records'*/[0m
+  ↳ app/models/attendance_record.rb:18:in 'AttendanceRecord.has_active_session?'
+  [1m[36mAttendanceRecord Load (0.1ms)[0m  [1m[34mSELECT "attendance_records".* FROM "attendance_records" WHERE "attendance_records"."clock_out" IS NULL AND "attendance_records"."employee_id" = 2 AND "attendance_records"."date" = '2026-04-21' ORDER BY "attendance_records"."id" DESC LIMIT 1 /*action='current_status',application='FreightSolutionBackEnd',controller='attendance_records'*/[0m
+  ↳ app/models/attendance_record.rb:22:in 'AttendanceRecord.current_session'
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 0.9ms (4 queries, 0 cached) | GC: 1.0ms)
+
+
+Started GET "/admin/dashboard" for ::1 at 2026-04-21 09:26:13 +0200
+Processing by Admin::DashboardController#index as HTML
+  [1m[36mEmployee Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='FreightSolutionBackEnd',controller='dashboard'*/[0m
+  ↳ app/controllers/admin/dashboard_controller.rb:3:in 'Admin::DashboardController#index'
+  [1m[36mVendor Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "vendors" /*action='index',application='FreightSolutionBackEnd',controller='dashboard'*/[0m
+  ↳ app/controllers/admin/dashboard_controller.rb:4:in 'Admin::DashboardController#index'
+  [1m[36mShipment Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "shipments" /*action='index',application='FreightSolutionBackEnd',controller='dashboard'*/[0m
+  ↳ app/controllers/admin/dashboard_controller.rb:5:in 'Admin::DashboardController#index'
+  [1m[36mInvoice Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "invoices" /*action='index',application='FreightSolutionBackEnd',controller='dashboard'*/[0m
+  ↳ app/controllers/admin/dashboard_controller.rb:6:in 'Admin::DashboardController#index'
+  [1m[36mInvoice Sum (0.1ms)[0m  [1m[34mSELECT SUM("invoices"."amount") FROM "invoices" WHERE "invoices"."status" = 'paid' /*action='index',application='FreightSolutionBackEnd',controller='dashboard'*/[0m
+  ↳ app/controllers/admin/dashboard_controller.rb:7:in 'Admin::DashboardController#index'
+  [1m[36mInvoice Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "invoices" WHERE "invoices"."status" = 'pending' /*action='index',application='FreightSolutionBackEnd',controller='dashboard'*/[0m
+  ↳ app/controllers/admin/dashboard_controller.rb:8:in 'Admin::DashboardController#index'
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/dashboard/index.html.erb within layouts/admin
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='dashboard'*/[0m
+  ↳ app/controllers/admin/base_controller.rb:15:in 'Admin::BaseController#current_user'
+  [1m[36mShipment Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "shipments" LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='dashboard'*/[0m
+  ↳ app/views/admin/dashboard/index.html.erb:119
+  [1m[36mInvoice Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "invoices" LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='dashboard'*/[0m
+  ↳ app/views/admin/dashboard/index.html.erb:175
+  Rendered admin/dashboard/index.html.erb within layouts/admin (Duration: 2.8ms | GC: 0.0ms)
+  Rendered layout layouts/admin.html.erb (Duration: 3.2ms | GC: 0.0ms)
+Completed 200 OK in 11ms (Views: 3.0ms | ActiveRecord: 1.6ms (9 queries, 0 cached) | GC: 0.7ms)
+
+
+Started GET "/api/v1/hrm/attendance_records/current_status" for ::1 at 2026-04-21 09:26:15 +0200
+Processing by Api::V1::Hrm::AttendanceRecordsController#current_status as JSON
+  Parameters: {"attendance_record" => {}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='current_status',application='FreightSolutionBackEnd',controller='attendance_records'*/[0m
+  ↳ app/controllers/concerns/authentication.rb:11:in 'Authentication#authenticate_request'
+  [1m[36mEmployee Load (0.5ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = 1 LIMIT 1 /*action='current_status',application='FreightSolutionBackEnd',controller='attendance_records'*/[0m
+  ↳ app/controllers/api/v1/hrm/base_controller.rb:9:in 'Api::V1::Hrm::BaseController#ensure_employee_record'
+  [1m[36mAttendanceRecord Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "attendance_records" WHERE "attendance_records"."clock_out" IS NULL AND "attendance_records"."employee_id" = 2 AND "attendance_records"."date" = '2026-04-21' LIMIT 1 /*action='current_status',application='FreightSolutionBackEnd',controller='attendance_records'*/[0m
+  ↳ app/models/attendance_record.rb:18:in 'AttendanceRecord.has_active_session?'
+  [1m[36mAttendanceRecord Load (0.4ms)[0m  [1m[34mSELECT "attendance_records".* FROM "attendance_records" WHERE "attendance_records"."clock_out" IS NULL AND "attendance_records"."employee_id" = 2 AND "attendance_records"."date" = '2026-04-21' ORDER BY "attendance_records"."id" DESC LIMIT 1 /*action='current_status',application='FreightSolutionBackEnd',controller='attendance_records'*/[0m
+  ↳ app/models/attendance_record.rb:22:in 'AttendanceRecord.current_session'
+Completed 200 OK in 13ms (Views: 0.3ms | ActiveRecord: 1.5ms (4 queries, 0 cached) | GC: 0.9ms)
+
+
+Started GET "/api/v1/hrm/attendance_records/current_status" for ::1 at 2026-04-21 09:26:18 +0200
+Processing by Api::V1::Hrm::AttendanceRecordsController#current_status as JSON
+  Parameters: {"attendance_record" => {}}
+Started GET "/api/v1/hrm/attendance_records" for ::1 at 2026-04-21 09:26:18 +0200
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='current_status',application='FreightSolutionBackEnd',controller='attendance_records'*/[0m
+  ↳ app/controllers/concerns/authentication.rb:11:in 'Authentication#authenticate_request'
+  [1m[36mEmployee Load (0.5ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = 1 LIMIT 1 /*action='current_status',application='FreightSolutionBackEnd',controller='attendance_records'*/[0m
+  ↳ app/controllers/api/v1/hrm/base_controller.rb:9:in 'Api::V1::Hrm::BaseController#ensure_employee_record'
+Processing by Api::V1::Hrm::AttendanceRecordsController#index as JSON
+  Parameters: {"attendance_record" => {}}
+  [1m[36mAttendanceRecord Exists? (2.8ms)[0m  [1m[34mSELECT 1 AS one FROM "attendance_records" WHERE "attendance_records"."clock_out" IS NULL AND "attendance_records"."employee_id" = 2 AND "attendance_records"."date" = '2026-04-21' LIMIT 1 /*action='current_status',application='FreightSolutionBackEnd',controller='attendance_records'*/[0m
+  ↳ app/models/attendance_record.rb:18:in 'AttendanceRecord.has_active_session?'
+  [1m[36mAttendanceRecord Load (0.4ms)[0m  [1m[34mSELECT "attendance_records".* FROM "attendance_records" WHERE "attendance_records"."clock_out" IS NULL AND "attendance_records"."employee_id" = 2 AND "attendance_records"."date" = '2026-04-21' ORDER BY "attendance_records"."id" DESC LIMIT 1 /*action='current_status',application='FreightSolutionBackEnd',controller='attendance_records'*/[0m
+  ↳ app/models/attendance_record.rb:22:in 'AttendanceRecord.current_session'
+Completed 200 OK in 16ms (Views: 0.3ms | ActiveRecord: 5.6ms (4 queries, 0 cached) | GC: 0.9ms)
+
+
+  [1m[36mUser Load (20.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='attendance_records'*/[0m
+  ↳ app/controllers/concerns/authentication.rb:11:in 'Authentication#authenticate_request'
+  [1m[36mEmployee Load (0.4ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = 1 LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='attendance_records'*/[0m
+  ↳ app/controllers/api/v1/hrm/base_controller.rb:9:in 'Api::V1::Hrm::BaseController#ensure_employee_record'
+  [1m[36mAttendanceRecord Count (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendance_records" WHERE "attendance_records"."employee_id" = 2 AND "attendance_records"."date" BETWEEN '2026-04-01' AND '2026-04-30' /*action='index',application='FreightSolutionBackEnd',controller='attendance_records'*/[0m
+  ↳ app/controllers/api/v1/hrm/attendance_records_controller.rb:13:in 'Api::V1::Hrm::AttendanceRecordsController#index'
+  [1m[36mAttendanceRecord Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendance_records" WHERE "attendance_records"."employee_id" = 2 AND "attendance_records"."date" BETWEEN '2026-04-01' AND '2026-04-30' AND "attendance_records"."status" = 'present' /*action='index',application='FreightSolutionBackEnd',controller='attendance_records'*/[0m
+  ↳ app/controllers/api/v1/hrm/attendance_records_controller.rb:14:in 'Api::V1::Hrm::AttendanceRecordsController#index'
+  [1m[36mAttendanceRecord Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendance_records" WHERE "attendance_records"."employee_id" = 2 AND "attendance_records"."date" BETWEEN '2026-04-01' AND '2026-04-30' AND "attendance_records"."status" = 'absent' /*action='index',application='FreightSolutionBackEnd',controller='attendance_records'*/[0m
+  ↳ app/controllers/api/v1/hrm/attendance_records_controller.rb:15:in 'Api::V1::Hrm::AttendanceRecordsController#index'
+  [1m[36mAttendanceRecord Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendance_records" WHERE "attendance_records"."employee_id" = 2 AND "attendance_records"."date" BETWEEN '2026-04-01' AND '2026-04-30' AND "attendance_records"."status" = 'late' /*action='index',application='FreightSolutionBackEnd',controller='attendance_records'*/[0m
+  ↳ app/controllers/api/v1/hrm/attendance_records_controller.rb:16:in 'Api::V1::Hrm::AttendanceRecordsController#index'
+  [1m[36mAttendanceRecord Load (0.4ms)[0m  [1m[34mSELECT "attendance_records".* FROM "attendance_records" WHERE "attendance_records"."employee_id" = 2 AND "attendance_records"."date" BETWEEN '2026-04-01' AND '2026-04-30' AND "attendance_records"."clock_out" IS NOT NULL ORDER BY "attendance_records"."date" DESC, "attendance_records"."clock_in" DESC /*action='index',application='FreightSolutionBackEnd',controller='attendance_records'*/[0m
+  ↳ app/controllers/api/v1/hrm/attendance_records_controller.rb:138:in 'Api::V1::Hrm::AttendanceRecordsController#calculate_total_hours'
+  [1m[36mAttendanceRecord Load (0.4ms)[0m  [1m[34mSELECT "attendance_records".* FROM "attendance_records" WHERE "attendance_records"."employee_id" = 2 AND "attendance_records"."date" BETWEEN '2026-04-01' AND '2026-04-30' ORDER BY "attendance_records"."date" DESC, "attendance_records"."clock_in" DESC /*action='index',application='FreightSolutionBackEnd',controller='attendance_records'*/[0m
+  ↳ app/controllers/api/v1/hrm/attendance_records_controller.rb:10:in 'Api::V1::Hrm::AttendanceRecordsController#index'
+Completed 200 OK in 35ms (Views: 2.0ms | ActiveRecord: 27.3ms (8 queries, 0 cached) | GC: 2.0ms)
+
+
+Started GET "/api/v1/hrm/attendance_records/current_status" for ::1 at 2026-04-21 09:26:48 +0200
+Processing by Api::V1::Hrm::AttendanceRecordsController#current_status as JSON
+  Parameters: {"attendance_record" => {}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='current_status',application='FreightSolutionBackEnd',controller='attendance_records'*/[0m
+  ↳ app/controllers/concerns/authentication.rb:11:in 'Authentication#authenticate_request'
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = 1 LIMIT 1 /*action='current_status',application='FreightSolutionBackEnd',controller='attendance_records'*/[0m
+  ↳ app/controllers/api/v1/hrm/base_controller.rb:9:in 'Api::V1::Hrm::BaseController#ensure_employee_record'
+  [1m[36mAttendanceRecord Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "attendance_records" WHERE "attendance_records"."clock_out" IS NULL AND "attendance_records"."employee_id" = 2 AND "attendance_records"."date" = '2026-04-21' LIMIT 1 /*action='current_status',application='FreightSolutionBackEnd',controller='attendance_records'*/[0m
+  ↳ app/models/attendance_record.rb:18:in 'AttendanceRecord.has_active_session?'
+  [1m[36mAttendanceRecord Load (0.3ms)[0m  [1m[34mSELECT "attendance_records".* FROM "attendance_records" WHERE "attendance_records"."clock_out" IS NULL AND "attendance_records"."employee_id" = 2 AND "attendance_records"."date" = '2026-04-21' ORDER BY "attendance_records"."id" DESC LIMIT 1 /*action='current_status',application='FreightSolutionBackEnd',controller='attendance_records'*/[0m
+  ↳ app/models/attendance_record.rb:22:in 'AttendanceRecord.current_session'
+Completed 200 OK in 6ms (Views: 0.1ms | ActiveRecord: 0.9ms (4 queries, 0 cached) | GC: 0.6ms)
+
+

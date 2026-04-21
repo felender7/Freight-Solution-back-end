@@ -2,6 +2,7 @@ class Admin::DashboardController < Admin::BaseController
   def index
     @employees_count = Employee.count
     @vendors_count = Vendor.count
+    @clients_count = Client.count
     @shipments_count = Shipment.count
     @invoices_count = Invoice.count
     @total_revenue = Invoice.where(status: "paid").sum(:amount) || 0
