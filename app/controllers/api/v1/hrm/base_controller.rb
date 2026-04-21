@@ -1,4 +1,5 @@
 class Api::V1::Hrm::BaseController < ApplicationController
+  skip_before_action :verify_authenticity_token
   before_action :authenticate_request
   before_action :ensure_employee_record
 

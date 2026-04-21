@@ -56,9 +56,10 @@ namespace :api do
       namespace :hrm do
         get "me", to: "profile#show"
         patch "me", to: "profile#update"
-        resources :attendance_records, only: [ :index, :create ] do
+        resources :attendance_records, only: [ :index, :create, :show ] do
           post "clock_in", on: :collection
           post "clock_out", on: :collection
+          get "current_status", on: :collection
         end
         resources :performance_reviews, only: [ :index, :show, :update ]
         resources :leave_requests, only: [ :index, :create, :show, :destroy ]
