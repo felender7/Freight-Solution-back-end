@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_04_20_090615) do
+ActiveRecord::Schema[8.1].define(version: 2026_04_21_134502) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -132,6 +132,38 @@ ActiveRecord::Schema[8.1].define(version: 2026_04_20_090615) do
     t.index ["training_course_id"], name: "index_enrollments_on_training_course_id"
   end
 
+  create_table "inventory_items", force: :cascade do |t|
+    t.string "barcode"
+    t.string "category"
+    t.datetime "created_at", null: false
+    t.text "description"
+    t.string "name", null: false
+    t.integer "reorder_level", default: 0
+    t.string "sku", null: false
+    t.decimal "unit_volume", precision: 15, scale: 2, default: "0.0"
+    t.decimal "unit_weight", precision: 15, scale: 2, default: "0.0"
+    t.datetime "updated_at", null: false
+    t.index ["barcode"], name: "index_inventory_items_on_barcode", unique: true
+    t.index ["category"], name: "index_inventory_items_on_category"
+    t.index ["sku"], name: "index_inventory_items_on_sku", unique: true
+  end
+
+  create_table "inventory_records", force: :cascade do |t|
+    t.string "batch_number"
+    t.bigint "client_id", null: false
+    t.datetime "created_at", null: false
+    t.date "expiry_date"
+    t.bigint "inventory_item_id", null: false
+    t.bigint "pallet_id", null: false
+    t.integer "quantity"
+    t.datetime "updated_at", null: false
+    t.bigint "warehouse_location_id", null: false
+    t.index ["client_id"], name: "index_inventory_records_on_client_id"
+    t.index ["inventory_item_id"], name: "index_inventory_records_on_inventory_item_id"
+    t.index ["pallet_id"], name: "index_inventory_records_on_pallet_id"
+    t.index ["warehouse_location_id"], name: "index_inventory_records_on_warehouse_location_id"
+  end
+
   create_table "invoices", force: :cascade do |t|
     t.decimal "amount"
     t.datetime "created_at", null: false
@@ -155,6 +187,21 @@ ActiveRecord::Schema[8.1].define(version: 2026_04_20_090615) do
     t.datetime "updated_at", null: false
     t.index ["approved_by_id"], name: "index_leave_requests_on_approved_by_id"
     t.index ["employee_id"], name: "index_leave_requests_on_employee_id"
+  end
+
+  create_table "pallets", force: :cascade do |t|
+    t.bigint "client_id", null: false
+    t.datetime "created_at", null: false
+    t.string "pallet_number", null: false
+    t.string "status", default: "active"
+    t.datetime "updated_at", null: false
+    t.decimal "volume", precision: 15, scale: 2, default: "0.0"
+    t.bigint "warehouse_location_id"
+    t.decimal "weight", precision: 15, scale: 2, default: "0.0"
+    t.index ["client_id"], name: "index_pallets_on_client_id"
+    t.index ["pallet_number"], name: "index_pallets_on_pallet_number", unique: true
+    t.index ["status"], name: "index_pallets_on_status"
+    t.index ["warehouse_location_id"], name: "index_pallets_on_warehouse_location_id"
   end
 
   create_table "performance_reviews", force: :cascade do |t|
@@ -181,6 +228,21 @@ ActiveRecord::Schema[8.1].define(version: 2026_04_20_090615) do
     t.date "ship_date"
     t.string "status"
     t.datetime "updated_at", null: false
+  end
+
+  create_table "storage_billings", force: :cascade do |t|
+    t.decimal "amount", precision: 15, scale: 2, default: "0.0"
+    t.date "billing_date", null: false
+    t.bigint "client_id", null: false
+    t.datetime "created_at", null: false
+    t.decimal "daily_rate", precision: 15, scale: 2, default: "0.0"
+    t.string "status", default: "pending"
+    t.integer "total_pallets", default: 0
+    t.decimal "total_volume", precision: 15, scale: 2, default: "0.0"
+    t.datetime "updated_at", null: false
+    t.index ["billing_date"], name: "index_storage_billings_on_billing_date"
+    t.index ["client_id"], name: "index_storage_billings_on_client_id"
+    t.index ["status"], name: "index_storage_billings_on_status"
   end
 
   create_table "tasks", force: :cascade do |t|
@@ -262,6 +324,38 @@ ActiveRecord::Schema[8.1].define(version: 2026_04_20_090615) do
     t.index ["kyc_status"], name: "index_vendors_on_kyc_status"
   end
 
+  create_table "warehouse_locations", force: :cascade do |t|
+    t.decimal "capacity_volume", precision: 15, scale: 2, default: "0.0"
+    t.decimal "capacity_weight", precision: 15, scale: 2, default: "0.0"
+    t.datetime "created_at", null: false
+    t.decimal "current_volume", precision: 15, scale: 2, default: "0.0"
+    t.decimal "current_weight", precision: 15, scale: 2, default: "0.0"
+    t.boolean "is_full", default: false
+    t.string "location_type"
+    t.string "name", null: false
+    t.datetime "updated_at", null: false
+    t.string "zone"
+    t.index ["location_type"], name: "index_warehouse_locations_on_location_type"
+    t.index ["name"], name: "index_warehouse_locations_on_name", unique: true
+    t.index ["zone"], name: "index_warehouse_locations_on_zone"
+  end
+
+  create_table "warehouse_transactions", force: :cascade do |t|
+    t.bigint "client_id", null: false
+    t.datetime "created_at", null: false
+    t.integer "from_location_id"
+    t.bigint "inventory_item_id", null: false
+    t.integer "quantity"
+    t.string "reference_number"
+    t.integer "to_location_id"
+    t.string "transaction_type"
+    t.datetime "updated_at", null: false
+    t.bigint "user_id", null: false
+    t.index ["client_id"], name: "index_warehouse_transactions_on_client_id"
+    t.index ["inventory_item_id"], name: "index_warehouse_transactions_on_inventory_item_id"
+    t.index ["user_id"], name: "index_warehouse_transactions_on_user_id"
+  end
+
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "activity_logs", "users", column: "actor_id"
@@ -271,13 +365,23 @@ ActiveRecord::Schema[8.1].define(version: 2026_04_20_090615) do
   add_foreign_key "employees", "users"
   add_foreign_key "enrollments", "employees"
   add_foreign_key "enrollments", "training_courses"
+  add_foreign_key "inventory_records", "clients"
+  add_foreign_key "inventory_records", "inventory_items"
+  add_foreign_key "inventory_records", "pallets"
+  add_foreign_key "inventory_records", "warehouse_locations"
   add_foreign_key "leave_requests", "employees"
   add_foreign_key "leave_requests", "users", column: "approved_by_id"
+  add_foreign_key "pallets", "clients"
+  add_foreign_key "pallets", "warehouse_locations"
   add_foreign_key "performance_reviews", "employees"
   add_foreign_key "performance_reviews", "users", column: "reviewer_id"
+  add_foreign_key "storage_billings", "clients"
   add_foreign_key "tasks", "employees"
   add_foreign_key "tasks", "users", column: "assigned_by_id"
   add_foreign_key "timesheets", "employees"
   add_foreign_key "timesheets", "tasks"
   add_foreign_key "timesheets", "users", column: "approved_by_id"
+  add_foreign_key "warehouse_transactions", "clients"
+  add_foreign_key "warehouse_transactions", "inventory_items"
+  add_foreign_key "warehouse_transactions", "users"
 end

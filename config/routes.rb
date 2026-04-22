@@ -16,6 +16,17 @@ Rails.application.routes.draw do
     resources :vendors
     resources :clients
     resources :shipments
+
+    namespace :warehouse do
+      get "dashboard", to: "dashboard#index"
+      resources :locations
+      resources :items
+      resources :inventory
+      resources :transactions
+      resources :pallets
+      resources :billings
+    end
+
     resources :invoices
     resources :performance_reviews
     resources :attendance_records

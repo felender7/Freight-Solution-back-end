@@ -1,0 +1,94 @@
+<div class="p-8 animate-fade-in">
+  <div class="bg-slate-800 rounded-2xl border border-slate-700 overflow-hidden shadow-xl max-w-4xl mx-auto">
+    <!-- Header -->
+    <div class="px-8 py-6 border-b border-slate-700 flex items-center justify-between bg-slate-800/50">
+      <div>
+        <div class="flex items-center gap-2 text-slate-500 text-sm mb-1">
+          <span>Warehouse</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+          <span>Inventory</span>
+        </div>
+        <h1 class="text-3xl font-bold text-slate-100 uppercase tracking-tight">Receive New Stock</h1>
+        <p class="text-slate-400 text-sm mt-1 italic">Scan or manually enter inbound inventory details</p>
+      </div>
+      <a href="<%= admin_warehouse_inventory_index_path %>" class="inline-flex items-center gap-2 px-4 py-2 bg-slate-700 hover:bg-slate-600 text-slate-200 rounded-lg text-sm font-medium transition-all">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+        </svg>
+        Back to Live Records
+      </a>
+    </div>
+
+    <!-- Form -->
+    <div class="p-8">
+      <%= form_with model: [:admin, :warehouse, @inventory_record], url: admin_warehouse_inventory_index_path, local: true, class: "space-y-8" do |form| %>
+        
+        <% if @inventory_record.errors.any? %>
+          <div class="p-4 bg-red-500/10 border border-red-500/30 text-red-400 rounded-lg">
+            <ul class="list-disc list-inside text-sm">
+              <% @inventory_record.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <!-- Item Selection -->
+          <div class="space-y-2">
+            <label class="block text-slate-300 text-sm font-bold uppercase tracking-wider">Inventory Item / SKU</label>
+            <%= form.collection_select :inventory_item_id, @items, :id, :name, { prompt: "Select Item to Receive" }, 
+                class: "w-full px-4 py-3 bg-slate-900 border border-slate-600 rounded-xl text-slate-100 focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all outline-none" %>
+            <p class="text-[10px] text-slate-500 italic">Ensure barcode matches system SKU</p>
+          </div>
+
+          <!-- Client Selection -->
+          <div class="space-y-2">
+            <label class="block text-slate-300 text-sm font-bold uppercase tracking-wider">Consignee / Client</label>
+            <%= form.collection_select :client_id, @clients, :id, :name, { prompt: "Select Owner of Stock" }, 
+                class: "w-full px-4 py-3 bg-slate-900 border border-slate-600 rounded-xl text-slate-100 focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all outline-none" %>
+          </div>
+
+          <!-- Location Selection -->
+          <div class="space-y-2">
+            <label class="block text-slate-300 text-sm font-bold uppercase tracking-wider">Storage Allocation</label>
+            <%= form.collection_select :warehouse_location_id, @locations, :id, :name, { prompt: "Assign to Warehouse Zone" }, 
+                class: "w-full px-4 py-3 bg-slate-900 border border-slate-600 rounded-xl text-slate-100 focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all outline-none" %>
+            <p class="text-[10px] text-indigo-400 font-bold uppercase">AI-optimized zones recommended</p>
+          </div>
+
+          <!-- Quantity -->
+          <div class="space-y-2">
+            <label class="block text-slate-300 text-sm font-bold uppercase tracking-wider">Inbound Quantity</label>
+            <%= form.number_field :quantity, min: 1, placeholder: "Units received",
+                class: "w-full px-4 py-3 bg-slate-900 border border-slate-600 rounded-xl text-slate-100 focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all outline-none" %>
+          </div>
+
+          <!-- Batch -->
+          <div class="space-y-2">
+            <label class="block text-slate-300 text-sm font-bold uppercase tracking-wider">Batch Number</label>
+            <%= form.text_field :batch_number, placeholder: "e.g. BT-2026-X",
+                class: "w-full px-4 py-3 bg-slate-900 border border-slate-600 rounded-xl text-slate-100 focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all outline-none" %>
+          </div>
+
+          <!-- Expiry -->
+          <div class="space-y-2">
+            <label class="block text-slate-300 text-sm font-bold uppercase tracking-wider">Expiry Date</label>
+            <%= form.date_field :expiry_date,
+                class: "w-full px-4 py-3 bg-slate-900 border border-slate-600 rounded-xl text-slate-100 focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all outline-none" %>
+          </div>
+        </div>
+
+        <div class="pt-6 border-t border-slate-700 flex gap-4">
+          <%= form.submit "Confirm Receipt", 
+              class: "flex-1 py-4 bg-gradient-to-r from-blue-600 to-indigo-700 hover:from-blue-700 hover:to-indigo-800 text-white rounded-xl font-bold uppercase text-xs tracking-widest transition-all shadow-xl shadow-blue-500/20 cursor-pointer" %>
+          <a href="<%= admin_warehouse_inventory_index_path %>" 
+             class="px-8 py-4 bg-slate-700 hover:bg-slate-600 text-slate-200 rounded-xl font-bold uppercase text-xs tracking-widest transition-all">
+            Cancel
+          </a>
+        </div>
+
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,47 @@
+<div class="animate-fade-in p-8">
+  <div class="glass-card rounded-2xl border border-slate-700 overflow-hidden w-full">
+    <div class="px-8 py-6 border-b border-slate-700 flex justify-between items-center">
+      <div>
+        <h1 class="text-2xl font-bold text-slate-100">Item Master List</h1>
+        <p class="text-slate-400 text-sm">Manage SKUs, barcodes, and reorder levels</p>
+      </div>
+      <a href="<%= new_admin_warehouse_item_path %>" class="px-4 py-2 bg-blue-600 text-white rounded-lg text-sm font-bold uppercase tracking-wider">Create SKU</a>
+    </div>
+    <div class="p-6">
+      <table class="w-full">
+        <thead>
+          <tr class="text-left text-slate-500 text-xs font-bold uppercase tracking-widest border-b border-slate-700/50">
+            <th class="py-4 px-4">Item Details</th>
+            <th class="py-4 px-4">Category</th>
+            <th class="py-4 px-4 text-center">Reorder Level</th>
+            <th class="py-4 px-4 text-center">Dimensions</th>
+            <th class="py-4 px-4 text-right">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @items.each do |item| %>
+            <tr class="border-b border-slate-700/30 hover:bg-slate-700/20 transition-colors">
+              <td class="py-4 px-4">
+                <p class="text-slate-200 font-bold"><%= item.name %></p>
+                <p class="text-slate-500 text-[10px] font-mono tracking-tighter">SKU: <%= item.sku %> | BC: <%= item.barcode %></p>
+              </td>
+              <td class="py-4 px-4">
+                <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-400 text-[10px] font-bold uppercase"><%= item.category || 'General' %></span>
+              </td>
+              <td class="py-4 px-4 text-center text-slate-300 font-bold"><%= item.reorder_level %></td>
+              <td class="py-4 px-4 text-center">
+                <p class="text-[10px] text-slate-500"><%= item.unit_weight %>kg</p>
+                <p class="text-[10px] text-slate-500"><%= item.unit_volume %>m³</p>
+              </td>
+              <td class="py-4 px-4 text-right">
+                <div class="flex gap-2 justify-end">
+                  <a href="<%= edit_admin_warehouse_item_path(item) %>" class="p-1.5 bg-slate-800 text-slate-400 hover:text-blue-400 rounded-lg border border-slate-700 transition-all"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg></a>
+                </div>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
