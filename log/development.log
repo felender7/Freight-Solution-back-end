@@ -84416,3 +84416,299 @@ Processing by Admin::HrmTasksController#index as HTML
 Completed 200 OK in 39ms (Views: 36.6ms | ActiveRecord: 1.1ms (4 queries, 0 cached) | GC: 20.3ms)
 
 
+Started GET "/admin/hrm_tasks" for ::1 at 2026-04-23 16:17:50 +0200
+Processing by Admin::HrmTasksController#index as HTML
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/hrm_tasks/index.html.erb within layouts/admin
+  [1m[36mTask Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "tasks" LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='hrm_tasks'*/[0m
+  ↳ app/views/admin/hrm_tasks/index.html.erb:47
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" ORDER BY "tasks"."created_at" DESC /*action='index',application='FreightSolutionBackEnd',controller='hrm_tasks'*/[0m
+  ↳ app/views/admin/hrm_tasks/index.html.erb:63
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = 2 /*action='index',application='FreightSolutionBackEnd',controller='hrm_tasks'*/[0m
+  ↳ app/views/admin/hrm_tasks/index.html.erb:63
+  Rendered admin/hrm_tasks/index.html.erb within layouts/admin (Duration: 27.6ms | GC: 1.3ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='hrm_tasks'*/[0m
+  ↳ app/controllers/admin/base_controller.rb:15:in 'Admin::BaseController#current_user'
+  Rendered layout layouts/admin.html.erb (Duration: 30.9ms | GC: 1.3ms)
+Completed 200 OK in 36ms (Views: 28.9ms | ActiveRecord: 4.9ms (4 queries, 0 cached) | GC: 1.9ms)
+
+
+Started GET "/admin/warehouse/dashboard" for ::1 at 2026-04-23 16:17:59 +0200
+Processing by Admin::Warehouse::DashboardController#index as HTML
+  [1m[36mWarehouseLocation Sum (0.1ms)[0m  [1m[34mSELECT SUM("warehouse_locations"."capacity_volume") FROM "warehouse_locations" /*action='index',application='FreightSolutionBackEnd',controller='dashboard'*/[0m
+  ↳ app/controllers/admin/warehouse/dashboard_controller.rb:4:in 'Admin::Warehouse::DashboardController#index'
+  [1m[36mWarehouseLocation Sum (0.1ms)[0m  [1m[34mSELECT SUM("warehouse_locations"."current_volume") FROM "warehouse_locations" /*action='index',application='FreightSolutionBackEnd',controller='dashboard'*/[0m
+  ↳ app/controllers/admin/warehouse/dashboard_controller.rb:5:in 'Admin::Warehouse::DashboardController#index'
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/warehouse/dashboard/index.html.erb within layouts/admin
+  [1m[36mInventoryItem Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "inventory_items" INNER JOIN "inventory_records" ON "inventory_records"."inventory_item_id" = "inventory_items"."id" GROUP BY "inventory_items"."id" HAVING (SUM(inventory_records.quantity) < inventory_items.reorder_level) LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='dashboard'*/[0m
+  ↳ app/views/admin/warehouse/dashboard/index.html.erb:122
+  [1m[36mWarehouseTransaction Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "warehouse_transactions" LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='dashboard'*/[0m
+  ↳ app/views/admin/warehouse/dashboard/index.html.erb:218
+  [1m[36mWarehouseTransaction Load (0.1ms)[0m  [1m[34mSELECT "warehouse_transactions".* FROM "warehouse_transactions" ORDER BY "warehouse_transactions"."created_at" DESC LIMIT 10 /*action='index',application='FreightSolutionBackEnd',controller='dashboard'*/[0m
+  ↳ app/views/admin/warehouse/dashboard/index.html.erb:219
+  [1m[36mInventoryItem Load (0.2ms)[0m  [1m[34mSELECT "inventory_items".* FROM "inventory_items" WHERE "inventory_items"."id" = 3 LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='dashboard'*/[0m
+  ↳ app/views/admin/warehouse/dashboard/index.html.erb:232
+  [1m[36mCACHE InventoryItem Load (0.0ms)[0m  [1m[34mSELECT "inventory_items".* FROM "inventory_items" WHERE "inventory_items"."id" = 3 LIMIT 1[0m
+  ↳ app/views/admin/warehouse/dashboard/index.html.erb:232
+  [1m[36mInventoryItem Load (0.2ms)[0m  [1m[34mSELECT "inventory_items".* FROM "inventory_items" LIMIT 10 /*action='index',application='FreightSolutionBackEnd',controller='dashboard'*/[0m
+  ↳ app/views/admin/warehouse/dashboard/index.html.erb:257
+  Rendered admin/warehouse/dashboard/index.html.erb within layouts/admin (Duration: 16.3ms | GC: 0.0ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='dashboard'*/[0m
+  ↳ app/controllers/admin/base_controller.rb:15:in 'Admin::BaseController#current_user'
+  Rendered layout layouts/admin.html.erb (Duration: 17.6ms | GC: 0.0ms)
+Completed 200 OK in 30ms (Views: 15.3ms | ActiveRecord: 4.9ms (9 queries, 1 cached) | GC: 0.0ms)
+
+
+Started GET "/admin/hrm" for ::1 at 2026-04-23 16:18:22 +0200
+Processing by Admin::HrmDashboardController#index as HTML
+  [1m[36mEmployee Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='FreightSolutionBackEnd',controller='hrm_dashboard'*/[0m
+  ↳ app/controllers/admin/hrm_dashboard_controller.rb:3:in 'Admin::HrmDashboardController#index'
+  [1m[36mUser Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."role" IN ('employee', 'hr_manager') /*action='index',application='FreightSolutionBackEnd',controller='hrm_dashboard'*/[0m
+  ↳ app/controllers/admin/hrm_dashboard_controller.rb:4:in 'Admin::HrmDashboardController#index'
+  [1m[36mLeaveRequest Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "leave_requests" WHERE "leave_requests"."status" = 'pending' /*action='index',application='FreightSolutionBackEnd',controller='hrm_dashboard'*/[0m
+  ↳ app/controllers/admin/hrm_dashboard_controller.rb:5:in 'Admin::HrmDashboardController#index'
+  [1m[36mTimesheet Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "timesheets" WHERE "timesheets"."status" = 'pending' /*action='index',application='FreightSolutionBackEnd',controller='hrm_dashboard'*/[0m
+  ↳ app/controllers/admin/hrm_dashboard_controller.rb:6:in 'Admin::HrmDashboardController#index'
+  [1m[36mAttendanceRecord Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendance_records" WHERE "attendance_records"."date" = '2026-04-23' /*action='index',application='FreightSolutionBackEnd',controller='hrm_dashboard'*/[0m
+  ↳ app/controllers/admin/hrm_dashboard_controller.rb:7:in 'Admin::HrmDashboardController#index'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."status" != 'done' /*action='index',application='FreightSolutionBackEnd',controller='hrm_dashboard'*/[0m
+  ↳ app/controllers/admin/hrm_dashboard_controller.rb:8:in 'Admin::HrmDashboardController#index'
+  [1m[36mTrainingCourse Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "training_courses" WHERE "training_courses"."is_active" = TRUE /*action='index',application='FreightSolutionBackEnd',controller='hrm_dashboard'*/[0m
+  ↳ app/controllers/admin/hrm_dashboard_controller.rb:9:in 'Admin::HrmDashboardController#index'
+  [1m[36mPerformanceReview Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "performance_reviews" /*action='index',application='FreightSolutionBackEnd',controller='hrm_dashboard'*/[0m
+  ↳ app/controllers/admin/hrm_dashboard_controller.rb:10:in 'Admin::HrmDashboardController#index'
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/hrm_dashboard/index.html.erb within layouts/admin
+  Rendered admin/hrm_dashboard/index.html.erb within layouts/admin (Duration: 0.5ms | GC: 0.0ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='hrm_dashboard'*/[0m
+  ↳ app/controllers/admin/base_controller.rb:15:in 'Admin::BaseController#current_user'
+  Rendered layout layouts/admin.html.erb (Duration: 1.5ms | GC: 0.0ms)
+Completed 200 OK in 20ms (Views: 1.7ms | ActiveRecord: 4.4ms (9 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/admin/dashboard" for ::1 at 2026-04-23 16:18:24 +0200
+Processing by Admin::DashboardController#index as HTML
+  [1m[36mEmployee Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='FreightSolutionBackEnd',controller='dashboard'*/[0m
+  ↳ app/controllers/admin/dashboard_controller.rb:3:in 'Admin::DashboardController#index'
+  [1m[36mVendor Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "vendors" /*action='index',application='FreightSolutionBackEnd',controller='dashboard'*/[0m
+  ↳ app/controllers/admin/dashboard_controller.rb:4:in 'Admin::DashboardController#index'
+  [1m[36mClient Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "clients" /*action='index',application='FreightSolutionBackEnd',controller='dashboard'*/[0m
+  ↳ app/controllers/admin/dashboard_controller.rb:5:in 'Admin::DashboardController#index'
+  [1m[36mShipment Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "shipments" /*action='index',application='FreightSolutionBackEnd',controller='dashboard'*/[0m
+  ↳ app/controllers/admin/dashboard_controller.rb:6:in 'Admin::DashboardController#index'
+  [1m[36mInvoice Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "invoices" /*action='index',application='FreightSolutionBackEnd',controller='dashboard'*/[0m
+  ↳ app/controllers/admin/dashboard_controller.rb:7:in 'Admin::DashboardController#index'
+  [1m[36mInvoice Sum (0.1ms)[0m  [1m[34mSELECT SUM("invoices"."amount") FROM "invoices" WHERE "invoices"."status" = 'paid' /*action='index',application='FreightSolutionBackEnd',controller='dashboard'*/[0m
+  ↳ app/controllers/admin/dashboard_controller.rb:8:in 'Admin::DashboardController#index'
+  [1m[36mInvoice Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "invoices" WHERE "invoices"."status" = 'pending' /*action='index',application='FreightSolutionBackEnd',controller='dashboard'*/[0m
+  ↳ app/controllers/admin/dashboard_controller.rb:9:in 'Admin::DashboardController#index'
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/dashboard/index.html.erb within layouts/admin
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='dashboard'*/[0m
+  ↳ app/controllers/admin/base_controller.rb:15:in 'Admin::BaseController#current_user'
+  [1m[36mShipment Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "shipments" LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='dashboard'*/[0m
+  ↳ app/views/admin/dashboard/index.html.erb:136
+  [1m[36mInvoice Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "invoices" LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='dashboard'*/[0m
+  ↳ app/views/admin/dashboard/index.html.erb:192
+  [1m[36mInvoice Load (0.2ms)[0m  [1m[34mSELECT "invoices".* FROM "invoices" ORDER BY "invoices"."created_at" DESC LIMIT 5 /*action='index',application='FreightSolutionBackEnd',controller='dashboard'*/[0m
+  ↳ app/views/admin/dashboard/index.html.erb:194
+  Rendered admin/dashboard/index.html.erb within layouts/admin (Duration: 7.1ms | GC: 0.7ms)
+  Rendered layout layouts/admin.html.erb (Duration: 7.5ms | GC: 0.7ms)
+Completed 200 OK in 38ms (Views: 7.1ms | ActiveRecord: 3.7ms (11 queries, 0 cached) | GC: 9.9ms)
+
+
+Started GET "/admin/users" for ::1 at 2026-04-23 16:19:12 +0200
+Processing by Admin::UsersController#index as HTML
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/users/index.html.erb within layouts/admin
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='users'*/[0m
+  ↳ app/views/admin/users/index.html.erb:46
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."created_at" DESC /*action='index',application='FreightSolutionBackEnd',controller='users'*/[0m
+  ↳ app/views/admin/users/index.html.erb:60
+  Rendered admin/users/index.html.erb within layouts/admin (Duration: 2.5ms | GC: 0.0ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='users'*/[0m
+  ↳ app/controllers/admin/base_controller.rb:15:in 'Admin::BaseController#current_user'
+  Rendered layout layouts/admin.html.erb (Duration: 3.6ms | GC: 0.0ms)
+Completed 200 OK in 5ms (Views: 3.5ms | ActiveRecord: 0.5ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/admin/dashboard" for ::1 at 2026-04-23 16:19:18 +0200
+Processing by Admin::DashboardController#index as HTML
+  [1m[36mEmployee Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='FreightSolutionBackEnd',controller='dashboard'*/[0m
+  ↳ app/controllers/admin/dashboard_controller.rb:3:in 'Admin::DashboardController#index'
+  [1m[36mVendor Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "vendors" /*action='index',application='FreightSolutionBackEnd',controller='dashboard'*/[0m
+  ↳ app/controllers/admin/dashboard_controller.rb:4:in 'Admin::DashboardController#index'
+  [1m[36mClient Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "clients" /*action='index',application='FreightSolutionBackEnd',controller='dashboard'*/[0m
+  ↳ app/controllers/admin/dashboard_controller.rb:5:in 'Admin::DashboardController#index'
+  [1m[36mShipment Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "shipments" /*action='index',application='FreightSolutionBackEnd',controller='dashboard'*/[0m
+  ↳ app/controllers/admin/dashboard_controller.rb:6:in 'Admin::DashboardController#index'
+  [1m[36mInvoice Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "invoices" /*action='index',application='FreightSolutionBackEnd',controller='dashboard'*/[0m
+  ↳ app/controllers/admin/dashboard_controller.rb:7:in 'Admin::DashboardController#index'
+  [1m[36mInvoice Sum (0.1ms)[0m  [1m[34mSELECT SUM("invoices"."amount") FROM "invoices" WHERE "invoices"."status" = 'paid' /*action='index',application='FreightSolutionBackEnd',controller='dashboard'*/[0m
+  ↳ app/controllers/admin/dashboard_controller.rb:8:in 'Admin::DashboardController#index'
+  [1m[36mInvoice Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "invoices" WHERE "invoices"."status" = 'pending' /*action='index',application='FreightSolutionBackEnd',controller='dashboard'*/[0m
+  ↳ app/controllers/admin/dashboard_controller.rb:9:in 'Admin::DashboardController#index'
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/dashboard/index.html.erb within layouts/admin
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='dashboard'*/[0m
+  ↳ app/controllers/admin/base_controller.rb:15:in 'Admin::BaseController#current_user'
+  [1m[36mShipment Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "shipments" LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='dashboard'*/[0m
+  ↳ app/views/admin/dashboard/index.html.erb:136
+  [1m[36mInvoice Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "invoices" LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='dashboard'*/[0m
+  ↳ app/views/admin/dashboard/index.html.erb:192
+  [1m[36mInvoice Load (0.1ms)[0m  [1m[34mSELECT "invoices".* FROM "invoices" ORDER BY "invoices"."created_at" DESC LIMIT 5 /*action='index',application='FreightSolutionBackEnd',controller='dashboard'*/[0m
+  ↳ app/views/admin/dashboard/index.html.erb:194
+  Rendered admin/dashboard/index.html.erb within layouts/admin (Duration: 3.1ms | GC: 0.0ms)
+  Rendered layout layouts/admin.html.erb (Duration: 3.5ms | GC: 0.0ms)
+Completed 200 OK in 11ms (Views: 3.5ms | ActiveRecord: 1.5ms (11 queries, 0 cached) | GC: 1.0ms)
+
+
+Started GET "/admin/users" for ::1 at 2026-04-23 16:19:22 +0200
+Processing by Admin::UsersController#index as HTML
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/users/index.html.erb within layouts/admin
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='users'*/[0m
+  ↳ app/views/admin/users/index.html.erb:46
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."created_at" DESC /*action='index',application='FreightSolutionBackEnd',controller='users'*/[0m
+  ↳ app/views/admin/users/index.html.erb:60
+  Rendered admin/users/index.html.erb within layouts/admin (Duration: 2.3ms | GC: 0.0ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='users'*/[0m
+  ↳ app/controllers/admin/base_controller.rb:15:in 'Admin::BaseController#current_user'
+  Rendered layout layouts/admin.html.erb (Duration: 3.8ms | GC: 0.0ms)
+Completed 200 OK in 5ms (Views: 3.7ms | ActiveRecord: 0.6ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/admin/users/3" for ::1 at 2026-04-23 16:20:08 +0200
+Processing by Admin::UsersController#show as HTML
+  Parameters: {"id" => "3"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1 /*action='show',application='FreightSolutionBackEnd',controller='users'*/[0m
+  ↳ app/controllers/admin/users_controller.rb:7:in 'Admin::UsersController#show'
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/users/show.html.erb within layouts/admin
+  Rendered admin/users/show.html.erb within layouts/admin (Duration: 0.7ms | GC: 0.0ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='show',application='FreightSolutionBackEnd',controller='users'*/[0m
+  ↳ app/controllers/admin/base_controller.rb:15:in 'Admin::BaseController#current_user'
+  Rendered layout layouts/admin.html.erb (Duration: 2.6ms | GC: 0.0ms)
+Completed 200 OK in 6ms (Views: 2.9ms | ActiveRecord: 0.6ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/hrm/tasks" for ::1 at 2026-04-23 16:23:21 +0200
+Processing by Api::V1::Hrm::TasksController#index as JSON
+  Parameters: {"task" => {}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='tasks'*/[0m
+  ↳ app/controllers/concerns/authentication.rb:11:in 'Authentication#authenticate_request'
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = 1 LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='tasks'*/[0m
+  ↳ app/controllers/api/v1/hrm/base_controller.rb:9:in 'Api::V1::Hrm::BaseController#ensure_employee_record'
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."employee_id" = 2 ORDER BY "tasks"."due_date" ASC /*action='index',application='FreightSolutionBackEnd',controller='tasks'*/[0m
+  ↳ app/controllers/api/v1/hrm/tasks_controller.rb:4:in 'Api::V1::Hrm::TasksController#index'
+Completed 200 OK in 7ms (Views: 1.8ms | ActiveRecord: 0.8ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/hrm/employees/2" for ::1 at 2026-04-23 16:23:21 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/hrm/employees/2"):
+  
+Started GET "/api/v1/hrm/tasks" for ::1 at 2026-04-23 16:25:44 +0200
+Processing by Api::V1::Hrm::TasksController#index as JSON
+  Parameters: {"task" => {}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='tasks'*/[0m
+  ↳ app/controllers/concerns/authentication.rb:11:in 'Authentication#authenticate_request'
+  [1m[36mEmployee Load (0.4ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = 1 LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='tasks'*/[0m
+  ↳ app/controllers/api/v1/hrm/base_controller.rb:9:in 'Api::V1::Hrm::BaseController#ensure_employee_record'
+  [1m[36mTask Load (0.4ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."employee_id" = 2 ORDER BY "tasks"."due_date" ASC /*action='index',application='FreightSolutionBackEnd',controller='tasks'*/[0m
+  ↳ app/controllers/api/v1/hrm/tasks_controller.rb:4:in 'Api::V1::Hrm::TasksController#index'
+Completed 200 OK in 9ms (Views: 2.2ms | ActiveRecord: 1.1ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/hrm/employees/2" for ::1 at 2026-04-23 16:25:44 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/hrm/employees/2"):
+  
+Started GET "/api/v1/hrm/tasks" for ::1 at 2026-04-23 16:25:48 +0200
+Processing by Api::V1::Hrm::TasksController#index as JSON
+  Parameters: {"task" => {}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='tasks'*/[0m
+  ↳ app/controllers/concerns/authentication.rb:11:in 'Authentication#authenticate_request'
+  [1m[36mEmployee Load (0.3ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = 1 LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='tasks'*/[0m
+  ↳ app/controllers/api/v1/hrm/base_controller.rb:9:in 'Api::V1::Hrm::BaseController#ensure_employee_record'
+  [1m[36mTask Load (0.4ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."employee_id" = 2 ORDER BY "tasks"."due_date" ASC /*action='index',application='FreightSolutionBackEnd',controller='tasks'*/[0m
+  ↳ app/controllers/api/v1/hrm/tasks_controller.rb:4:in 'Api::V1::Hrm::TasksController#index'
+Completed 200 OK in 9ms (Views: 3.0ms | ActiveRecord: 1.1ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/hrm/employees/2" for ::1 at 2026-04-23 16:25:48 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/hrm/employees/2"):
+  
+Started GET "/api/v1/hrm/tasks" for ::1 at 2026-04-23 16:32:02 +0200
+Processing by Api::V1::Hrm::TasksController#index as */*
+Filter chain halted as :authenticate_request rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/api/v1/auth/logout" for ::1 at 2026-04-23 16:32:14 +0200
+Processing by Api::V1::AuthController#logout as JSON
+  Parameters: {"auth" => {}}
+  [1m[36mUser Load (10.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='logout',application='FreightSolutionBackEnd',controller='auth'*/[0m
+  ↳ app/controllers/concerns/authentication.rb:11:in 'Authentication#authenticate_request'
+Completed 200 OK in 13ms (Views: 0.1ms | ActiveRecord: 14.3ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/api/v1/auth/login" for ::1 at 2026-04-23 16:32:32 +0200
+Processing by Api::V1::AuthController#login as JSON
+  Parameters: {"email" => "[FILTERED]", "password" => "[FILTERED]", "auth" => {"email" => "[FILTERED]", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = 'felender23@gmail.com' LIMIT 1 /*action='login',application='FreightSolutionBackEnd',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:6:in 'Api::V1::AuthController#login'
+Completed 401 Unauthorized in 332ms (Views: 0.2ms | ActiveRecord: 1.3ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/api/v1/auth/login" for ::1 at 2026-04-23 16:32:37 +0200
+Processing by Api::V1::AuthController#login as JSON
+  Parameters: {"email" => "[FILTERED]", "password" => "[FILTERED]", "auth" => {"email" => "[FILTERED]", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = 'felender7@gmail.com' LIMIT 1 /*action='login',application='FreightSolutionBackEnd',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:6:in 'Api::V1::AuthController#login'
+Completed 200 OK in 323ms (Views: 0.1ms | ActiveRecord: 0.4ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/dashboard/stats" for ::1 at 2026-04-23 16:32:38 +0200
+Processing by Api::V1::DashboardController#stats as JSON
+  Parameters: {"dashboard" => {}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='stats',application='FreightSolutionBackEnd',controller='dashboard'*/[0m
+  ↳ app/controllers/concerns/authentication.rb:11:in 'Authentication#authenticate_request'
+  [1m[36mEmployee Count (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='stats',application='FreightSolutionBackEnd',controller='dashboard'*/[0m
+  ↳ app/controllers/api/v1/dashboard_controller.rb:6:in 'Api::V1::DashboardController#stats'
+  [1m[36mShipment Count (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "shipments" WHERE "shipments"."status" NOT IN ('delivered', 'cancelled') /*action='stats',application='FreightSolutionBackEnd',controller='dashboard'*/[0m
+  ↳ app/controllers/api/v1/dashboard_controller.rb:7:in 'Api::V1::DashboardController#stats'
+  [1m[36mInvoice Sum (0.7ms)[0m  [1m[34mSELECT SUM("invoices"."amount") FROM "invoices" WHERE "invoices"."status" = 'paid' /*action='stats',application='FreightSolutionBackEnd',controller='dashboard'*/[0m
+  ↳ app/controllers/api/v1/dashboard_controller.rb:8:in 'Api::V1::DashboardController#stats'
+  [1m[36mVendor Count (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "vendors" /*action='stats',application='FreightSolutionBackEnd',controller='dashboard'*/[0m
+  ↳ app/controllers/api/v1/dashboard_controller.rb:9:in 'Api::V1::DashboardController#stats'
+Completed 200 OK in 17ms (Views: 0.2ms | ActiveRecord: 3.3ms (5 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/hrm/tasks" for ::1 at 2026-04-23 16:33:23 +0200
+Processing by Api::V1::Hrm::TasksController#index as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='tasks'*/[0m
+  ↳ app/controllers/concerns/authentication.rb:11:in 'Authentication#authenticate_request'
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."user_id" = 1 LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='tasks'*/[0m
+  ↳ app/controllers/api/v1/hrm/base_controller.rb:9:in 'Api::V1::Hrm::BaseController#ensure_employee_record'
+  [1m[36mTask Load (0.5ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."employee_id" = 2 ORDER BY "tasks"."due_date" ASC /*action='index',application='FreightSolutionBackEnd',controller='tasks'*/[0m
+  ↳ app/controllers/api/v1/hrm/tasks_controller.rb:4:in 'Api::V1::Hrm::TasksController#index'
+Completed 200 OK in 6ms (Views: 1.9ms | ActiveRecord: 1.1ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/admin/users/3" for ::1 at 2026-04-23 16:37:16 +0200
+Processing by Admin::UsersController#show as HTML
+  Parameters: {"id" => "3"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1 /*action='show',application='FreightSolutionBackEnd',controller='users'*/[0m
+  ↳ app/controllers/admin/users_controller.rb:7:in 'Admin::UsersController#show'
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/users/show.html.erb within layouts/admin
+  Rendered admin/users/show.html.erb within layouts/admin (Duration: 0.9ms | GC: 0.0ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='show',application='FreightSolutionBackEnd',controller='users'*/[0m
+  ↳ app/controllers/admin/base_controller.rb:15:in 'Admin::BaseController#current_user'
+  Rendered layout layouts/admin.html.erb (Duration: 5.3ms | GC: 0.4ms)
+Completed 200 OK in 36ms (Views: 7.3ms | ActiveRecord: 7.9ms (2 queries, 0 cached) | GC: 1.4ms)
+
+
