@@ -1,6 +1,7 @@
 class StorageBilling < ApplicationRecord
   STATUSES = ['pending', 'invoiced', 'paid'].freeze
 
+  belongs_to :user, optional: true
   belongs_to :client
 
   validates :billing_date, presence: true

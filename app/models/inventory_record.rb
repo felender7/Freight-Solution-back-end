@@ -1,4 +1,5 @@
 class InventoryRecord < ApplicationRecord
+  belongs_to :user, optional: true
   belongs_to :inventory_item
   belongs_to :client
   belongs_to :warehouse_location

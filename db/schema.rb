@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_04_23_101728) do
+ActiveRecord::Schema[8.1].define(version: 2026_04_23_130036) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -87,11 +87,13 @@ ActiveRecord::Schema[8.1].define(version: 2026_04_23_101728) do
     t.boolean "sanctions_screened", default: false
     t.string "status", default: "active"
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
     t.string "vat_number"
     t.index ["category"], name: "index_clients_on_category"
     t.index ["email"], name: "index_clients_on_email", unique: true
     t.index ["kyc_status"], name: "index_clients_on_kyc_status"
     t.index ["status"], name: "index_clients_on_status"
+    t.index ["user_id"], name: "index_clients_on_user_id"
   end
 
   create_table "employees", force: :cascade do |t|
@@ -143,9 +145,11 @@ ActiveRecord::Schema[8.1].define(version: 2026_04_23_101728) do
     t.decimal "unit_volume", precision: 15, scale: 2, default: "0.0"
     t.decimal "unit_weight", precision: 15, scale: 2, default: "0.0"
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
     t.index ["barcode"], name: "index_inventory_items_on_barcode", unique: true
     t.index ["category"], name: "index_inventory_items_on_category"
     t.index ["sku"], name: "index_inventory_items_on_sku", unique: true
+    t.index ["user_id"], name: "index_inventory_items_on_user_id"
   end
 
   create_table "inventory_records", force: :cascade do |t|
@@ -157,10 +161,12 @@ ActiveRecord::Schema[8.1].define(version: 2026_04_23_101728) do
     t.bigint "pallet_id"
     t.integer "quantity"
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
     t.bigint "warehouse_location_id", null: false
     t.index ["client_id"], name: "index_inventory_records_on_client_id"
     t.index ["inventory_item_id"], name: "index_inventory_records_on_inventory_item_id"
     t.index ["pallet_id"], name: "index_inventory_records_on_pallet_id"
+    t.index ["user_id"], name: "index_inventory_records_on_user_id"
     t.index ["warehouse_location_id"], name: "index_inventory_records_on_warehouse_location_id"
   end
 
@@ -230,6 +236,8 @@ ActiveRecord::Schema[8.1].define(version: 2026_04_23_101728) do
     t.date "ship_date"
     t.string "status"
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_shipments_on_user_id"
   end
 
   create_table "storage_billings", force: :cascade do |t|
@@ -242,9 +250,11 @@ ActiveRecord::Schema[8.1].define(version: 2026_04_23_101728) do
     t.integer "total_pallets", default: 0
     t.decimal "total_volume", precision: 15, scale: 2, default: "0.0"
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
     t.index ["billing_date"], name: "index_storage_billings_on_billing_date"
     t.index ["client_id"], name: "index_storage_billings_on_client_id"
     t.index ["status"], name: "index_storage_billings_on_status"
+    t.index ["user_id"], name: "index_storage_billings_on_user_id"
   end
 
   create_table "tasks", force: :cascade do |t|
@@ -321,9 +331,11 @@ ActiveRecord::Schema[8.1].define(version: 2026_04_23_101728) do
     t.text "sla_details"
     t.string "status"
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
     t.string "vat_number"
     t.index ["category"], name: "index_vendors_on_category"
     t.index ["kyc_status"], name: "index_vendors_on_kyc_status"
+    t.index ["user_id"], name: "index_vendors_on_user_id"
   end
 
   create_table "warehouse_locations", force: :cascade do |t|
@@ -336,9 +348,11 @@ ActiveRecord::Schema[8.1].define(version: 2026_04_23_101728) do
     t.string "location_type"
     t.string "name", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
     t.string "zone"
     t.index ["location_type"], name: "index_warehouse_locations_on_location_type"
     t.index ["name"], name: "index_warehouse_locations_on_name", unique: true
+    t.index ["user_id"], name: "index_warehouse_locations_on_user_id"
     t.index ["zone"], name: "index_warehouse_locations_on_zone"
   end
 
@@ -363,13 +377,16 @@ ActiveRecord::Schema[8.1].define(version: 2026_04_23_101728) do
   add_foreign_key "activity_logs", "users", column: "actor_id"
   add_foreign_key "attendance_records", "employees"
   add_foreign_key "attendance_records", "users"
+  add_foreign_key "clients", "users"
   add_foreign_key "employees", "employees", column: "manager_id"
   add_foreign_key "employees", "users"
   add_foreign_key "enrollments", "employees"
   add_foreign_key "enrollments", "training_courses"
+  add_foreign_key "inventory_items", "users"
   add_foreign_key "inventory_records", "clients"
   add_foreign_key "inventory_records", "inventory_items"
   add_foreign_key "inventory_records", "pallets"
+  add_foreign_key "inventory_records", "users"
   add_foreign_key "inventory_records", "warehouse_locations"
   add_foreign_key "leave_requests", "employees"
   add_foreign_key "leave_requests", "users", column: "approved_by_id"
@@ -377,12 +394,16 @@ ActiveRecord::Schema[8.1].define(version: 2026_04_23_101728) do
   add_foreign_key "pallets", "warehouse_locations"
   add_foreign_key "performance_reviews", "employees"
   add_foreign_key "performance_reviews", "users", column: "reviewer_id"
+  add_foreign_key "shipments", "users"
   add_foreign_key "storage_billings", "clients"
+  add_foreign_key "storage_billings", "users"
   add_foreign_key "tasks", "employees"
   add_foreign_key "tasks", "users", column: "assigned_by_id"
   add_foreign_key "timesheets", "employees"
   add_foreign_key "timesheets", "tasks"
   add_foreign_key "timesheets", "users", column: "approved_by_id"
+  add_foreign_key "vendors", "users"
+  add_foreign_key "warehouse_locations", "users"
   add_foreign_key "warehouse_transactions", "clients"
   add_foreign_key "warehouse_transactions", "inventory_items"
   add_foreign_key "warehouse_transactions", "users"

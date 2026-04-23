@@ -1,4 +1,6 @@
 class WarehouseLocation < ApplicationRecord
+  belongs_to :user, optional: true
+
   LOCATION_TYPES = ['receiving', 'storage', 'cross_dock', 'shipping', 'inspection'].freeze
   ZONES = ['Dry', 'Cold Storage', 'Dangerous Goods', 'High Value', 'Bulk'].freeze
 

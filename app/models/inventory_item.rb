@@ -1,4 +1,6 @@
 class InventoryItem < ApplicationRecord
+  belongs_to :user, optional: true
+
   has_many :inventory_records
   has_many :warehouse_transactions
 

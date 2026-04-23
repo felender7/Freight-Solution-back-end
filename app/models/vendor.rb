@@ -1,4 +1,6 @@
 class Vendor < ApplicationRecord
+  belongs_to :user, optional: true
+
   CATEGORIES = [
     "Shipping lines",
     "Airlines",

@@ -1,4 +1,6 @@
 class Client < ApplicationRecord
+  belongs_to :user, optional: true
+
   # Categories as defined in requirements
   CATEGORIES = [
     'Exporter',
