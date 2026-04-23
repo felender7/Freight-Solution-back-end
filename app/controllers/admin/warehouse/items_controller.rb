@@ -15,7 +15,7 @@ class Admin::Warehouse::ItemsController < Admin::BaseController
   def create
     @item = InventoryItem.new(item_params)
     if @item.save
-      redirect_to admin_warehouse_items_path, notice: "SKU created successfully."
+      redirect_to admin_warehouse_items_path, notice: "Inventory item was successfully registered."
     else
       render :new, status: :unprocessable_entity
     end
@@ -26,7 +26,7 @@ class Admin::Warehouse::ItemsController < Admin::BaseController
 
   def update
     if @item.update(item_params)
-      redirect_to admin_warehouse_items_path, notice: "SKU updated successfully."
+      redirect_to admin_warehouse_items_path, notice: "Item master data was successfully updated."
     else
       render :edit, status: :unprocessable_entity
     end
@@ -34,7 +34,7 @@ class Admin::Warehouse::ItemsController < Admin::BaseController
 
   def destroy
     @item.destroy
-    redirect_to admin_warehouse_items_path, notice: "SKU deleted."
+    redirect_to admin_warehouse_items_path, notice: "Inventory item was successfully removed."
   end
 
   private

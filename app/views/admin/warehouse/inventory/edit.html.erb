@@ -1,0 +1,28 @@
+<div class="p-8 animate-fade-in">
+ <div class="bg-slate-800 rounded-2xl border border-slate-700 overflow-hidden shadow-xl">
+  <!-- Header -->
+  <div class="px-8 py-6 border-b border-slate-700 flex items-center justify-between bg-slate-800/50">
+   <div>
+    <div class="flex items-center gap-2 text-slate-500 text-sm mb-1">
+     <span>Warehouse</span>
+     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+     <span>Inventory</span>
+    </div>
+    <h1 class="text-3xl font-bold text-slate-100 tracking-tight">Update Record</h1>
+    <p class="text-slate-400 text-sm mt-1">Adjusting stock for <span class="text-blue-400 font-bold"><%= @inventory_record.inventory_item.name %></span></p>
+   </div>
+   <a href="<%= admin_warehouse_inventory_path(@inventory_record) %>" class="inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 text-white rounded-xl font-medium transition-all shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40">
+    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+    </svg>
+    View Detail
+   </a>
+  </div>
+
+  <!-- Form -->
+  <div class="p-8">
+   <%= render "form", inventory_record: @inventory_record %>
+  </div>
+ </div>
+</div>

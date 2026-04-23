@@ -15,6 +15,6 @@ class InventoryItem < ApplicationRecord
   private
 
   def generate_barcode
-    self.barcode ||= "SKU-#{sku}-#{SecureRandom.hex(4).upper}" if sku.present?
+    self.barcode ||= "SKU-#{sku}-#{SecureRandom.hex(4).upcase}" if sku.present?
   end
 end

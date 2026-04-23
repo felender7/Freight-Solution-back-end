@@ -1,0 +1,109 @@
+<div class="p-8 animate-fade-in space-y-8">
+ 
+ <div class="glass-card rounded-2xl border border-slate-700 overflow-hidden shadow-2xl">
+  <!-- Header -->
+  <div class="relative px-8 py-10 bg-slate-800 border-b border-slate-700 overflow-hidden">
+   <div class="absolute top-0 right-0 p-8 opacity-10 text-indigo-500">
+    <svg class="w-32 h-32" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/></svg>
+   </div>
+
+   <div class="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
+    <div class="flex items-center gap-6">
+     <div class="w-20 h-20 rounded-2xl bg-gradient-to-br from-indigo-500 to-blue-600 flex items-center justify-center text-white text-3xl font-bold shadow-lg shadow-indigo-500/20">
+      <%= @inventory_record.quantity %>
+     </div>
+     <div>
+      <div class="flex items-center gap-3 mb-1">
+       <h1 class="text-3xl font-bold text-slate-100 tracking-tight"><%= @inventory_record.inventory_item.name %></h1>
+       <span class="px-3 py-1 bg-blue-500/20 text-blue-400 text-xs font-bold tracking-widest rounded-full border border-blue-500/30">
+        Stock Record
+       </span>
+      </div>
+      <div class="flex flex-wrap items-center gap-4 text-slate-400 text-sm font-medium">
+       <span class="flex items-center gap-1.5 tracking-widest">
+        SKU: <%= @inventory_record.inventory_item.sku %>
+       </span>
+      </div>
+     </div>
+    </div>
+
+    <div class="flex items-center gap-3">
+     <a href="<%= edit_admin_warehouse_inventory_path(@inventory_record) %>" 
+       class="inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 text-white rounded-xl font-medium transition-all shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40">
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>
+      Edit Record
+     </a>
+     <a href="<%= admin_warehouse_inventory_index_path %>" 
+       class="inline-flex items-center gap-2 px-5 py-2.5 bg-slate-700 hover:bg-slate-600 text-slate-200 rounded-xl font-medium transition-all">
+      Back to List
+     </a>
+    </div>
+   </div>
+  </div>
+
+  <div class="grid grid-cols-1 lg:grid-cols-3 divide-y lg:divide-y-0 lg:divide-x border-slate-700">
+   <!-- Quantity Quick View -->
+   <div class="p-8 bg-slate-800/30">
+    <h3 class="text-xs font-bold text-slate-500 tracking-widest mb-6">Units Managed</h3>
+    <div class="flex items-center justify-center p-6 mb-6 rounded-3xl bg-slate-900/50 border border-slate-700">
+     <div class="text-center">
+      <div class="text-5xl font-black text-blue-500 mb-2">
+       <%= @inventory_record.quantity %>
+      </div>
+      <p class="text-slate-400 text-sm font-bold tracking-tight">Total on Hand</p>
+     </div>
+    </div>
+    
+    <div class="space-y-4">
+     <div class="flex items-center justify-between p-3 rounded-xl bg-slate-900/30 border border-slate-700/50">
+      <span class="text-slate-300 text-sm">Status</span>
+      <span class="px-3 py-1 text-[10px] font-bold rounded-full bg-green-500/20 text-green-400 border border-green-500/30">
+       Live
+      </span>
+     </div>
+     <div class="flex items-center justify-between p-3 rounded-xl bg-slate-900/30 border border-slate-700/50">
+      <span class="text-slate-300 text-sm">Owner</span>
+      <span class="text-slate-100 font-bold text-[10px]"><%= @inventory_record.client.name %></span>
+     </div>
+    </div>
+   </div>
+
+   <!-- Record Details -->
+   <div class="p-8 lg:col-span-2">
+    <h3 class="text-xs font-bold text-slate-500 tracking-widest mb-6">Storage Metadata</h3>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
+     
+     <div>
+      <label class="block text-slate-500 text-[10px] font-black mb-1 tracking-widest">Storage Location</label>
+      <p class="text-2xl font-bold text-slate-100"><%= @inventory_record.warehouse_location.name %></p>
+      <p class="text-slate-500 text-[10px] font-bold mt-1">Zone: <%= @inventory_record.warehouse_location.zone %></p>
+     </div>
+
+     <div>
+      <label class="block text-slate-500 text-[10px] font-black mb-1 tracking-widest">Batch / Lot Control</label>
+      <p class="text-2xl font-bold text-indigo-400 font-mono"><%= @inventory_record.batch_number || 'UNBATCHED' %></p>
+      <p class="text-slate-500 text-[10px] font-bold mt-1">Expiry: <%= @inventory_record.expiry_date || 'No Date' %></p>
+     </div>
+
+     <div class="md:col-span-2 grid grid-cols-2 md:grid-cols-4 gap-4 pt-4 border-t border-slate-700/50">
+      <div>
+       <label class="block text-slate-500 text-[10px] font-black mb-1">Pallet ID</label>
+       <p class="text-slate-200 font-bold text-sm"><%= @inventory_record.pallet&.pallet_number || 'Loose' %></p>
+      </div>
+      <div>
+       <label class="block text-slate-500 text-[10px] font-black mb-1">Created At</label>
+       <p class="text-slate-200 font-bold text-[10px]"><%= @inventory_record.created_at.strftime('%d %b %Y') %></p>
+      </div>
+      <div>
+       <label class="block text-slate-500 text-[10px] font-black mb-1">Weight Group</label>
+       <p class="text-slate-200 font-bold text-[10px]"><%= @inventory_record.inventory_item.unit_weight * @inventory_record.quantity %> kg</p>
+      </div>
+     </div>
+
+    </div>
+   </div>
+  </div>
+ </div>
+
+ <!-- Recent Transactions for this specific record could go here -->
+</div>

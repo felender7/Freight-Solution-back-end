@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     get "dashboard", to: "dashboard#index"
+    get "ops_fin", to: "ops_fin_dashboard#index"
     get "hrm", to: "hrm_dashboard#index"
     resources :users
     resources :employees

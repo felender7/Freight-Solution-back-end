@@ -15,7 +15,7 @@ class Admin::Warehouse::LocationsController < Admin::BaseController
   def create
     @location = WarehouseLocation.new(location_params)
     if @location.save
-      redirect_to admin_warehouse_locations_path, notice: "Location created successfully."
+      redirect_to admin_warehouse_locations_path, notice: "Location was successfully created."
     else
       render :new, status: :unprocessable_entity
     end
@@ -26,7 +26,7 @@ class Admin::Warehouse::LocationsController < Admin::BaseController
 
   def update
     if @location.update(location_params)
-      redirect_to admin_warehouse_locations_path, notice: "Location updated successfully."
+      redirect_to admin_warehouse_locations_path, notice: "Location was successfully updated."
     else
       render :edit, status: :unprocessable_entity
     end
@@ -34,7 +34,7 @@ class Admin::Warehouse::LocationsController < Admin::BaseController
 
   def destroy
     @location.destroy
-    redirect_to admin_warehouse_locations_path, notice: "Location deleted."
+    redirect_to admin_warehouse_locations_path, notice: "Location was successfully deleted."
   end
 
   private

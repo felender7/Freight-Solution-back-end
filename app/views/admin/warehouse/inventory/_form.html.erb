@@ -1,62 +1,63 @@
-<%= form_with model: [:admin, :warehouse, item], url: (item.new_record? ? admin_warehouse_items_path : admin_warehouse_item_path(item)), local: true, class: "space-y-6" do |form| %>
- <% if item.errors.any? %>
+<%= form_with model: [:admin, :warehouse, inventory_record], url: (inventory_record.new_record? ? admin_warehouse_inventory_index_path : admin_warehouse_inventory_path(inventory_record)), local: true, class: "space-y-8" do |form| %>
+ 
+ <% if inventory_record.errors.any? %>
   <div class="p-4 bg-red-500/10 border border-red-500/30 text-red-400 rounded-lg">
    <ul class="list-disc list-inside text-sm">
-    <% item.errors.full_messages.each do |msg| %>
+    <% inventory_record.errors.full_messages.each do |msg| %>
      <li><%= msg %></li>
     <% end %>
    </ul>
   </div>
  <% end %>
 
- <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+ <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+  <!-- Item Selection -->
   <div class="space-y-2">
-   <label class="block text-slate-300 text-sm font-bold tracking-wider">Item Name</label>
-   <%= form.text_field :name, placeholder: "e.g. Standard Pallet Item", required: true,
+   <label class="block text-slate-300 text-sm font-bold tracking-wider">Inventory Item / SKU</label>
+   <%= form.collection_select :inventory_item_id, @items, :id, :name, { prompt: "Select Item" }, 
      class: "w-full px-4 py-3 bg-slate-900 border border-slate-600 rounded-xl text-slate-100 focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all outline-none" %>
   </div>
 
+  <!-- Client Selection -->
   <div class="space-y-2">
-   <label class="block text-slate-300 text-sm font-bold tracking-wider">SKU Code</label>
-   <%= form.text_field :sku, placeholder: "e.g. TFS-ST-001", required: true,
+   <label class="block text-slate-300 text-sm font-bold tracking-wider">Consignee / Client (Owner)</label>
+   <%= form.collection_select :client_id, @clients, :id, :name, { prompt: "Select Owner" }, 
      class: "w-full px-4 py-3 bg-slate-900 border border-slate-600 rounded-xl text-slate-100 focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all outline-none" %>
   </div>
 
+  <!-- Location Selection -->
   <div class="space-y-2">
-   <label class="block text-slate-300 text-sm font-bold tracking-wider">Category</label>
-   <%= form.text_field :category, placeholder: "e.g. Electronics, Bulk, etc.",
+   <label class="block text-slate-300 text-sm font-bold tracking-wider">Storage Allocation</label>
+   <%= form.collection_select :warehouse_location_id, @locations, :id, :name, { prompt: "Select Location" }, 
      class: "w-full px-4 py-3 bg-slate-900 border border-slate-600 rounded-xl text-slate-100 focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all outline-none" %>
   </div>
 
+  <!-- Quantity -->
   <div class="space-y-2">
-   <label class="block text-slate-300 text-sm font-bold tracking-wider">Reorder Level</label>
-   <%= form.number_field :reorder_level,
+   <label class="block text-slate-300 text-sm font-bold tracking-wider">Total Quantity</label>
+   <%= form.number_field :quantity, min: 0, placeholder: "Enter units",
      class: "w-full px-4 py-3 bg-slate-900 border border-slate-600 rounded-xl text-slate-100 focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all outline-none" %>
   </div>
 
+  <!-- Batch -->
   <div class="space-y-2">
-   <label class="block text-slate-300 text-sm font-bold tracking-wider">Unit Weight (kg)</label>
-   <%= form.number_field :unit_weight, step: 0.01,
+   <label class="block text-slate-300 text-sm font-bold tracking-wider">Batch / Lot Number</label>
+   <%= form.text_field :batch_number, placeholder: "e.g. BATCH-001",
      class: "w-full px-4 py-3 bg-slate-900 border border-slate-600 rounded-xl text-slate-100 focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all outline-none" %>
   </div>
 
+  <!-- Expiry -->
   <div class="space-y-2">
-   <label class="block text-slate-300 text-sm font-bold tracking-wider">Unit Volume (m³)</label>
-   <%= form.number_field :unit_volume, step: 0.01,
-     class: "w-full px-4 py-3 bg-slate-900 border border-slate-600 rounded-xl text-slate-100 focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all outline-none" %>
-  </div>
-
-  <div class="md:col-span-2 space-y-2">
-   <label class="block text-slate-300 text-sm font-bold tracking-wider">Description</label>
-   <%= form.text_area :description, rows: 3,
+   <label class="block text-slate-300 text-sm font-bold tracking-wider">Expiry Date</label>
+   <%= form.date_field :expiry_date,
      class: "w-full px-4 py-3 bg-slate-900 border border-slate-600 rounded-xl text-slate-100 focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all outline-none" %>
   </div>
  </div>
 
  <div class="pt-6 border-t border-slate-700 flex gap-4">
-   <%= form.submit (item.new_record? ? "Register SKU" : "Update SKU"), 
+   <%= form.submit (inventory_record.new_record? ? "Confirm Receipt" : "Save Changes"), 
        class: "flex-1 py-3 bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 text-white rounded-xl font-medium transition-all shadow-lg shadow-blue-500/25 cursor-pointer" %>
-   <a href="<%= admin_warehouse_items_path %>" 
+   <a href="<%= admin_warehouse_inventory_index_path %>" 
       class="px-8 py-3 bg-slate-700 hover:bg-slate-600 text-slate-200 rounded-xl font-medium transition-all">
      Cancel
    </a>

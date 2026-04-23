@@ -1,53 +1,53 @@
 <div class="animate-fade-in p-8">
-  <div class="glass-card rounded-2xl border border-slate-700 overflow-hidden w-full">
-    <div class="px-8 py-6 border-b border-slate-700">
-      <h1 class="text-2xl font-bold text-slate-100 uppercase tracking-tight">Audit Trail: WMS Transactions</h1>
-      <p class="text-slate-400 text-sm italic">Historical log of all stock movements and adjustments</p>
-    </div>
-    <div class="p-0">
-      <table class="w-full">
-        <thead>
-          <tr class="bg-slate-900/50 text-left text-slate-500 text-[10px] font-black uppercase tracking-widest border-b border-slate-700/50">
-            <th class="py-4 px-6">Type</th>
-            <th class="py-4 px-6">Item / Client</th>
-            <th class="py-4 px-6">Movement</th>
-            <th class="py-4 px-6 text-center">Qty</th>
-            <th class="py-4 px-6 text-right">User / Date</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @transactions.each do |tx| %>
-            <tr class="border-b border-slate-700/30 hover:bg-slate-700/10 transition-colors">
-              <td class="py-4 px-6">
-                <span class="px-2 py-1 rounded text-[8px] font-black uppercase
-                  <%= case tx.transaction_type
-                    when 'receiving' then 'bg-blue-500/20 text-blue-400'
-                    when 'picking' then 'bg-yellow-500/20 text-yellow-400'
-                    else 'bg-slate-700 text-slate-400'
-                  end %>">
-                  <%= tx.transaction_type %>
-                </span>
-              </td>
-              <td class="py-4 px-6">
-                <p class="text-slate-200 text-xs font-bold"><%= tx.inventory_item.name %></p>
-                <p class="text-slate-500 text-[8px] uppercase tracking-tighter"><%= tx.client.name %></p>
-              </td>
-              <td class="py-4 px-6">
-                <div class="flex items-center gap-2 text-xs text-slate-400">
-                  <span class="font-mono"><%= tx.from_location&.name || 'External' %></span>
-                  <svg class="w-3 h-3 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
-                  <span class="font-mono text-slate-200 font-bold"><%= tx.to_location&.name || 'N/A' %></span>
-                </div>
-              </td>
-              <td class="py-4 px-6 text-center text-slate-100 font-black text-sm"><%= tx.quantity %></td>
-              <td class="py-4 px-6 text-right">
-                <p class="text-slate-300 text-[10px] font-bold"><%= tx.user&.first_name || 'System' %></p>
-                <p class="text-slate-500 text-[8px]"><%= tx.created_at.strftime('%d %b %H:%M') %></p>
-              </td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
-    </div>
+ <div class="glass-card rounded-2xl border border-slate-700 overflow-hidden w-full">
+  <div class="px-8 py-6 border-b border-slate-700">
+   <h1 class="text-2xl font-bold text-slate-100 tracking-tight">Audit Trail: WMS Transactions</h1>
+   <p class="text-slate-400 text-sm italic">Historical log of all stock movements and adjustments</p>
   </div>
+  <div class="p-0">
+   <table class="w-full">
+    <thead>
+     <tr class="bg-slate-900/50 text-left text-slate-500 text-[10px] font-black tracking-widest border-b border-slate-700/50">
+      <th class="py-4 px-6">Type</th>
+      <th class="py-4 px-6">Item / Client</th>
+      <th class="py-4 px-6">Movement</th>
+      <th class="py-4 px-6 text-center">Qty</th>
+      <th class="py-4 px-6 text-right">User / Date</th>
+     </tr>
+    </thead>
+    <tbody>
+     <% @transactions.each do |tx| %>
+      <tr class="border-b border-slate-700/30 hover:bg-slate-700/10 transition-colors">
+       <td class="py-4 px-6">
+        <span class="px-2 py-1 rounded text-[8px] font-black 
+         <%= case tx.transaction_type
+          when 'receiving' then 'bg-blue-500/20 text-blue-400'
+          when 'picking' then 'bg-yellow-500/20 text-yellow-400'
+          else 'bg-slate-700 text-slate-400'
+         end %>">
+         <%= tx.transaction_type %>
+        </span>
+       </td>
+       <td class="py-4 px-6">
+        <p class="text-slate-200 text-xs font-bold"><%= tx.inventory_item.name %></p>
+        <p class="text-slate-500 text-[8px] tracking-tighter"><%= tx.client.name %></p>
+       </td>
+       <td class="py-4 px-6">
+        <div class="flex items-center gap-2 text-xs text-slate-400">
+         <span class="font-mono"><%= tx.from_location&.name || 'External' %></span>
+         <svg class="w-3 h-3 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+         <span class="font-mono text-slate-200 font-bold"><%= tx.to_location&.name || 'N/A' %></span>
+        </div>
+       </td>
+       <td class="py-4 px-6 text-center text-slate-100 font-black text-sm"><%= tx.quantity %></td>
+       <td class="py-4 px-6 text-right">
+        <p class="text-slate-300 text-[10px] font-bold"><%= tx.user&.first_name || 'System' %></p>
+        <p class="text-slate-500 text-[8px]"><%= tx.created_at.strftime('%d %b %H:%M') %></p>
+       </td>
+      </tr>
+     <% end %>
+    </tbody>
+   </table>
+  </div>
+ </div>
 </div>
