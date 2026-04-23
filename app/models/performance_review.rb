@@ -25,8 +25,11 @@ class PerformanceReview < ApplicationRecord
   def overall_kpi_score
     return 0 if kpi_results.blank?
     
-    # Simple average logic for example, in real-world this would be weighted
+    # Calculate average of the values
     scores = kpi_results.values.map(&:to_f)
-    (scores.sum / scores.size).round(2)
+    avg = scores.sum / scores.size
+    
+    # Force it to be a percentage and not exceed 100
+    [avg.round(2), 100.0].min
   end
 end

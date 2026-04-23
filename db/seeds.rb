@@ -144,5 +144,30 @@ invoice_statuses = ['paid', 'pending', 'overdue', 'cancelled']
 end
 puts "Created #{Invoice.count} invoices"
 
+# Seed a single Performance Review
+employee = Employee.first
+reviewer = User.find_by(role: 'admin')
+
+if employee && reviewer
+  PerformanceReview.find_or_create_by!(employee: employee, review_cycle: 'Q1 2026') do |pr|
+    pr.reviewer = reviewer
+    pr.rating = 4
+    pr.feedback = "Consistently exceeds targets in shipment processing and clearance times. Great attention to cost accuracy and departmental efficiency."
+    pr.review_date = Date.today
+    pr.status = 'completed'
+    pr.kpi_results = {
+      'shipments_processed' => 45,
+      'clearance_time' => 4.2,
+      'cost_accuracy' => 98.5,
+      'revenue_generated' => 125000,
+      'margin_achieved' => 15.2,
+      'inventory_accuracy' => 99.1,
+      'damage_ratio' => 0.05
+    }
+  end
+  puts "Created 1 performance review record"
+end
+
+
 
 

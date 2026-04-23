@@ -77712,3 +77712,1587 @@ Processing by Admin::PerformanceReviewsController#new as HTML
 Completed 200 OK in 5ms (Views: 4.3ms | ActiveRecord: 0.5ms (3 queries, 0 cached) | GC: 0.0ms)
 
 
+Started GET "/admin/performance_reviews" for ::1 at 2026-04-23 12:24:03 +0200
+Processing by Admin::PerformanceReviewsController#index as HTML
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/performance_reviews/index.html.erb within layouts/admin
+  [1m[36mPerformanceReview Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "performance_reviews" LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='performance_reviews'*/[0m
+  ↳ app/views/admin/performance_reviews/index.html.erb:46
+  Rendered admin/performance_reviews/index.html.erb within layouts/admin (Duration: 1.5ms | GC: 0.0ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='performance_reviews'*/[0m
+  ↳ app/controllers/admin/base_controller.rb:15:in 'Admin::BaseController#current_user'
+  Rendered layout layouts/admin.html.erb (Duration: 9.2ms | GC: 0.3ms)
+Completed 200 OK in 14ms (Views: 8.4ms | ActiveRecord: 2.7ms (2 queries, 0 cached) | GC: 0.6ms)
+
+
+Started GET "/admin/performance_reviews" for ::1 at 2026-04-23 12:24:05 +0200
+Processing by Admin::PerformanceReviewsController#index as HTML
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/performance_reviews/index.html.erb within layouts/admin
+  [1m[36mPerformanceReview Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "performance_reviews" LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='performance_reviews'*/[0m
+  ↳ app/views/admin/performance_reviews/index.html.erb:46
+  Rendered admin/performance_reviews/index.html.erb within layouts/admin (Duration: 1.4ms | GC: 0.0ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='performance_reviews'*/[0m
+  ↳ app/controllers/admin/base_controller.rb:15:in 'Admin::BaseController#current_user'
+  Rendered layout layouts/admin.html.erb (Duration: 2.8ms | GC: 0.3ms)
+Completed 200 OK in 4ms (Views: 2.8ms | ActiveRecord: 0.4ms (2 queries, 0 cached) | GC: 0.3ms)
+
+
+Started GET "/admin/performance_reviews/new" for ::1 at 2026-04-23 12:24:08 +0200
+Processing by Admin::PerformanceReviewsController#new as HTML
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/performance_reviews/new.html.erb within layouts/admin
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees" /*action='new',application='FreightSolutionBackEnd',controller='performance_reviews'*/[0m
+  ↳ app/views/admin/performance_reviews/_form.html.erb:26
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" /*action='new',application='FreightSolutionBackEnd',controller='performance_reviews'*/[0m
+  ↳ app/views/admin/performance_reviews/_form.html.erb:32
+  Rendered admin/performance_reviews/_form.html.erb (Duration: 9.4ms | GC: 0.3ms)
+  Rendered admin/performance_reviews/new.html.erb within layouts/admin (Duration: 9.9ms | GC: 0.3ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='new',application='FreightSolutionBackEnd',controller='performance_reviews'*/[0m
+  ↳ app/controllers/admin/base_controller.rb:15:in 'Admin::BaseController#current_user'
+  Rendered layout layouts/admin.html.erb (Duration: 11.1ms | GC: 0.3ms)
+Completed 200 OK in 25ms (Views: 9.8ms | ActiveRecord: 2.2ms (3 queries, 0 cached) | GC: 1.3ms)
+
+
+Generating image variants require the image_processing gem. Please add `gem "image_processing", "~> 1.2"` to your Gemfile or set `config.active_storage.variant_processor = :disabled`.
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(393442119656133765) /*application='FreightSolutionBackEnd'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='FreightSolutionBackEnd'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='FreightSolutionBackEnd'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(393442119656133765) /*application='FreightSolutionBackEnd'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='FreightSolutionBackEnd'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mSET search_path TO public /*application='FreightSolutionBackEnd'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mSET search_path TO "$user", public /*application='FreightSolutionBackEnd'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mSET search_path TO public /*application='FreightSolutionBackEnd'*/[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[35mSET search_path TO "$user", public /*application='FreightSolutionBackEnd'*/[0m
+Started GET "/admin/performance_reviews/new" for ::1 at 2026-04-23 12:25:19 +0200
+Processing by Admin::PerformanceReviewsController#new as HTML
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/performance_reviews/new.html.erb within layouts/admin
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees" /*action='new',application='FreightSolutionBackEnd',controller='performance_reviews'*/[0m
+  ↳ app/views/admin/performance_reviews/_form.html.erb:26
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" /*action='new',application='FreightSolutionBackEnd',controller='performance_reviews'*/[0m
+  ↳ app/views/admin/performance_reviews/_form.html.erb:32
+  Rendered admin/performance_reviews/_form.html.erb (Duration: 24.5ms | GC: 9.9ms)
+  Rendered admin/performance_reviews/new.html.erb within layouts/admin (Duration: 25.0ms | GC: 9.9ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='new',application='FreightSolutionBackEnd',controller='performance_reviews'*/[0m
+  ↳ app/controllers/admin/base_controller.rb:15:in 'Admin::BaseController#current_user'
+  Rendered layout layouts/admin.html.erb (Duration: 27.1ms | GC: 9.9ms)
+Completed 200 OK in 41ms (Views: 24.9ms | ActiveRecord: 4.6ms (3 queries, 0 cached) | GC: 9.9ms)
+
+
+Started GET "/admin/performance_reviews" for ::1 at 2026-04-23 12:25:23 +0200
+Processing by Admin::PerformanceReviewsController#index as HTML
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/performance_reviews/index.html.erb within layouts/admin
+  [1m[36mPerformanceReview Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "performance_reviews" LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='performance_reviews'*/[0m
+  ↳ app/views/admin/performance_reviews/index.html.erb:46
+  Rendered admin/performance_reviews/index.html.erb within layouts/admin (Duration: 2.8ms | GC: 0.0ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='performance_reviews'*/[0m
+  ↳ app/controllers/admin/base_controller.rb:15:in 'Admin::BaseController#current_user'
+  Rendered layout layouts/admin.html.erb (Duration: 5.1ms | GC: 0.6ms)
+Completed 200 OK in 7ms (Views: 5.1ms | ActiveRecord: 0.5ms (2 queries, 0 cached) | GC: 0.6ms)
+
+
+Started GET "/admin/performance_reviews/new" for ::1 at 2026-04-23 12:25:24 +0200
+Processing by Admin::PerformanceReviewsController#new as HTML
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/performance_reviews/new.html.erb within layouts/admin
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees" /*action='new',application='FreightSolutionBackEnd',controller='performance_reviews'*/[0m
+  ↳ app/views/admin/performance_reviews/_form.html.erb:26
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" /*action='new',application='FreightSolutionBackEnd',controller='performance_reviews'*/[0m
+  ↳ app/views/admin/performance_reviews/_form.html.erb:32
+  Rendered admin/performance_reviews/_form.html.erb (Duration: 3.1ms | GC: 0.0ms)
+  Rendered admin/performance_reviews/new.html.erb within layouts/admin (Duration: 3.3ms | GC: 0.0ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='new',application='FreightSolutionBackEnd',controller='performance_reviews'*/[0m
+  ↳ app/controllers/admin/base_controller.rb:15:in 'Admin::BaseController#current_user'
+  Rendered layout layouts/admin.html.erb (Duration: 5.2ms | GC: 0.6ms)
+Completed 200 OK in 6ms (Views: 5.1ms | ActiveRecord: 0.6ms (3 queries, 0 cached) | GC: 0.6ms)
+
+
+Started GET "/admin/performance_reviews" for ::1 at 2026-04-23 12:25:26 +0200
+Processing by Admin::PerformanceReviewsController#index as HTML
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/performance_reviews/index.html.erb within layouts/admin
+  [1m[36mPerformanceReview Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "performance_reviews" LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='performance_reviews'*/[0m
+  ↳ app/views/admin/performance_reviews/index.html.erb:46
+  Rendered admin/performance_reviews/index.html.erb within layouts/admin (Duration: 1.3ms | GC: 0.0ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='performance_reviews'*/[0m
+  ↳ app/controllers/admin/base_controller.rb:15:in 'Admin::BaseController#current_user'
+  Rendered layout layouts/admin.html.erb (Duration: 3.3ms | GC: 0.0ms)
+Completed 200 OK in 4ms (Views: 3.2ms | ActiveRecord: 0.5ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/admin/performance_reviews" for ::1 at 2026-04-23 12:25:46 +0200
+Processing by Admin::PerformanceReviewsController#index as HTML
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/performance_reviews/index.html.erb within layouts/admin
+  [1m[36mPerformanceReview Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "performance_reviews" LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='performance_reviews'*/[0m
+  ↳ app/views/admin/performance_reviews/index.html.erb:46
+  Rendered admin/performance_reviews/index.html.erb within layouts/admin (Duration: 1.4ms | GC: 0.1ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='performance_reviews'*/[0m
+  ↳ app/controllers/admin/base_controller.rb:15:in 'Admin::BaseController#current_user'
+  Rendered layout layouts/admin.html.erb (Duration: 9.3ms | GC: 0.1ms)
+Completed 200 OK in 13ms (Views: 8.2ms | ActiveRecord: 2.6ms (2 queries, 0 cached) | GC: 0.1ms)
+
+
+Generating image variants require the image_processing gem. Please add `gem "image_processing", "~> 1.2"` to your Gemfile or set `config.active_storage.variant_processor = :disabled`.
+  [1m[36mEmployee Load (0.4ms)[0m  [1m[34mSELECT "employees".* FROM "employees" ORDER BY "employees"."id" ASC LIMIT 1 /*application='FreightSolutionBackEnd'*/[0m
+Started GET "/admin/performance_reviews" for ::1 at 2026-04-23 12:26:36 +0200
+Processing by Admin::PerformanceReviewsController#index as HTML
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/performance_reviews/index.html.erb within layouts/admin
+  [1m[36mPerformanceReview Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "performance_reviews" LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='performance_reviews'*/[0m
+  ↳ app/views/admin/performance_reviews/index.html.erb:46
+  Rendered admin/performance_reviews/index.html.erb within layouts/admin (Duration: 1.1ms | GC: 0.0ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='performance_reviews'*/[0m
+  ↳ app/controllers/admin/base_controller.rb:15:in 'Admin::BaseController#current_user'
+  Rendered layout layouts/admin.html.erb (Duration: 2.3ms | GC: 0.0ms)
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.4ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/admin/performance_reviews" for ::1 at 2026-04-23 12:26:43 +0200
+Processing by Admin::PerformanceReviewsController#index as HTML
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/performance_reviews/index.html.erb within layouts/admin
+  [1m[36mPerformanceReview Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "performance_reviews" LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='performance_reviews'*/[0m
+  ↳ app/views/admin/performance_reviews/index.html.erb:46
+  Rendered admin/performance_reviews/index.html.erb within layouts/admin (Duration: 1.4ms | GC: 0.0ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='performance_reviews'*/[0m
+  ↳ app/controllers/admin/base_controller.rb:15:in 'Admin::BaseController#current_user'
+  Rendered layout layouts/admin.html.erb (Duration: 3.0ms | GC: 0.0ms)
+Completed 200 OK in 4ms (Views: 2.9ms | ActiveRecord: 0.5ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/admin/performance_reviews" for ::1 at 2026-04-23 12:26:45 +0200
+Processing by Admin::PerformanceReviewsController#index as HTML
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/performance_reviews/index.html.erb within layouts/admin
+  [1m[36mPerformanceReview Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "performance_reviews" LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='performance_reviews'*/[0m
+  ↳ app/views/admin/performance_reviews/index.html.erb:46
+  Rendered admin/performance_reviews/index.html.erb within layouts/admin (Duration: 1.1ms | GC: 0.0ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='performance_reviews'*/[0m
+  ↳ app/controllers/admin/base_controller.rb:15:in 'Admin::BaseController#current_user'
+  Rendered layout layouts/admin.html.erb (Duration: 2.2ms | GC: 0.0ms)
+Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.5ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/admin/performance_reviews" for ::1 at 2026-04-23 12:26:46 +0200
+Processing by Admin::PerformanceReviewsController#index as HTML
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/performance_reviews/index.html.erb within layouts/admin
+  [1m[36mPerformanceReview Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "performance_reviews" LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='performance_reviews'*/[0m
+  ↳ app/views/admin/performance_reviews/index.html.erb:46
+  Rendered admin/performance_reviews/index.html.erb within layouts/admin (Duration: 1.4ms | GC: 0.0ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='performance_reviews'*/[0m
+  ↳ app/controllers/admin/base_controller.rb:15:in 'Admin::BaseController#current_user'
+  Rendered layout layouts/admin.html.erb (Duration: 2.8ms | GC: 0.0ms)
+Completed 200 OK in 4ms (Views: 2.8ms | ActiveRecord: 0.3ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/admin/performance_reviews" for ::1 at 2026-04-23 12:26:46 +0200
+Processing by Admin::PerformanceReviewsController#index as HTML
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/performance_reviews/index.html.erb within layouts/admin
+  [1m[36mPerformanceReview Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "performance_reviews" LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='performance_reviews'*/[0m
+  ↳ app/views/admin/performance_reviews/index.html.erb:46
+  Rendered admin/performance_reviews/index.html.erb within layouts/admin (Duration: 1.3ms | GC: 0.0ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='performance_reviews'*/[0m
+  ↳ app/controllers/admin/base_controller.rb:15:in 'Admin::BaseController#current_user'
+  Rendered layout layouts/admin.html.erb (Duration: 2.6ms | GC: 0.0ms)
+Completed 200 OK in 4ms (Views: 2.5ms | ActiveRecord: 0.5ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Generating image variants require the image_processing gem. Please add `gem "image_processing", "~> 1.2"` to your Gemfile or set `config.active_storage.variant_processor = :disabled`.
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."role" = 'admin' LIMIT 1 /*application='FreightSolutionBackEnd'*/[0m
+Started GET "/admin/performance_reviews" for ::1 at 2026-04-23 12:27:00 +0200
+Processing by Admin::PerformanceReviewsController#index as HTML
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/performance_reviews/index.html.erb within layouts/admin
+  [1m[36mPerformanceReview Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "performance_reviews" LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='performance_reviews'*/[0m
+  ↳ app/views/admin/performance_reviews/index.html.erb:46
+  Rendered admin/performance_reviews/index.html.erb within layouts/admin (Duration: 1.2ms | GC: 0.0ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='performance_reviews'*/[0m
+  ↳ app/controllers/admin/base_controller.rb:15:in 'Admin::BaseController#current_user'
+  Rendered layout layouts/admin.html.erb (Duration: 2.6ms | GC: 0.0ms)
+Completed 200 OK in 4ms (Views: 2.6ms | ActiveRecord: 0.5ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/admin/performance_reviews" for ::1 at 2026-04-23 12:27:01 +0200
+Processing by Admin::PerformanceReviewsController#index as HTML
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/performance_reviews/index.html.erb within layouts/admin
+  [1m[36mPerformanceReview Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "performance_reviews" LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='performance_reviews'*/[0m
+  ↳ app/views/admin/performance_reviews/index.html.erb:46
+  Rendered admin/performance_reviews/index.html.erb within layouts/admin (Duration: 1.5ms | GC: 0.0ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='performance_reviews'*/[0m
+  ↳ app/controllers/admin/base_controller.rb:15:in 'Admin::BaseController#current_user'
+  Rendered layout layouts/admin.html.erb (Duration: 3.0ms | GC: 0.0ms)
+Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 0.5ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/admin/performance_reviews" for ::1 at 2026-04-23 12:27:14 +0200
+Processing by Admin::PerformanceReviewsController#index as HTML
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/performance_reviews/index.html.erb within layouts/admin
+  [1m[36mPerformanceReview Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "performance_reviews" LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='performance_reviews'*/[0m
+  ↳ app/views/admin/performance_reviews/index.html.erb:46
+  Rendered admin/performance_reviews/index.html.erb within layouts/admin (Duration: 1.4ms | GC: 0.0ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='performance_reviews'*/[0m
+  ↳ app/controllers/admin/base_controller.rb:15:in 'Admin::BaseController#current_user'
+  Rendered layout layouts/admin.html.erb (Duration: 2.8ms | GC: 0.0ms)
+Completed 200 OK in 4ms (Views: 2.8ms | ActiveRecord: 0.4ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/admin/performance_reviews" for ::1 at 2026-04-23 12:27:31 +0200
+Processing by Admin::PerformanceReviewsController#index as HTML
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/performance_reviews/index.html.erb within layouts/admin
+  [1m[36mPerformanceReview Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "performance_reviews" LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='performance_reviews'*/[0m
+  ↳ app/views/admin/performance_reviews/index.html.erb:46
+  Rendered admin/performance_reviews/index.html.erb within layouts/admin (Duration: 1.8ms | GC: 0.0ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='performance_reviews'*/[0m
+  ↳ app/controllers/admin/base_controller.rb:15:in 'Admin::BaseController#current_user'
+  Rendered layout layouts/admin.html.erb (Duration: 3.3ms | GC: 0.0ms)
+Completed 200 OK in 5ms (Views: 3.3ms | ActiveRecord: 0.5ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Generating image variants require the image_processing gem. Please add `gem "image_processing", "~> 1.2"` to your Gemfile or set `config.active_storage.variant_processor = :disabled`.
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='FreightSolutionBackEnd'*/[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = 'felender7@gmail.com' LIMIT 1 /*application='FreightSolutionBackEnd'*/[0m
+  [1m[36mVendor Load (0.2ms)[0m  [1m[34mSELECT "vendors".* FROM "vendors" WHERE "vendors"."email" = 'contact@maersk.com' LIMIT 1 /*application='FreightSolutionBackEnd'*/[0m
+  [1m[36mVendor Load (0.3ms)[0m  [1m[34mSELECT "vendors".* FROM "vendors" WHERE "vendors"."email" = 'cargo@saa.com' LIMIT 1 /*application='FreightSolutionBackEnd'*/[0m
+  [1m[36mVendor Load (0.1ms)[0m  [1m[34mSELECT "vendors".* FROM "vendors" WHERE "vendors"."email" = 'info@transnet.net' LIMIT 1 /*application='FreightSolutionBackEnd'*/[0m
+  [1m[36mVendor Load (0.1ms)[0m  [1m[34mSELECT "vendors".* FROM "vendors" WHERE "vendors"."email" = 'south.africa@dbschenker.com' LIMIT 1 /*application='FreightSolutionBackEnd'*/[0m
+  [1m[36mVendor Load (0.1ms)[0m  [1m[34mSELECT "vendors".* FROM "vendors" WHERE "vendors"."email" = 'operations@europlaz.co.za' LIMIT 1 /*application='FreightSolutionBackEnd'*/[0m
+  [1m[36mVendor Load (0.1ms)[0m  [1m[34mSELECT "vendors".* FROM "vendors" WHERE "vendors"."email" = 'enquiries@sarscustoms.co.za' LIMIT 1 /*application='FreightSolutionBackEnd'*/[0m
+  [1m[36mVendor Load (0.1ms)[0m  [1m[34mSELECT "vendors".* FROM "vendors" WHERE "vendors"."email" = 'corporate@oldmutual.co.za' LIMIT 1 /*application='FreightSolutionBackEnd'*/[0m
+  [1m[36mVendor Load (0.1ms)[0m  [1m[34mSELECT "vendors".* FROM "vendors" WHERE "vendors"."email" = 'johannesburg@bureauveritas.com' LIMIT 1 /*application='FreightSolutionBackEnd'*/[0m
+  [1m[36mVendor Load (0.1ms)[0m  [1m[34mSELECT "vendors".* FROM "vendors" WHERE "vendors"."email" = 'info.dgf@dhgl.com' LIMIT 1 /*application='FreightSolutionBackEnd'*/[0m
+  [1m[36mVendor Load (0.1ms)[0m  [1m[34mSELECT "vendors".* FROM "vendors" WHERE "vendors"."email" = 'africa@tollgroup.com' LIMIT 1 /*application='FreightSolutionBackEnd'*/[0m
+  [1m[36mVendor Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "vendors" /*application='FreightSolutionBackEnd'*/[0m
+  [1m[36mWarehouseLocation Load (0.3ms)[0m  [1m[34mSELECT "warehouse_locations".* FROM "warehouse_locations" WHERE "warehouse_locations"."name" = 'ZONE-A-01' LIMIT 1 /*application='FreightSolutionBackEnd'*/[0m
+  [1m[36mWarehouseLocation Load (0.2ms)[0m  [1m[34mSELECT "warehouse_locations".* FROM "warehouse_locations" WHERE "warehouse_locations"."name" = 'ZONE-A-02' LIMIT 1 /*application='FreightSolutionBackEnd'*/[0m
+  [1m[36mWarehouseLocation Load (0.2ms)[0m  [1m[34mSELECT "warehouse_locations".* FROM "warehouse_locations" WHERE "warehouse_locations"."name" = 'ZONE-B-01' LIMIT 1 /*application='FreightSolutionBackEnd'*/[0m
+  [1m[36mWarehouseLocation Load (0.1ms)[0m  [1m[34mSELECT "warehouse_locations".* FROM "warehouse_locations" WHERE "warehouse_locations"."name" = 'COLD-01' LIMIT 1 /*application='FreightSolutionBackEnd'*/[0m
+  [1m[36mWarehouseLocation Load (0.1ms)[0m  [1m[34mSELECT "warehouse_locations".* FROM "warehouse_locations" WHERE "warehouse_locations"."name" = 'HAZ-01' LIMIT 1 /*application='FreightSolutionBackEnd'*/[0m
+  [1m[36mWarehouseLocation Load (0.1ms)[0m  [1m[34mSELECT "warehouse_locations".* FROM "warehouse_locations" WHERE "warehouse_locations"."name" = 'RECV-01' LIMIT 1 /*application='FreightSolutionBackEnd'*/[0m
+  [1m[36mWarehouseLocation Load (0.1ms)[0m  [1m[34mSELECT "warehouse_locations".* FROM "warehouse_locations" WHERE "warehouse_locations"."name" = 'SHIP-01' LIMIT 1 /*application='FreightSolutionBackEnd'*/[0m
+  [1m[36mWarehouseLocation Load (0.1ms)[0m  [1m[34mSELECT "warehouse_locations".* FROM "warehouse_locations" WHERE "warehouse_locations"."name" = 'DOCK-01' LIMIT 1 /*application='FreightSolutionBackEnd'*/[0m
+  [1m[36mWarehouseLocation Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "warehouse_locations" /*application='FreightSolutionBackEnd'*/[0m
+  [1m[36mInventoryItem Load (0.3ms)[0m  [1m[34mSELECT "inventory_items".* FROM "inventory_items" WHERE "inventory_items"."sku" = 'PAL-EUR-01' LIMIT 1 /*application='FreightSolutionBackEnd'*/[0m
+  [1m[36mInventoryItem Load (0.1ms)[0m  [1m[34mSELECT "inventory_items".* FROM "inventory_items" WHERE "inventory_items"."sku" = 'BAT-HD-XP' LIMIT 1 /*application='FreightSolutionBackEnd'*/[0m
+  [1m[36mInventoryItem Load (0.2ms)[0m  [1m[34mSELECT "inventory_items".* FROM "inventory_items" WHERE "inventory_items"."sku" = 'LUB-IND-20' LIMIT 1 /*application='FreightSolutionBackEnd'*/[0m
+  [1m[36mInventoryItem Load (0.1ms)[0m  [1m[34mSELECT "inventory_items".* FROM "inventory_items" WHERE "inventory_items"."sku" = 'PER-BOX-S' LIMIT 1 /*application='FreightSolutionBackEnd'*/[0m
+  [1m[36mInventoryItem Load (0.1ms)[0m  [1m[34mSELECT "inventory_items".* FROM "inventory_items" WHERE "inventory_items"."sku" = 'STL-C500' LIMIT 1 /*application='FreightSolutionBackEnd'*/[0m
+  [1m[36mInventoryItem Load (0.1ms)[0m  [1m[34mSELECT "inventory_items".* FROM "inventory_items" WHERE "inventory_items"."sku" = 'SNS-PRC-12' LIMIT 1 /*application='FreightSolutionBackEnd'*/[0m
+  [1m[36mInventoryItem Load (0.2ms)[0m  [1m[34mSELECT "inventory_items".* FROM "inventory_items" WHERE "inventory_items"."sku" = 'PPE-KIT-01' LIMIT 1 /*application='FreightSolutionBackEnd'*/[0m
+  [1m[36mInventoryItem Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "inventory_items" /*application='FreightSolutionBackEnd'*/[0m
+  [1m[36mClient Load (0.3ms)[0m  [1m[34mSELECT "clients".* FROM "clients" WHERE "clients"."email" = 'ops@gt-exporters.co.za' LIMIT 1 /*application='FreightSolutionBackEnd'*/[0m
+  [1m[36mClient Load (0.3ms)[0m  [1m[34mSELECT "clients".* FROM "clients" WHERE "clients"."email" = 'finance@retailsol.com' LIMIT 1 /*application='FreightSolutionBackEnd'*/[0m
+  [1m[36mClient Load (0.1ms)[0m  [1m[34mSELECT "clients".* FROM "clients" WHERE "clients"."email" = 'logistics@nc-mining.org' LIMIT 1 /*application='FreightSolutionBackEnd'*/[0m
+  [1m[36mClient Load (0.1ms)[0m  [1m[34mSELECT "clients".* FROM "clients" WHERE "clients"."email" = 'procurement@health.gov.za' LIMIT 1 /*application='FreightSolutionBackEnd'*/[0m
+  [1m[36mClient Load (0.1ms)[0m  [1m[34mSELECT "clients".* FROM "clients" WHERE "clients"."email" = 'hello@pp-sme.co.za' LIMIT 1 /*application='FreightSolutionBackEnd'*/[0m
+  [1m[36mClient Load (0.1ms)[0m  [1m[34mSELECT "clients".* FROM "clients" WHERE "clients"."email" = 'shipping@vortex-imp.com' LIMIT 1 /*application='FreightSolutionBackEnd'*/[0m
+  [1m[36mClient Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "clients" /*application='FreightSolutionBackEnd'*/[0m
+  [1m[36mVendor Load (0.2ms)[0m  [1m[34mSELECT "vendors".* FROM "vendors" /*application='FreightSolutionBackEnd'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*application='FreightSolutionBackEnd'*/[0m
+  [1m[36mInvoice Create (1.5ms)[0m  [1m[32mINSERT INTO "invoices" ("invoice_number", "vendor_id", "amount", "status", "due_date", "paid_date", "created_at", "updated_at") VALUES ('TFS-1000', 5, 21658.73, 'cancelled', '2026-05-18', NULL, '2026-04-18 10:27:40.420350', '2026-04-23 10:27:40.426452') RETURNING "id" /*application='FreightSolutionBackEnd'*/[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT /*application='FreightSolutionBackEnd'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='FreightSolutionBackEnd'*/[0m
+  [1m[36mInvoice Create (1.2ms)[0m  [1m[32mINSERT INTO "invoices" ("invoice_number", "vendor_id", "amount", "status", "due_date", "paid_date", "created_at", "updated_at") VALUES ('TFS-1001', 10, 14931.45, 'overdue', '2026-04-15', NULL, '2026-03-16 10:27:40.430642', '2026-04-23 10:27:40.431069') RETURNING "id" /*application='FreightSolutionBackEnd'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='FreightSolutionBackEnd'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='FreightSolutionBackEnd'*/[0m
+  [1m[36mInvoice Create (1.2ms)[0m  [1m[32mINSERT INTO "invoices" ("invoice_number", "vendor_id", "amount", "status", "due_date", "paid_date", "created_at", "updated_at") VALUES ('TFS-1002', 10, 45206.76, 'pending', '2026-04-27', NULL, '2026-03-28 10:27:40.453383', '2026-04-23 10:27:40.453846') RETURNING "id" /*application='FreightSolutionBackEnd'*/[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT /*application='FreightSolutionBackEnd'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*application='FreightSolutionBackEnd'*/[0m
+  [1m[36mInvoice Create (1.0ms)[0m  [1m[32mINSERT INTO "invoices" ("invoice_number", "vendor_id", "amount", "status", "due_date", "paid_date", "created_at", "updated_at") VALUES ('TFS-1003', 4, 16092.69, 'cancelled', '2026-04-08', NULL, '2026-03-09 10:27:40.457267', '2026-04-23 10:27:40.457491') RETURNING "id" /*application='FreightSolutionBackEnd'*/[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT /*application='FreightSolutionBackEnd'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='FreightSolutionBackEnd'*/[0m
+  [1m[36mInvoice Create (2.1ms)[0m  [1m[32mINSERT INTO "invoices" ("invoice_number", "vendor_id", "amount", "status", "due_date", "paid_date", "created_at", "updated_at") VALUES ('TFS-1004', 5, 39035.23, 'overdue', '2026-05-16', NULL, '2026-04-16 10:27:40.460406', '2026-04-23 10:27:40.460592') RETURNING "id" /*application='FreightSolutionBackEnd'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='FreightSolutionBackEnd'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='FreightSolutionBackEnd'*/[0m
+  [1m[36mInvoice Create (1.0ms)[0m  [1m[32mINSERT INTO "invoices" ("invoice_number", "vendor_id", "amount", "status", "due_date", "paid_date", "created_at", "updated_at") VALUES ('TFS-1005', 13, 13674.68, 'paid', '2026-05-17', '2026-04-29', '2026-04-17 10:27:40.464816', '2026-04-23 10:27:40.465152') RETURNING "id" /*application='FreightSolutionBackEnd'*/[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT /*application='FreightSolutionBackEnd'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='FreightSolutionBackEnd'*/[0m
+  [1m[36mInvoice Create (1.0ms)[0m  [1m[32mINSERT INTO "invoices" ("invoice_number", "vendor_id", "amount", "status", "due_date", "paid_date", "created_at", "updated_at") VALUES ('TFS-1006', 11, 11304.28, 'paid', '2026-04-23', '2026-04-02', '2026-03-24 10:27:40.468033', '2026-04-23 10:27:40.468245') RETURNING "id" /*application='FreightSolutionBackEnd'*/[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT /*application='FreightSolutionBackEnd'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='FreightSolutionBackEnd'*/[0m
+  [1m[36mInvoice Create (1.0ms)[0m  [1m[32mINSERT INTO "invoices" ("invoice_number", "vendor_id", "amount", "status", "due_date", "paid_date", "created_at", "updated_at") VALUES ('TFS-1007', 6, 46019.0, 'paid', '2026-04-08', '2026-03-23', '2026-03-09 10:27:40.471873', '2026-04-23 10:27:40.472084') RETURNING "id" /*application='FreightSolutionBackEnd'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='FreightSolutionBackEnd'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='FreightSolutionBackEnd'*/[0m
+  [1m[36mInvoice Create (1.0ms)[0m  [1m[32mINSERT INTO "invoices" ("invoice_number", "vendor_id", "amount", "status", "due_date", "paid_date", "created_at", "updated_at") VALUES ('TFS-1008', 8, 45254.38, 'paid', '2026-05-11', '2026-04-14', '2026-04-11 10:27:40.474877', '2026-04-23 10:27:40.475083') RETURNING "id" /*application='FreightSolutionBackEnd'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='FreightSolutionBackEnd'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*application='FreightSolutionBackEnd'*/[0m
+  [1m[36mInvoice Create (1.5ms)[0m  [1m[32mINSERT INTO "invoices" ("invoice_number", "vendor_id", "amount", "status", "due_date", "paid_date", "created_at", "updated_at") VALUES ('TFS-1009', 11, 48173.34, 'paid', '2026-04-09', '2026-03-22', '2026-03-10 10:27:40.477885', '2026-04-23 10:27:40.478845') RETURNING "id" /*application='FreightSolutionBackEnd'*/[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT /*application='FreightSolutionBackEnd'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='FreightSolutionBackEnd'*/[0m
+  [1m[36mInvoice Create (1.0ms)[0m  [1m[32mINSERT INTO "invoices" ("invoice_number", "vendor_id", "amount", "status", "due_date", "paid_date", "created_at", "updated_at") VALUES ('TFS-1010', 4, 15985.53, 'overdue', '2026-03-27', NULL, '2026-02-25 10:27:40.482556', '2026-04-23 10:27:40.482879') RETURNING "id" /*application='FreightSolutionBackEnd'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='FreightSolutionBackEnd'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='FreightSolutionBackEnd'*/[0m
+  [1m[36mInvoice Create (1.0ms)[0m  [1m[32mINSERT INTO "invoices" ("invoice_number", "vendor_id", "amount", "status", "due_date", "paid_date", "created_at", "updated_at") VALUES ('TFS-1011', 11, 34214.58, 'cancelled', '2026-04-25', NULL, '2026-03-26 10:27:40.485715', '2026-04-23 10:27:40.485955') RETURNING "id" /*application='FreightSolutionBackEnd'*/[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT /*application='FreightSolutionBackEnd'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='FreightSolutionBackEnd'*/[0m
+  [1m[36mInvoice Create (2.1ms)[0m  [1m[32mINSERT INTO "invoices" ("invoice_number", "vendor_id", "amount", "status", "due_date", "paid_date", "created_at", "updated_at") VALUES ('TFS-1012', 9, 26949.4, 'paid', '2026-05-05', '2026-04-07', '2026-04-05 10:27:40.495168', '2026-04-23 10:27:40.496316') RETURNING "id" /*application='FreightSolutionBackEnd'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='FreightSolutionBackEnd'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='FreightSolutionBackEnd'*/[0m
+  [1m[36mInvoice Create (1.7ms)[0m  [1m[32mINSERT INTO "invoices" ("invoice_number", "vendor_id", "amount", "status", "due_date", "paid_date", "created_at", "updated_at") VALUES ('TFS-1013', 10, 23038.98, 'overdue', '2026-04-26', NULL, '2026-03-27 10:27:40.502670', '2026-04-23 10:27:40.502978') RETURNING "id" /*application='FreightSolutionBackEnd'*/[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT /*application='FreightSolutionBackEnd'*/[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN /*application='FreightSolutionBackEnd'*/[0m
+  [1m[36mInvoice Create (2.5ms)[0m  [1m[32mINSERT INTO "invoices" ("invoice_number", "vendor_id", "amount", "status", "due_date", "paid_date", "created_at", "updated_at") VALUES ('TFS-1014', 10, 19720.22, 'paid', '2026-05-02', '2026-04-13', '2026-04-02 10:27:40.508591', '2026-04-23 10:27:40.509329') RETURNING "id" /*application='FreightSolutionBackEnd'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='FreightSolutionBackEnd'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='FreightSolutionBackEnd'*/[0m
+  [1m[36mInvoice Create (2.5ms)[0m  [1m[32mINSERT INTO "invoices" ("invoice_number", "vendor_id", "amount", "status", "due_date", "paid_date", "created_at", "updated_at") VALUES ('TFS-1015', 12, 35784.86, 'overdue', '2026-04-19', NULL, '2026-03-20 10:27:40.515496', '2026-04-23 10:27:40.516326') RETURNING "id" /*application='FreightSolutionBackEnd'*/[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT /*application='FreightSolutionBackEnd'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='FreightSolutionBackEnd'*/[0m
+  [1m[36mInvoice Create (2.9ms)[0m  [1m[32mINSERT INTO "invoices" ("invoice_number", "vendor_id", "amount", "status", "due_date", "paid_date", "created_at", "updated_at") VALUES ('TFS-1016', 13, 22140.16, 'overdue', '2026-04-21', NULL, '2026-03-22 10:27:40.522525', '2026-04-23 10:27:40.522814') RETURNING "id" /*application='FreightSolutionBackEnd'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='FreightSolutionBackEnd'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='FreightSolutionBackEnd'*/[0m
+  [1m[36mInvoice Create (2.7ms)[0m  [1m[32mINSERT INTO "invoices" ("invoice_number", "vendor_id", "amount", "status", "due_date", "paid_date", "created_at", "updated_at") VALUES ('TFS-1017', 11, 20761.17, 'pending', '2026-05-07', NULL, '2026-04-07 10:27:40.529635', '2026-04-23 10:27:40.530831') RETURNING "id" /*application='FreightSolutionBackEnd'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='FreightSolutionBackEnd'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*application='FreightSolutionBackEnd'*/[0m
+  [1m[36mInvoice Create (1.4ms)[0m  [1m[32mINSERT INTO "invoices" ("invoice_number", "vendor_id", "amount", "status", "due_date", "paid_date", "created_at", "updated_at") VALUES ('TFS-1018', 11, 15848.56, 'pending', '2026-05-06', NULL, '2026-04-06 10:27:40.548935', '2026-04-23 10:27:40.549303') RETURNING "id" /*application='FreightSolutionBackEnd'*/[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT /*application='FreightSolutionBackEnd'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='FreightSolutionBackEnd'*/[0m
+  [1m[36mInvoice Create (1.1ms)[0m  [1m[32mINSERT INTO "invoices" ("invoice_number", "vendor_id", "amount", "status", "due_date", "paid_date", "created_at", "updated_at") VALUES ('TFS-1019', 4, 21688.69, 'pending', '2026-05-07', NULL, '2026-04-07 10:27:40.552947', '2026-04-23 10:27:40.553187') RETURNING "id" /*application='FreightSolutionBackEnd'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='FreightSolutionBackEnd'*/[0m
+  [1m[36mInvoice Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "invoices" /*application='FreightSolutionBackEnd'*/[0m
+  [1m[36mEmployee Load (0.4ms)[0m  [1m[34mSELECT "employees".* FROM "employees" ORDER BY "employees"."id" ASC LIMIT 1 /*application='FreightSolutionBackEnd'*/[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."role" = 'admin' LIMIT 1 /*application='FreightSolutionBackEnd'*/[0m
+  [1m[36mPerformanceReview Load (0.4ms)[0m  [1m[34mSELECT "performance_reviews".* FROM "performance_reviews" WHERE "performance_reviews"."employee_id" = 2 AND "performance_reviews"."review_cycle" = 'Q1 2026' LIMIT 1 /*application='FreightSolutionBackEnd'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*application='FreightSolutionBackEnd'*/[0m
+  [1m[36mPerformanceReview Create (0.9ms)[0m  [1m[32mINSERT INTO "performance_reviews" ("employee_id", "reviewer_id", "rating", "feedback", "review_cycle", "review_date", "status", "created_at", "updated_at", "kpi_results") VALUES (2, 1, 4, 'Consistently exceeds targets in shipment processing and clearance times. Great attention to cost accuracy and departmental efficiency.', 'Q1 2026', '2026-04-23', 'completed', '2026-04-23 10:27:40.585839', '2026-04-23 10:27:40.585839', '{"shipments_processed":45,"clearance_time":4.2,"cost_accuracy":98.5,"revenue_generated":125000,"margin_achieved":15.2,"inventory_accuracy":99.1,"damage_ratio":0.05}') RETURNING "id" /*application='FreightSolutionBackEnd'*/[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT /*application='FreightSolutionBackEnd'*/[0m
+Started GET "/admin/performance_reviews" for ::1 at 2026-04-23 12:27:46 +0200
+Processing by Admin::PerformanceReviewsController#index as HTML
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/performance_reviews/index.html.erb within layouts/admin
+  [1m[36mPerformanceReview Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "performance_reviews" LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='performance_reviews'*/[0m
+  ↳ app/views/admin/performance_reviews/index.html.erb:46
+  [1m[36mPerformanceReview Load (0.2ms)[0m  [1m[34mSELECT "performance_reviews".* FROM "performance_reviews" ORDER BY "performance_reviews"."created_at" DESC /*action='index',application='FreightSolutionBackEnd',controller='performance_reviews'*/[0m
+  ↳ app/views/admin/performance_reviews/index.html.erb:61
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = 2 /*action='index',application='FreightSolutionBackEnd',controller='performance_reviews'*/[0m
+  ↳ app/views/admin/performance_reviews/index.html.erb:61
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 /*action='index',application='FreightSolutionBackEnd',controller='performance_reviews'*/[0m
+  ↳ app/views/admin/performance_reviews/index.html.erb:61
+  Rendered admin/performance_reviews/index.html.erb within layouts/admin (Duration: 26.0ms | GC: 0.0ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='performance_reviews'*/[0m
+  ↳ app/controllers/admin/base_controller.rb:15:in 'Admin::BaseController#current_user'
+  Rendered layout layouts/admin.html.erb (Duration: 27.1ms | GC: 0.0ms)
+Completed 200 OK in 28ms (Views: 25.1ms | ActiveRecord: 2.4ms (5 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/admin/performance_reviews/2" for ::1 at 2026-04-23 12:28:06 +0200
+Processing by Admin::PerformanceReviewsController#show as HTML
+  Parameters: {"id" => "2"}
+  [1m[36mPerformanceReview Load (0.3ms)[0m  [1m[34mSELECT "performance_reviews".* FROM "performance_reviews" WHERE "performance_reviews"."id" = 2 LIMIT 1 /*action='show',application='FreightSolutionBackEnd',controller='performance_reviews'*/[0m
+  ↳ app/controllers/admin/performance_reviews_controller.rb:49:in 'Admin::PerformanceReviewsController#set_performance_review'
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/performance_reviews/show.html.erb within layouts/admin
+  [1m[36mEmployee Load (0.3ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = 2 LIMIT 1 /*action='show',application='FreightSolutionBackEnd',controller='performance_reviews'*/[0m
+  ↳ app/views/admin/performance_reviews/show.html.erb:14
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='show',application='FreightSolutionBackEnd',controller='performance_reviews'*/[0m
+  ↳ app/views/admin/performance_reviews/show.html.erb:84
+  Rendered admin/performance_reviews/show.html.erb within layouts/admin (Duration: 4.5ms | GC: 0.0ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  ↳ app/controllers/admin/base_controller.rb:15:in 'Admin::BaseController#current_user'
+  Rendered layout layouts/admin.html.erb (Duration: 5.6ms | GC: 0.0ms)
+Completed 200 OK in 9ms (Views: 5.5ms | ActiveRecord: 0.8ms (4 queries, 1 cached) | GC: 0.0ms)
+
+
+Started GET "/.well-known/appspecific/com.chrome.devtools.json" for ::1 at 2026-04-23 12:30:23 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/.well-known/appspecific/com.chrome.devtools.json"):
+  
+Started GET "/admin/performance_reviews/2" for ::1 at 2026-04-23 12:32:17 +0200
+Processing by Admin::PerformanceReviewsController#show as HTML
+  Parameters: {"id" => "2"}
+  [1m[36mPerformanceReview Load (0.2ms)[0m  [1m[34mSELECT "performance_reviews".* FROM "performance_reviews" WHERE "performance_reviews"."id" = 2 LIMIT 1 /*action='show',application='FreightSolutionBackEnd',controller='performance_reviews'*/[0m
+  ↳ app/controllers/admin/performance_reviews_controller.rb:49:in 'Admin::PerformanceReviewsController#set_performance_review'
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/performance_reviews/show.html.erb within layouts/admin
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = 2 LIMIT 1 /*action='show',application='FreightSolutionBackEnd',controller='performance_reviews'*/[0m
+  ↳ app/views/admin/performance_reviews/show.html.erb:14
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='show',application='FreightSolutionBackEnd',controller='performance_reviews'*/[0m
+  ↳ app/views/admin/performance_reviews/show.html.erb:84
+  Rendered admin/performance_reviews/show.html.erb within layouts/admin (Duration: 25.3ms | GC: 1.6ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  ↳ app/controllers/admin/base_controller.rb:15:in 'Admin::BaseController#current_user'
+  Rendered layout layouts/admin.html.erb (Duration: 27.8ms | GC: 1.6ms)
+Completed 200 OK in 37ms (Views: 25.6ms | ActiveRecord: 4.7ms (4 queries, 1 cached) | GC: 1.8ms)
+
+
+Started GET "/.well-known/appspecific/com.chrome.devtools.json" for ::1 at 2026-04-23 12:32:18 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/.well-known/appspecific/com.chrome.devtools.json"):
+  
+Started GET "/admin/performance_reviews/2" for ::1 at 2026-04-23 12:32:22 +0200
+Processing by Admin::PerformanceReviewsController#show as HTML
+  Parameters: {"id" => "2"}
+  [1m[36mPerformanceReview Load (0.3ms)[0m  [1m[34mSELECT "performance_reviews".* FROM "performance_reviews" WHERE "performance_reviews"."id" = 2 LIMIT 1 /*action='show',application='FreightSolutionBackEnd',controller='performance_reviews'*/[0m
+  ↳ app/controllers/admin/performance_reviews_controller.rb:49:in 'Admin::PerformanceReviewsController#set_performance_review'
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/performance_reviews/show.html.erb within layouts/admin
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = 2 LIMIT 1 /*action='show',application='FreightSolutionBackEnd',controller='performance_reviews'*/[0m
+  ↳ app/views/admin/performance_reviews/show.html.erb:14
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='show',application='FreightSolutionBackEnd',controller='performance_reviews'*/[0m
+  ↳ app/views/admin/performance_reviews/show.html.erb:84
+  Rendered admin/performance_reviews/show.html.erb within layouts/admin (Duration: 4.4ms | GC: 1.0ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  ↳ app/controllers/admin/base_controller.rb:15:in 'Admin::BaseController#current_user'
+  Rendered layout layouts/admin.html.erb (Duration: 5.8ms | GC: 1.0ms)
+Completed 200 OK in 8ms (Views: 5.7ms | ActiveRecord: 0.7ms (4 queries, 1 cached) | GC: 1.0ms)
+
+
+Started GET "/.well-known/appspecific/com.chrome.devtools.json" for ::1 at 2026-04-23 12:32:22 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/.well-known/appspecific/com.chrome.devtools.json"):
+  
+Started GET "/admin/performance_reviews/2" for ::1 at 2026-04-23 12:32:27 +0200
+Processing by Admin::PerformanceReviewsController#show as HTML
+  Parameters: {"id" => "2"}
+  [1m[36mPerformanceReview Load (0.4ms)[0m  [1m[34mSELECT "performance_reviews".* FROM "performance_reviews" WHERE "performance_reviews"."id" = 2 LIMIT 1 /*action='show',application='FreightSolutionBackEnd',controller='performance_reviews'*/[0m
+  ↳ app/controllers/admin/performance_reviews_controller.rb:49:in 'Admin::PerformanceReviewsController#set_performance_review'
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/performance_reviews/show.html.erb within layouts/admin
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = 2 LIMIT 1 /*action='show',application='FreightSolutionBackEnd',controller='performance_reviews'*/[0m
+  ↳ app/views/admin/performance_reviews/show.html.erb:14
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='show',application='FreightSolutionBackEnd',controller='performance_reviews'*/[0m
+  ↳ app/views/admin/performance_reviews/show.html.erb:84
+  Rendered admin/performance_reviews/show.html.erb within layouts/admin (Duration: 2.2ms | GC: 0.0ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  ↳ app/controllers/admin/base_controller.rb:15:in 'Admin::BaseController#current_user'
+  Rendered layout layouts/admin.html.erb (Duration: 3.0ms | GC: 0.0ms)
+Completed 200 OK in 5ms (Views: 3.0ms | ActiveRecord: 0.7ms (4 queries, 1 cached) | GC: 0.0ms)
+
+
+Started GET "/.well-known/appspecific/com.chrome.devtools.json" for ::1 at 2026-04-23 12:32:28 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/.well-known/appspecific/com.chrome.devtools.json"):
+  
+Started GET "/admin/performance_reviews/2" for ::1 at 2026-04-23 12:32:31 +0200
+Processing by Admin::PerformanceReviewsController#show as HTML
+  Parameters: {"id" => "2"}
+  [1m[36mPerformanceReview Load (0.5ms)[0m  [1m[34mSELECT "performance_reviews".* FROM "performance_reviews" WHERE "performance_reviews"."id" = 2 LIMIT 1 /*action='show',application='FreightSolutionBackEnd',controller='performance_reviews'*/[0m
+  ↳ app/controllers/admin/performance_reviews_controller.rb:49:in 'Admin::PerformanceReviewsController#set_performance_review'
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/performance_reviews/show.html.erb within layouts/admin
+  [1m[36mEmployee Load (0.3ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = 2 LIMIT 1 /*action='show',application='FreightSolutionBackEnd',controller='performance_reviews'*/[0m
+  ↳ app/views/admin/performance_reviews/show.html.erb:14
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='show',application='FreightSolutionBackEnd',controller='performance_reviews'*/[0m
+  ↳ app/views/admin/performance_reviews/show.html.erb:84
+  Rendered admin/performance_reviews/show.html.erb within layouts/admin (Duration: 4.0ms | GC: 0.0ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  ↳ app/controllers/admin/base_controller.rb:15:in 'Admin::BaseController#current_user'
+  Rendered layout layouts/admin.html.erb (Duration: 5.0ms | GC: 0.0ms)
+Completed 200 OK in 9ms (Views: 5.2ms | ActiveRecord: 1.0ms (4 queries, 1 cached) | GC: 0.0ms)
+
+
+Started GET "/.well-known/appspecific/com.chrome.devtools.json" for ::1 at 2026-04-23 12:32:31 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/.well-known/appspecific/com.chrome.devtools.json"):
+  
+Started GET "/admin/performance_reviews/2" for ::1 at 2026-04-23 12:32:34 +0200
+Processing by Admin::PerformanceReviewsController#show as HTML
+  Parameters: {"id" => "2"}
+  [1m[36mPerformanceReview Load (0.3ms)[0m  [1m[34mSELECT "performance_reviews".* FROM "performance_reviews" WHERE "performance_reviews"."id" = 2 LIMIT 1 /*action='show',application='FreightSolutionBackEnd',controller='performance_reviews'*/[0m
+  ↳ app/controllers/admin/performance_reviews_controller.rb:49:in 'Admin::PerformanceReviewsController#set_performance_review'
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/performance_reviews/show.html.erb within layouts/admin
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = 2 LIMIT 1 /*action='show',application='FreightSolutionBackEnd',controller='performance_reviews'*/[0m
+  ↳ app/views/admin/performance_reviews/show.html.erb:14
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='show',application='FreightSolutionBackEnd',controller='performance_reviews'*/[0m
+  ↳ app/views/admin/performance_reviews/show.html.erb:84
+  Rendered admin/performance_reviews/show.html.erb within layouts/admin (Duration: 2.7ms | GC: 0.0ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  ↳ app/controllers/admin/base_controller.rb:15:in 'Admin::BaseController#current_user'
+  Rendered layout layouts/admin.html.erb (Duration: 9.4ms | GC: 5.3ms)
+Completed 200 OK in 12ms (Views: 9.6ms | ActiveRecord: 0.6ms (4 queries, 1 cached) | GC: 5.3ms)
+
+
+Started GET "/.well-known/appspecific/com.chrome.devtools.json" for ::1 at 2026-04-23 12:32:34 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/.well-known/appspecific/com.chrome.devtools.json"):
+  
+Started GET "/admin/performance_reviews/2" for ::1 at 2026-04-23 12:32:38 +0200
+Processing by Admin::PerformanceReviewsController#show as HTML
+  Parameters: {"id" => "2"}
+  [1m[36mPerformanceReview Load (0.3ms)[0m  [1m[34mSELECT "performance_reviews".* FROM "performance_reviews" WHERE "performance_reviews"."id" = 2 LIMIT 1 /*action='show',application='FreightSolutionBackEnd',controller='performance_reviews'*/[0m
+  ↳ app/controllers/admin/performance_reviews_controller.rb:49:in 'Admin::PerformanceReviewsController#set_performance_review'
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/performance_reviews/show.html.erb within layouts/admin
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = 2 LIMIT 1 /*action='show',application='FreightSolutionBackEnd',controller='performance_reviews'*/[0m
+  ↳ app/views/admin/performance_reviews/show.html.erb:14
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='show',application='FreightSolutionBackEnd',controller='performance_reviews'*/[0m
+  ↳ app/views/admin/performance_reviews/show.html.erb:84
+  Rendered admin/performance_reviews/show.html.erb within layouts/admin (Duration: 3.0ms | GC: 0.0ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  ↳ app/controllers/admin/base_controller.rb:15:in 'Admin::BaseController#current_user'
+  Rendered layout layouts/admin.html.erb (Duration: 4.2ms | GC: 0.0ms)
+Completed 200 OK in 6ms (Views: 4.0ms | ActiveRecord: 0.7ms (4 queries, 1 cached) | GC: 0.0ms)
+
+
+Started GET "/.well-known/appspecific/com.chrome.devtools.json" for ::1 at 2026-04-23 12:32:38 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/.well-known/appspecific/com.chrome.devtools.json"):
+  
+Started GET "/admin/performance_reviews/2" for ::1 at 2026-04-23 12:32:43 +0200
+Processing by Admin::PerformanceReviewsController#show as HTML
+  Parameters: {"id" => "2"}
+  [1m[36mPerformanceReview Load (0.4ms)[0m  [1m[34mSELECT "performance_reviews".* FROM "performance_reviews" WHERE "performance_reviews"."id" = 2 LIMIT 1 /*action='show',application='FreightSolutionBackEnd',controller='performance_reviews'*/[0m
+  ↳ app/controllers/admin/performance_reviews_controller.rb:49:in 'Admin::PerformanceReviewsController#set_performance_review'
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/performance_reviews/show.html.erb within layouts/admin
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = 2 LIMIT 1 /*action='show',application='FreightSolutionBackEnd',controller='performance_reviews'*/[0m
+  ↳ app/views/admin/performance_reviews/show.html.erb:14
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='show',application='FreightSolutionBackEnd',controller='performance_reviews'*/[0m
+  ↳ app/views/admin/performance_reviews/show.html.erb:84
+  Rendered admin/performance_reviews/show.html.erb within layouts/admin (Duration: 2.2ms | GC: 0.0ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  ↳ app/controllers/admin/base_controller.rb:15:in 'Admin::BaseController#current_user'
+  Rendered layout layouts/admin.html.erb (Duration: 3.0ms | GC: 0.0ms)
+Completed 200 OK in 6ms (Views: 3.6ms | ActiveRecord: 0.8ms (4 queries, 1 cached) | GC: 0.5ms)
+
+
+Started GET "/.well-known/appspecific/com.chrome.devtools.json" for ::1 at 2026-04-23 12:32:43 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/.well-known/appspecific/com.chrome.devtools.json"):
+  
+Started GET "/favicon.ico" for ::1 at 2026-04-23 12:32:44 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/admin/performance_reviews" for ::1 at 2026-04-23 12:32:54 +0200
+Processing by Admin::PerformanceReviewsController#index as HTML
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/performance_reviews/index.html.erb within layouts/admin
+  [1m[36mPerformanceReview Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "performance_reviews" LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='performance_reviews'*/[0m
+  ↳ app/views/admin/performance_reviews/index.html.erb:46
+  [1m[36mPerformanceReview Load (0.2ms)[0m  [1m[34mSELECT "performance_reviews".* FROM "performance_reviews" ORDER BY "performance_reviews"."created_at" DESC /*action='index',application='FreightSolutionBackEnd',controller='performance_reviews'*/[0m
+  ↳ app/views/admin/performance_reviews/index.html.erb:61
+  [1m[36mEmployee Load (0.3ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = 2 /*action='index',application='FreightSolutionBackEnd',controller='performance_reviews'*/[0m
+  ↳ app/views/admin/performance_reviews/index.html.erb:61
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 /*action='index',application='FreightSolutionBackEnd',controller='performance_reviews'*/[0m
+  ↳ app/views/admin/performance_reviews/index.html.erb:61
+  Rendered admin/performance_reviews/index.html.erb within layouts/admin (Duration: 6.8ms | GC: 0.0ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='performance_reviews'*/[0m
+  ↳ app/controllers/admin/base_controller.rb:15:in 'Admin::BaseController#current_user'
+  Rendered layout layouts/admin.html.erb (Duration: 8.2ms | GC: 0.2ms)
+Completed 200 OK in 9ms (Views: 7.6ms | ActiveRecord: 1.0ms (5 queries, 0 cached) | GC: 0.2ms)
+
+
+Started GET "/.well-known/appspecific/com.chrome.devtools.json" for ::1 at 2026-04-23 12:32:54 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/.well-known/appspecific/com.chrome.devtools.json"):
+  
+Started GET "/admin/performance_reviews/new" for ::1 at 2026-04-23 12:32:55 +0200
+Processing by Admin::PerformanceReviewsController#new as HTML
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/performance_reviews/new.html.erb within layouts/admin
+  [1m[36mEmployee Load (0.8ms)[0m  [1m[34mSELECT "employees".* FROM "employees" /*action='new',application='FreightSolutionBackEnd',controller='performance_reviews'*/[0m
+  ↳ app/views/admin/performance_reviews/_form.html.erb:26
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" /*action='new',application='FreightSolutionBackEnd',controller='performance_reviews'*/[0m
+  ↳ app/views/admin/performance_reviews/_form.html.erb:32
+  Rendered admin/performance_reviews/_form.html.erb (Duration: 16.8ms | GC: 1.7ms)
+  Rendered admin/performance_reviews/new.html.erb within layouts/admin (Duration: 18.5ms | GC: 1.7ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='new',application='FreightSolutionBackEnd',controller='performance_reviews'*/[0m
+  ↳ app/controllers/admin/base_controller.rb:15:in 'Admin::BaseController#current_user'
+  Rendered layout layouts/admin.html.erb (Duration: 29.5ms | GC: 1.7ms)
+Completed 200 OK in 33ms (Views: 28.9ms | ActiveRecord: 1.7ms (3 queries, 0 cached) | GC: 1.7ms)
+
+
+Started GET "/.well-known/appspecific/com.chrome.devtools.json" for ::1 at 2026-04-23 12:32:55 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/.well-known/appspecific/com.chrome.devtools.json"):
+  
+Started GET "/admin/performance_reviews" for ::1 at 2026-04-23 12:33:09 +0200
+Processing by Admin::PerformanceReviewsController#index as HTML
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/performance_reviews/index.html.erb within layouts/admin
+  [1m[36mPerformanceReview Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "performance_reviews" LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='performance_reviews'*/[0m
+  ↳ app/views/admin/performance_reviews/index.html.erb:46
+  [1m[36mPerformanceReview Load (0.2ms)[0m  [1m[34mSELECT "performance_reviews".* FROM "performance_reviews" ORDER BY "performance_reviews"."created_at" DESC /*action='index',application='FreightSolutionBackEnd',controller='performance_reviews'*/[0m
+  ↳ app/views/admin/performance_reviews/index.html.erb:61
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = 2 /*action='index',application='FreightSolutionBackEnd',controller='performance_reviews'*/[0m
+  ↳ app/views/admin/performance_reviews/index.html.erb:61
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 /*action='index',application='FreightSolutionBackEnd',controller='performance_reviews'*/[0m
+  ↳ app/views/admin/performance_reviews/index.html.erb:61
+  Rendered admin/performance_reviews/index.html.erb within layouts/admin (Duration: 35.9ms | GC: 3.9ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='performance_reviews'*/[0m
+  ↳ app/controllers/admin/base_controller.rb:15:in 'Admin::BaseController#current_user'
+  Rendered layout layouts/admin.html.erb (Duration: 39.1ms | GC: 3.9ms)
+Completed 200 OK in 46ms (Views: 36.3ms | ActiveRecord: 4.8ms (5 queries, 0 cached) | GC: 4.6ms)
+
+
+Started GET "/.well-known/appspecific/com.chrome.devtools.json" for ::1 at 2026-04-23 12:33:09 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/.well-known/appspecific/com.chrome.devtools.json"):
+  
+Started GET "/admin/performance_reviews/2" for ::1 at 2026-04-23 12:33:13 +0200
+Processing by Admin::PerformanceReviewsController#show as HTML
+  Parameters: {"id" => "2"}
+  [1m[36mPerformanceReview Load (0.3ms)[0m  [1m[34mSELECT "performance_reviews".* FROM "performance_reviews" WHERE "performance_reviews"."id" = 2 LIMIT 1 /*action='show',application='FreightSolutionBackEnd',controller='performance_reviews'*/[0m
+  ↳ app/controllers/admin/performance_reviews_controller.rb:49:in 'Admin::PerformanceReviewsController#set_performance_review'
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/performance_reviews/show.html.erb within layouts/admin
+  [1m[36mEmployee Load (0.3ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = 2 LIMIT 1 /*action='show',application='FreightSolutionBackEnd',controller='performance_reviews'*/[0m
+  ↳ app/views/admin/performance_reviews/show.html.erb:14
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='show',application='FreightSolutionBackEnd',controller='performance_reviews'*/[0m
+  ↳ app/views/admin/performance_reviews/show.html.erb:84
+  Rendered admin/performance_reviews/show.html.erb within layouts/admin (Duration: 4.6ms | GC: 0.8ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  ↳ app/controllers/admin/base_controller.rb:15:in 'Admin::BaseController#current_user'
+  Rendered layout layouts/admin.html.erb (Duration: 5.4ms | GC: 0.8ms)
+Completed 200 OK in 8ms (Views: 5.2ms | ActiveRecord: 0.8ms (4 queries, 1 cached) | GC: 0.8ms)
+
+
+Started GET "/.well-known/appspecific/com.chrome.devtools.json" for ::1 at 2026-04-23 12:33:13 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/.well-known/appspecific/com.chrome.devtools.json"):
+  
+Started GET "/admin/performance_reviews/2" for ::1 at 2026-04-23 12:33:37 +0200
+Processing by Admin::PerformanceReviewsController#show as HTML
+  Parameters: {"id" => "2"}
+  [1m[36mPerformanceReview Load (0.4ms)[0m  [1m[34mSELECT "performance_reviews".* FROM "performance_reviews" WHERE "performance_reviews"."id" = 2 LIMIT 1 /*action='show',application='FreightSolutionBackEnd',controller='performance_reviews'*/[0m
+  ↳ app/controllers/admin/performance_reviews_controller.rb:49:in 'Admin::PerformanceReviewsController#set_performance_review'
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/performance_reviews/show.html.erb within layouts/admin
+  [1m[36mEmployee Load (0.3ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = 2 LIMIT 1 /*action='show',application='FreightSolutionBackEnd',controller='performance_reviews'*/[0m
+  ↳ app/views/admin/performance_reviews/show.html.erb:14
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='show',application='FreightSolutionBackEnd',controller='performance_reviews'*/[0m
+  ↳ app/views/admin/performance_reviews/show.html.erb:84
+  Rendered admin/performance_reviews/show.html.erb within layouts/admin (Duration: 2.2ms | GC: 0.0ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  ↳ app/controllers/admin/base_controller.rb:15:in 'Admin::BaseController#current_user'
+  Rendered layout layouts/admin.html.erb (Duration: 3.0ms | GC: 0.0ms)
+Completed 200 OK in 5ms (Views: 2.8ms | ActiveRecord: 0.9ms (4 queries, 1 cached) | GC: 0.0ms)
+
+
+Started GET "/.well-known/appspecific/com.chrome.devtools.json" for ::1 at 2026-04-23 12:33:37 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/.well-known/appspecific/com.chrome.devtools.json"):
+  
+Started GET "/admin/performance_reviews/2/edit" for ::1 at 2026-04-23 12:33:39 +0200
+Processing by Admin::PerformanceReviewsController#edit as HTML
+  Parameters: {"id" => "2"}
+  [1m[36mPerformanceReview Load (0.3ms)[0m  [1m[34mSELECT "performance_reviews".* FROM "performance_reviews" WHERE "performance_reviews"."id" = 2 LIMIT 1 /*action='edit',application='FreightSolutionBackEnd',controller='performance_reviews'*/[0m
+  ↳ app/controllers/admin/performance_reviews_controller.rb:49:in 'Admin::PerformanceReviewsController#set_performance_review'
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/performance_reviews/edit.html.erb within layouts/admin
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = 2 LIMIT 1 /*action='edit',application='FreightSolutionBackEnd',controller='performance_reviews'*/[0m
+  ↳ app/views/admin/performance_reviews/edit.html.erb:13
+  [1m[36mEmployee Load (0.3ms)[0m  [1m[34mSELECT "employees".* FROM "employees" /*action='edit',application='FreightSolutionBackEnd',controller='performance_reviews'*/[0m
+  ↳ app/views/admin/performance_reviews/_form.html.erb:26
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" /*action='edit',application='FreightSolutionBackEnd',controller='performance_reviews'*/[0m
+  ↳ app/views/admin/performance_reviews/_form.html.erb:32
+  Rendered admin/performance_reviews/_form.html.erb (Duration: 4.7ms | GC: 0.0ms)
+  Rendered admin/performance_reviews/edit.html.erb within layouts/admin (Duration: 6.7ms | GC: 0.0ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='edit',application='FreightSolutionBackEnd',controller='performance_reviews'*/[0m
+  ↳ app/controllers/admin/base_controller.rb:15:in 'Admin::BaseController#current_user'
+  Rendered layout layouts/admin.html.erb (Duration: 8.3ms | GC: 0.0ms)
+Completed 200 OK in 10ms (Views: 7.7ms | ActiveRecord: 1.2ms (5 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/.well-known/appspecific/com.chrome.devtools.json" for ::1 at 2026-04-23 12:33:40 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/.well-known/appspecific/com.chrome.devtools.json"):
+  
+Started GET "/admin/performance_reviews/2" for ::1 at 2026-04-23 12:33:45 +0200
+Processing by Admin::PerformanceReviewsController#show as HTML
+  Parameters: {"id" => "2"}
+  [1m[36mPerformanceReview Load (0.3ms)[0m  [1m[34mSELECT "performance_reviews".* FROM "performance_reviews" WHERE "performance_reviews"."id" = 2 LIMIT 1 /*action='show',application='FreightSolutionBackEnd',controller='performance_reviews'*/[0m
+  ↳ app/controllers/admin/performance_reviews_controller.rb:49:in 'Admin::PerformanceReviewsController#set_performance_review'
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/performance_reviews/show.html.erb within layouts/admin
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = 2 LIMIT 1 /*action='show',application='FreightSolutionBackEnd',controller='performance_reviews'*/[0m
+  ↳ app/views/admin/performance_reviews/show.html.erb:14
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='show',application='FreightSolutionBackEnd',controller='performance_reviews'*/[0m
+  ↳ app/views/admin/performance_reviews/show.html.erb:84
+  Rendered admin/performance_reviews/show.html.erb within layouts/admin (Duration: 2.5ms | GC: 0.0ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  ↳ app/controllers/admin/base_controller.rb:15:in 'Admin::BaseController#current_user'
+  Rendered layout layouts/admin.html.erb (Duration: 3.9ms | GC: 0.0ms)
+Completed 200 OK in 6ms (Views: 3.8ms | ActiveRecord: 0.7ms (4 queries, 1 cached) | GC: 0.0ms)
+
+
+Started GET "/.well-known/appspecific/com.chrome.devtools.json" for ::1 at 2026-04-23 12:33:45 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/.well-known/appspecific/com.chrome.devtools.json"):
+  
+Started GET "/admin/performance_reviews" for ::1 at 2026-04-23 12:33:48 +0200
+Processing by Admin::PerformanceReviewsController#index as HTML
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/performance_reviews/index.html.erb within layouts/admin
+  [1m[36mPerformanceReview Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "performance_reviews" LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='performance_reviews'*/[0m
+  ↳ app/views/admin/performance_reviews/index.html.erb:46
+  [1m[36mPerformanceReview Load (0.1ms)[0m  [1m[34mSELECT "performance_reviews".* FROM "performance_reviews" ORDER BY "performance_reviews"."created_at" DESC /*action='index',application='FreightSolutionBackEnd',controller='performance_reviews'*/[0m
+  ↳ app/views/admin/performance_reviews/index.html.erb:61
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = 2 /*action='index',application='FreightSolutionBackEnd',controller='performance_reviews'*/[0m
+  ↳ app/views/admin/performance_reviews/index.html.erb:61
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 /*action='index',application='FreightSolutionBackEnd',controller='performance_reviews'*/[0m
+  ↳ app/views/admin/performance_reviews/index.html.erb:61
+  Rendered admin/performance_reviews/index.html.erb within layouts/admin (Duration: 8.1ms | GC: 0.0ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='performance_reviews'*/[0m
+  ↳ app/controllers/admin/base_controller.rb:15:in 'Admin::BaseController#current_user'
+  Rendered layout layouts/admin.html.erb (Duration: 9.7ms | GC: 0.0ms)
+Completed 200 OK in 11ms (Views: 9.1ms | ActiveRecord: 1.0ms (5 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/.well-known/appspecific/com.chrome.devtools.json" for ::1 at 2026-04-23 12:33:48 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/.well-known/appspecific/com.chrome.devtools.json"):
+  
+Started GET "/admin/hrm" for ::1 at 2026-04-23 12:33:51 +0200
+Processing by Admin::HrmDashboardController#index as HTML
+  [1m[36mEmployee Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='FreightSolutionBackEnd',controller='hrm_dashboard'*/[0m
+  ↳ app/controllers/admin/hrm_dashboard_controller.rb:3:in 'Admin::HrmDashboardController#index'
+  [1m[36mUser Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."role" IN ('employee', 'hr_manager') /*action='index',application='FreightSolutionBackEnd',controller='hrm_dashboard'*/[0m
+  ↳ app/controllers/admin/hrm_dashboard_controller.rb:4:in 'Admin::HrmDashboardController#index'
+  [1m[36mLeaveRequest Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "leave_requests" WHERE "leave_requests"."status" = 'pending' /*action='index',application='FreightSolutionBackEnd',controller='hrm_dashboard'*/[0m
+  ↳ app/controllers/admin/hrm_dashboard_controller.rb:5:in 'Admin::HrmDashboardController#index'
+  [1m[36mTimesheet Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "timesheets" WHERE "timesheets"."status" = 'pending' /*action='index',application='FreightSolutionBackEnd',controller='hrm_dashboard'*/[0m
+  ↳ app/controllers/admin/hrm_dashboard_controller.rb:6:in 'Admin::HrmDashboardController#index'
+  [1m[36mAttendanceRecord Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendance_records" WHERE "attendance_records"."date" = '2026-04-23' /*action='index',application='FreightSolutionBackEnd',controller='hrm_dashboard'*/[0m
+  ↳ app/controllers/admin/hrm_dashboard_controller.rb:7:in 'Admin::HrmDashboardController#index'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."status" != 'done' /*action='index',application='FreightSolutionBackEnd',controller='hrm_dashboard'*/[0m
+  ↳ app/controllers/admin/hrm_dashboard_controller.rb:8:in 'Admin::HrmDashboardController#index'
+  [1m[36mTrainingCourse Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "training_courses" WHERE "training_courses"."is_active" = TRUE /*action='index',application='FreightSolutionBackEnd',controller='hrm_dashboard'*/[0m
+  ↳ app/controllers/admin/hrm_dashboard_controller.rb:9:in 'Admin::HrmDashboardController#index'
+  [1m[36mPerformanceReview Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "performance_reviews" /*action='index',application='FreightSolutionBackEnd',controller='hrm_dashboard'*/[0m
+  ↳ app/controllers/admin/hrm_dashboard_controller.rb:10:in 'Admin::HrmDashboardController#index'
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/hrm_dashboard/index.html.erb within layouts/admin
+  Rendered admin/hrm_dashboard/index.html.erb within layouts/admin (Duration: 0.6ms | GC: 0.0ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='hrm_dashboard'*/[0m
+  ↳ app/controllers/admin/base_controller.rb:15:in 'Admin::BaseController#current_user'
+  Rendered layout layouts/admin.html.erb (Duration: 2.0ms | GC: 0.0ms)
+Completed 200 OK in 22ms (Views: 2.2ms | ActiveRecord: 5.3ms (9 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/.well-known/appspecific/com.chrome.devtools.json" for ::1 at 2026-04-23 12:33:51 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/.well-known/appspecific/com.chrome.devtools.json"):
+  
+Started GET "/admin/hrm_tasks" for ::1 at 2026-04-23 12:33:53 +0200
+Processing by Admin::HrmTasksController#index as HTML
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/hrm_tasks/index.html.erb within layouts/admin
+  [1m[36mTask Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "tasks" LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='hrm_tasks'*/[0m
+  ↳ app/views/admin/hrm_tasks/index.html.erb:21
+  Rendered admin/hrm_tasks/index.html.erb within layouts/admin (Duration: 1.6ms | GC: 0.0ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='hrm_tasks'*/[0m
+  ↳ app/controllers/admin/base_controller.rb:15:in 'Admin::BaseController#current_user'
+  Rendered layout layouts/admin.html.erb (Duration: 2.9ms | GC: 0.0ms)
+Completed 200 OK in 5ms (Views: 2.8ms | ActiveRecord: 0.5ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/.well-known/appspecific/com.chrome.devtools.json" for ::1 at 2026-04-23 12:33:53 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/.well-known/appspecific/com.chrome.devtools.json"):
+  
+Started GET "/admin/hrm_tasks/new" for ::1 at 2026-04-23 12:33:55 +0200
+Processing by Admin::HrmTasksController#new as HTML
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/hrm_tasks/new.html.erb within layouts/admin
+  Rendered admin/hrm_tasks/new.html.erb within layouts/admin (Duration: 3.5ms | GC: 0.0ms)
+  Rendered layout layouts/admin.html.erb (Duration: 3.8ms | GC: 0.0ms)
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.6ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method 'admin_tasks_path' for an instance of #<Class:0x0000764190af3348>)
+Caused by: NoMethodError (undefined method 'admin_tasks_path' for an instance of #<Class:0x0000764190af3348>)
+
+Information for: ActionView::Template::Error (undefined method 'admin_tasks_path' for an instance of #<Class:0x0000764190af3348>):
+    11:   <div class="bg-slate-800 rounded-xl border border-slate-700 w-full">
+    12:     <div class="p-8">
+    13:       <%= form_with model: [:admin, @task], local: true do |form| %>
+    14:         <% if @task.errors.any? %>
+    15:           <div class="mb-6 p-4 bg-red-500/10 border border-red-500/30 text-red-400 rounded-lg">
+    16:             <ul class="list-disc list-inside"><% @task.errors.full_messages.each do |m| %><li><%= m %></li><% end %></ul>
+    17:           </div>
+  
+app/views/admin/hrm_tasks/new.html.erb:14
+
+Information for cause: NoMethodError (undefined method 'admin_tasks_path' for an instance of #<Class:0x0000764190af3348>):
+  
+app/views/admin/hrm_tasks/new.html.erb:14
+Started GET "/.well-known/appspecific/com.chrome.devtools.json" for ::1 at 2026-04-23 12:33:55 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/.well-known/appspecific/com.chrome.devtools.json"):
+  
+Started GET "/.well-known/appspecific/com.chrome.devtools.json" for ::1 at 2026-04-23 12:33:57 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/.well-known/appspecific/com.chrome.devtools.json"):
+  
+Started GET "/.well-known/appspecific/com.chrome.devtools.json" for ::1 at 2026-04-23 12:33:57 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/.well-known/appspecific/com.chrome.devtools.json"):
+  
+Started GET "/" for ::1 at 2026-04-23 12:35:15 +0200
+Processing by AdminController#login as HTML
+  Rendering layout layouts/admin_login.html.erb
+  Rendering admin/login.html.erb within layouts/admin_login
+  Rendered admin/login.html.erb within layouts/admin_login (Duration: 1.3ms | GC: 0.0ms)
+  Rendered layout layouts/admin_login.html.erb (Duration: 2.1ms | GC: 0.0ms)
+Completed 200 OK in 4ms (Views: 3.4ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/admin/hrm_tasks/new" for ::1 at 2026-04-23 12:44:18 +0200
+Processing by Admin::HrmTasksController#new as HTML
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/hrm_tasks/new.html.erb within layouts/admin
+  Rendered admin/hrm_tasks/new.html.erb within layouts/admin (Duration: 0.3ms | GC: 0.0ms)
+  Rendered layout layouts/admin.html.erb (Duration: 0.5ms | GC: 0.0ms)
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method 'admin_tasks_path' for an instance of #<Class:0x0000764190af3348>)
+Caused by: NoMethodError (undefined method 'admin_tasks_path' for an instance of #<Class:0x0000764190af3348>)
+
+Information for: ActionView::Template::Error (undefined method 'admin_tasks_path' for an instance of #<Class:0x0000764190af3348>):
+    11:   <div class="bg-slate-800 rounded-xl border border-slate-700 w-full">
+    12:     <div class="p-8">
+    13:       <%= form_with model: [:admin, @task], local: true do |form| %>
+    14:         <% if @task.errors.any? %>
+    15:           <div class="mb-6 p-4 bg-red-500/10 border border-red-500/30 text-red-400 rounded-lg">
+    16:             <ul class="list-disc list-inside"><% @task.errors.full_messages.each do |m| %><li><%= m %></li><% end %></ul>
+    17:           </div>
+  
+app/views/admin/hrm_tasks/new.html.erb:14
+
+Information for cause: NoMethodError (undefined method 'admin_tasks_path' for an instance of #<Class:0x0000764190af3348>):
+  
+app/views/admin/hrm_tasks/new.html.erb:14
+Started GET "/.well-known/appspecific/com.chrome.devtools.json" for ::1 at 2026-04-23 12:44:18 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/.well-known/appspecific/com.chrome.devtools.json"):
+  
+Started GET "/.well-known/appspecific/com.chrome.devtools.json" for ::1 at 2026-04-23 12:44:21 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/.well-known/appspecific/com.chrome.devtools.json"):
+  
+Started GET "/.well-known/appspecific/com.chrome.devtools.json" for ::1 at 2026-04-23 12:44:21 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/.well-known/appspecific/com.chrome.devtools.json"):
+  
+Started GET "/admin/hrm" for ::1 at 2026-04-23 12:44:33 +0200
+Processing by Admin::HrmDashboardController#index as HTML
+  [1m[36mEmployee Count (7.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='FreightSolutionBackEnd',controller='hrm_dashboard'*/[0m
+  ↳ app/controllers/admin/hrm_dashboard_controller.rb:3:in 'Admin::HrmDashboardController#index'
+  [1m[36mUser Count (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."role" IN ('employee', 'hr_manager') /*action='index',application='FreightSolutionBackEnd',controller='hrm_dashboard'*/[0m
+  ↳ app/controllers/admin/hrm_dashboard_controller.rb:4:in 'Admin::HrmDashboardController#index'
+  [1m[36mLeaveRequest Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "leave_requests" WHERE "leave_requests"."status" = 'pending' /*action='index',application='FreightSolutionBackEnd',controller='hrm_dashboard'*/[0m
+  ↳ app/controllers/admin/hrm_dashboard_controller.rb:5:in 'Admin::HrmDashboardController#index'
+  [1m[36mTimesheet Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "timesheets" WHERE "timesheets"."status" = 'pending' /*action='index',application='FreightSolutionBackEnd',controller='hrm_dashboard'*/[0m
+  ↳ app/controllers/admin/hrm_dashboard_controller.rb:6:in 'Admin::HrmDashboardController#index'
+  [1m[36mAttendanceRecord Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendance_records" WHERE "attendance_records"."date" = '2026-04-23' /*action='index',application='FreightSolutionBackEnd',controller='hrm_dashboard'*/[0m
+  ↳ app/controllers/admin/hrm_dashboard_controller.rb:7:in 'Admin::HrmDashboardController#index'
+  [1m[36mTask Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."status" != 'done' /*action='index',application='FreightSolutionBackEnd',controller='hrm_dashboard'*/[0m
+  ↳ app/controllers/admin/hrm_dashboard_controller.rb:8:in 'Admin::HrmDashboardController#index'
+  [1m[36mTrainingCourse Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "training_courses" WHERE "training_courses"."is_active" = TRUE /*action='index',application='FreightSolutionBackEnd',controller='hrm_dashboard'*/[0m
+  ↳ app/controllers/admin/hrm_dashboard_controller.rb:9:in 'Admin::HrmDashboardController#index'
+  [1m[36mPerformanceReview Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "performance_reviews" /*action='index',application='FreightSolutionBackEnd',controller='hrm_dashboard'*/[0m
+  ↳ app/controllers/admin/hrm_dashboard_controller.rb:10:in 'Admin::HrmDashboardController#index'
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/hrm_dashboard/index.html.erb within layouts/admin
+  Rendered admin/hrm_dashboard/index.html.erb within layouts/admin (Duration: 0.3ms | GC: 0.0ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='hrm_dashboard'*/[0m
+  ↳ app/controllers/admin/base_controller.rb:15:in 'Admin::BaseController#current_user'
+  Rendered layout layouts/admin.html.erb (Duration: 1.4ms | GC: 0.0ms)
+Completed 200 OK in 19ms (Views: 1.6ms | ActiveRecord: 11.8ms (9 queries, 0 cached) | GC: 1.2ms)
+
+
+Started GET "/.well-known/appspecific/com.chrome.devtools.json" for ::1 at 2026-04-23 12:44:33 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/.well-known/appspecific/com.chrome.devtools.json"):
+  
+Started GET "/admin/hrm_tasks" for ::1 at 2026-04-23 12:44:34 +0200
+Processing by Admin::HrmTasksController#index as HTML
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/hrm_tasks/index.html.erb within layouts/admin
+  [1m[36mTask Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "tasks" LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='hrm_tasks'*/[0m
+  ↳ app/views/admin/hrm_tasks/index.html.erb:21
+  Rendered admin/hrm_tasks/index.html.erb within layouts/admin (Duration: 1.5ms | GC: 0.0ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='hrm_tasks'*/[0m
+  ↳ app/controllers/admin/base_controller.rb:15:in 'Admin::BaseController#current_user'
+  Rendered layout layouts/admin.html.erb (Duration: 3.3ms | GC: 0.0ms)
+Completed 200 OK in 5ms (Views: 3.3ms | ActiveRecord: 0.5ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/.well-known/appspecific/com.chrome.devtools.json" for ::1 at 2026-04-23 12:44:34 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/.well-known/appspecific/com.chrome.devtools.json"):
+  
+Started GET "/admin/hrm_tasks/new" for ::1 at 2026-04-23 12:44:36 +0200
+Processing by Admin::HrmTasksController#new as HTML
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/hrm_tasks/new.html.erb within layouts/admin
+  Rendered admin/hrm_tasks/new.html.erb within layouts/admin (Duration: 0.3ms | GC: 0.0ms)
+  Rendered layout layouts/admin.html.erb (Duration: 0.4ms | GC: 0.0ms)
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method 'admin_tasks_path' for an instance of #<Class:0x0000764190af3348>)
+Caused by: NoMethodError (undefined method 'admin_tasks_path' for an instance of #<Class:0x0000764190af3348>)
+
+Information for: ActionView::Template::Error (undefined method 'admin_tasks_path' for an instance of #<Class:0x0000764190af3348>):
+    11:   <div class="bg-slate-800 rounded-xl border border-slate-700 w-full">
+    12:     <div class="p-8">
+    13:       <%= form_with model: [:admin, @task], local: true do |form| %>
+    14:         <% if @task.errors.any? %>
+    15:           <div class="mb-6 p-4 bg-red-500/10 border border-red-500/30 text-red-400 rounded-lg">
+    16:             <ul class="list-disc list-inside"><% @task.errors.full_messages.each do |m| %><li><%= m %></li><% end %></ul>
+    17:           </div>
+  
+app/views/admin/hrm_tasks/new.html.erb:14
+
+Information for cause: NoMethodError (undefined method 'admin_tasks_path' for an instance of #<Class:0x0000764190af3348>):
+  
+app/views/admin/hrm_tasks/new.html.erb:14
+Started GET "/.well-known/appspecific/com.chrome.devtools.json" for ::1 at 2026-04-23 12:44:36 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/.well-known/appspecific/com.chrome.devtools.json"):
+  
+Started GET "/.well-known/appspecific/com.chrome.devtools.json" for ::1 at 2026-04-23 12:50:06 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/.well-known/appspecific/com.chrome.devtools.json"):
+  
+Started GET "/admin/hrm" for ::1 at 2026-04-23 12:50:08 +0200
+Processing by Admin::HrmDashboardController#index as HTML
+  [1m[36mEmployee Count (8.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='FreightSolutionBackEnd',controller='hrm_dashboard'*/[0m
+  ↳ app/controllers/admin/hrm_dashboard_controller.rb:3:in 'Admin::HrmDashboardController#index'
+  [1m[36mUser Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."role" IN ('employee', 'hr_manager') /*action='index',application='FreightSolutionBackEnd',controller='hrm_dashboard'*/[0m
+  ↳ app/controllers/admin/hrm_dashboard_controller.rb:4:in 'Admin::HrmDashboardController#index'
+  [1m[36mLeaveRequest Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "leave_requests" WHERE "leave_requests"."status" = 'pending' /*action='index',application='FreightSolutionBackEnd',controller='hrm_dashboard'*/[0m
+  ↳ app/controllers/admin/hrm_dashboard_controller.rb:5:in 'Admin::HrmDashboardController#index'
+  [1m[36mTimesheet Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "timesheets" WHERE "timesheets"."status" = 'pending' /*action='index',application='FreightSolutionBackEnd',controller='hrm_dashboard'*/[0m
+  ↳ app/controllers/admin/hrm_dashboard_controller.rb:6:in 'Admin::HrmDashboardController#index'
+  [1m[36mAttendanceRecord Count (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendance_records" WHERE "attendance_records"."date" = '2026-04-23' /*action='index',application='FreightSolutionBackEnd',controller='hrm_dashboard'*/[0m
+  ↳ app/controllers/admin/hrm_dashboard_controller.rb:7:in 'Admin::HrmDashboardController#index'
+  [1m[36mTask Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."status" != 'done' /*action='index',application='FreightSolutionBackEnd',controller='hrm_dashboard'*/[0m
+  ↳ app/controllers/admin/hrm_dashboard_controller.rb:8:in 'Admin::HrmDashboardController#index'
+  [1m[36mTrainingCourse Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "training_courses" WHERE "training_courses"."is_active" = TRUE /*action='index',application='FreightSolutionBackEnd',controller='hrm_dashboard'*/[0m
+  ↳ app/controllers/admin/hrm_dashboard_controller.rb:9:in 'Admin::HrmDashboardController#index'
+  [1m[36mPerformanceReview Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "performance_reviews" /*action='index',application='FreightSolutionBackEnd',controller='hrm_dashboard'*/[0m
+  ↳ app/controllers/admin/hrm_dashboard_controller.rb:10:in 'Admin::HrmDashboardController#index'
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/hrm_dashboard/index.html.erb within layouts/admin
+  Rendered admin/hrm_dashboard/index.html.erb within layouts/admin (Duration: 0.2ms | GC: 0.0ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='hrm_dashboard'*/[0m
+  ↳ app/controllers/admin/base_controller.rb:15:in 'Admin::BaseController#current_user'
+  Rendered layout layouts/admin.html.erb (Duration: 1.7ms | GC: 0.1ms)
+Completed 200 OK in 23ms (Views: 1.9ms | ActiveRecord: 13.6ms (9 queries, 0 cached) | GC: 6.5ms)
+
+
+Started GET "/.well-known/appspecific/com.chrome.devtools.json" for ::1 at 2026-04-23 12:50:08 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/.well-known/appspecific/com.chrome.devtools.json"):
+  
+Started GET "/admin/hrm_tasks" for ::1 at 2026-04-23 12:54:14 +0200
+Processing by Admin::HrmTasksController#index as HTML
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/hrm_tasks/index.html.erb within layouts/admin
+  [1m[36mTask Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "tasks" LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='hrm_tasks'*/[0m
+  ↳ app/views/admin/hrm_tasks/index.html.erb:21
+  Rendered admin/hrm_tasks/index.html.erb within layouts/admin (Duration: 1.6ms | GC: 0.0ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='hrm_tasks'*/[0m
+  ↳ app/controllers/admin/base_controller.rb:15:in 'Admin::BaseController#current_user'
+  Rendered layout layouts/admin.html.erb (Duration: 3.3ms | GC: 0.0ms)
+Completed 200 OK in 4ms (Views: 3.2ms | ActiveRecord: 0.5ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/.well-known/appspecific/com.chrome.devtools.json" for ::1 at 2026-04-23 12:54:14 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/.well-known/appspecific/com.chrome.devtools.json"):
+  
+Started GET "/admin/hrm_tasks/new" for ::1 at 2026-04-23 12:54:16 +0200
+Processing by Admin::HrmTasksController#new as HTML
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/hrm_tasks/new.html.erb within layouts/admin
+  Rendered admin/hrm_tasks/new.html.erb within layouts/admin (Duration: 0.4ms | GC: 0.0ms)
+  Rendered layout layouts/admin.html.erb (Duration: 2.0ms | GC: 0.0ms)
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method 'admin_tasks_path' for an instance of #<Class:0x0000764190af3348>)
+Caused by: NoMethodError (undefined method 'admin_tasks_path' for an instance of #<Class:0x0000764190af3348>)
+
+Information for: ActionView::Template::Error (undefined method 'admin_tasks_path' for an instance of #<Class:0x0000764190af3348>):
+    11:   <div class="bg-slate-800 rounded-xl border border-slate-700 w-full">
+    12:     <div class="p-8">
+    13:       <%= form_with model: [:admin, @task], local: true do |form| %>
+    14:         <% if @task.errors.any? %>
+    15:           <div class="mb-6 p-4 bg-red-500/10 border border-red-500/30 text-red-400 rounded-lg">
+    16:             <ul class="list-disc list-inside"><% @task.errors.full_messages.each do |m| %><li><%= m %></li><% end %></ul>
+    17:           </div>
+  
+app/views/admin/hrm_tasks/new.html.erb:14
+
+Information for cause: NoMethodError (undefined method 'admin_tasks_path' for an instance of #<Class:0x0000764190af3348>):
+  
+app/views/admin/hrm_tasks/new.html.erb:14
+Started GET "/.well-known/appspecific/com.chrome.devtools.json" for ::1 at 2026-04-23 12:54:16 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/.well-known/appspecific/com.chrome.devtools.json"):
+  
+Started GET "/.well-known/appspecific/com.chrome.devtools.json" for ::1 at 2026-04-23 12:56:02 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/.well-known/appspecific/com.chrome.devtools.json"):
+  
+Started GET "/.well-known/appspecific/com.chrome.devtools.json" for ::1 at 2026-04-23 12:56:02 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/.well-known/appspecific/com.chrome.devtools.json"):
+  
+Started GET "/admin/hrm" for ::1 at 2026-04-23 12:56:03 +0200
+Processing by Admin::HrmDashboardController#index as HTML
+  [1m[36mEmployee Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='FreightSolutionBackEnd',controller='hrm_dashboard'*/[0m
+  ↳ app/controllers/admin/hrm_dashboard_controller.rb:3:in 'Admin::HrmDashboardController#index'
+  [1m[36mUser Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."role" IN ('employee', 'hr_manager') /*action='index',application='FreightSolutionBackEnd',controller='hrm_dashboard'*/[0m
+  ↳ app/controllers/admin/hrm_dashboard_controller.rb:4:in 'Admin::HrmDashboardController#index'
+  [1m[36mLeaveRequest Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "leave_requests" WHERE "leave_requests"."status" = 'pending' /*action='index',application='FreightSolutionBackEnd',controller='hrm_dashboard'*/[0m
+  ↳ app/controllers/admin/hrm_dashboard_controller.rb:5:in 'Admin::HrmDashboardController#index'
+  [1m[36mTimesheet Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "timesheets" WHERE "timesheets"."status" = 'pending' /*action='index',application='FreightSolutionBackEnd',controller='hrm_dashboard'*/[0m
+  ↳ app/controllers/admin/hrm_dashboard_controller.rb:6:in 'Admin::HrmDashboardController#index'
+  [1m[36mAttendanceRecord Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendance_records" WHERE "attendance_records"."date" = '2026-04-23' /*action='index',application='FreightSolutionBackEnd',controller='hrm_dashboard'*/[0m
+  ↳ app/controllers/admin/hrm_dashboard_controller.rb:7:in 'Admin::HrmDashboardController#index'
+  [1m[36mTask Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."status" != 'done' /*action='index',application='FreightSolutionBackEnd',controller='hrm_dashboard'*/[0m
+  ↳ app/controllers/admin/hrm_dashboard_controller.rb:8:in 'Admin::HrmDashboardController#index'
+  [1m[36mTrainingCourse Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "training_courses" WHERE "training_courses"."is_active" = TRUE /*action='index',application='FreightSolutionBackEnd',controller='hrm_dashboard'*/[0m
+  ↳ app/controllers/admin/hrm_dashboard_controller.rb:9:in 'Admin::HrmDashboardController#index'
+  [1m[36mPerformanceReview Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "performance_reviews" /*action='index',application='FreightSolutionBackEnd',controller='hrm_dashboard'*/[0m
+  ↳ app/controllers/admin/hrm_dashboard_controller.rb:10:in 'Admin::HrmDashboardController#index'
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/hrm_dashboard/index.html.erb within layouts/admin
+  Rendered admin/hrm_dashboard/index.html.erb within layouts/admin (Duration: 0.2ms | GC: 0.0ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='hrm_dashboard'*/[0m
+  ↳ app/controllers/admin/base_controller.rb:15:in 'Admin::BaseController#current_user'
+  Rendered layout layouts/admin.html.erb (Duration: 1.2ms | GC: 0.0ms)
+Completed 200 OK in 11ms (Views: 1.5ms | ActiveRecord: 1.4ms (9 queries, 0 cached) | GC: 0.3ms)
+
+
+Started GET "/.well-known/appspecific/com.chrome.devtools.json" for ::1 at 2026-04-23 12:56:04 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/.well-known/appspecific/com.chrome.devtools.json"):
+  
+Started GET "/admin/performance_reviews" for ::1 at 2026-04-23 12:56:07 +0200
+Processing by Admin::PerformanceReviewsController#index as HTML
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/performance_reviews/index.html.erb within layouts/admin
+  [1m[36mPerformanceReview Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "performance_reviews" LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='performance_reviews'*/[0m
+  ↳ app/views/admin/performance_reviews/index.html.erb:46
+  [1m[36mPerformanceReview Load (0.3ms)[0m  [1m[34mSELECT "performance_reviews".* FROM "performance_reviews" ORDER BY "performance_reviews"."created_at" DESC /*action='index',application='FreightSolutionBackEnd',controller='performance_reviews'*/[0m
+  ↳ app/views/admin/performance_reviews/index.html.erb:61
+  [1m[36mEmployee Load (0.3ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = 2 /*action='index',application='FreightSolutionBackEnd',controller='performance_reviews'*/[0m
+  ↳ app/views/admin/performance_reviews/index.html.erb:61
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 /*action='index',application='FreightSolutionBackEnd',controller='performance_reviews'*/[0m
+  ↳ app/views/admin/performance_reviews/index.html.erb:61
+  Rendered admin/performance_reviews/index.html.erb within layouts/admin (Duration: 5.9ms | GC: 0.0ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='performance_reviews'*/[0m
+  ↳ app/controllers/admin/base_controller.rb:15:in 'Admin::BaseController#current_user'
+  Rendered layout layouts/admin.html.erb (Duration: 6.9ms | GC: 0.0ms)
+Completed 200 OK in 8ms (Views: 6.3ms | ActiveRecord: 1.1ms (5 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/.well-known/appspecific/com.chrome.devtools.json" for ::1 at 2026-04-23 12:56:07 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/.well-known/appspecific/com.chrome.devtools.json"):
+  
+Started GET "/admin/performance_reviews/2" for ::1 at 2026-04-23 12:56:10 +0200
+Processing by Admin::PerformanceReviewsController#show as HTML
+  Parameters: {"id" => "2"}
+  [1m[36mPerformanceReview Load (0.3ms)[0m  [1m[34mSELECT "performance_reviews".* FROM "performance_reviews" WHERE "performance_reviews"."id" = 2 LIMIT 1 /*action='show',application='FreightSolutionBackEnd',controller='performance_reviews'*/[0m
+  ↳ app/controllers/admin/performance_reviews_controller.rb:49:in 'Admin::PerformanceReviewsController#set_performance_review'
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/performance_reviews/show.html.erb within layouts/admin
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = 2 LIMIT 1 /*action='show',application='FreightSolutionBackEnd',controller='performance_reviews'*/[0m
+  ↳ app/views/admin/performance_reviews/show.html.erb:14
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='show',application='FreightSolutionBackEnd',controller='performance_reviews'*/[0m
+  ↳ app/views/admin/performance_reviews/show.html.erb:84
+  Rendered admin/performance_reviews/show.html.erb within layouts/admin (Duration: 2.3ms | GC: 0.0ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  ↳ app/controllers/admin/base_controller.rb:15:in 'Admin::BaseController#current_user'
+  Rendered layout layouts/admin.html.erb (Duration: 3.0ms | GC: 0.0ms)
+Completed 200 OK in 5ms (Views: 2.9ms | ActiveRecord: 0.7ms (4 queries, 1 cached) | GC: 0.0ms)
+
+
+Started GET "/.well-known/appspecific/com.chrome.devtools.json" for ::1 at 2026-04-23 12:56:10 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/.well-known/appspecific/com.chrome.devtools.json"):
+  
+Started GET "/admin/dashboard" for ::1 at 2026-04-23 12:56:14 +0200
+Processing by Admin::DashboardController#index as HTML
+  [1m[36mEmployee Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='FreightSolutionBackEnd',controller='dashboard'*/[0m
+  ↳ app/controllers/admin/dashboard_controller.rb:3:in 'Admin::DashboardController#index'
+  [1m[36mVendor Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "vendors" /*action='index',application='FreightSolutionBackEnd',controller='dashboard'*/[0m
+  ↳ app/controllers/admin/dashboard_controller.rb:4:in 'Admin::DashboardController#index'
+  [1m[36mClient Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "clients" /*action='index',application='FreightSolutionBackEnd',controller='dashboard'*/[0m
+  ↳ app/controllers/admin/dashboard_controller.rb:5:in 'Admin::DashboardController#index'
+  [1m[36mShipment Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "shipments" /*action='index',application='FreightSolutionBackEnd',controller='dashboard'*/[0m
+  ↳ app/controllers/admin/dashboard_controller.rb:6:in 'Admin::DashboardController#index'
+  [1m[36mInvoice Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "invoices" /*action='index',application='FreightSolutionBackEnd',controller='dashboard'*/[0m
+  ↳ app/controllers/admin/dashboard_controller.rb:7:in 'Admin::DashboardController#index'
+  [1m[36mInvoice Sum (0.3ms)[0m  [1m[34mSELECT SUM("invoices"."amount") FROM "invoices" WHERE "invoices"."status" = 'paid' /*action='index',application='FreightSolutionBackEnd',controller='dashboard'*/[0m
+  ↳ app/controllers/admin/dashboard_controller.rb:8:in 'Admin::DashboardController#index'
+  [1m[36mInvoice Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "invoices" WHERE "invoices"."status" = 'pending' /*action='index',application='FreightSolutionBackEnd',controller='dashboard'*/[0m
+  ↳ app/controllers/admin/dashboard_controller.rb:9:in 'Admin::DashboardController#index'
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/dashboard/index.html.erb within layouts/admin
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='dashboard'*/[0m
+  ↳ app/controllers/admin/base_controller.rb:15:in 'Admin::BaseController#current_user'
+  [1m[36mShipment Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "shipments" LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='dashboard'*/[0m
+  ↳ app/views/admin/dashboard/index.html.erb:136
+  [1m[36mInvoice Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "invoices" LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='dashboard'*/[0m
+  ↳ app/views/admin/dashboard/index.html.erb:192
+  [1m[36mInvoice Load (0.1ms)[0m  [1m[34mSELECT "invoices".* FROM "invoices" ORDER BY "invoices"."created_at" DESC LIMIT 5 /*action='index',application='FreightSolutionBackEnd',controller='dashboard'*/[0m
+  ↳ app/views/admin/dashboard/index.html.erb:194
+  Rendered admin/dashboard/index.html.erb within layouts/admin (Duration: 6.1ms | GC: 0.5ms)
+  Rendered layout layouts/admin.html.erb (Duration: 6.6ms | GC: 0.5ms)
+Completed 200 OK in 30ms (Views: 6.3ms | ActiveRecord: 5.0ms (11 queries, 0 cached) | GC: 1.6ms)
+
+
+Started GET "/.well-known/appspecific/com.chrome.devtools.json" for ::1 at 2026-04-23 12:56:14 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/.well-known/appspecific/com.chrome.devtools.json"):
+  
+Started GET "/admin/users" for ::1 at 2026-04-23 12:56:16 +0200
+Processing by Admin::UsersController#index as HTML
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/users/index.html.erb within layouts/admin
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='users'*/[0m
+  ↳ app/views/admin/users/index.html.erb:46
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."created_at" DESC /*action='index',application='FreightSolutionBackEnd',controller='users'*/[0m
+  ↳ app/views/admin/users/index.html.erb:60
+  Rendered admin/users/index.html.erb within layouts/admin (Duration: 4.0ms | GC: 0.0ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='users'*/[0m
+  ↳ app/controllers/admin/base_controller.rb:15:in 'Admin::BaseController#current_user'
+  Rendered layout layouts/admin.html.erb (Duration: 5.2ms | GC: 0.0ms)
+Completed 200 OK in 6ms (Views: 4.9ms | ActiveRecord: 0.7ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/.well-known/appspecific/com.chrome.devtools.json" for ::1 at 2026-04-23 12:56:16 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/.well-known/appspecific/com.chrome.devtools.json"):
+  
+Started GET "/admin/ops_fin" for ::1 at 2026-04-23 12:56:19 +0200
+Processing by Admin::OpsFinDashboardController#index as HTML
+  [1m[36mVendor Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "vendors" /*action='index',application='FreightSolutionBackEnd',controller='ops_fin_dashboard'*/[0m
+  ↳ app/controllers/admin/ops_fin_dashboard_controller.rb:4:in 'Admin::OpsFinDashboardController#index'
+  [1m[36mClient Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "clients" /*action='index',application='FreightSolutionBackEnd',controller='ops_fin_dashboard'*/[0m
+  ↳ app/controllers/admin/ops_fin_dashboard_controller.rb:5:in 'Admin::OpsFinDashboardController#index'
+  [1m[36mShipment Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "shipments" /*action='index',application='FreightSolutionBackEnd',controller='ops_fin_dashboard'*/[0m
+  ↳ app/controllers/admin/ops_fin_dashboard_controller.rb:6:in 'Admin::OpsFinDashboardController#index'
+  [1m[36mInvoice Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "invoices" /*action='index',application='FreightSolutionBackEnd',controller='ops_fin_dashboard'*/[0m
+  ↳ app/controllers/admin/ops_fin_dashboard_controller.rb:10:in 'Admin::OpsFinDashboardController#index'
+  [1m[36mInvoice Sum (0.1ms)[0m  [1m[34mSELECT SUM("invoices"."amount") FROM "invoices" WHERE "invoices"."status" = 'paid' /*action='index',application='FreightSolutionBackEnd',controller='ops_fin_dashboard'*/[0m
+  ↳ app/controllers/admin/ops_fin_dashboard_controller.rb:11:in 'Admin::OpsFinDashboardController#index'
+  [1m[36mInvoice Sum (0.1ms)[0m  [1m[34mSELECT SUM("invoices"."amount") FROM "invoices" WHERE "invoices"."status" = 'pending' /*action='index',application='FreightSolutionBackEnd',controller='ops_fin_dashboard'*/[0m
+  ↳ app/controllers/admin/ops_fin_dashboard_controller.rb:12:in 'Admin::OpsFinDashboardController#index'
+  [1m[36mInvoice Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "invoices" WHERE (due_date < '2026-04-23' AND status != 'paid') /*action='index',application='FreightSolutionBackEnd',controller='ops_fin_dashboard'*/[0m
+  ↳ app/controllers/admin/ops_fin_dashboard_controller.rb:13:in 'Admin::OpsFinDashboardController#index'
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/ops_fin_dashboard/index.html.erb within layouts/admin
+  [1m[36mShipment Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "shipments" LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='ops_fin_dashboard'*/[0m
+  ↳ app/views/admin/ops_fin_dashboard/index.html.erb:148
+  [1m[36mInvoice Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "invoices" LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='ops_fin_dashboard'*/[0m
+  ↳ app/views/admin/ops_fin_dashboard/index.html.erb:179
+  [1m[36mInvoice Load (0.1ms)[0m  [1m[34mSELECT "invoices".* FROM "invoices" ORDER BY "invoices"."created_at" DESC LIMIT 5 /*action='index',application='FreightSolutionBackEnd',controller='ops_fin_dashboard'*/[0m
+  ↳ app/views/admin/ops_fin_dashboard/index.html.erb:180
+  [1m[36mVendor Load (0.4ms)[0m  [1m[34mSELECT "vendors".* FROM "vendors" WHERE "vendors"."id" IN (10, 5, 7, 13) /*action='index',application='FreightSolutionBackEnd',controller='ops_fin_dashboard'*/[0m
+  ↳ app/views/admin/ops_fin_dashboard/index.html.erb:180
+  Rendered admin/ops_fin_dashboard/index.html.erb within layouts/admin (Duration: 12.4ms | GC: 0.0ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='ops_fin_dashboard'*/[0m
+  ↳ app/controllers/admin/base_controller.rb:15:in 'Admin::BaseController#current_user'
+  Rendered layout layouts/admin.html.erb (Duration: 14.3ms | GC: 0.0ms)
+Completed 200 OK in 22ms (Views: 12.3ms | ActiveRecord: 3.3ms (12 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/.well-known/appspecific/com.chrome.devtools.json" for ::1 at 2026-04-23 12:56:19 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/.well-known/appspecific/com.chrome.devtools.json"):
+  
+Started GET "/admin/ops_fin" for ::1 at 2026-04-23 12:56:22 +0200
+Processing by Admin::OpsFinDashboardController#index as HTML
+  [1m[36mVendor Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "vendors" /*action='index',application='FreightSolutionBackEnd',controller='ops_fin_dashboard'*/[0m
+  ↳ app/controllers/admin/ops_fin_dashboard_controller.rb:4:in 'Admin::OpsFinDashboardController#index'
+  [1m[36mClient Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "clients" /*action='index',application='FreightSolutionBackEnd',controller='ops_fin_dashboard'*/[0m
+  ↳ app/controllers/admin/ops_fin_dashboard_controller.rb:5:in 'Admin::OpsFinDashboardController#index'
+  [1m[36mShipment Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "shipments" /*action='index',application='FreightSolutionBackEnd',controller='ops_fin_dashboard'*/[0m
+  ↳ app/controllers/admin/ops_fin_dashboard_controller.rb:6:in 'Admin::OpsFinDashboardController#index'
+  [1m[36mInvoice Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "invoices" /*action='index',application='FreightSolutionBackEnd',controller='ops_fin_dashboard'*/[0m
+  ↳ app/controllers/admin/ops_fin_dashboard_controller.rb:10:in 'Admin::OpsFinDashboardController#index'
+  [1m[36mInvoice Sum (0.1ms)[0m  [1m[34mSELECT SUM("invoices"."amount") FROM "invoices" WHERE "invoices"."status" = 'paid' /*action='index',application='FreightSolutionBackEnd',controller='ops_fin_dashboard'*/[0m
+  ↳ app/controllers/admin/ops_fin_dashboard_controller.rb:11:in 'Admin::OpsFinDashboardController#index'
+  [1m[36mInvoice Sum (0.1ms)[0m  [1m[34mSELECT SUM("invoices"."amount") FROM "invoices" WHERE "invoices"."status" = 'pending' /*action='index',application='FreightSolutionBackEnd',controller='ops_fin_dashboard'*/[0m
+  ↳ app/controllers/admin/ops_fin_dashboard_controller.rb:12:in 'Admin::OpsFinDashboardController#index'
+  [1m[36mInvoice Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "invoices" WHERE (due_date < '2026-04-23' AND status != 'paid') /*action='index',application='FreightSolutionBackEnd',controller='ops_fin_dashboard'*/[0m
+  ↳ app/controllers/admin/ops_fin_dashboard_controller.rb:13:in 'Admin::OpsFinDashboardController#index'
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/ops_fin_dashboard/index.html.erb within layouts/admin
+  [1m[36mShipment Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "shipments" LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='ops_fin_dashboard'*/[0m
+  ↳ app/views/admin/ops_fin_dashboard/index.html.erb:148
+  [1m[36mInvoice Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "invoices" LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='ops_fin_dashboard'*/[0m
+  ↳ app/views/admin/ops_fin_dashboard/index.html.erb:179
+  [1m[36mInvoice Load (0.1ms)[0m  [1m[34mSELECT "invoices".* FROM "invoices" ORDER BY "invoices"."created_at" DESC LIMIT 5 /*action='index',application='FreightSolutionBackEnd',controller='ops_fin_dashboard'*/[0m
+  ↳ app/views/admin/ops_fin_dashboard/index.html.erb:180
+  [1m[36mVendor Load (0.2ms)[0m  [1m[34mSELECT "vendors".* FROM "vendors" WHERE "vendors"."id" IN (10, 5, 7, 13) /*action='index',application='FreightSolutionBackEnd',controller='ops_fin_dashboard'*/[0m
+  ↳ app/views/admin/ops_fin_dashboard/index.html.erb:180
+  Rendered admin/ops_fin_dashboard/index.html.erb within layouts/admin (Duration: 4.1ms | GC: 0.2ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='ops_fin_dashboard'*/[0m
+  ↳ app/controllers/admin/base_controller.rb:15:in 'Admin::BaseController#current_user'
+  Rendered layout layouts/admin.html.erb (Duration: 5.5ms | GC: 0.2ms)
+Completed 200 OK in 12ms (Views: 5.2ms | ActiveRecord: 1.7ms (12 queries, 0 cached) | GC: 0.2ms)
+
+
+Started GET "/.well-known/appspecific/com.chrome.devtools.json" for ::1 at 2026-04-23 12:56:22 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/.well-known/appspecific/com.chrome.devtools.json"):
+  
+Started GET "/admin/invoices" for ::1 at 2026-04-23 12:56:31 +0200
+Processing by Admin::InvoicesController#index as HTML
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/invoices/index.html.erb within layouts/admin
+  [1m[36mInvoice Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "invoices" LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='invoices'*/[0m
+  ↳ app/views/admin/invoices/index.html.erb:46
+  [1m[36mInvoice Load (0.2ms)[0m  [1m[34mSELECT "invoices".* FROM "invoices" ORDER BY "invoices"."created_at" DESC /*action='index',application='FreightSolutionBackEnd',controller='invoices'*/[0m
+  ↳ app/views/admin/invoices/index.html.erb:62
+  [1m[36mVendor Load (0.2ms)[0m  [1m[34mSELECT "vendors".* FROM "vendors" WHERE "vendors"."id" = 10 LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='invoices'*/[0m
+  ↳ app/views/admin/invoices/index.html.erb:81
+  [1m[36mVendor Load (0.2ms)[0m  [1m[34mSELECT "vendors".* FROM "vendors" WHERE "vendors"."id" = 5 LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='invoices'*/[0m
+  ↳ app/views/admin/invoices/index.html.erb:81
+  [1m[36mVendor Load (0.1ms)[0m  [1m[34mSELECT "vendors".* FROM "vendors" WHERE "vendors"."id" = 7 LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='invoices'*/[0m
+  ↳ app/views/admin/invoices/index.html.erb:81
+  [1m[36mVendor Load (0.1ms)[0m  [1m[34mSELECT "vendors".* FROM "vendors" WHERE "vendors"."id" = 13 LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='invoices'*/[0m
+  ↳ app/views/admin/invoices/index.html.erb:81
+  [1m[36mCACHE Vendor Load (0.0ms)[0m  [1m[34mSELECT "vendors".* FROM "vendors" WHERE "vendors"."id" = 5 LIMIT 1[0m
+  ↳ app/views/admin/invoices/index.html.erb:81
+  [1m[36mVendor Load (0.3ms)[0m  [1m[34mSELECT "vendors".* FROM "vendors" WHERE "vendors"."id" = 3 LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='invoices'*/[0m
+  ↳ app/views/admin/invoices/index.html.erb:81
+  [1m[36mVendor Load (0.2ms)[0m  [1m[34mSELECT "vendors".* FROM "vendors" WHERE "vendors"."id" = 8 LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='invoices'*/[0m
+  ↳ app/views/admin/invoices/index.html.erb:81
+  [1m[36mVendor Load (0.2ms)[0m  [1m[34mSELECT "vendors".* FROM "vendors" WHERE "vendors"."id" = 4 LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='invoices'*/[0m
+  ↳ app/views/admin/invoices/index.html.erb:81
+  [1m[36mVendor Load (0.1ms)[0m  [1m[34mSELECT "vendors".* FROM "vendors" WHERE "vendors"."id" = 11 LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='invoices'*/[0m
+  ↳ app/views/admin/invoices/index.html.erb:81
+  [1m[36mCACHE Vendor Load (0.0ms)[0m  [1m[34mSELECT "vendors".* FROM "vendors" WHERE "vendors"."id" = 11 LIMIT 1[0m
+  ↳ app/views/admin/invoices/index.html.erb:81
+  [1m[36mVendor Load (0.2ms)[0m  [1m[34mSELECT "vendors".* FROM "vendors" WHERE "vendors"."id" = 9 LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='invoices'*/[0m
+  ↳ app/views/admin/invoices/index.html.erb:81
+  [1m[36mCACHE Vendor Load (0.0ms)[0m  [1m[34mSELECT "vendors".* FROM "vendors" WHERE "vendors"."id" = 10 LIMIT 1[0m
+  ↳ app/views/admin/invoices/index.html.erb:81
+  [1m[36mVendor Load (0.2ms)[0m  [1m[34mSELECT "vendors".* FROM "vendors" WHERE "vendors"."id" = 6 LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='invoices'*/[0m
+  ↳ app/views/admin/invoices/index.html.erb:81
+  [1m[36mCACHE Vendor Load (0.0ms)[0m  [1m[34mSELECT "vendors".* FROM "vendors" WHERE "vendors"."id" = 8 LIMIT 1[0m
+  ↳ app/views/admin/invoices/index.html.erb:81
+  [1m[36mCACHE Vendor Load (0.0ms)[0m  [1m[34mSELECT "vendors".* FROM "vendors" WHERE "vendors"."id" = 10 LIMIT 1[0m
+  ↳ app/views/admin/invoices/index.html.erb:81
+  [1m[36mCACHE Vendor Load (0.0ms)[0m  [1m[34mSELECT "vendors".* FROM "vendors" WHERE "vendors"."id" = 10 LIMIT 1[0m
+  ↳ app/views/admin/invoices/index.html.erb:81
+  [1m[36mCACHE Vendor Load (0.0ms)[0m  [1m[34mSELECT "vendors".* FROM "vendors" WHERE "vendors"."id" = 11 LIMIT 1[0m
+  ↳ app/views/admin/invoices/index.html.erb:81
+  [1m[36mCACHE Vendor Load (0.0ms)[0m  [1m[34mSELECT "vendors".* FROM "vendors" WHERE "vendors"."id" = 11 LIMIT 1[0m
+  ↳ app/views/admin/invoices/index.html.erb:81
+  [1m[36mCACHE Vendor Load (0.0ms)[0m  [1m[34mSELECT "vendors".* FROM "vendors" WHERE "vendors"."id" = 13 LIMIT 1[0m
+  ↳ app/views/admin/invoices/index.html.erb:81
+  [1m[36mVendor Load (0.2ms)[0m  [1m[34mSELECT "vendors".* FROM "vendors" WHERE "vendors"."id" = 12 LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='invoices'*/[0m
+  ↳ app/views/admin/invoices/index.html.erb:81
+  [1m[36mCACHE Vendor Load (0.0ms)[0m  [1m[34mSELECT "vendors".* FROM "vendors" WHERE "vendors"."id" = 10 LIMIT 1[0m
+  ↳ app/views/admin/invoices/index.html.erb:81
+  [1m[36mCACHE Vendor Load (0.0ms)[0m  [1m[34mSELECT "vendors".* FROM "vendors" WHERE "vendors"."id" = 10 LIMIT 1[0m
+  ↳ app/views/admin/invoices/index.html.erb:81
+  [1m[36mCACHE Vendor Load (0.0ms)[0m  [1m[34mSELECT "vendors".* FROM "vendors" WHERE "vendors"."id" = 11 LIMIT 1[0m
+  ↳ app/views/admin/invoices/index.html.erb:81
+  [1m[36mCACHE Vendor Load (0.0ms)[0m  [1m[34mSELECT "vendors".* FROM "vendors" WHERE "vendors"."id" = 6 LIMIT 1[0m
+  ↳ app/views/admin/invoices/index.html.erb:81
+  [1m[36mCACHE Vendor Load (0.0ms)[0m  [1m[34mSELECT "vendors".* FROM "vendors" WHERE "vendors"."id" = 4 LIMIT 1[0m
+  ↳ app/views/admin/invoices/index.html.erb:81
+  [1m[36mCACHE Vendor Load (0.0ms)[0m  [1m[34mSELECT "vendors".* FROM "vendors" WHERE "vendors"."id" = 11 LIMIT 1[0m
+  ↳ app/views/admin/invoices/index.html.erb:81
+  [1m[36mCACHE Vendor Load (0.0ms)[0m  [1m[34mSELECT "vendors".* FROM "vendors" WHERE "vendors"."id" = 4 LIMIT 1[0m
+  ↳ app/views/admin/invoices/index.html.erb:81
+  Rendered admin/invoices/index.html.erb within layouts/admin (Duration: 42.0ms | GC: 7.2ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='invoices'*/[0m
+  ↳ app/controllers/admin/base_controller.rb:15:in 'Admin::BaseController#current_user'
+  Rendered layout layouts/admin.html.erb (Duration: 44.9ms | GC: 8.7ms)
+Completed 200 OK in 46ms (Views: 42.6ms | ActiveRecord: 2.7ms (30 queries, 16 cached) | GC: 8.7ms)
+
+
+Started GET "/.well-known/appspecific/com.chrome.devtools.json" for ::1 at 2026-04-23 12:56:31 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/.well-known/appspecific/com.chrome.devtools.json"):
+  
+Started GET "/admin/invoices/12" for ::1 at 2026-04-23 12:56:37 +0200
+Processing by Admin::InvoicesController#show as HTML
+  Parameters: {"id" => "12"}
+  [1m[36mInvoice Load (0.3ms)[0m  [1m[34mSELECT "invoices".* FROM "invoices" WHERE "invoices"."id" = 12 LIMIT 1 /*action='show',application='FreightSolutionBackEnd',controller='invoices'*/[0m
+  ↳ app/controllers/admin/invoices_controller.rb:7:in 'Admin::InvoicesController#show'
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/invoices/show.html.erb within layouts/admin
+  [1m[36mVendor Load (0.2ms)[0m  [1m[34mSELECT "vendors".* FROM "vendors" WHERE "vendors"."id" = 10 LIMIT 1 /*action='show',application='FreightSolutionBackEnd',controller='invoices'*/[0m
+  ↳ app/views/admin/invoices/show.html.erb:46
+  Rendered admin/invoices/show.html.erb within layouts/admin (Duration: 2.0ms | GC: 0.0ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='show',application='FreightSolutionBackEnd',controller='invoices'*/[0m
+  ↳ app/controllers/admin/base_controller.rb:15:in 'Admin::BaseController#current_user'
+  Rendered layout layouts/admin.html.erb (Duration: 3.2ms | GC: 0.0ms)
+Completed 200 OK in 6ms (Views: 3.2ms | ActiveRecord: 0.7ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/.well-known/appspecific/com.chrome.devtools.json" for ::1 at 2026-04-23 12:56:37 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/.well-known/appspecific/com.chrome.devtools.json"):
+  
+Started GET "/admin/invoices" for ::1 at 2026-04-23 12:56:40 +0200
+Processing by Admin::InvoicesController#index as HTML
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/invoices/index.html.erb within layouts/admin
+  [1m[36mInvoice Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "invoices" LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='invoices'*/[0m
+  ↳ app/views/admin/invoices/index.html.erb:46
+  [1m[36mInvoice Load (0.1ms)[0m  [1m[34mSELECT "invoices".* FROM "invoices" ORDER BY "invoices"."created_at" DESC /*action='index',application='FreightSolutionBackEnd',controller='invoices'*/[0m
+  ↳ app/views/admin/invoices/index.html.erb:62
+  [1m[36mVendor Load (0.2ms)[0m  [1m[34mSELECT "vendors".* FROM "vendors" WHERE "vendors"."id" = 10 LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='invoices'*/[0m
+  ↳ app/views/admin/invoices/index.html.erb:81
+  [1m[36mVendor Load (0.1ms)[0m  [1m[34mSELECT "vendors".* FROM "vendors" WHERE "vendors"."id" = 5 LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='invoices'*/[0m
+  ↳ app/views/admin/invoices/index.html.erb:81
+  [1m[36mVendor Load (0.2ms)[0m  [1m[34mSELECT "vendors".* FROM "vendors" WHERE "vendors"."id" = 7 LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='invoices'*/[0m
+  ↳ app/views/admin/invoices/index.html.erb:81
+  [1m[36mVendor Load (0.1ms)[0m  [1m[34mSELECT "vendors".* FROM "vendors" WHERE "vendors"."id" = 13 LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='invoices'*/[0m
+  ↳ app/views/admin/invoices/index.html.erb:81
+  [1m[36mCACHE Vendor Load (0.0ms)[0m  [1m[34mSELECT "vendors".* FROM "vendors" WHERE "vendors"."id" = 5 LIMIT 1[0m
+  ↳ app/views/admin/invoices/index.html.erb:81
+  [1m[36mVendor Load (0.1ms)[0m  [1m[34mSELECT "vendors".* FROM "vendors" WHERE "vendors"."id" = 3 LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='invoices'*/[0m
+  ↳ app/views/admin/invoices/index.html.erb:81
+  [1m[36mVendor Load (0.1ms)[0m  [1m[34mSELECT "vendors".* FROM "vendors" WHERE "vendors"."id" = 8 LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='invoices'*/[0m
+  ↳ app/views/admin/invoices/index.html.erb:81
+  [1m[36mVendor Load (0.1ms)[0m  [1m[34mSELECT "vendors".* FROM "vendors" WHERE "vendors"."id" = 4 LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='invoices'*/[0m
+  ↳ app/views/admin/invoices/index.html.erb:81
+  [1m[36mVendor Load (0.1ms)[0m  [1m[34mSELECT "vendors".* FROM "vendors" WHERE "vendors"."id" = 11 LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='invoices'*/[0m
+  ↳ app/views/admin/invoices/index.html.erb:81
+  [1m[36mCACHE Vendor Load (0.0ms)[0m  [1m[34mSELECT "vendors".* FROM "vendors" WHERE "vendors"."id" = 11 LIMIT 1[0m
+  ↳ app/views/admin/invoices/index.html.erb:81
+  [1m[36mVendor Load (0.1ms)[0m  [1m[34mSELECT "vendors".* FROM "vendors" WHERE "vendors"."id" = 9 LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='invoices'*/[0m
+  ↳ app/views/admin/invoices/index.html.erb:81
+  [1m[36mCACHE Vendor Load (0.0ms)[0m  [1m[34mSELECT "vendors".* FROM "vendors" WHERE "vendors"."id" = 10 LIMIT 1[0m
+  ↳ app/views/admin/invoices/index.html.erb:81
+  [1m[36mVendor Load (0.1ms)[0m  [1m[34mSELECT "vendors".* FROM "vendors" WHERE "vendors"."id" = 6 LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='invoices'*/[0m
+  ↳ app/views/admin/invoices/index.html.erb:81
+  [1m[36mCACHE Vendor Load (0.0ms)[0m  [1m[34mSELECT "vendors".* FROM "vendors" WHERE "vendors"."id" = 8 LIMIT 1[0m
+  ↳ app/views/admin/invoices/index.html.erb:81
+  [1m[36mCACHE Vendor Load (0.0ms)[0m  [1m[34mSELECT "vendors".* FROM "vendors" WHERE "vendors"."id" = 10 LIMIT 1[0m
+  ↳ app/views/admin/invoices/index.html.erb:81
+  [1m[36mCACHE Vendor Load (0.0ms)[0m  [1m[34mSELECT "vendors".* FROM "vendors" WHERE "vendors"."id" = 10 LIMIT 1[0m
+  ↳ app/views/admin/invoices/index.html.erb:81
+  [1m[36mCACHE Vendor Load (0.0ms)[0m  [1m[34mSELECT "vendors".* FROM "vendors" WHERE "vendors"."id" = 11 LIMIT 1[0m
+  ↳ app/views/admin/invoices/index.html.erb:81
+  [1m[36mCACHE Vendor Load (0.0ms)[0m  [1m[34mSELECT "vendors".* FROM "vendors" WHERE "vendors"."id" = 11 LIMIT 1[0m
+  ↳ app/views/admin/invoices/index.html.erb:81
+  [1m[36mCACHE Vendor Load (0.0ms)[0m  [1m[34mSELECT "vendors".* FROM "vendors" WHERE "vendors"."id" = 13 LIMIT 1[0m
+  ↳ app/views/admin/invoices/index.html.erb:81
+  [1m[36mVendor Load (0.2ms)[0m  [1m[34mSELECT "vendors".* FROM "vendors" WHERE "vendors"."id" = 12 LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='invoices'*/[0m
+  ↳ app/views/admin/invoices/index.html.erb:81
+  [1m[36mCACHE Vendor Load (0.0ms)[0m  [1m[34mSELECT "vendors".* FROM "vendors" WHERE "vendors"."id" = 10 LIMIT 1[0m
+  ↳ app/views/admin/invoices/index.html.erb:81
+  [1m[36mCACHE Vendor Load (0.0ms)[0m  [1m[34mSELECT "vendors".* FROM "vendors" WHERE "vendors"."id" = 10 LIMIT 1[0m
+  ↳ app/views/admin/invoices/index.html.erb:81
+  [1m[36mCACHE Vendor Load (0.0ms)[0m  [1m[34mSELECT "vendors".* FROM "vendors" WHERE "vendors"."id" = 11 LIMIT 1[0m
+  ↳ app/views/admin/invoices/index.html.erb:81
+  [1m[36mCACHE Vendor Load (0.0ms)[0m  [1m[34mSELECT "vendors".* FROM "vendors" WHERE "vendors"."id" = 6 LIMIT 1[0m
+  ↳ app/views/admin/invoices/index.html.erb:81
+  [1m[36mCACHE Vendor Load (0.0ms)[0m  [1m[34mSELECT "vendors".* FROM "vendors" WHERE "vendors"."id" = 4 LIMIT 1[0m
+  ↳ app/views/admin/invoices/index.html.erb:81
+  [1m[36mCACHE Vendor Load (0.0ms)[0m  [1m[34mSELECT "vendors".* FROM "vendors" WHERE "vendors"."id" = 11 LIMIT 1[0m
+  ↳ app/views/admin/invoices/index.html.erb:81
+  [1m[36mCACHE Vendor Load (0.0ms)[0m  [1m[34mSELECT "vendors".* FROM "vendors" WHERE "vendors"."id" = 4 LIMIT 1[0m
+  ↳ app/views/admin/invoices/index.html.erb:81
+  Rendered admin/invoices/index.html.erb within layouts/admin (Duration: 25.4ms | GC: 0.0ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='invoices'*/[0m
+  ↳ app/controllers/admin/base_controller.rb:15:in 'Admin::BaseController#current_user'
+  Rendered layout layouts/admin.html.erb (Duration: 26.4ms | GC: 0.0ms)
+Completed 200 OK in 28ms (Views: 24.9ms | ActiveRecord: 2.0ms (30 queries, 16 cached) | GC: 0.0ms)
+
+
+Started GET "/.well-known/appspecific/com.chrome.devtools.json" for ::1 at 2026-04-23 12:56:40 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/.well-known/appspecific/com.chrome.devtools.json"):
+  
+Started GET "/admin/ops_fin" for ::1 at 2026-04-23 12:56:42 +0200
+Processing by Admin::OpsFinDashboardController#index as HTML
+  [1m[36mVendor Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "vendors" /*action='index',application='FreightSolutionBackEnd',controller='ops_fin_dashboard'*/[0m
+  ↳ app/controllers/admin/ops_fin_dashboard_controller.rb:4:in 'Admin::OpsFinDashboardController#index'
+  [1m[36mClient Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "clients" /*action='index',application='FreightSolutionBackEnd',controller='ops_fin_dashboard'*/[0m
+  ↳ app/controllers/admin/ops_fin_dashboard_controller.rb:5:in 'Admin::OpsFinDashboardController#index'
+  [1m[36mShipment Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "shipments" /*action='index',application='FreightSolutionBackEnd',controller='ops_fin_dashboard'*/[0m
+  ↳ app/controllers/admin/ops_fin_dashboard_controller.rb:6:in 'Admin::OpsFinDashboardController#index'
+  [1m[36mInvoice Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "invoices" /*action='index',application='FreightSolutionBackEnd',controller='ops_fin_dashboard'*/[0m
+  ↳ app/controllers/admin/ops_fin_dashboard_controller.rb:10:in 'Admin::OpsFinDashboardController#index'
+  [1m[36mInvoice Sum (0.2ms)[0m  [1m[34mSELECT SUM("invoices"."amount") FROM "invoices" WHERE "invoices"."status" = 'paid' /*action='index',application='FreightSolutionBackEnd',controller='ops_fin_dashboard'*/[0m
+  ↳ app/controllers/admin/ops_fin_dashboard_controller.rb:11:in 'Admin::OpsFinDashboardController#index'
+  [1m[36mInvoice Sum (0.2ms)[0m  [1m[34mSELECT SUM("invoices"."amount") FROM "invoices" WHERE "invoices"."status" = 'pending' /*action='index',application='FreightSolutionBackEnd',controller='ops_fin_dashboard'*/[0m
+  ↳ app/controllers/admin/ops_fin_dashboard_controller.rb:12:in 'Admin::OpsFinDashboardController#index'
+  [1m[36mInvoice Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "invoices" WHERE (due_date < '2026-04-23' AND status != 'paid') /*action='index',application='FreightSolutionBackEnd',controller='ops_fin_dashboard'*/[0m
+  ↳ app/controllers/admin/ops_fin_dashboard_controller.rb:13:in 'Admin::OpsFinDashboardController#index'
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/ops_fin_dashboard/index.html.erb within layouts/admin
+  [1m[36mShipment Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "shipments" LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='ops_fin_dashboard'*/[0m
+  ↳ app/views/admin/ops_fin_dashboard/index.html.erb:148
+  [1m[36mInvoice Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "invoices" LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='ops_fin_dashboard'*/[0m
+  ↳ app/views/admin/ops_fin_dashboard/index.html.erb:179
+  [1m[36mInvoice Load (0.2ms)[0m  [1m[34mSELECT "invoices".* FROM "invoices" ORDER BY "invoices"."created_at" DESC LIMIT 5 /*action='index',application='FreightSolutionBackEnd',controller='ops_fin_dashboard'*/[0m
+  ↳ app/views/admin/ops_fin_dashboard/index.html.erb:180
+  [1m[36mVendor Load (0.2ms)[0m  [1m[34mSELECT "vendors".* FROM "vendors" WHERE "vendors"."id" IN (10, 5, 7, 13) /*action='index',application='FreightSolutionBackEnd',controller='ops_fin_dashboard'*/[0m
+  ↳ app/views/admin/ops_fin_dashboard/index.html.erb:180
+  Rendered admin/ops_fin_dashboard/index.html.erb within layouts/admin (Duration: 7.1ms | GC: 0.4ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='ops_fin_dashboard'*/[0m
+  ↳ app/controllers/admin/base_controller.rb:15:in 'Admin::BaseController#current_user'
+  Rendered layout layouts/admin.html.erb (Duration: 9.1ms | GC: 0.4ms)
+Completed 200 OK in 20ms (Views: 8.7ms | ActiveRecord: 2.5ms (12 queries, 0 cached) | GC: 0.4ms)
+
+
+Started GET "/.well-known/appspecific/com.chrome.devtools.json" for ::1 at 2026-04-23 12:56:42 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/.well-known/appspecific/com.chrome.devtools.json"):
+  
+Started GET "/admin/ops_fin" for ::1 at 2026-04-23 12:59:38 +0200
+Processing by Admin::OpsFinDashboardController#index as HTML
+  [1m[36mVendor Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "vendors" /*action='index',application='FreightSolutionBackEnd',controller='ops_fin_dashboard'*/[0m
+  ↳ app/controllers/admin/ops_fin_dashboard_controller.rb:4:in 'Admin::OpsFinDashboardController#index'
+  [1m[36mClient Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "clients" /*action='index',application='FreightSolutionBackEnd',controller='ops_fin_dashboard'*/[0m
+  ↳ app/controllers/admin/ops_fin_dashboard_controller.rb:5:in 'Admin::OpsFinDashboardController#index'
+  [1m[36mShipment Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "shipments" /*action='index',application='FreightSolutionBackEnd',controller='ops_fin_dashboard'*/[0m
+  ↳ app/controllers/admin/ops_fin_dashboard_controller.rb:6:in 'Admin::OpsFinDashboardController#index'
+  [1m[36mInvoice Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "invoices" /*action='index',application='FreightSolutionBackEnd',controller='ops_fin_dashboard'*/[0m
+  ↳ app/controllers/admin/ops_fin_dashboard_controller.rb:10:in 'Admin::OpsFinDashboardController#index'
+  [1m[36mInvoice Sum (0.1ms)[0m  [1m[34mSELECT SUM("invoices"."amount") FROM "invoices" WHERE "invoices"."status" = 'paid' /*action='index',application='FreightSolutionBackEnd',controller='ops_fin_dashboard'*/[0m
+  ↳ app/controllers/admin/ops_fin_dashboard_controller.rb:11:in 'Admin::OpsFinDashboardController#index'
+  [1m[36mInvoice Sum (0.1ms)[0m  [1m[34mSELECT SUM("invoices"."amount") FROM "invoices" WHERE "invoices"."status" = 'pending' /*action='index',application='FreightSolutionBackEnd',controller='ops_fin_dashboard'*/[0m
+  ↳ app/controllers/admin/ops_fin_dashboard_controller.rb:12:in 'Admin::OpsFinDashboardController#index'
+  [1m[36mInvoice Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "invoices" WHERE (due_date < '2026-04-23' AND status != 'paid') /*action='index',application='FreightSolutionBackEnd',controller='ops_fin_dashboard'*/[0m
+  ↳ app/controllers/admin/ops_fin_dashboard_controller.rb:13:in 'Admin::OpsFinDashboardController#index'
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/ops_fin_dashboard/index.html.erb within layouts/admin
+  [1m[36mShipment Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "shipments" LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='ops_fin_dashboard'*/[0m
+  ↳ app/views/admin/ops_fin_dashboard/index.html.erb:148
+  [1m[36mInvoice Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "invoices" LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='ops_fin_dashboard'*/[0m
+  ↳ app/views/admin/ops_fin_dashboard/index.html.erb:179
+  [1m[36mInvoice Load (0.1ms)[0m  [1m[34mSELECT "invoices".* FROM "invoices" ORDER BY "invoices"."created_at" DESC LIMIT 5 /*action='index',application='FreightSolutionBackEnd',controller='ops_fin_dashboard'*/[0m
+  ↳ app/views/admin/ops_fin_dashboard/index.html.erb:180
+  [1m[36mVendor Load (0.1ms)[0m  [1m[34mSELECT "vendors".* FROM "vendors" WHERE "vendors"."id" IN (10, 5, 7, 13) /*action='index',application='FreightSolutionBackEnd',controller='ops_fin_dashboard'*/[0m
+  ↳ app/views/admin/ops_fin_dashboard/index.html.erb:180
+  Rendered admin/ops_fin_dashboard/index.html.erb within layouts/admin (Duration: 13.1ms | GC: 0.0ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='ops_fin_dashboard'*/[0m
+  ↳ app/controllers/admin/base_controller.rb:15:in 'Admin::BaseController#current_user'
+  Rendered layout layouts/admin.html.erb (Duration: 20.8ms | GC: 0.0ms)
+Completed 200 OK in 46ms (Views: 18.7ms | ActiveRecord: 7.2ms (12 queries, 0 cached) | GC: 0.6ms)
+
+
+Started GET "/.well-known/appspecific/com.chrome.devtools.json" for ::1 at 2026-04-23 12:59:38 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/.well-known/appspecific/com.chrome.devtools.json"):
+  
+Started GET "/admin/hrm" for ::1 at 2026-04-23 12:59:40 +0200
+Processing by Admin::HrmDashboardController#index as HTML
+  [1m[36mEmployee Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='FreightSolutionBackEnd',controller='hrm_dashboard'*/[0m
+  ↳ app/controllers/admin/hrm_dashboard_controller.rb:3:in 'Admin::HrmDashboardController#index'
+  [1m[36mUser Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."role" IN ('employee', 'hr_manager') /*action='index',application='FreightSolutionBackEnd',controller='hrm_dashboard'*/[0m
+  ↳ app/controllers/admin/hrm_dashboard_controller.rb:4:in 'Admin::HrmDashboardController#index'
+  [1m[36mLeaveRequest Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "leave_requests" WHERE "leave_requests"."status" = 'pending' /*action='index',application='FreightSolutionBackEnd',controller='hrm_dashboard'*/[0m
+  ↳ app/controllers/admin/hrm_dashboard_controller.rb:5:in 'Admin::HrmDashboardController#index'
+  [1m[36mTimesheet Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "timesheets" WHERE "timesheets"."status" = 'pending' /*action='index',application='FreightSolutionBackEnd',controller='hrm_dashboard'*/[0m
+  ↳ app/controllers/admin/hrm_dashboard_controller.rb:6:in 'Admin::HrmDashboardController#index'
+  [1m[36mAttendanceRecord Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendance_records" WHERE "attendance_records"."date" = '2026-04-23' /*action='index',application='FreightSolutionBackEnd',controller='hrm_dashboard'*/[0m
+  ↳ app/controllers/admin/hrm_dashboard_controller.rb:7:in 'Admin::HrmDashboardController#index'
+  [1m[36mTask Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."status" != 'done' /*action='index',application='FreightSolutionBackEnd',controller='hrm_dashboard'*/[0m
+  ↳ app/controllers/admin/hrm_dashboard_controller.rb:8:in 'Admin::HrmDashboardController#index'
+  [1m[36mTrainingCourse Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "training_courses" WHERE "training_courses"."is_active" = TRUE /*action='index',application='FreightSolutionBackEnd',controller='hrm_dashboard'*/[0m
+  ↳ app/controllers/admin/hrm_dashboard_controller.rb:9:in 'Admin::HrmDashboardController#index'
+  [1m[36mPerformanceReview Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "performance_reviews" /*action='index',application='FreightSolutionBackEnd',controller='hrm_dashboard'*/[0m
+  ↳ app/controllers/admin/hrm_dashboard_controller.rb:10:in 'Admin::HrmDashboardController#index'
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/hrm_dashboard/index.html.erb within layouts/admin
+  Rendered admin/hrm_dashboard/index.html.erb within layouts/admin (Duration: 0.5ms | GC: 0.0ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='hrm_dashboard'*/[0m
+  ↳ app/controllers/admin/base_controller.rb:15:in 'Admin::BaseController#current_user'
+  Rendered layout layouts/admin.html.erb (Duration: 1.6ms | GC: 0.0ms)
+Completed 200 OK in 30ms (Views: 1.8ms | ActiveRecord: 6.1ms (9 queries, 0 cached) | GC: 0.7ms)
+
+
+Started GET "/.well-known/appspecific/com.chrome.devtools.json" for ::1 at 2026-04-23 12:59:40 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/.well-known/appspecific/com.chrome.devtools.json"):
+  
+Started GET "/admin/hrm_tasks" for ::1 at 2026-04-23 12:59:42 +0200
+Processing by Admin::HrmTasksController#index as HTML
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/hrm_tasks/index.html.erb within layouts/admin
+  [1m[36mTask Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "tasks" LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='hrm_tasks'*/[0m
+  ↳ app/views/admin/hrm_tasks/index.html.erb:21
+  Rendered admin/hrm_tasks/index.html.erb within layouts/admin (Duration: 2.5ms | GC: 0.0ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='hrm_tasks'*/[0m
+  ↳ app/controllers/admin/base_controller.rb:15:in 'Admin::BaseController#current_user'
+  Rendered layout layouts/admin.html.erb (Duration: 4.7ms | GC: 0.0ms)
+Completed 200 OK in 6ms (Views: 4.7ms | ActiveRecord: 0.6ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/.well-known/appspecific/com.chrome.devtools.json" for ::1 at 2026-04-23 12:59:43 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/.well-known/appspecific/com.chrome.devtools.json"):
+  
+Started GET "/admin/hrm_tasks/new" for ::1 at 2026-04-23 12:59:44 +0200
+Processing by Admin::HrmTasksController#new as HTML
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/hrm_tasks/new.html.erb within layouts/admin
+  [1m[36mEmployee Load (0.4ms)[0m  [1m[34mSELECT "employees".* FROM "employees" /*action='new',application='FreightSolutionBackEnd',controller='hrm_tasks'*/[0m
+  ↳ app/views/admin/hrm_tasks/new.html.erb:54
+  Rendered admin/hrm_tasks/new.html.erb within layouts/admin (Duration: 22.5ms | GC: 1.1ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='new',application='FreightSolutionBackEnd',controller='hrm_tasks'*/[0m
+  ↳ app/controllers/admin/base_controller.rb:15:in 'Admin::BaseController#current_user'
+  Rendered layout layouts/admin.html.erb (Duration: 25.7ms | GC: 1.1ms)
+Completed 200 OK in 37ms (Views: 22.7ms | ActiveRecord: 4.9ms (2 queries, 0 cached) | GC: 1.7ms)
+
+
+Started GET "/.well-known/appspecific/com.chrome.devtools.json" for ::1 at 2026-04-23 12:59:44 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/.well-known/appspecific/com.chrome.devtools.json"):
+  
+Started GET "/sourceMap/assets/css/lollipop.css.map" for ::1 at 2026-04-23 13:00:18 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/sourceMap/assets/css/lollipop.css.map"):
+  
+Started POST "/admin/hrm_tasks" for ::1 at 2026-04-23 13:00:30 +0200
+Processing by Admin::HrmTasksController#create as HTML
+  Parameters: {"authenticity_token" => "[FILTERED]", "task" => {"title" => "Create and event ", "employee_id" => "2", "priority" => "medium", "due_date" => "2026-04-24", "status" => "todo", "description" => "The this done by tomorrow "}, "commit" => "Create Task"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*action='create',application='FreightSolutionBackEnd',controller='hrm_tasks'*/[0m
+  ↳ app/controllers/admin/hrm_tasks_controller.rb:19:in 'Admin::HrmTasksController#create'
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = 2 LIMIT 1 /*action='create',application='FreightSolutionBackEnd',controller='hrm_tasks'*/[0m
+  ↳ app/controllers/admin/hrm_tasks_controller.rb:19:in 'Admin::HrmTasksController#create'
+  [1m[36mTask Create (0.7ms)[0m  [1m[32mINSERT INTO "tasks" ("employee_id", "assigned_by_id", "title", "description", "priority", "status", "due_date", "created_at", "updated_at") VALUES (2, NULL, 'Create and event ', 'The this done by tomorrow ', 'medium', 'todo', '2026-04-24', '2026-04-23 11:00:30.858466', '2026-04-23 11:00:30.858466') RETURNING "id" /*action='create',application='FreightSolutionBackEnd',controller='hrm_tasks'*/[0m
+  ↳ app/controllers/admin/hrm_tasks_controller.rb:19:in 'Admin::HrmTasksController#create'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*action='create',application='FreightSolutionBackEnd',controller='hrm_tasks'*/[0m
+  ↳ app/controllers/admin/hrm_tasks_controller.rb:19:in 'Admin::HrmTasksController#create'
+Redirected to http://localhost:3000/admin/hrm_tasks
+↳ app/controllers/admin/hrm_tasks_controller.rb:20:in 'Admin::HrmTasksController#create'
+Completed 302 Found in 25ms (ActiveRecord: 4.9ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/admin/hrm_tasks" for ::1 at 2026-04-23 13:00:30 +0200
+Processing by Admin::HrmTasksController#index as HTML
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/hrm_tasks/index.html.erb within layouts/admin
+  [1m[36mTask Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "tasks" LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='hrm_tasks'*/[0m
+  ↳ app/views/admin/hrm_tasks/index.html.erb:47
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" ORDER BY "tasks"."created_at" DESC /*action='index',application='FreightSolutionBackEnd',controller='hrm_tasks'*/[0m
+  ↳ app/views/admin/hrm_tasks/index.html.erb:63
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = 2 /*action='index',application='FreightSolutionBackEnd',controller='hrm_tasks'*/[0m
+  ↳ app/views/admin/hrm_tasks/index.html.erb:63
+  Rendered admin/hrm_tasks/index.html.erb within layouts/admin (Duration: 14.2ms | GC: 5.3ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='hrm_tasks'*/[0m
+  ↳ app/controllers/admin/base_controller.rb:15:in 'Admin::BaseController#current_user'
+  Rendered layout layouts/admin.html.erb (Duration: 18.8ms | GC: 6.0ms)
+Completed 200 OK in 21ms (Views: 18.0ms | ActiveRecord: 2.0ms (4 queries, 0 cached) | GC: 6.0ms)
+
+
+Started GET "/.well-known/appspecific/com.chrome.devtools.json" for ::1 at 2026-04-23 13:00:31 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/.well-known/appspecific/com.chrome.devtools.json"):
+  

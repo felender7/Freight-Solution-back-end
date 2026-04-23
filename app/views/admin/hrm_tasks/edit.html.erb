@@ -6,22 +6,22 @@
         <div class="flex items-center gap-2 text-slate-500 text-sm mb-1">
           <span>HRM</span>
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-          <span>Performance</span>
+          <span>Tasks</span>
         </div>
-        <h1 class="text-3xl font-bold text-slate-100  tracking-tight">New Review</h1>
-        <p class="text-slate-400 text-sm mt-1 italic">Initiate a structured performance evaluation</p>
+        <h1 class="text-3xl font-bold text-slate-100 uppercase tracking-tight">Edit Task</h1>
+        <p class="text-slate-400 text-sm mt-1">Updating appraisal for <span class="text-blue-400 font-bold"><%= @task.title %></span></p>
       </div>
-      <a href="<%= admin_performance_reviews_path %>" class="inline-flex items-center gap-2 px-5 py-2.5 bg-slate-700 hover:bg-slate-600 text-slate-200 rounded-xl font-medium transition-all">
+      <a href="<%= admin_hrm_tasks_path %>" class="inline-flex items-center gap-2 px-5 py-2.5 bg-slate-700 hover:bg-slate-600 text-slate-200 rounded-xl font-medium transition-all">
         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
         </svg>
-        Back to List
+        Back to Registry
       </a>
     </div>
 
     <!-- Form -->
     <div class="p-8">
-      <%= render "form", performance_review: @performance_review %>
+      <%= render "form", task: @task %>
     </div>
   </div>
 </div>
