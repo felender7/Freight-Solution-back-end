@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_04_23_085623) do
+ActiveRecord::Schema[8.1].define(version: 2026_04_23_101728) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -208,6 +208,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_04_23_085623) do
     t.datetime "created_at", null: false
     t.bigint "employee_id", null: false
     t.text "feedback"
+    t.jsonb "kpi_results", default: {}
     t.integer "rating"
     t.string "review_cycle"
     t.date "review_date"
@@ -215,6 +216,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_04_23_085623) do
     t.string "status", default: "pending"
     t.datetime "updated_at", null: false
     t.index ["employee_id"], name: "index_performance_reviews_on_employee_id"
+    t.index ["kpi_results"], name: "index_performance_reviews_on_kpi_results", using: :gin
     t.index ["reviewer_id"], name: "index_performance_reviews_on_reviewer_id"
   end
 

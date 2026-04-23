@@ -115,4 +115,34 @@ clients.each do |client_data|
 end
 puts "Created #{Client.count} clients"
 
+# Seed Invoices
+vendors_for_invoices = Vendor.all
+invoice_statuses = ['paid', 'pending', 'overdue', 'cancelled']
+
+20.times do |i|
+  vendor = vendors_for_invoices.sample
+  status = invoice_statuses.sample
+  amount = rand(5000.0..50000.0).round(2)
+  created_at = rand(1..60).days.ago
+  due_date = created_at + 30.days
+  paid_date = status == 'paid' ? created_at + rand(1..15).days : nil
+  
+  # Adjust status based on dates if overdue
+  if status == 'pending' && due_date < Date.today
+    status = 'overdue'
+  end
+
+  Invoice.create!(
+    invoice_number: "TFS-#{1000 + i}",
+    vendor: vendor,
+    amount: amount,
+    status: status,
+    due_date: due_date,
+    paid_date: paid_date,
+    created_at: created_at
+  )
+end
+puts "Created #{Invoice.count} invoices"
+
+
 

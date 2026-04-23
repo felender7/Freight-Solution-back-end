@@ -50,6 +50,6 @@ class Admin::PerformanceReviewsController < Admin::BaseController
   end
 
   def performance_review_params
-    params.require(:performance_review).permit(:employee_id, :reviewer_id, :rating, :feedback, :review_cycle, :review_date, :status)
+    params.require(:performance_review).permit(:employee_id, :reviewer_id, :rating, :feedback, :review_cycle, :review_date, :status, kpi_results: {})
   end
 end

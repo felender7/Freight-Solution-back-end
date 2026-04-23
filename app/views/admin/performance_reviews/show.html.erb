@@ -1,0 +1,168 @@
+<div class="p-8 animate-fade-in space-y-8">
+  
+  <div class="glass-card rounded-2xl border border-slate-700 overflow-hidden shadow-2xl">
+    <!-- Header -->
+    <div class="relative px-8 py-10 bg-slate-800 border-b border-slate-700 overflow-hidden">
+      <div class="absolute top-0 right-0 p-8 opacity-10 text-blue-500">
+        <svg class="w-32 h-32" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+      </div>
+
+      <div class="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
+        <div class="flex items-center gap-6">
+          <div class="w-20 h-20 rounded-2xl bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center text-white text-3xl font-bold shadow-lg shadow-blue-500/20">
+            <%= @performance_review.employee.first_name[0] %>
+          </div>
+          <div>
+            <div class="flex items-center gap-3 mb-1">
+              <h1 class="text-3xl font-bold text-slate-100 uppercase tracking-tight"><%= "#{@performance_review.employee.first_name} #{@performance_review.employee.last_name}" %></h1>
+              <span class="px-3 py-1 bg-blue-500/20 text-blue-400 text-xs font-bold uppercase tracking-widest rounded-full border border-blue-500/30">
+                <%= @performance_review.review_cycle %> Appraisal
+              </span>
+            </div>
+            <div class="flex flex-wrap items-center gap-4 text-slate-400 text-sm font-medium">
+              <span class="flex items-center gap-1.5">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                <%= @performance_review.employee.position %>
+              </span>
+              <span class="flex items-center gap-1.5">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                Reviewed on <%= @performance_review.review_date&.strftime('%d %b %Y') %>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-3">
+          <a href="<%= edit_admin_performance_review_path(@performance_review) %>" 
+             class="px-5 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-medium transition-all shadow-lg shadow-blue-600/20 flex items-center gap-2">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>
+            Edit Appraisal
+          </a>
+          <a href="<%= admin_performance_reviews_path %>" 
+             class="px-5 py-2.5 bg-slate-700 hover:bg-slate-600 text-slate-200 rounded-xl font-medium transition-all flex items-center gap-2">
+            Back to List
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 divide-y lg:divide-y-0 lg:divide-x border-slate-700">
+      <!-- Rating Quick View -->
+      <div class="p-8 bg-slate-800/30">
+        <h3 class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-6">Overall Performance</h3>
+        <div class="flex items-center justify-center p-6 mb-6 rounded-3xl bg-slate-900/50 border border-slate-700">
+          <div class="text-center">
+            <div class="text-6xl font-black text-blue-500 mb-2">
+              <%= @performance_review.rating %><span class="text-lg text-slate-600 font-normal">/5</span>
+            </div>
+            <div class="flex items-center justify-center gap-1 mb-2">
+              <% 5.times do |i| %>
+                <svg class="w-5 h-5 <%= i < @performance_review.rating ? 'text-yellow-500' : 'text-slate-700' %>" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                </svg>
+              <% end %>
+            </div>
+            <p class="text-slate-400 text-sm font-bold uppercase tracking-tight">Appraisal Rating</p>
+          </div>
+        </div>
+        
+        <div class="space-y-4">
+          <div class="flex items-center justify-between p-3 rounded-xl bg-slate-900/30 border border-slate-700/50">
+            <span class="text-slate-300 text-sm font-medium">Review Status</span>
+            <span class="px-3 py-1 text-[10px] font-bold uppercase rounded-full 
+              <%= case @performance_review.status
+                when 'completed' then 'bg-green-500/20 text-green-400'
+                when 'in_progress' then 'bg-blue-500/20 text-blue-400'
+                else 'bg-yellow-500/20 text-yellow-400'
+              end %>">
+              <%= @performance_review.status %>
+            </span>
+          </div>
+          <div class="flex items-center justify-between p-3 rounded-xl bg-slate-900/30 border border-slate-700/50">
+            <span class="text-slate-300 text-sm font-medium">Reviewer</span>
+            <span class="text-slate-100 font-bold uppercase text-[10px]"><%= @performance_review.reviewer&.first_name || 'System' %></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Qualitative Feedback -->
+      <div class="p-8 lg:col-span-2">
+        <h3 class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-6">Reviewer Feedback</h3>
+        <div class="p-6 rounded-2xl bg-slate-900 border border-slate-700 min-h-[160px] relative overflow-hidden group">
+          <div class="absolute -right-4 -bottom-4 opacity-5 group-hover:opacity-10 transition-opacity">
+            <svg class="w-24 h-24 text-blue-500" fill="currentColor" viewBox="0 0 20 20"><path d="M14.019 5.176c-.453-.306-.956-.434-1.508-.384-.551.05-1.02.316-1.405.799-.385.483-.578 1.054-.578 1.714 0 .66.193 1.231.578 1.714.385.483.854.749 1.405.799.552.05 1.055-.078 1.508-.384V13c0 .552-.448 1-1 1h-1c-.552 0-1 .448-1 1s.448 1 1 1h1c1.657 0 3-1.343 3-3V6.176c0-.421-.144-.812-.385-1.127zM7.019 5.176c-.453-.306-.956-.434-1.508-.384-.551.05-1.02.316-1.405.799-.385.483-.578 1.054-.578 1.714 0 .66.193 1.231.578 1.714.385.483.854.749 1.405.799.552.05 1.055-.078 1.508-.384V13c0 .552-.448 1-1 1h-1c-.552 0-1 .448-1 1s.448 1 1 1h1c1.657 0 3-1.343 3-3V6.176c0-.421-.144-.812-.385-1.127z"/></svg>
+          </div>
+          <p class="text-slate-300 leading-relaxed italic text-lg relative z-10">
+            "<%= @performance_review.feedback.presence || 'No formal qualitative feedback provided for this cycle.' %>"
+          </p>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mt-8 pt-8 border-t border-slate-700/50">
+          <div>
+            <label class="block text-slate-500 text-[10px] font-black uppercase mb-1">Growth Path</label>
+            <p class="text-slate-200 font-bold text-[10px]">On Track</p>
+          </div>
+          <div>
+            <label class="block text-slate-500 text-[10px] font-black uppercase mb-1">Training Need</label>
+            <p class="text-slate-200 font-bold text-[10px]">Leadership Prep</p>
+          </div>
+          <div>
+            <label class="block text-slate-500 text-[10px] font-black uppercase mb-1">Review ID</label>
+            <p class="text-slate-500 font-mono text-[10px]">#PR-<%= @performance_review.id %></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Detailed Industry-Standard KPI Results -->
+  <div class="glass-card rounded-2xl border border-slate-700 bg-slate-800/50 p-8 shadow-xl">
+    <h3 class="text-xl font-bold text-slate-100 mb-8 flex items-center gap-2 uppercase tracking-widest">
+      <svg class="w-6 h-6 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+      KPI Performance Metrics
+    </h3>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <% PerformanceReview::KPI_TEMPLATES.each do |dept, kpis| %>
+        <div class="space-y-4">
+          <h4 class="text-xs font-black text-slate-500 uppercase tracking-[0.2em] border-b border-slate-700 pb-2"><%= dept %> Hub</h4>
+          <% kpis.each do |kpi| %>
+            <div class="p-4 rounded-xl bg-slate-900/50 border border-slate-700">
+              <label class="block text-slate-500 text-[10px] font-bold uppercase mb-1"><%= kpi[:label] %></label>
+              <div class="flex items-baseline gap-2">
+                <span class="text-xl font-black text-slate-100">
+                  <%= @performance_review.kpi_results[kpi[:key]].presence || '0' %>
+                </span>
+                <span class="text-[10px] font-bold text-slate-600 uppercase"><%= kpi[:unit] %></span>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+    
+    <!-- Overall KPI Summary -->
+    <div class="mt-12 pt-8 border-t border-slate-700 flex flex-col md:flex-row md:items-center justify-between gap-6">
+      <div class="flex items-center gap-4">
+        <div class="p-4 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-500">
+          <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        </div>
+        <div>
+          <p class="text-slate-500 text-[10px] font-black uppercase tracking-widest">Aggregate Performance Score</p>
+          <p class="text-2xl font-black text-slate-100"><%= @performance_review.overall_kpi_score %></p>
+        </div>
+      </div>
+      
+      <div class="flex-1 max-w-md">
+        <div class="w-full bg-slate-800 rounded-full h-2 shadow-inner">
+          <div class="h-full bg-gradient-to-r from-emerald-500 to-green-400 rounded-full shadow-lg shadow-emerald-500/20" 
+               style="width: <%= (@performance_review.overall_kpi_score / 5.0 * 100 rescue 0) %>%"></div>
+        </div>
+        <div class="flex justify-between mt-2">
+          <span class="text-[8px] font-black text-slate-600 uppercase">Threshold</span>
+          <span class="text-[8px] font-black text-emerald-500 uppercase">Target Achieved</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
