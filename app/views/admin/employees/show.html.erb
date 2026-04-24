@@ -71,7 +71,7 @@
             <label class="block text-slate-500 text-[8px] font-black uppercase mb-1">Reporting Structure</label>
             <div class="flex items-center gap-2 mt-1">
               <div class="w-6 h-6 rounded-full bg-slate-800 flex items-center justify-center text-[10px] text-blue-400 font-bold border border-slate-700">
-                <%= @employee.manager&.first_name&.get(0) || 'S' %>
+                <%= @employee.manager&.first_name&.slice(0) || 'S' %>
               </div>
               <p class="text-slate-200 text-xs font-medium"><%= @employee.manager&.full_name || 'System / Direct' %></p>
             </div>

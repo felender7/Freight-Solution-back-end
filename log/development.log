@@ -92458,3 +92458,956 @@ Processing by Admin::LeaveRequestsController#index as HTML
 Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 0.4ms (2 queries, 0 cached) | GC: 0.5ms)
 
 
+Started GET "/admin/leave_requests" for ::1 at 2026-04-24 12:15:44 +0200
+Processing by Admin::LeaveRequestsController#index as HTML
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/leave_requests/index.html.erb within layouts/admin
+  [1m[36mLeaveRequest Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "leave_requests" LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='leave_requests'*/[0m
+  ↳ app/views/admin/leave_requests/index.html.erb:28
+  Rendered admin/leave_requests/index.html.erb within layouts/admin (Duration: 1.4ms | GC: 0.0ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='leave_requests'*/[0m
+  ↳ app/controllers/admin/base_controller.rb:15:in 'Admin::BaseController#current_user'
+  Rendered layout layouts/admin.html.erb (Duration: 12.7ms | GC: 0.0ms)
+Completed 200 OK in 17ms (Views: 11.8ms | ActiveRecord: 2.7ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/admin/leave_requests/new" for ::1 at 2026-04-24 12:15:46 +0200
+Processing by Admin::LeaveRequestsController#new as HTML
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/leave_requests/new.html.erb within layouts/admin
+  [1m[36mEmployee Load (0.3ms)[0m  [1m[34mSELECT "employees".* FROM "employees" /*action='new',application='FreightSolutionBackEnd',controller='leave_requests'*/[0m
+  ↳ app/views/admin/leave_requests/new.html.erb:23
+  Rendered admin/leave_requests/new.html.erb within layouts/admin (Duration: 11.6ms | GC: 0.0ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='new',application='FreightSolutionBackEnd',controller='leave_requests'*/[0m
+  ↳ app/controllers/admin/base_controller.rb:15:in 'Admin::BaseController#current_user'
+  Rendered layout layouts/admin.html.erb (Duration: 13.6ms | GC: 0.0ms)
+Completed 200 OK in 35ms (Views: 12.6ms | ActiveRecord: 2.4ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/admin/leave_requests/new" for ::1 at 2026-04-24 12:19:25 +0200
+Processing by Admin::LeaveRequestsController#new as HTML
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/leave_requests/new.html.erb within layouts/admin
+  [1m[36mEmployee Load (0.4ms)[0m  [1m[34mSELECT "employees".* FROM "employees" /*action='new',application='FreightSolutionBackEnd',controller='leave_requests'*/[0m
+  ↳ app/views/admin/leave_requests/new.html.erb:46
+  Rendered admin/leave_requests/new.html.erb within layouts/admin (Duration: 7.9ms | GC: 0.5ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='new',application='FreightSolutionBackEnd',controller='leave_requests'*/[0m
+  ↳ app/controllers/admin/base_controller.rb:15:in 'Admin::BaseController#current_user'
+  Rendered layout layouts/admin.html.erb (Duration: 13.7ms | GC: 0.5ms)
+Completed 200 OK in 35ms (Views: 11.9ms | ActiveRecord: 4.9ms (2 queries, 0 cached) | GC: 1.5ms)
+
+
+Started GET "/admin/leave_requests" for ::1 at 2026-04-24 12:19:34 +0200
+Processing by Admin::LeaveRequestsController#index as HTML
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/leave_requests/index.html.erb within layouts/admin
+  [1m[36mLeaveRequest Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "leave_requests" LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='leave_requests'*/[0m
+  ↳ app/views/admin/leave_requests/index.html.erb:28
+  Rendered admin/leave_requests/index.html.erb within layouts/admin (Duration: 2.4ms | GC: 0.1ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='leave_requests'*/[0m
+  ↳ app/controllers/admin/base_controller.rb:15:in 'Admin::BaseController#current_user'
+  Rendered layout layouts/admin.html.erb (Duration: 4.0ms | GC: 0.1ms)
+Completed 200 OK in 6ms (Views: 3.9ms | ActiveRecord: 0.6ms (2 queries, 0 cached) | GC: 0.1ms)
+
+
+Started GET "/admin/leave_requests/new" for ::1 at 2026-04-24 12:20:07 +0200
+Processing by Admin::LeaveRequestsController#new as HTML
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/leave_requests/new.html.erb within layouts/admin
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees" /*action='new',application='FreightSolutionBackEnd',controller='leave_requests'*/[0m
+  ↳ app/views/admin/leave_requests/new.html.erb:46
+  Rendered admin/leave_requests/new.html.erb within layouts/admin (Duration: 8.8ms | GC: 0.6ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='new',application='FreightSolutionBackEnd',controller='leave_requests'*/[0m
+  ↳ app/controllers/admin/base_controller.rb:15:in 'Admin::BaseController#current_user'
+  Rendered layout layouts/admin.html.erb (Duration: 15.6ms | GC: 1.4ms)
+Completed 200 OK in 39ms (Views: 13.9ms | ActiveRecord: 4.0ms (2 queries, 0 cached) | GC: 4.4ms)
+
+
+Started GET "/admin/leave_requests" for ::1 at 2026-04-24 12:23:04 +0200
+Processing by Admin::LeaveRequestsController#index as HTML
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/leave_requests/index.html.erb within layouts/admin
+  [1m[36mLeaveRequest Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "leave_requests" LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='leave_requests'*/[0m
+  ↳ app/views/admin/leave_requests/index.html.erb:28
+  Rendered admin/leave_requests/index.html.erb within layouts/admin (Duration: 2.8ms | GC: 0.0ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='leave_requests'*/[0m
+  ↳ app/controllers/admin/base_controller.rb:15:in 'Admin::BaseController#current_user'
+  Rendered layout layouts/admin.html.erb (Duration: 4.9ms | GC: 0.0ms)
+Completed 200 OK in 6ms (Views: 4.8ms | ActiveRecord: 0.5ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/admin/leave_requests/new" for ::1 at 2026-04-24 12:23:05 +0200
+Processing by Admin::LeaveRequestsController#new as HTML
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/leave_requests/new.html.erb within layouts/admin
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees" /*action='new',application='FreightSolutionBackEnd',controller='leave_requests'*/[0m
+  ↳ app/views/admin/leave_requests/new.html.erb:46
+  Rendered admin/leave_requests/new.html.erb within layouts/admin (Duration: 2.0ms | GC: 0.0ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='new',application='FreightSolutionBackEnd',controller='leave_requests'*/[0m
+  ↳ app/controllers/admin/base_controller.rb:15:in 'Admin::BaseController#current_user'
+  Rendered layout layouts/admin.html.erb (Duration: 3.3ms | GC: 0.0ms)
+Completed 200 OK in 4ms (Views: 3.3ms | ActiveRecord: 0.4ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/admin/leave_requests" for ::1 at 2026-04-24 12:24:43 +0200
+Processing by Admin::LeaveRequestsController#create as HTML
+  Parameters: {"authenticity_token" => "[FILTERED]", "leave_request" => {"employee_id" => "3", "leave_type" => "sick", "start_date" => "2026-04-24", "end_date" => "2026-04-30", "status" => "approved", "reason" => "this  testing "}, "commit" => "Create Request"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*action='create',application='FreightSolutionBackEnd',controller='leave_requests'*/[0m
+  ↳ app/controllers/admin/leave_requests_controller.rb:19:in 'Admin::LeaveRequestsController#create'
+  [1m[36mEmployee Load (1.3ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = 3 LIMIT 1 /*action='create',application='FreightSolutionBackEnd',controller='leave_requests'*/[0m
+  ↳ app/controllers/admin/leave_requests_controller.rb:19:in 'Admin::LeaveRequestsController#create'
+  [1m[36mLeaveRequest Create (10.8ms)[0m  [1m[32mINSERT INTO "leave_requests" ("employee_id", "approved_by_id", "leave_type", "start_date", "end_date", "reason", "status", "created_at", "updated_at", "user_id") VALUES (3, NULL, 'sick', '2026-04-24', '2026-04-30', 'this  testing ', 'approved', '2026-04-24 10:24:43.709476', '2026-04-24 10:24:43.709476', NULL) RETURNING "id" /*action='create',application='FreightSolutionBackEnd',controller='leave_requests'*/[0m
+  ↳ app/controllers/admin/leave_requests_controller.rb:19:in 'Admin::LeaveRequestsController#create'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT /*action='create',application='FreightSolutionBackEnd',controller='leave_requests'*/[0m
+  ↳ app/controllers/admin/leave_requests_controller.rb:19:in 'Admin::LeaveRequestsController#create'
+Redirected to http://localhost:3000/admin/leave_requests
+↳ app/controllers/admin/leave_requests_controller.rb:20:in 'Admin::LeaveRequestsController#create'
+Completed 302 Found in 19ms (ActiveRecord: 12.7ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/admin/leave_requests" for ::1 at 2026-04-24 12:24:43 +0200
+Processing by Admin::LeaveRequestsController#index as HTML
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/leave_requests/index.html.erb within layouts/admin
+  [1m[36mLeaveRequest Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "leave_requests" LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='leave_requests'*/[0m
+  ↳ app/views/admin/leave_requests/index.html.erb:28
+  [1m[36mLeaveRequest Load (0.2ms)[0m  [1m[34mSELECT "leave_requests".* FROM "leave_requests" ORDER BY "leave_requests"."created_at" DESC /*action='index',application='FreightSolutionBackEnd',controller='leave_requests'*/[0m
+  ↳ app/views/admin/leave_requests/index.html.erb:41
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = 3 /*action='index',application='FreightSolutionBackEnd',controller='leave_requests'*/[0m
+  ↳ app/views/admin/leave_requests/index.html.erb:41
+  Rendered admin/leave_requests/index.html.erb within layouts/admin (Duration: 4.2ms | GC: 0.1ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='leave_requests'*/[0m
+  ↳ app/controllers/admin/base_controller.rb:15:in 'Admin::BaseController#current_user'
+  Rendered layout layouts/admin.html.erb (Duration: 5.2ms | GC: 0.1ms)
+Completed 200 OK in 6ms (Views: 4.7ms | ActiveRecord: 0.8ms (4 queries, 0 cached) | GC: 0.1ms)
+
+
+Started GET "/admin/leave_requests/1/edit" for ::1 at 2026-04-24 12:24:50 +0200
+Processing by Admin::LeaveRequestsController#edit as HTML
+  Parameters: {"id" => "1"}
+  [1m[36mLeaveRequest Load (0.3ms)[0m  [1m[34mSELECT "leave_requests".* FROM "leave_requests" WHERE "leave_requests"."id" = 1 LIMIT 1 /*action='edit',application='FreightSolutionBackEnd',controller='leave_requests'*/[0m
+  ↳ app/controllers/admin/leave_requests_controller.rb:51:in 'Admin::LeaveRequestsController#set_leave_request'
+Completed 406 Not Acceptable in 3ms (ActiveRecord: 0.3ms (1 query, 0 cached) | GC: 0.3ms)
+
+
+  
+ActionController::MissingExactTemplate (Admin::LeaveRequestsController#edit is missing a template for request formats: text/html):
+  
+actionpack (8.1.3) lib/action_controller/metal/implicit_render.rb:49:in 'ActionController::ImplicitRender#default_render'
+actionpack (8.1.3) lib/action_controller/metal/basic_implicit_render.rb:9:in 'ActionController::BasicImplicitRender#send_action'
+actionpack (8.1.3) lib/abstract_controller/base.rb:221:in 'AbstractController::Base#process_action'
+actionpack (8.1.3) lib/action_controller/metal/rendering.rb:199:in 'ActionController::Rendering#process_action'
+actionpack (8.1.3) lib/abstract_controller/callbacks.rb:267:in 'block in AbstractController::Callbacks#process_action'
+activesupport (8.1.3) lib/active_support/callbacks.rb:121:in 'block in ActiveSupport::Callbacks#run_callbacks'
+turbo-rails (2.0.23) lib/turbo-rails.rb:24:in 'Turbo.with_request_id'
+turbo-rails (2.0.23) app/controllers/concerns/turbo/request_id_tracking.rb:10:in 'Turbo::RequestIdTracking#turbo_tracking_request_id'
+activesupport (8.1.3) lib/active_support/callbacks.rb:130:in 'block in ActiveSupport::Callbacks#run_callbacks'
+actiontext (8.1.3) lib/action_text/rendering.rb:24:in 'ActionText::Rendering::ClassMethods#with_renderer'
+actiontext (8.1.3) lib/action_text/engine.rb:72:in 'block (4 levels) in <class:Engine>'
+activesupport (8.1.3) lib/active_support/callbacks.rb:130:in 'BasicObject#instance_exec'
+activesupport (8.1.3) lib/active_support/callbacks.rb:130:in 'block in ActiveSupport::Callbacks#run_callbacks'
+activesupport (8.1.3) lib/active_support/callbacks.rb:141:in 'ActiveSupport::Callbacks#run_callbacks'
+actionpack (8.1.3) lib/abstract_controller/callbacks.rb:266:in 'AbstractController::Callbacks#process_action'
+actionpack (8.1.3) lib/action_controller/metal/rescue.rb:36:in 'ActionController::Rescue#process_action'
+actionpack (8.1.3) lib/action_controller/metal/instrumentation.rb:76:in 'block in ActionController::Instrumentation#process_action'
+activesupport (8.1.3) lib/active_support/notifications.rb:210:in 'block in ActiveSupport::Notifications.instrument'
+activesupport (8.1.3) lib/active_support/notifications/instrumenter.rb:58:in 'ActiveSupport::Notifications::Instrumenter#instrument'
+activesupport (8.1.3) lib/active_support/notifications.rb:210:in 'ActiveSupport::Notifications.instrument'
+actionpack (8.1.3) lib/action_controller/metal/instrumentation.rb:75:in 'ActionController::Instrumentation#process_action'
+actionpack (8.1.3) lib/action_controller/metal/params_wrapper.rb:259:in 'ActionController::ParamsWrapper#process_action'
+activerecord (8.1.3) lib/active_record/railties/controller_runtime.rb:39:in 'ActiveRecord::Railties::ControllerRuntime#process_action'
+actionpack (8.1.3) lib/abstract_controller/base.rb:154:in 'AbstractController::Base#process'
+actionview (8.1.3) lib/action_view/rendering.rb:40:in 'ActionView::Rendering#process'
+actionpack (8.1.3) lib/action_controller/metal.rb:252:in 'ActionController::Metal#dispatch'
+actionpack (8.1.3) lib/action_controller/metal.rb:335:in 'ActionController::Metal.dispatch'
+actionpack (8.1.3) lib/action_dispatch/routing/route_set.rb:65:in 'ActionDispatch::Routing::RouteSet::Dispatcher#dispatch'
+actionpack (8.1.3) lib/action_dispatch/routing/route_set.rb:50:in 'ActionDispatch::Routing::RouteSet::Dispatcher#serve'
+actionpack (8.1.3) lib/action_dispatch/journey/router.rb:35:in 'block in ActionDispatch::Journey::Router#serve'
+actionpack (8.1.3) lib/action_dispatch/journey/router.rb:86:in 'block in ActionDispatch::Journey::Router#recognize'
+actionpack (8.1.3) lib/action_dispatch/journey/router.rb:66:in 'Array#each'
+actionpack (8.1.3) lib/action_dispatch/journey/router.rb:66:in 'ActionDispatch::Journey::Router#recognize'
+actionpack (8.1.3) lib/action_dispatch/journey/router.rb:31:in 'ActionDispatch::Journey::Router#serve'
+actionpack (8.1.3) lib/action_dispatch/routing/route_set.rb:906:in 'ActionDispatch::Routing::RouteSet#call'
+railties (8.1.3) lib/rails/engine/lazy_route_set.rb:60:in 'Rails::Engine::LazyRouteSet#call'
+rack (3.2.6) lib/rack/tempfile_reaper.rb:20:in 'Rack::TempfileReaper#call'
+rack (3.2.6) lib/rack/etag.rb:29:in 'Rack::ETag#call'
+rack (3.2.6) lib/rack/conditional_get.rb:31:in 'Rack::ConditionalGet#call'
+rack (3.2.6) lib/rack/head.rb:15:in 'Rack::Head#call'
+actionpack (8.1.3) lib/action_dispatch/http/content_security_policy.rb:38:in 'ActionDispatch::ContentSecurityPolicy::Middleware#call'
+rack-session (2.1.2) lib/rack/session/abstract/id.rb:274:in 'Rack::Session::Abstract::Persisted#context'
+rack-session (2.1.2) lib/rack/session/abstract/id.rb:268:in 'Rack::Session::Abstract::Persisted#call'
+actionpack (8.1.3) lib/action_dispatch/middleware/cookies.rb:708:in 'ActionDispatch::Cookies#call'
+activerecord (8.1.3) lib/active_record/migration.rb:671:in 'ActiveRecord::Migration::CheckPending#call'
+actionpack (8.1.3) lib/action_dispatch/middleware/callbacks.rb:31:in 'block in ActionDispatch::Callbacks#call'
+activesupport (8.1.3) lib/active_support/callbacks.rb:101:in 'ActiveSupport::Callbacks#run_callbacks'
+actionpack (8.1.3) lib/action_dispatch/middleware/callbacks.rb:30:in 'ActionDispatch::Callbacks#call'
+actionpack (8.1.3) lib/action_dispatch/middleware/executor.rb:20:in 'ActionDispatch::Executor#call'
+actionpack (8.1.3) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in 'ActionDispatch::ActionableExceptions#call'
+actionpack (8.1.3) lib/action_dispatch/middleware/debug_exceptions.rb:31:in 'ActionDispatch::DebugExceptions#call'
+actionpack (8.1.3) lib/action_dispatch/middleware/show_exceptions.rb:32:in 'ActionDispatch::ShowExceptions#call'
+railties (8.1.3) lib/rails/rack/logger.rb:41:in 'Rails::Rack::Logger#call_app'
+railties (8.1.3) lib/rails/rack/logger.rb:29:in 'Rails::Rack::Logger#call'
+actionpack (8.1.3) lib/action_dispatch/middleware/remote_ip.rb:98:in 'ActionDispatch::RemoteIp#call'
+actionpack (8.1.3) lib/action_dispatch/middleware/request_id.rb:34:in 'ActionDispatch::RequestId#call'
+rack (3.2.6) lib/rack/method_override.rb:28:in 'Rack::MethodOverride#call'
+rack (3.2.6) lib/rack/runtime.rb:24:in 'Rack::Runtime#call'
+activesupport (8.1.3) lib/active_support/cache/strategy/local_cache_middleware.rb:30:in 'ActiveSupport::Cache::Strategy::LocalCache::Middleware#call'
+actionpack (8.1.3) lib/action_dispatch/middleware/server_timing.rb:61:in 'block in ActionDispatch::ServerTiming#call'
+actionpack (8.1.3) lib/action_dispatch/middleware/server_timing.rb:26:in 'ActionDispatch::ServerTiming::Subscriber#collect_events'
+actionpack (8.1.3) lib/action_dispatch/middleware/server_timing.rb:60:in 'ActionDispatch::ServerTiming#call'
+actionpack (8.1.3) lib/action_dispatch/middleware/executor.rb:20:in 'ActionDispatch::Executor#call'
+actionpack (8.1.3) lib/action_dispatch/middleware/static.rb:27:in 'ActionDispatch::Static#call'
+rack (3.2.6) lib/rack/sendfile.rb:131:in 'Rack::Sendfile#call'
+actionpack (8.1.3) lib/action_dispatch/middleware/host_authorization.rb:143:in 'ActionDispatch::HostAuthorization#call'
+rack-cors (3.0.0) lib/rack/cors.rb:102:in 'Rack::Cors#call'
+railties (8.1.3) lib/rails/engine.rb:534:in 'Rails::Engine#call'
+puma (8.0.0) lib/puma/configuration.rb:305:in 'Puma::Configuration::ConfigMiddleware#call'
+puma (8.0.0) lib/puma/response.rb:79:in 'block in Puma::Response#handle_request'
+puma (8.0.0) lib/puma/thread_pool.rb:434:in 'Puma::ThreadPool#with_force_shutdown'
+puma (8.0.0) lib/puma/response.rb:78:in 'Puma::Response#handle_request'
+puma (8.0.0) lib/puma/server.rb:508:in 'Puma::Server#process_client'
+puma (8.0.0) lib/puma/server.rb:263:in 'block in Puma::Server#run'
+puma (8.0.0) lib/puma/thread_pool.rb:246:in 'block in Puma::ThreadPool#spawn_thread'
+Started GET "/admin/leave_requests/new" for ::1 at 2026-04-24 12:25:03 +0200
+Processing by Admin::LeaveRequestsController#new as HTML
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/leave_requests/new.html.erb within layouts/admin
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees" /*action='new',application='FreightSolutionBackEnd',controller='leave_requests'*/[0m
+  ↳ app/views/admin/leave_requests/new.html.erb:46
+  Rendered admin/leave_requests/new.html.erb within layouts/admin (Duration: 2.5ms | GC: 0.0ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='new',application='FreightSolutionBackEnd',controller='leave_requests'*/[0m
+  ↳ app/controllers/admin/base_controller.rb:15:in 'Admin::BaseController#current_user'
+  Rendered layout layouts/admin.html.erb (Duration: 3.8ms | GC: 0.0ms)
+Completed 200 OK in 5ms (Views: 3.7ms | ActiveRecord: 0.5ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/admin/leave_requests" for ::1 at 2026-04-24 12:25:04 +0200
+Processing by Admin::LeaveRequestsController#index as HTML
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/leave_requests/index.html.erb within layouts/admin
+  [1m[36mLeaveRequest Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "leave_requests" LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='leave_requests'*/[0m
+  ↳ app/views/admin/leave_requests/index.html.erb:28
+  [1m[36mLeaveRequest Load (0.1ms)[0m  [1m[34mSELECT "leave_requests".* FROM "leave_requests" ORDER BY "leave_requests"."created_at" DESC /*action='index',application='FreightSolutionBackEnd',controller='leave_requests'*/[0m
+  ↳ app/views/admin/leave_requests/index.html.erb:41
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = 3 /*action='index',application='FreightSolutionBackEnd',controller='leave_requests'*/[0m
+  ↳ app/views/admin/leave_requests/index.html.erb:41
+  Rendered admin/leave_requests/index.html.erb within layouts/admin (Duration: 4.2ms | GC: 0.3ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='leave_requests'*/[0m
+  ↳ app/controllers/admin/base_controller.rb:15:in 'Admin::BaseController#current_user'
+  Rendered layout layouts/admin.html.erb (Duration: 5.4ms | GC: 0.3ms)
+Completed 200 OK in 6ms (Views: 5.0ms | ActiveRecord: 0.7ms (4 queries, 0 cached) | GC: 0.3ms)
+
+
+Started GET "/admin/hrm" for ::1 at 2026-04-24 12:25:31 +0200
+Processing by Admin::HrmDashboardController#index as HTML
+  [1m[36mEmployee Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='FreightSolutionBackEnd',controller='hrm_dashboard'*/[0m
+  ↳ app/controllers/admin/hrm_dashboard_controller.rb:3:in 'Admin::HrmDashboardController#index'
+  [1m[36mUser Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."role" IN ('employee', 'hr_manager') /*action='index',application='FreightSolutionBackEnd',controller='hrm_dashboard'*/[0m
+  ↳ app/controllers/admin/hrm_dashboard_controller.rb:4:in 'Admin::HrmDashboardController#index'
+  [1m[36mLeaveRequest Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "leave_requests" WHERE "leave_requests"."status" = 'pending' /*action='index',application='FreightSolutionBackEnd',controller='hrm_dashboard'*/[0m
+  ↳ app/controllers/admin/hrm_dashboard_controller.rb:5:in 'Admin::HrmDashboardController#index'
+  [1m[36mTimesheet Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "timesheets" WHERE "timesheets"."status" = 'pending' /*action='index',application='FreightSolutionBackEnd',controller='hrm_dashboard'*/[0m
+  ↳ app/controllers/admin/hrm_dashboard_controller.rb:6:in 'Admin::HrmDashboardController#index'
+  [1m[36mAttendanceRecord Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendance_records" WHERE "attendance_records"."date" = '2026-04-24' /*action='index',application='FreightSolutionBackEnd',controller='hrm_dashboard'*/[0m
+  ↳ app/controllers/admin/hrm_dashboard_controller.rb:7:in 'Admin::HrmDashboardController#index'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."status" != 'done' /*action='index',application='FreightSolutionBackEnd',controller='hrm_dashboard'*/[0m
+  ↳ app/controllers/admin/hrm_dashboard_controller.rb:8:in 'Admin::HrmDashboardController#index'
+  [1m[36mTrainingCourse Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "training_courses" WHERE "training_courses"."is_active" = TRUE /*action='index',application='FreightSolutionBackEnd',controller='hrm_dashboard'*/[0m
+  ↳ app/controllers/admin/hrm_dashboard_controller.rb:9:in 'Admin::HrmDashboardController#index'
+  [1m[36mPerformanceReview Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "performance_reviews" /*action='index',application='FreightSolutionBackEnd',controller='hrm_dashboard'*/[0m
+  ↳ app/controllers/admin/hrm_dashboard_controller.rb:10:in 'Admin::HrmDashboardController#index'
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/hrm_dashboard/index.html.erb within layouts/admin
+  Rendered admin/hrm_dashboard/index.html.erb within layouts/admin (Duration: 0.8ms | GC: 0.0ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='hrm_dashboard'*/[0m
+  ↳ app/controllers/admin/base_controller.rb:15:in 'Admin::BaseController#current_user'
+  Rendered layout layouts/admin.html.erb (Duration: 2.5ms | GC: 0.0ms)
+Completed 200 OK in 26ms (Views: 3.3ms | ActiveRecord: 4.8ms (9 queries, 0 cached) | GC: 1.6ms)
+
+
+Started GET "/admin/employees" for ::1 at 2026-04-24 12:25:32 +0200
+Processing by Admin::EmployeesController#index as HTML
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/employees/index.html.erb within layouts/admin
+  [1m[36mEmployee Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "employees" LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='employees'*/[0m
+  ↳ app/views/admin/employees/index.html.erb:46
+  [1m[36mEmployee Load (0.4ms)[0m  [1m[34mSELECT "employees".* FROM "employees" ORDER BY "employees"."created_at" DESC /*action='index',application='FreightSolutionBackEnd',controller='employees'*/[0m
+  ↳ app/views/admin/employees/index.html.erb:62
+  Rendered admin/employees/index.html.erb within layouts/admin (Duration: 6.4ms | GC: 0.0ms)
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='employees'*/[0m
+  ↳ app/controllers/admin/base_controller.rb:15:in 'Admin::BaseController#current_user'
+  Rendered layout layouts/admin.html.erb (Duration: 10.0ms | GC: 0.0ms)
+Completed 200 OK in 12ms (Views: 7.7ms | ActiveRecord: 2.9ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/admin/employees/3" for ::1 at 2026-04-24 12:25:34 +0200
+Processing by Admin::EmployeesController#show as HTML
+  Parameters: {"id" => "3"}
+  [1m[36mEmployee Load (0.3ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = 3 LIMIT 1 /*action='show',application='FreightSolutionBackEnd',controller='employees'*/[0m
+  ↳ app/controllers/admin/employees_controller.rb:7:in 'Admin::EmployeesController#show'
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/employees/show.html.erb within layouts/admin
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 3 AND "active_storage_attachments"."record_type" = 'Employee' AND "active_storage_attachments"."name" = 'profile_photo' LIMIT 1 /*action='show',application='FreightSolutionBackEnd',controller='employees'*/[0m
+  ↳ app/views/admin/employees/show.html.erb:15
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = 2 LIMIT 1 /*action='show',application='FreightSolutionBackEnd',controller='employees'*/[0m
+  ↳ app/views/admin/employees/show.html.erb:75
+  Rendered admin/employees/show.html.erb within layouts/admin (Duration: 8.0ms | GC: 0.0ms)
+  Rendered layout layouts/admin.html.erb (Duration: 8.1ms | GC: 0.0ms)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 2.2ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method 'get' for an instance of String)
+Caused by: NoMethodError (undefined method 'get' for an instance of String)
+
+Information for: ActionView::Template::Error (undefined method 'get' for an instance of String):
+    72:             <div class="flex items-center gap-2 mt-1">
+    73:               <div class="w-6 h-6 rounded-full bg-slate-800 flex items-center justify-center text-[10px] text-blue-400 font-bold border border-slate-700">
+    74:                 <%= @employee.manager&.first_name&.get(0) || 'S' %>
+    75:               </div>
+    76:               <p class="text-slate-200 text-xs font-medium"><%= @employee.manager&.full_name || 'System / Direct' %></p>
+    77:             </div>
+    78:           </div>
+  
+app/views/admin/employees/show.html.erb:75
+
+Information for cause: NoMethodError (undefined method 'get' for an instance of String):
+  
+app/views/admin/employees/show.html.erb:75
+Started GET "/admin/employees/3" for ::1 at 2026-04-24 12:30:27 +0200
+Processing by Admin::EmployeesController#show as HTML
+  Parameters: {"id" => "3"}
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = 3 LIMIT 1 /*action='show',application='FreightSolutionBackEnd',controller='employees'*/[0m
+  ↳ app/controllers/admin/employees_controller.rb:7:in 'Admin::EmployeesController#show'
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/employees/show.html.erb within layouts/admin
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 3 AND "active_storage_attachments"."record_type" = 'Employee' AND "active_storage_attachments"."name" = 'profile_photo' LIMIT 1 /*action='show',application='FreightSolutionBackEnd',controller='employees'*/[0m
+  ↳ app/views/admin/employees/show.html.erb:15
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = 2 LIMIT 1 /*action='show',application='FreightSolutionBackEnd',controller='employees'*/[0m
+  ↳ app/views/admin/employees/show.html.erb:75
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 3 AND "active_storage_attachments"."record_type" = 'Employee' AND "active_storage_attachments"."name" = 'contract' LIMIT 1 /*action='show',application='FreightSolutionBackEnd',controller='employees'*/[0m
+  ↳ app/views/admin/employees/show.html.erb:151
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 3 AND "active_storage_attachments"."record_type" = 'Employee' AND "active_storage_attachments"."name" = 'appointment_letter' LIMIT 1 /*action='show',application='FreightSolutionBackEnd',controller='employees'*/[0m
+  ↳ app/views/admin/employees/show.html.erb:151
+  Rendered admin/employees/show.html.erb within layouts/admin (Duration: 11.5ms | GC: 2.2ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='show',application='FreightSolutionBackEnd',controller='employees'*/[0m
+  ↳ app/controllers/admin/base_controller.rb:15:in 'Admin::BaseController#current_user'
+  Rendered layout layouts/admin.html.erb (Duration: 32.9ms | GC: 12.2ms)
+Completed 200 OK in 53ms (Views: 30.8ms | ActiveRecord: 4.7ms (6 queries, 0 cached) | GC: 15.5ms)
+
+
+Started GET "/admin/employees" for ::1 at 2026-04-24 12:31:12 +0200
+Processing by Admin::EmployeesController#index as HTML
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/employees/index.html.erb within layouts/admin
+  [1m[36mEmployee Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "employees" LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='employees'*/[0m
+  ↳ app/views/admin/employees/index.html.erb:46
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees" ORDER BY "employees"."created_at" DESC /*action='index',application='FreightSolutionBackEnd',controller='employees'*/[0m
+  ↳ app/views/admin/employees/index.html.erb:62
+  Rendered admin/employees/index.html.erb within layouts/admin (Duration: 6.9ms | GC: 3.2ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='employees'*/[0m
+  ↳ app/controllers/admin/base_controller.rb:15:in 'Admin::BaseController#current_user'
+  Rendered layout layouts/admin.html.erb (Duration: 10.6ms | GC: 5.4ms)
+Completed 200 OK in 12ms (Views: 10.3ms | ActiveRecord: 0.7ms (3 queries, 0 cached) | GC: 5.8ms)
+
+
+Started GET "/admin/employees/3" for ::1 at 2026-04-24 12:31:14 +0200
+Processing by Admin::EmployeesController#show as HTML
+  Parameters: {"id" => "3"}
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = 3 LIMIT 1 /*action='show',application='FreightSolutionBackEnd',controller='employees'*/[0m
+  ↳ app/controllers/admin/employees_controller.rb:7:in 'Admin::EmployeesController#show'
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/employees/show.html.erb within layouts/admin
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 3 AND "active_storage_attachments"."record_type" = 'Employee' AND "active_storage_attachments"."name" = 'profile_photo' LIMIT 1 /*action='show',application='FreightSolutionBackEnd',controller='employees'*/[0m
+  ↳ app/views/admin/employees/show.html.erb:15
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = 2 LIMIT 1 /*action='show',application='FreightSolutionBackEnd',controller='employees'*/[0m
+  ↳ app/views/admin/employees/show.html.erb:75
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 3 AND "active_storage_attachments"."record_type" = 'Employee' AND "active_storage_attachments"."name" = 'contract' LIMIT 1 /*action='show',application='FreightSolutionBackEnd',controller='employees'*/[0m
+  ↳ app/views/admin/employees/show.html.erb:151
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 3 AND "active_storage_attachments"."record_type" = 'Employee' AND "active_storage_attachments"."name" = 'appointment_letter' LIMIT 1 /*action='show',application='FreightSolutionBackEnd',controller='employees'*/[0m
+  ↳ app/views/admin/employees/show.html.erb:151
+  Rendered admin/employees/show.html.erb within layouts/admin (Duration: 11.3ms | GC: 5.2ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='show',application='FreightSolutionBackEnd',controller='employees'*/[0m
+  ↳ app/controllers/admin/base_controller.rb:15:in 'Admin::BaseController#current_user'
+  Rendered layout layouts/admin.html.erb (Duration: 12.9ms | GC: 5.6ms)
+Completed 200 OK in 16ms (Views: 12.4ms | ActiveRecord: 1.3ms (6 queries, 0 cached) | GC: 6.7ms)
+
+
+Started GET "/admin/employees" for ::1 at 2026-04-24 12:31:21 +0200
+Processing by Admin::EmployeesController#index as HTML
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/employees/index.html.erb within layouts/admin
+  [1m[36mEmployee Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "employees" LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='employees'*/[0m
+  ↳ app/views/admin/employees/index.html.erb:46
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees" ORDER BY "employees"."created_at" DESC /*action='index',application='FreightSolutionBackEnd',controller='employees'*/[0m
+  ↳ app/views/admin/employees/index.html.erb:62
+  Rendered admin/employees/index.html.erb within layouts/admin (Duration: 4.5ms | GC: 1.9ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='employees'*/[0m
+  ↳ app/controllers/admin/base_controller.rb:15:in 'Admin::BaseController#current_user'
+  Rendered layout layouts/admin.html.erb (Duration: 7.6ms | GC: 3.5ms)
+Completed 200 OK in 10ms (Views: 7.9ms | ActiveRecord: 0.6ms (3 queries, 0 cached) | GC: 4.4ms)
+
+
+Started GET "/admin/employees/3/edit" for ::1 at 2026-04-24 12:31:27 +0200
+Processing by Admin::EmployeesController#edit as HTML
+  Parameters: {"id" => "3"}
+  [1m[36mEmployee Load (0.3ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = 3 LIMIT 1 /*action='edit',application='FreightSolutionBackEnd',controller='employees'*/[0m
+  ↳ app/controllers/admin/employees_controller.rb:24:in 'Admin::EmployeesController#edit'
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/employees/edit.html.erb within layouts/admin
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 3 AND "active_storage_attachments"."record_type" = 'Employee' AND "active_storage_attachments"."name" = 'profile_photo' LIMIT 1 /*action='edit',application='FreightSolutionBackEnd',controller='employees'*/[0m
+  ↳ app/views/admin/employees/_form.html.erb:43
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."email" ASC /*action='edit',application='FreightSolutionBackEnd',controller='employees'*/[0m
+  ↳ app/views/admin/employees/_form.html.erb:49
+  [1m[36mEmployee Load (0.3ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" != 3 ORDER BY "employees"."first_name" ASC /*action='edit',application='FreightSolutionBackEnd',controller='employees'*/[0m
+  ↳ app/views/admin/employees/_form.html.erb:103
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 3 AND "active_storage_attachments"."record_type" = 'Employee' AND "active_storage_attachments"."name" = 'contract' LIMIT 1 /*action='edit',application='FreightSolutionBackEnd',controller='employees'*/[0m
+  ↳ app/views/admin/employees/_form.html.erb:132
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 3 AND "active_storage_attachments"."record_type" = 'Employee' AND "active_storage_attachments"."name" = 'appointment_letter' LIMIT 1 /*action='edit',application='FreightSolutionBackEnd',controller='employees'*/[0m
+  ↳ app/views/admin/employees/_form.html.erb:139
+  Rendered admin/employees/_form.html.erb (Duration: 20.3ms | GC: 8.8ms)
+  Rendered admin/employees/edit.html.erb within layouts/admin (Duration: 21.0ms | GC: 9.0ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='edit',application='FreightSolutionBackEnd',controller='employees'*/[0m
+  ↳ app/controllers/admin/base_controller.rb:15:in 'Admin::BaseController#current_user'
+  Rendered layout layouts/admin.html.erb (Duration: 22.4ms | GC: 9.0ms)
+Completed 200 OK in 26ms (Views: 21.8ms | ActiveRecord: 1.3ms (7 queries, 0 cached) | GC: 9.4ms)
+
+
+Started PATCH "/admin/employees/3" for ::1 at 2026-04-24 12:31:34 +0200
+Processing by Admin::EmployeesController#update as HTML
+  Parameters: {"authenticity_token" => "[FILTERED]", "employee" => {"first_name" => "John", "last_name" => "Doe", "email" => "[FILTERED]", "phone" => "0795071651", "profile_photo" => #<ActionDispatch::Http::UploadedFile:0x000076419539ee80 @tempfile=#<Tempfile:/tmp/RackMultipart20260424-1173612-7z1cvi.jpg>, @content_type="image/jpeg", @original_filename="IMG_7458.jpg", @headers="Content-Disposition: form-data; name=\"employee[profile_photo]\"; filename=\"IMG_7458.jpg\"\r\nContent-Type: image/jpeg\r\n">, "user_id" => "3", "address" => "Garena Village Railway street Annadale", "city" => "Polokwane", "state" => "", "country" => "South Africa", "zip_code" => "0699", "employee_code" => "TS223", "position" => "Adminstrator", "department" => "Logistics", "employment_status" => "Full-time", "manager_id" => "2", "salary" => "2000.0", "hire_date" => "2026-04-23", "education_background" => ""}, "commit" => "Update Employee", "id" => "3"}
+  [1m[36mEmployee Load (0.3ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = 3 LIMIT 1 /*action='update',application='FreightSolutionBackEnd',controller='employees'*/[0m
+  ↳ app/controllers/admin/employees_controller.rb:28:in 'Admin::EmployeesController#update'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*action='update',application='FreightSolutionBackEnd',controller='employees'*/[0m
+  ↳ app/controllers/admin/employees_controller.rb:29:in 'Admin::EmployeesController#update'
+  [1m[36mEmployee Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "employees" WHERE "employees"."email" = 'felender23@gmail.com' AND "employees"."id" != 3 LIMIT 1 /*action='update',application='FreightSolutionBackEnd',controller='employees'*/[0m
+  ↳ app/controllers/admin/employees_controller.rb:29:in 'Admin::EmployeesController#update'
+  [1m[36mEmployee Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "employees" WHERE "employees"."employee_code" = 'TS223' AND "employees"."id" != 3 LIMIT 1 /*action='update',application='FreightSolutionBackEnd',controller='employees'*/[0m
+  ↳ app/controllers/admin/employees_controller.rb:29:in 'Admin::EmployeesController#update'
+  [1m[36mActiveStorage::Blob Load (0.4ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" INNER JOIN "active_storage_attachments" ON "active_storage_blobs"."id" = "active_storage_attachments"."blob_id" WHERE "active_storage_attachments"."record_id" = 3 AND "active_storage_attachments"."record_type" = 'Employee' AND "active_storage_attachments"."name" = 'profile_photo' LIMIT 1 /*action='update',application='FreightSolutionBackEnd',controller='employees'*/[0m
+  ↳ app/controllers/admin/employees_controller.rb:29:in 'Admin::EmployeesController#update'
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 3 AND "active_storage_attachments"."record_type" = 'Employee' AND "active_storage_attachments"."name" = 'profile_photo' LIMIT 1 /*action='update',application='FreightSolutionBackEnd',controller='employees'*/[0m
+  ↳ app/controllers/admin/employees_controller.rb:29:in 'Admin::EmployeesController#update'
+  [1m[36mActiveStorage::Blob Create (0.2ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "service_name", "byte_size", "checksum", "created_at") VALUES ('v75ja7av32ujadi0hd8t5duibt3e', 'IMG_7458.jpg', 'image/jpeg', '{"identified":true}', 'local', 106262, 'xq8dYYMlkfH5LEeIlWZ/oQ==', '2026-04-24 10:31:34.452750') RETURNING "id" /*action='update',application='FreightSolutionBackEnd',controller='employees'*/[0m
+  ↳ app/controllers/admin/employees_controller.rb:29:in 'Admin::EmployeesController#update'
+  [1m[36mActiveStorage::Attachment Create (0.4ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES ('profile_photo', 'Employee', 3, 14, '2026-04-24 10:31:34.455283') RETURNING "id" /*action='update',application='FreightSolutionBackEnd',controller='employees'*/[0m
+  ↳ app/controllers/admin/employees_controller.rb:29:in 'Admin::EmployeesController#update'
+  [1m[36mEmployee Update (0.2ms)[0m  [1m[33mUPDATE "employees" SET "updated_at" = '2026-04-24 10:31:34.456866' WHERE "employees"."id" = 3 /*action='update',application='FreightSolutionBackEnd',controller='employees'*/[0m
+  ↳ app/controllers/admin/employees_controller.rb:29:in 'Admin::EmployeesController#update'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*action='update',application='FreightSolutionBackEnd',controller='employees'*/[0m
+  ↳ app/controllers/admin/employees_controller.rb:29:in 'Admin::EmployeesController#update'
+[36m  Disk Storage (0.4ms) [0m[32mUploaded file to key: v75ja7av32ujadi0hd8t5duibt3e (checksum: xq8dYYMlkfH5LEeIlWZ/oQ==)[0m
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: 9cb4efa2-4387-4b84-97ed-77ba2a1f0e01) to Async(default) with arguments: #<GlobalID:0x0000764191de84a8 @uri=#<URI::GID gid://freight-solution-back-end/ActiveStorage::Blob/14>>
+[ActiveJob] ↳ app/controllers/admin/employees_controller.rb:29:in 'Admin::EmployeesController#update'
+Redirected to http://localhost:3000/admin/employees
+↳ app/controllers/admin/employees_controller.rb:30:in 'Admin::EmployeesController#update'
+Completed 302 Found in 45ms (ActiveRecord: 5.1ms (8 queries, 0 cached) | GC: 4.5ms)
+
+
+[ActiveJob] [ActiveStorage::AnalyzeJob] [9cb4efa2-4387-4b84-97ed-77ba2a1f0e01]   [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = 14 LIMIT 1 /*application='FreightSolutionBackEnd'*/[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [9cb4efa2-4387-4b84-97ed-77ba2a1f0e01] Performing ActiveStorage::AnalyzeJob (Job ID: 9cb4efa2-4387-4b84-97ed-77ba2a1f0e01) from Async(default) enqueued at 2026-04-24T10:31:34.472422045Z with arguments: #<GlobalID:0x0000764191cc76a0 @uri=#<URI::GID gid://freight-solution-back-end/ActiveStorage::Blob/14>>
+[ActiveJob] [ActiveStorage::AnalyzeJob] [9cb4efa2-4387-4b84-97ed-77ba2a1f0e01] Skipping image analysis because the ruby-vips gem isn't installed
+[ActiveJob] [ActiveStorage::AnalyzeJob] [9cb4efa2-4387-4b84-97ed-77ba2a1f0e01]   [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='FreightSolutionBackEnd',job='ActiveStorage%3A%3AAnalyzeJob'*/[0m
+Started GET "/admin/employees" for ::1 at 2026-04-24 12:31:34 +0200
+[ActiveJob] [ActiveStorage::AnalyzeJob] [9cb4efa2-4387-4b84-97ed-77ba2a1f0e01]   [1m[36mActiveStorage::Blob Update (1.5ms)[0m  [1m[33mUPDATE "active_storage_blobs" SET "metadata" = '{"identified":true,"analyzed":true}' WHERE "active_storage_blobs"."id" = 14 /*application='FreightSolutionBackEnd',job='ActiveStorage%3A%3AAnalyzeJob'*/[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [9cb4efa2-4387-4b84-97ed-77ba2a1f0e01]   [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."blob_id" = 14 /*application='FreightSolutionBackEnd',job='ActiveStorage%3A%3AAnalyzeJob'*/[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [9cb4efa2-4387-4b84-97ed-77ba2a1f0e01]   [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = 3 /*application='FreightSolutionBackEnd',job='ActiveStorage%3A%3AAnalyzeJob'*/[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [9cb4efa2-4387-4b84-97ed-77ba2a1f0e01]   [1m[36mEmployee Update (0.2ms)[0m  [1m[33mUPDATE "employees" SET "updated_at" = '2026-04-24 10:31:34.490136' WHERE "employees"."id" = 3 /*application='FreightSolutionBackEnd',job='ActiveStorage%3A%3AAnalyzeJob'*/[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [9cb4efa2-4387-4b84-97ed-77ba2a1f0e01]   [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='FreightSolutionBackEnd',job='ActiveStorage%3A%3AAnalyzeJob'*/[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [9cb4efa2-4387-4b84-97ed-77ba2a1f0e01] Performed ActiveStorage::AnalyzeJob (Job ID: 9cb4efa2-4387-4b84-97ed-77ba2a1f0e01) from Async(default) in 15.0ms
+Processing by Admin::EmployeesController#index as HTML
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/employees/index.html.erb within layouts/admin
+  [1m[36mEmployee Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "employees" LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='employees'*/[0m
+  ↳ app/views/admin/employees/index.html.erb:46
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" ORDER BY "employees"."created_at" DESC /*action='index',application='FreightSolutionBackEnd',controller='employees'*/[0m
+  ↳ app/views/admin/employees/index.html.erb:62
+  Rendered admin/employees/index.html.erb within layouts/admin (Duration: 2.1ms | GC: 0.0ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='employees'*/[0m
+  ↳ app/controllers/admin/base_controller.rb:15:in 'Admin::BaseController#current_user'
+  Rendered layout layouts/admin.html.erb (Duration: 3.0ms | GC: 0.0ms)
+Completed 200 OK in 4ms (Views: 2.9ms | ActiveRecord: 0.4ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/admin/employees/3" for ::1 at 2026-04-24 12:31:37 +0200
+Processing by Admin::EmployeesController#show as HTML
+  Parameters: {"id" => "3"}
+  [1m[36mEmployee Load (0.3ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = 3 LIMIT 1 /*action='show',application='FreightSolutionBackEnd',controller='employees'*/[0m
+  ↳ app/controllers/admin/employees_controller.rb:7:in 'Admin::EmployeesController#show'
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/employees/show.html.erb within layouts/admin
+  [1m[36mActiveStorage::Attachment Load (0.6ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 3 AND "active_storage_attachments"."record_type" = 'Employee' AND "active_storage_attachments"."name" = 'profile_photo' LIMIT 1 /*action='show',application='FreightSolutionBackEnd',controller='employees'*/[0m
+  ↳ app/views/admin/employees/show.html.erb:15
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = 14 LIMIT 1 /*action='show',application='FreightSolutionBackEnd',controller='employees'*/[0m
+  ↳ app/views/admin/employees/show.html.erb:16
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = 2 LIMIT 1 /*action='show',application='FreightSolutionBackEnd',controller='employees'*/[0m
+  ↳ app/views/admin/employees/show.html.erb:75
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 3 AND "active_storage_attachments"."record_type" = 'Employee' AND "active_storage_attachments"."name" = 'contract' LIMIT 1 /*action='show',application='FreightSolutionBackEnd',controller='employees'*/[0m
+  ↳ app/views/admin/employees/show.html.erb:151
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 3 AND "active_storage_attachments"."record_type" = 'Employee' AND "active_storage_attachments"."name" = 'appointment_letter' LIMIT 1 /*action='show',application='FreightSolutionBackEnd',controller='employees'*/[0m
+  ↳ app/views/admin/employees/show.html.erb:151
+  Rendered admin/employees/show.html.erb within layouts/admin (Duration: 8.9ms | GC: 1.5ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='show',application='FreightSolutionBackEnd',controller='employees'*/[0m
+  ↳ app/controllers/admin/base_controller.rb:15:in 'Admin::BaseController#current_user'
+  Rendered layout layouts/admin.html.erb (Duration: 9.9ms | GC: 1.5ms)
+Completed 200 OK in 12ms (Views: 8.8ms | ActiveRecord: 1.6ms (7 queries, 0 cached) | GC: 1.5ms)
+
+
+Started GET "/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsiZGF0YSI6MTQsInB1ciI6ImJsb2JfaWQifX0=--fcd8212ae76dce1c45b9464b64c313471bdf4144/IMG_7458.jpg" for ::1 at 2026-04-24 12:31:37 +0200
+Processing by ActiveStorage::Blobs::RedirectController#show as JPEG
+  Parameters: {"signed_id" => "eyJfcmFpbHMiOnsiZGF0YSI6MTQsInB1ciI6ImJsb2JfaWQifX0=--fcd8212ae76dce1c45b9464b64c313471bdf4144", "filename" => "IMG_7458"}
+  [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = 14 LIMIT 1 /*action='show',application='FreightSolutionBackEnd',controller='redirect'*/[0m
+[36m  Disk Storage (0.6ms) [0m[34mGenerated URL for file at key: v75ja7av32ujadi0hd8t5duibt3e (http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJ2NzVqYTdhdjMydWphZGkwaGQ4dDVkdWlidDNlIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiSU1HXzc0NTguanBnXCI7IGZpbGVuYW1lKj1VVEYtOCcnSU1HXzc0NTguanBnIiwiY29udGVudF90eXBlIjoiaW1hZ2UvanBlZyIsInNlcnZpY2VfbmFtZSI6ImxvY2FsIn0sImV4cCI6IjIwMjYtMDQtMjRUMTA6MzY6MzcuMTY2WiIsInB1ciI6ImJsb2Jfa2V5In19--264eebb973e53451c11a19a2535b6edb80a6c95d/IMG_7458.jpg)[0m
+Redirected to http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJ2NzVqYTdhdjMydWphZGkwaGQ4dDVkdWlidDNlIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiSU1HXzc0NTguanBnXCI7IGZpbGVuYW1lKj1VVEYtOCcnSU1HXzc0NTguanBnIiwiY29udGVudF90eXBlIjoiaW1hZ2UvanBlZyIsInNlcnZpY2VfbmFtZSI6ImxvY2FsIn0sImV4cCI6IjIwMjYtMDQtMjRUMTA6MzY6MzcuMTY2WiIsInB1ciI6ImJsb2Jfa2V5In19--264eebb973e53451c11a19a2535b6edb80a6c95d/IMG_7458.jpg
+Completed 302 Found in 11ms (ActiveRecord: 0.3ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJ2NzVqYTdhdjMydWphZGkwaGQ4dDVkdWlidDNlIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiSU1HXzc0NTguanBnXCI7IGZpbGVuYW1lKj1VVEYtOCcnSU1HXzc0NTguanBnIiwiY29udGVudF90eXBlIjoiaW1hZ2UvanBlZyIsInNlcnZpY2VfbmFtZSI6ImxvY2FsIn0sImV4cCI6IjIwMjYtMDQtMjRUMTA6MzY6MzcuMTY2WiIsInB1ciI6ImJsb2Jfa2V5In19--264eebb973e53451c11a19a2535b6edb80a6c95d/IMG_7458.jpg" for ::1 at 2026-04-24 12:31:37 +0200
+Processing by ActiveStorage::DiskController#show as JPEG
+  Parameters: {"encoded_key" => "[FILTERED]", "filename" => "IMG_7458"}
+Completed 200 OK in 0ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/admin/employees" for ::1 at 2026-04-24 12:32:06 +0200
+Processing by Admin::EmployeesController#index as HTML
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/employees/index.html.erb within layouts/admin
+  [1m[36mEmployee Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "employees" LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='employees'*/[0m
+  ↳ app/views/admin/employees/index.html.erb:46
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees" ORDER BY "employees"."created_at" DESC /*action='index',application='FreightSolutionBackEnd',controller='employees'*/[0m
+  ↳ app/views/admin/employees/index.html.erb:62
+  Rendered admin/employees/index.html.erb within layouts/admin (Duration: 2.5ms | GC: 0.0ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='employees'*/[0m
+  ↳ app/controllers/admin/base_controller.rb:15:in 'Admin::BaseController#current_user'
+  Rendered layout layouts/admin.html.erb (Duration: 3.7ms | GC: 0.0ms)
+Completed 200 OK in 5ms (Views: 3.8ms | ActiveRecord: 0.5ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/admin/employees/3" for ::1 at 2026-04-24 12:32:09 +0200
+Processing by Admin::EmployeesController#show as HTML
+  Parameters: {"id" => "3"}
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = 3 LIMIT 1 /*action='show',application='FreightSolutionBackEnd',controller='employees'*/[0m
+  ↳ app/controllers/admin/employees_controller.rb:7:in 'Admin::EmployeesController#show'
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/employees/show.html.erb within layouts/admin
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 3 AND "active_storage_attachments"."record_type" = 'Employee' AND "active_storage_attachments"."name" = 'profile_photo' LIMIT 1 /*action='show',application='FreightSolutionBackEnd',controller='employees'*/[0m
+  ↳ app/views/admin/employees/show.html.erb:15
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = 14 LIMIT 1 /*action='show',application='FreightSolutionBackEnd',controller='employees'*/[0m
+  ↳ app/views/admin/employees/show.html.erb:16
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = 2 LIMIT 1 /*action='show',application='FreightSolutionBackEnd',controller='employees'*/[0m
+  ↳ app/views/admin/employees/show.html.erb:75
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 3 AND "active_storage_attachments"."record_type" = 'Employee' AND "active_storage_attachments"."name" = 'contract' LIMIT 1 /*action='show',application='FreightSolutionBackEnd',controller='employees'*/[0m
+  ↳ app/views/admin/employees/show.html.erb:151
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 3 AND "active_storage_attachments"."record_type" = 'Employee' AND "active_storage_attachments"."name" = 'appointment_letter' LIMIT 1 /*action='show',application='FreightSolutionBackEnd',controller='employees'*/[0m
+  ↳ app/views/admin/employees/show.html.erb:151
+  Rendered admin/employees/show.html.erb within layouts/admin (Duration: 6.9ms | GC: 0.2ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='show',application='FreightSolutionBackEnd',controller='employees'*/[0m
+  ↳ app/controllers/admin/base_controller.rb:15:in 'Admin::BaseController#current_user'
+  Rendered layout layouts/admin.html.erb (Duration: 8.2ms | GC: 0.2ms)
+Completed 200 OK in 10ms (Views: 7.5ms | ActiveRecord: 1.3ms (7 queries, 0 cached) | GC: 0.2ms)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJ2NzVqYTdhdjMydWphZGkwaGQ4dDVkdWlidDNlIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiSU1HXzc0NTguanBnXCI7IGZpbGVuYW1lKj1VVEYtOCcnSU1HXzc0NTguanBnIiwiY29udGVudF90eXBlIjoiaW1hZ2UvanBlZyIsInNlcnZpY2VfbmFtZSI6ImxvY2FsIn0sImV4cCI6IjIwMjYtMDQtMjRUMTA6MzY6MzcuMTY2WiIsInB1ciI6ImJsb2Jfa2V5In19--264eebb973e53451c11a19a2535b6edb80a6c95d/IMG_7458.jpg" for ::1 at 2026-04-24 12:32:09 +0200
+Processing by ActiveStorage::DiskController#show as JPEG
+  Parameters: {"encoded_key" => "[FILTERED]", "filename" => "IMG_7458"}
+Completed 304 Not Modified in 1ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/admin/employees" for ::1 at 2026-04-24 12:32:13 +0200
+Processing by Admin::EmployeesController#index as HTML
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/employees/index.html.erb within layouts/admin
+  [1m[36mEmployee Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "employees" LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='employees'*/[0m
+  ↳ app/views/admin/employees/index.html.erb:46
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees" ORDER BY "employees"."created_at" DESC /*action='index',application='FreightSolutionBackEnd',controller='employees'*/[0m
+  ↳ app/views/admin/employees/index.html.erb:62
+  Rendered admin/employees/index.html.erb within layouts/admin (Duration: 3.0ms | GC: 0.1ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='employees'*/[0m
+  ↳ app/controllers/admin/base_controller.rb:15:in 'Admin::BaseController#current_user'
+  Rendered layout layouts/admin.html.erb (Duration: 4.0ms | GC: 0.1ms)
+Completed 200 OK in 5ms (Views: 3.8ms | ActiveRecord: 0.6ms (3 queries, 0 cached) | GC: 0.1ms)
+
+
+Started GET "/admin/hrm" for ::1 at 2026-04-24 12:32:14 +0200
+Processing by Admin::HrmDashboardController#index as HTML
+  [1m[36mEmployee Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='FreightSolutionBackEnd',controller='hrm_dashboard'*/[0m
+  ↳ app/controllers/admin/hrm_dashboard_controller.rb:3:in 'Admin::HrmDashboardController#index'
+  [1m[36mUser Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."role" IN ('employee', 'hr_manager') /*action='index',application='FreightSolutionBackEnd',controller='hrm_dashboard'*/[0m
+  ↳ app/controllers/admin/hrm_dashboard_controller.rb:4:in 'Admin::HrmDashboardController#index'
+  [1m[36mLeaveRequest Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "leave_requests" WHERE "leave_requests"."status" = 'pending' /*action='index',application='FreightSolutionBackEnd',controller='hrm_dashboard'*/[0m
+  ↳ app/controllers/admin/hrm_dashboard_controller.rb:5:in 'Admin::HrmDashboardController#index'
+  [1m[36mTimesheet Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "timesheets" WHERE "timesheets"."status" = 'pending' /*action='index',application='FreightSolutionBackEnd',controller='hrm_dashboard'*/[0m
+  ↳ app/controllers/admin/hrm_dashboard_controller.rb:6:in 'Admin::HrmDashboardController#index'
+  [1m[36mAttendanceRecord Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendance_records" WHERE "attendance_records"."date" = '2026-04-24' /*action='index',application='FreightSolutionBackEnd',controller='hrm_dashboard'*/[0m
+  ↳ app/controllers/admin/hrm_dashboard_controller.rb:7:in 'Admin::HrmDashboardController#index'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."status" != 'done' /*action='index',application='FreightSolutionBackEnd',controller='hrm_dashboard'*/[0m
+  ↳ app/controllers/admin/hrm_dashboard_controller.rb:8:in 'Admin::HrmDashboardController#index'
+  [1m[36mTrainingCourse Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "training_courses" WHERE "training_courses"."is_active" = TRUE /*action='index',application='FreightSolutionBackEnd',controller='hrm_dashboard'*/[0m
+  ↳ app/controllers/admin/hrm_dashboard_controller.rb:9:in 'Admin::HrmDashboardController#index'
+  [1m[36mPerformanceReview Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "performance_reviews" /*action='index',application='FreightSolutionBackEnd',controller='hrm_dashboard'*/[0m
+  ↳ app/controllers/admin/hrm_dashboard_controller.rb:10:in 'Admin::HrmDashboardController#index'
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/hrm_dashboard/index.html.erb within layouts/admin
+  Rendered admin/hrm_dashboard/index.html.erb within layouts/admin (Duration: 0.7ms | GC: 0.0ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='hrm_dashboard'*/[0m
+  ↳ app/controllers/admin/base_controller.rb:15:in 'Admin::BaseController#current_user'
+  Rendered layout layouts/admin.html.erb (Duration: 1.9ms | GC: 0.0ms)
+Completed 200 OK in 24ms (Views: 2.1ms | ActiveRecord: 5.2ms (9 queries, 0 cached) | GC: 0.8ms)
+
+
+Started GET "/admin/leave_requests" for ::1 at 2026-04-24 12:32:17 +0200
+Processing by Admin::LeaveRequestsController#index as HTML
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/leave_requests/index.html.erb within layouts/admin
+  [1m[36mLeaveRequest Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "leave_requests" LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='leave_requests'*/[0m
+  ↳ app/views/admin/leave_requests/index.html.erb:28
+  [1m[36mLeaveRequest Load (0.2ms)[0m  [1m[34mSELECT "leave_requests".* FROM "leave_requests" ORDER BY "leave_requests"."created_at" DESC /*action='index',application='FreightSolutionBackEnd',controller='leave_requests'*/[0m
+  ↳ app/views/admin/leave_requests/index.html.erb:41
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = 3 /*action='index',application='FreightSolutionBackEnd',controller='leave_requests'*/[0m
+  ↳ app/views/admin/leave_requests/index.html.erb:41
+  Rendered admin/leave_requests/index.html.erb within layouts/admin (Duration: 7.0ms | GC: 0.0ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='leave_requests'*/[0m
+  ↳ app/controllers/admin/base_controller.rb:15:in 'Admin::BaseController#current_user'
+  Rendered layout layouts/admin.html.erb (Duration: 8.0ms | GC: 0.0ms)
+Completed 200 OK in 13ms (Views: 7.4ms | ActiveRecord: 1.1ms (4 queries, 0 cached) | GC: 3.4ms)
+
+
+Started GET "/admin/leave_requests/new" for ::1 at 2026-04-24 12:32:21 +0200
+Processing by Admin::LeaveRequestsController#new as HTML
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/leave_requests/new.html.erb within layouts/admin
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees" /*action='new',application='FreightSolutionBackEnd',controller='leave_requests'*/[0m
+  ↳ app/views/admin/leave_requests/new.html.erb:46
+  Rendered admin/leave_requests/new.html.erb within layouts/admin (Duration: 2.4ms | GC: 0.0ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='new',application='FreightSolutionBackEnd',controller='leave_requests'*/[0m
+  ↳ app/controllers/admin/base_controller.rb:15:in 'Admin::BaseController#current_user'
+  Rendered layout layouts/admin.html.erb (Duration: 3.5ms | GC: 0.0ms)
+Completed 200 OK in 5ms (Views: 3.5ms | ActiveRecord: 0.4ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/admin/leave_requests" for ::1 at 2026-04-24 12:32:24 +0200
+Processing by Admin::LeaveRequestsController#index as HTML
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/leave_requests/index.html.erb within layouts/admin
+  [1m[36mLeaveRequest Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "leave_requests" LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='leave_requests'*/[0m
+  ↳ app/views/admin/leave_requests/index.html.erb:28
+  [1m[36mLeaveRequest Load (0.1ms)[0m  [1m[34mSELECT "leave_requests".* FROM "leave_requests" ORDER BY "leave_requests"."created_at" DESC /*action='index',application='FreightSolutionBackEnd',controller='leave_requests'*/[0m
+  ↳ app/views/admin/leave_requests/index.html.erb:41
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = 3 /*action='index',application='FreightSolutionBackEnd',controller='leave_requests'*/[0m
+  ↳ app/views/admin/leave_requests/index.html.erb:41
+  Rendered admin/leave_requests/index.html.erb within layouts/admin (Duration: 3.7ms | GC: 0.0ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='leave_requests'*/[0m
+  ↳ app/controllers/admin/base_controller.rb:15:in 'Admin::BaseController#current_user'
+  Rendered layout layouts/admin.html.erb (Duration: 4.9ms | GC: 0.0ms)
+Completed 200 OK in 6ms (Views: 4.6ms | ActiveRecord: 0.7ms (4 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/admin/leave_requests/1/edit" for ::1 at 2026-04-24 12:32:26 +0200
+Processing by Admin::LeaveRequestsController#edit as HTML
+  Parameters: {"id" => "1"}
+  [1m[36mLeaveRequest Load (0.3ms)[0m  [1m[34mSELECT "leave_requests".* FROM "leave_requests" WHERE "leave_requests"."id" = 1 LIMIT 1 /*action='edit',application='FreightSolutionBackEnd',controller='leave_requests'*/[0m
+  ↳ app/controllers/admin/leave_requests_controller.rb:51:in 'Admin::LeaveRequestsController#set_leave_request'
+Completed 406 Not Acceptable in 2ms (ActiveRecord: 0.3ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+  
+ActionController::MissingExactTemplate (Admin::LeaveRequestsController#edit is missing a template for request formats: text/html):
+  
+actionpack (8.1.3) lib/action_controller/metal/implicit_render.rb:49:in 'ActionController::ImplicitRender#default_render'
+actionpack (8.1.3) lib/action_controller/metal/basic_implicit_render.rb:9:in 'ActionController::BasicImplicitRender#send_action'
+actionpack (8.1.3) lib/abstract_controller/base.rb:221:in 'AbstractController::Base#process_action'
+actionpack (8.1.3) lib/action_controller/metal/rendering.rb:199:in 'ActionController::Rendering#process_action'
+actionpack (8.1.3) lib/abstract_controller/callbacks.rb:267:in 'block in AbstractController::Callbacks#process_action'
+activesupport (8.1.3) lib/active_support/callbacks.rb:121:in 'block in ActiveSupport::Callbacks#run_callbacks'
+turbo-rails (2.0.23) lib/turbo-rails.rb:24:in 'Turbo.with_request_id'
+turbo-rails (2.0.23) app/controllers/concerns/turbo/request_id_tracking.rb:10:in 'Turbo::RequestIdTracking#turbo_tracking_request_id'
+activesupport (8.1.3) lib/active_support/callbacks.rb:130:in 'block in ActiveSupport::Callbacks#run_callbacks'
+actiontext (8.1.3) lib/action_text/rendering.rb:24:in 'ActionText::Rendering::ClassMethods#with_renderer'
+actiontext (8.1.3) lib/action_text/engine.rb:72:in 'block (4 levels) in <class:Engine>'
+activesupport (8.1.3) lib/active_support/callbacks.rb:130:in 'BasicObject#instance_exec'
+activesupport (8.1.3) lib/active_support/callbacks.rb:130:in 'block in ActiveSupport::Callbacks#run_callbacks'
+activesupport (8.1.3) lib/active_support/callbacks.rb:141:in 'ActiveSupport::Callbacks#run_callbacks'
+actionpack (8.1.3) lib/abstract_controller/callbacks.rb:266:in 'AbstractController::Callbacks#process_action'
+actionpack (8.1.3) lib/action_controller/metal/rescue.rb:36:in 'ActionController::Rescue#process_action'
+actionpack (8.1.3) lib/action_controller/metal/instrumentation.rb:76:in 'block in ActionController::Instrumentation#process_action'
+activesupport (8.1.3) lib/active_support/notifications.rb:210:in 'block in ActiveSupport::Notifications.instrument'
+activesupport (8.1.3) lib/active_support/notifications/instrumenter.rb:58:in 'ActiveSupport::Notifications::Instrumenter#instrument'
+activesupport (8.1.3) lib/active_support/notifications.rb:210:in 'ActiveSupport::Notifications.instrument'
+actionpack (8.1.3) lib/action_controller/metal/instrumentation.rb:75:in 'ActionController::Instrumentation#process_action'
+actionpack (8.1.3) lib/action_controller/metal/params_wrapper.rb:259:in 'ActionController::ParamsWrapper#process_action'
+activerecord (8.1.3) lib/active_record/railties/controller_runtime.rb:39:in 'ActiveRecord::Railties::ControllerRuntime#process_action'
+actionpack (8.1.3) lib/abstract_controller/base.rb:154:in 'AbstractController::Base#process'
+actionview (8.1.3) lib/action_view/rendering.rb:40:in 'ActionView::Rendering#process'
+actionpack (8.1.3) lib/action_controller/metal.rb:252:in 'ActionController::Metal#dispatch'
+actionpack (8.1.3) lib/action_controller/metal.rb:335:in 'ActionController::Metal.dispatch'
+actionpack (8.1.3) lib/action_dispatch/routing/route_set.rb:65:in 'ActionDispatch::Routing::RouteSet::Dispatcher#dispatch'
+actionpack (8.1.3) lib/action_dispatch/routing/route_set.rb:50:in 'ActionDispatch::Routing::RouteSet::Dispatcher#serve'
+actionpack (8.1.3) lib/action_dispatch/journey/router.rb:35:in 'block in ActionDispatch::Journey::Router#serve'
+actionpack (8.1.3) lib/action_dispatch/journey/router.rb:86:in 'block in ActionDispatch::Journey::Router#recognize'
+actionpack (8.1.3) lib/action_dispatch/journey/router.rb:66:in 'Array#each'
+actionpack (8.1.3) lib/action_dispatch/journey/router.rb:66:in 'ActionDispatch::Journey::Router#recognize'
+actionpack (8.1.3) lib/action_dispatch/journey/router.rb:31:in 'ActionDispatch::Journey::Router#serve'
+actionpack (8.1.3) lib/action_dispatch/routing/route_set.rb:906:in 'ActionDispatch::Routing::RouteSet#call'
+railties (8.1.3) lib/rails/engine/lazy_route_set.rb:60:in 'Rails::Engine::LazyRouteSet#call'
+rack (3.2.6) lib/rack/tempfile_reaper.rb:20:in 'Rack::TempfileReaper#call'
+rack (3.2.6) lib/rack/etag.rb:29:in 'Rack::ETag#call'
+rack (3.2.6) lib/rack/conditional_get.rb:31:in 'Rack::ConditionalGet#call'
+rack (3.2.6) lib/rack/head.rb:15:in 'Rack::Head#call'
+actionpack (8.1.3) lib/action_dispatch/http/content_security_policy.rb:38:in 'ActionDispatch::ContentSecurityPolicy::Middleware#call'
+rack-session (2.1.2) lib/rack/session/abstract/id.rb:274:in 'Rack::Session::Abstract::Persisted#context'
+rack-session (2.1.2) lib/rack/session/abstract/id.rb:268:in 'Rack::Session::Abstract::Persisted#call'
+actionpack (8.1.3) lib/action_dispatch/middleware/cookies.rb:708:in 'ActionDispatch::Cookies#call'
+activerecord (8.1.3) lib/active_record/migration.rb:671:in 'ActiveRecord::Migration::CheckPending#call'
+actionpack (8.1.3) lib/action_dispatch/middleware/callbacks.rb:31:in 'block in ActionDispatch::Callbacks#call'
+activesupport (8.1.3) lib/active_support/callbacks.rb:101:in 'ActiveSupport::Callbacks#run_callbacks'
+actionpack (8.1.3) lib/action_dispatch/middleware/callbacks.rb:30:in 'ActionDispatch::Callbacks#call'
+actionpack (8.1.3) lib/action_dispatch/middleware/executor.rb:20:in 'ActionDispatch::Executor#call'
+actionpack (8.1.3) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in 'ActionDispatch::ActionableExceptions#call'
+actionpack (8.1.3) lib/action_dispatch/middleware/debug_exceptions.rb:31:in 'ActionDispatch::DebugExceptions#call'
+actionpack (8.1.3) lib/action_dispatch/middleware/show_exceptions.rb:32:in 'ActionDispatch::ShowExceptions#call'
+railties (8.1.3) lib/rails/rack/logger.rb:41:in 'Rails::Rack::Logger#call_app'
+railties (8.1.3) lib/rails/rack/logger.rb:29:in 'Rails::Rack::Logger#call'
+actionpack (8.1.3) lib/action_dispatch/middleware/remote_ip.rb:98:in 'ActionDispatch::RemoteIp#call'
+actionpack (8.1.3) lib/action_dispatch/middleware/request_id.rb:34:in 'ActionDispatch::RequestId#call'
+rack (3.2.6) lib/rack/method_override.rb:28:in 'Rack::MethodOverride#call'
+rack (3.2.6) lib/rack/runtime.rb:24:in 'Rack::Runtime#call'
+activesupport (8.1.3) lib/active_support/cache/strategy/local_cache_middleware.rb:30:in 'ActiveSupport::Cache::Strategy::LocalCache::Middleware#call'
+actionpack (8.1.3) lib/action_dispatch/middleware/server_timing.rb:61:in 'block in ActionDispatch::ServerTiming#call'
+actionpack (8.1.3) lib/action_dispatch/middleware/server_timing.rb:26:in 'ActionDispatch::ServerTiming::Subscriber#collect_events'
+actionpack (8.1.3) lib/action_dispatch/middleware/server_timing.rb:60:in 'ActionDispatch::ServerTiming#call'
+actionpack (8.1.3) lib/action_dispatch/middleware/executor.rb:20:in 'ActionDispatch::Executor#call'
+actionpack (8.1.3) lib/action_dispatch/middleware/static.rb:27:in 'ActionDispatch::Static#call'
+rack (3.2.6) lib/rack/sendfile.rb:131:in 'Rack::Sendfile#call'
+actionpack (8.1.3) lib/action_dispatch/middleware/host_authorization.rb:143:in 'ActionDispatch::HostAuthorization#call'
+rack-cors (3.0.0) lib/rack/cors.rb:102:in 'Rack::Cors#call'
+railties (8.1.3) lib/rails/engine.rb:534:in 'Rails::Engine#call'
+puma (8.0.0) lib/puma/configuration.rb:305:in 'Puma::Configuration::ConfigMiddleware#call'
+puma (8.0.0) lib/puma/response.rb:79:in 'block in Puma::Response#handle_request'
+puma (8.0.0) lib/puma/thread_pool.rb:434:in 'Puma::ThreadPool#with_force_shutdown'
+puma (8.0.0) lib/puma/response.rb:78:in 'Puma::Response#handle_request'
+puma (8.0.0) lib/puma/server.rb:508:in 'Puma::Server#process_client'
+puma (8.0.0) lib/puma/server.rb:263:in 'block in Puma::Server#run'
+puma (8.0.0) lib/puma/thread_pool.rb:246:in 'block in Puma::ThreadPool#spawn_thread'
+Started GET "/admin/leave_requests/1/edit" for ::1 at 2026-04-24 12:43:28 +0200
+Processing by Admin::LeaveRequestsController#edit as HTML
+  Parameters: {"id" => "1"}
+  [1m[36mLeaveRequest Load (6.9ms)[0m  [1m[34mSELECT "leave_requests".* FROM "leave_requests" WHERE "leave_requests"."id" = 1 LIMIT 1 /*action='edit',application='FreightSolutionBackEnd',controller='leave_requests'*/[0m
+  ↳ app/controllers/admin/leave_requests_controller.rb:51:in 'Admin::LeaveRequestsController#set_leave_request'
+Completed 406 Not Acceptable in 38ms (ActiveRecord: 9.3ms (1 query, 0 cached) | GC: 12.1ms)
+
+
+  
+ActionController::MissingExactTemplate (Admin::LeaveRequestsController#edit is missing a template for request formats: text/html):
+  
+actionpack (8.1.3) lib/action_controller/metal/implicit_render.rb:49:in 'ActionController::ImplicitRender#default_render'
+actionpack (8.1.3) lib/action_controller/metal/basic_implicit_render.rb:9:in 'ActionController::BasicImplicitRender#send_action'
+actionpack (8.1.3) lib/abstract_controller/base.rb:221:in 'AbstractController::Base#process_action'
+actionpack (8.1.3) lib/action_controller/metal/rendering.rb:199:in 'ActionController::Rendering#process_action'
+actionpack (8.1.3) lib/abstract_controller/callbacks.rb:267:in 'block in AbstractController::Callbacks#process_action'
+activesupport (8.1.3) lib/active_support/callbacks.rb:121:in 'block in ActiveSupport::Callbacks#run_callbacks'
+turbo-rails (2.0.23) lib/turbo-rails.rb:24:in 'Turbo.with_request_id'
+turbo-rails (2.0.23) app/controllers/concerns/turbo/request_id_tracking.rb:10:in 'Turbo::RequestIdTracking#turbo_tracking_request_id'
+activesupport (8.1.3) lib/active_support/callbacks.rb:130:in 'block in ActiveSupport::Callbacks#run_callbacks'
+actiontext (8.1.3) lib/action_text/rendering.rb:24:in 'ActionText::Rendering::ClassMethods#with_renderer'
+actiontext (8.1.3) lib/action_text/engine.rb:72:in 'block (4 levels) in <class:Engine>'
+activesupport (8.1.3) lib/active_support/callbacks.rb:130:in 'BasicObject#instance_exec'
+activesupport (8.1.3) lib/active_support/callbacks.rb:130:in 'block in ActiveSupport::Callbacks#run_callbacks'
+activesupport (8.1.3) lib/active_support/callbacks.rb:141:in 'ActiveSupport::Callbacks#run_callbacks'
+actionpack (8.1.3) lib/abstract_controller/callbacks.rb:266:in 'AbstractController::Callbacks#process_action'
+actionpack (8.1.3) lib/action_controller/metal/rescue.rb:36:in 'ActionController::Rescue#process_action'
+actionpack (8.1.3) lib/action_controller/metal/instrumentation.rb:76:in 'block in ActionController::Instrumentation#process_action'
+activesupport (8.1.3) lib/active_support/notifications.rb:210:in 'block in ActiveSupport::Notifications.instrument'
+activesupport (8.1.3) lib/active_support/notifications/instrumenter.rb:58:in 'ActiveSupport::Notifications::Instrumenter#instrument'
+activesupport (8.1.3) lib/active_support/notifications.rb:210:in 'ActiveSupport::Notifications.instrument'
+actionpack (8.1.3) lib/action_controller/metal/instrumentation.rb:75:in 'ActionController::Instrumentation#process_action'
+actionpack (8.1.3) lib/action_controller/metal/params_wrapper.rb:259:in 'ActionController::ParamsWrapper#process_action'
+activerecord (8.1.3) lib/active_record/railties/controller_runtime.rb:39:in 'ActiveRecord::Railties::ControllerRuntime#process_action'
+actionpack (8.1.3) lib/abstract_controller/base.rb:154:in 'AbstractController::Base#process'
+actionview (8.1.3) lib/action_view/rendering.rb:40:in 'ActionView::Rendering#process'
+actionpack (8.1.3) lib/action_controller/metal.rb:252:in 'ActionController::Metal#dispatch'
+actionpack (8.1.3) lib/action_controller/metal.rb:335:in 'ActionController::Metal.dispatch'
+actionpack (8.1.3) lib/action_dispatch/routing/route_set.rb:65:in 'ActionDispatch::Routing::RouteSet::Dispatcher#dispatch'
+actionpack (8.1.3) lib/action_dispatch/routing/route_set.rb:50:in 'ActionDispatch::Routing::RouteSet::Dispatcher#serve'
+actionpack (8.1.3) lib/action_dispatch/journey/router.rb:35:in 'block in ActionDispatch::Journey::Router#serve'
+actionpack (8.1.3) lib/action_dispatch/journey/router.rb:86:in 'block in ActionDispatch::Journey::Router#recognize'
+actionpack (8.1.3) lib/action_dispatch/journey/router.rb:66:in 'Array#each'
+actionpack (8.1.3) lib/action_dispatch/journey/router.rb:66:in 'ActionDispatch::Journey::Router#recognize'
+actionpack (8.1.3) lib/action_dispatch/journey/router.rb:31:in 'ActionDispatch::Journey::Router#serve'
+actionpack (8.1.3) lib/action_dispatch/routing/route_set.rb:906:in 'ActionDispatch::Routing::RouteSet#call'
+railties (8.1.3) lib/rails/engine/lazy_route_set.rb:60:in 'Rails::Engine::LazyRouteSet#call'
+rack (3.2.6) lib/rack/tempfile_reaper.rb:20:in 'Rack::TempfileReaper#call'
+rack (3.2.6) lib/rack/etag.rb:29:in 'Rack::ETag#call'
+rack (3.2.6) lib/rack/conditional_get.rb:31:in 'Rack::ConditionalGet#call'
+rack (3.2.6) lib/rack/head.rb:15:in 'Rack::Head#call'
+actionpack (8.1.3) lib/action_dispatch/http/content_security_policy.rb:38:in 'ActionDispatch::ContentSecurityPolicy::Middleware#call'
+rack-session (2.1.2) lib/rack/session/abstract/id.rb:274:in 'Rack::Session::Abstract::Persisted#context'
+rack-session (2.1.2) lib/rack/session/abstract/id.rb:268:in 'Rack::Session::Abstract::Persisted#call'
+actionpack (8.1.3) lib/action_dispatch/middleware/cookies.rb:708:in 'ActionDispatch::Cookies#call'
+activerecord (8.1.3) lib/active_record/migration.rb:671:in 'ActiveRecord::Migration::CheckPending#call'
+actionpack (8.1.3) lib/action_dispatch/middleware/callbacks.rb:31:in 'block in ActionDispatch::Callbacks#call'
+activesupport (8.1.3) lib/active_support/callbacks.rb:101:in 'ActiveSupport::Callbacks#run_callbacks'
+actionpack (8.1.3) lib/action_dispatch/middleware/callbacks.rb:30:in 'ActionDispatch::Callbacks#call'
+actionpack (8.1.3) lib/action_dispatch/middleware/executor.rb:20:in 'ActionDispatch::Executor#call'
+actionpack (8.1.3) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in 'ActionDispatch::ActionableExceptions#call'
+actionpack (8.1.3) lib/action_dispatch/middleware/debug_exceptions.rb:31:in 'ActionDispatch::DebugExceptions#call'
+actionpack (8.1.3) lib/action_dispatch/middleware/show_exceptions.rb:32:in 'ActionDispatch::ShowExceptions#call'
+railties (8.1.3) lib/rails/rack/logger.rb:41:in 'Rails::Rack::Logger#call_app'
+railties (8.1.3) lib/rails/rack/logger.rb:29:in 'Rails::Rack::Logger#call'
+actionpack (8.1.3) lib/action_dispatch/middleware/remote_ip.rb:98:in 'ActionDispatch::RemoteIp#call'
+actionpack (8.1.3) lib/action_dispatch/middleware/request_id.rb:34:in 'ActionDispatch::RequestId#call'
+rack (3.2.6) lib/rack/method_override.rb:28:in 'Rack::MethodOverride#call'
+rack (3.2.6) lib/rack/runtime.rb:24:in 'Rack::Runtime#call'
+activesupport (8.1.3) lib/active_support/cache/strategy/local_cache_middleware.rb:30:in 'ActiveSupport::Cache::Strategy::LocalCache::Middleware#call'
+actionpack (8.1.3) lib/action_dispatch/middleware/server_timing.rb:61:in 'block in ActionDispatch::ServerTiming#call'
+actionpack (8.1.3) lib/action_dispatch/middleware/server_timing.rb:26:in 'ActionDispatch::ServerTiming::Subscriber#collect_events'
+actionpack (8.1.3) lib/action_dispatch/middleware/server_timing.rb:60:in 'ActionDispatch::ServerTiming#call'
+actionpack (8.1.3) lib/action_dispatch/middleware/executor.rb:20:in 'ActionDispatch::Executor#call'
+actionpack (8.1.3) lib/action_dispatch/middleware/static.rb:27:in 'ActionDispatch::Static#call'
+rack (3.2.6) lib/rack/sendfile.rb:131:in 'Rack::Sendfile#call'
+actionpack (8.1.3) lib/action_dispatch/middleware/host_authorization.rb:143:in 'ActionDispatch::HostAuthorization#call'
+rack-cors (3.0.0) lib/rack/cors.rb:102:in 'Rack::Cors#call'
+railties (8.1.3) lib/rails/engine.rb:534:in 'Rails::Engine#call'
+puma (8.0.0) lib/puma/configuration.rb:305:in 'Puma::Configuration::ConfigMiddleware#call'
+puma (8.0.0) lib/puma/response.rb:79:in 'block in Puma::Response#handle_request'
+puma (8.0.0) lib/puma/thread_pool.rb:434:in 'Puma::ThreadPool#with_force_shutdown'
+puma (8.0.0) lib/puma/response.rb:78:in 'Puma::Response#handle_request'
+puma (8.0.0) lib/puma/server.rb:508:in 'Puma::Server#process_client'
+puma (8.0.0) lib/puma/server.rb:263:in 'block in Puma::Server#run'
+puma (8.0.0) lib/puma/thread_pool.rb:246:in 'block in Puma::ThreadPool#spawn_thread'
+Started GET "/admin/leave_requests" for ::1 at 2026-04-24 12:43:35 +0200
+Processing by Admin::LeaveRequestsController#index as HTML
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/leave_requests/index.html.erb within layouts/admin
+  [1m[36mLeaveRequest Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "leave_requests" LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='leave_requests'*/[0m
+  ↳ app/views/admin/leave_requests/index.html.erb:28
+  [1m[36mLeaveRequest Load (0.3ms)[0m  [1m[34mSELECT "leave_requests".* FROM "leave_requests" ORDER BY "leave_requests"."created_at" DESC /*action='index',application='FreightSolutionBackEnd',controller='leave_requests'*/[0m
+  ↳ app/views/admin/leave_requests/index.html.erb:41
+  [1m[36mEmployee Load (0.4ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = 3 /*action='index',application='FreightSolutionBackEnd',controller='leave_requests'*/[0m
+  ↳ app/views/admin/leave_requests/index.html.erb:41
+  Rendered admin/leave_requests/index.html.erb within layouts/admin (Duration: 8.5ms | GC: 0.0ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='leave_requests'*/[0m
+  ↳ app/controllers/admin/base_controller.rb:15:in 'Admin::BaseController#current_user'
+  Rendered layout layouts/admin.html.erb (Duration: 12.4ms | GC: 0.0ms)
+Completed 200 OK in 15ms (Views: 12.4ms | ActiveRecord: 1.3ms (4 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/admin/leave_requests" for ::1 at 2026-04-24 12:43:40 +0200
+Processing by Admin::LeaveRequestsController#index as HTML
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/leave_requests/index.html.erb within layouts/admin
+  [1m[36mLeaveRequest Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "leave_requests" LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='leave_requests'*/[0m
+  ↳ app/views/admin/leave_requests/index.html.erb:28
+  [1m[36mLeaveRequest Load (0.3ms)[0m  [1m[34mSELECT "leave_requests".* FROM "leave_requests" ORDER BY "leave_requests"."created_at" DESC /*action='index',application='FreightSolutionBackEnd',controller='leave_requests'*/[0m
+  ↳ app/views/admin/leave_requests/index.html.erb:41
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = 3 /*action='index',application='FreightSolutionBackEnd',controller='leave_requests'*/[0m
+  ↳ app/views/admin/leave_requests/index.html.erb:41
+  Rendered admin/leave_requests/index.html.erb within layouts/admin (Duration: 3.8ms | GC: 0.0ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='leave_requests'*/[0m
+  ↳ app/controllers/admin/base_controller.rb:15:in 'Admin::BaseController#current_user'
+  Rendered layout layouts/admin.html.erb (Duration: 4.9ms | GC: 0.0ms)
+Completed 200 OK in 6ms (Views: 4.3ms | ActiveRecord: 0.8ms (4 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/admin/leave_requests" for ::1 at 2026-04-24 12:43:49 +0200
+Processing by Admin::LeaveRequestsController#index as HTML
+  Rendering layout layouts/admin.html.erb
+  Rendering admin/leave_requests/index.html.erb within layouts/admin
+  [1m[36mLeaveRequest Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "leave_requests" LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='leave_requests'*/[0m
+  ↳ app/views/admin/leave_requests/index.html.erb:28
+  [1m[36mLeaveRequest Load (0.3ms)[0m  [1m[34mSELECT "leave_requests".* FROM "leave_requests" ORDER BY "leave_requests"."created_at" DESC /*action='index',application='FreightSolutionBackEnd',controller='leave_requests'*/[0m
+  ↳ app/views/admin/leave_requests/index.html.erb:41
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = 3 /*action='index',application='FreightSolutionBackEnd',controller='leave_requests'*/[0m
+  ↳ app/views/admin/leave_requests/index.html.erb:41
+  Rendered admin/leave_requests/index.html.erb within layouts/admin (Duration: 15.3ms | GC: 0.0ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='index',application='FreightSolutionBackEnd',controller='leave_requests'*/[0m
+  ↳ app/controllers/admin/base_controller.rb:15:in 'Admin::BaseController#current_user'
+  Rendered layout layouts/admin.html.erb (Duration: 16.9ms | GC: 0.0ms)
+Completed 200 OK in 18ms (Views: 16.3ms | ActiveRecord: 1.0ms (4 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/admin/leave_requests/1/edit" for ::1 at 2026-04-24 12:43:52 +0200
+Processing by Admin::LeaveRequestsController#edit as HTML
+  Parameters: {"id" => "1"}
+  [1m[36mLeaveRequest Load (0.3ms)[0m  [1m[34mSELECT "leave_requests".* FROM "leave_requests" WHERE "leave_requests"."id" = 1 LIMIT 1 /*action='edit',application='FreightSolutionBackEnd',controller='leave_requests'*/[0m
+  ↳ app/controllers/admin/leave_requests_controller.rb:51:in 'Admin::LeaveRequestsController#set_leave_request'
+Completed 406 Not Acceptable in 2ms (ActiveRecord: 0.3ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+  
+ActionController::MissingExactTemplate (Admin::LeaveRequestsController#edit is missing a template for request formats: text/html):
+  
+actionpack (8.1.3) lib/action_controller/metal/implicit_render.rb:49:in 'ActionController::ImplicitRender#default_render'
+actionpack (8.1.3) lib/action_controller/metal/basic_implicit_render.rb:9:in 'ActionController::BasicImplicitRender#send_action'
+actionpack (8.1.3) lib/abstract_controller/base.rb:221:in 'AbstractController::Base#process_action'
+actionpack (8.1.3) lib/action_controller/metal/rendering.rb:199:in 'ActionController::Rendering#process_action'
+actionpack (8.1.3) lib/abstract_controller/callbacks.rb:267:in 'block in AbstractController::Callbacks#process_action'
+activesupport (8.1.3) lib/active_support/callbacks.rb:121:in 'block in ActiveSupport::Callbacks#run_callbacks'
+turbo-rails (2.0.23) lib/turbo-rails.rb:24:in 'Turbo.with_request_id'
+turbo-rails (2.0.23) app/controllers/concerns/turbo/request_id_tracking.rb:10:in 'Turbo::RequestIdTracking#turbo_tracking_request_id'
+activesupport (8.1.3) lib/active_support/callbacks.rb:130:in 'block in ActiveSupport::Callbacks#run_callbacks'
+actiontext (8.1.3) lib/action_text/rendering.rb:24:in 'ActionText::Rendering::ClassMethods#with_renderer'
+actiontext (8.1.3) lib/action_text/engine.rb:72:in 'block (4 levels) in <class:Engine>'
+activesupport (8.1.3) lib/active_support/callbacks.rb:130:in 'BasicObject#instance_exec'
+activesupport (8.1.3) lib/active_support/callbacks.rb:130:in 'block in ActiveSupport::Callbacks#run_callbacks'
+activesupport (8.1.3) lib/active_support/callbacks.rb:141:in 'ActiveSupport::Callbacks#run_callbacks'
+actionpack (8.1.3) lib/abstract_controller/callbacks.rb:266:in 'AbstractController::Callbacks#process_action'
+actionpack (8.1.3) lib/action_controller/metal/rescue.rb:36:in 'ActionController::Rescue#process_action'
+actionpack (8.1.3) lib/action_controller/metal/instrumentation.rb:76:in 'block in ActionController::Instrumentation#process_action'
+activesupport (8.1.3) lib/active_support/notifications.rb:210:in 'block in ActiveSupport::Notifications.instrument'
+activesupport (8.1.3) lib/active_support/notifications/instrumenter.rb:58:in 'ActiveSupport::Notifications::Instrumenter#instrument'
+activesupport (8.1.3) lib/active_support/notifications.rb:210:in 'ActiveSupport::Notifications.instrument'
+actionpack (8.1.3) lib/action_controller/metal/instrumentation.rb:75:in 'ActionController::Instrumentation#process_action'
+actionpack (8.1.3) lib/action_controller/metal/params_wrapper.rb:259:in 'ActionController::ParamsWrapper#process_action'
+activerecord (8.1.3) lib/active_record/railties/controller_runtime.rb:39:in 'ActiveRecord::Railties::ControllerRuntime#process_action'
+actionpack (8.1.3) lib/abstract_controller/base.rb:154:in 'AbstractController::Base#process'
+actionview (8.1.3) lib/action_view/rendering.rb:40:in 'ActionView::Rendering#process'
+actionpack (8.1.3) lib/action_controller/metal.rb:252:in 'ActionController::Metal#dispatch'
+actionpack (8.1.3) lib/action_controller/metal.rb:335:in 'ActionController::Metal.dispatch'
+actionpack (8.1.3) lib/action_dispatch/routing/route_set.rb:65:in 'ActionDispatch::Routing::RouteSet::Dispatcher#dispatch'
+actionpack (8.1.3) lib/action_dispatch/routing/route_set.rb:50:in 'ActionDispatch::Routing::RouteSet::Dispatcher#serve'
+actionpack (8.1.3) lib/action_dispatch/journey/router.rb:35:in 'block in ActionDispatch::Journey::Router#serve'
+actionpack (8.1.3) lib/action_dispatch/journey/router.rb:86:in 'block in ActionDispatch::Journey::Router#recognize'
+actionpack (8.1.3) lib/action_dispatch/journey/router.rb:66:in 'Array#each'
+actionpack (8.1.3) lib/action_dispatch/journey/router.rb:66:in 'ActionDispatch::Journey::Router#recognize'
+actionpack (8.1.3) lib/action_dispatch/journey/router.rb:31:in 'ActionDispatch::Journey::Router#serve'
+actionpack (8.1.3) lib/action_dispatch/routing/route_set.rb:906:in 'ActionDispatch::Routing::RouteSet#call'
+railties (8.1.3) lib/rails/engine/lazy_route_set.rb:60:in 'Rails::Engine::LazyRouteSet#call'
+rack (3.2.6) lib/rack/tempfile_reaper.rb:20:in 'Rack::TempfileReaper#call'
+rack (3.2.6) lib/rack/etag.rb:29:in 'Rack::ETag#call'
+rack (3.2.6) lib/rack/conditional_get.rb:31:in 'Rack::ConditionalGet#call'
+rack (3.2.6) lib/rack/head.rb:15:in 'Rack::Head#call'
+actionpack (8.1.3) lib/action_dispatch/http/content_security_policy.rb:38:in 'ActionDispatch::ContentSecurityPolicy::Middleware#call'
+rack-session (2.1.2) lib/rack/session/abstract/id.rb:274:in 'Rack::Session::Abstract::Persisted#context'
+rack-session (2.1.2) lib/rack/session/abstract/id.rb:268:in 'Rack::Session::Abstract::Persisted#call'
+actionpack (8.1.3) lib/action_dispatch/middleware/cookies.rb:708:in 'ActionDispatch::Cookies#call'
+activerecord (8.1.3) lib/active_record/migration.rb:671:in 'ActiveRecord::Migration::CheckPending#call'
+actionpack (8.1.3) lib/action_dispatch/middleware/callbacks.rb:31:in 'block in ActionDispatch::Callbacks#call'
+activesupport (8.1.3) lib/active_support/callbacks.rb:101:in 'ActiveSupport::Callbacks#run_callbacks'
+actionpack (8.1.3) lib/action_dispatch/middleware/callbacks.rb:30:in 'ActionDispatch::Callbacks#call'
+actionpack (8.1.3) lib/action_dispatch/middleware/executor.rb:20:in 'ActionDispatch::Executor#call'
+actionpack (8.1.3) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in 'ActionDispatch::ActionableExceptions#call'
+actionpack (8.1.3) lib/action_dispatch/middleware/debug_exceptions.rb:31:in 'ActionDispatch::DebugExceptions#call'
+actionpack (8.1.3) lib/action_dispatch/middleware/show_exceptions.rb:32:in 'ActionDispatch::ShowExceptions#call'
+railties (8.1.3) lib/rails/rack/logger.rb:41:in 'Rails::Rack::Logger#call_app'
+railties (8.1.3) lib/rails/rack/logger.rb:29:in 'Rails::Rack::Logger#call'
+actionpack (8.1.3) lib/action_dispatch/middleware/remote_ip.rb:98:in 'ActionDispatch::RemoteIp#call'
+actionpack (8.1.3) lib/action_dispatch/middleware/request_id.rb:34:in 'ActionDispatch::RequestId#call'
+rack (3.2.6) lib/rack/method_override.rb:28:in 'Rack::MethodOverride#call'
+rack (3.2.6) lib/rack/runtime.rb:24:in 'Rack::Runtime#call'
+activesupport (8.1.3) lib/active_support/cache/strategy/local_cache_middleware.rb:30:in 'ActiveSupport::Cache::Strategy::LocalCache::Middleware#call'
+actionpack (8.1.3) lib/action_dispatch/middleware/server_timing.rb:61:in 'block in ActionDispatch::ServerTiming#call'
+actionpack (8.1.3) lib/action_dispatch/middleware/server_timing.rb:26:in 'ActionDispatch::ServerTiming::Subscriber#collect_events'
+actionpack (8.1.3) lib/action_dispatch/middleware/server_timing.rb:60:in 'ActionDispatch::ServerTiming#call'
+actionpack (8.1.3) lib/action_dispatch/middleware/executor.rb:20:in 'ActionDispatch::Executor#call'
+actionpack (8.1.3) lib/action_dispatch/middleware/static.rb:27:in 'ActionDispatch::Static#call'
+rack (3.2.6) lib/rack/sendfile.rb:131:in 'Rack::Sendfile#call'
+actionpack (8.1.3) lib/action_dispatch/middleware/host_authorization.rb:143:in 'ActionDispatch::HostAuthorization#call'
+rack-cors (3.0.0) lib/rack/cors.rb:102:in 'Rack::Cors#call'
+railties (8.1.3) lib/rails/engine.rb:534:in 'Rails::Engine#call'
+puma (8.0.0) lib/puma/configuration.rb:305:in 'Puma::Configuration::ConfigMiddleware#call'
+puma (8.0.0) lib/puma/response.rb:79:in 'block in Puma::Response#handle_request'
+puma (8.0.0) lib/puma/thread_pool.rb:434:in 'Puma::ThreadPool#with_force_shutdown'
+puma (8.0.0) lib/puma/response.rb:78:in 'Puma::Response#handle_request'
+puma (8.0.0) lib/puma/server.rb:508:in 'Puma::Server#process_client'
+puma (8.0.0) lib/puma/server.rb:263:in 'block in Puma::Server#run'
+puma (8.0.0) lib/puma/thread_pool.rb:246:in 'block in Puma::ThreadPool#spawn_thread'
