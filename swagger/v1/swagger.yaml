@@ -290,6 +290,38 @@ paths:
       responses:
         '200':
           description: Returns tasks
+    post:
+      summary: Create Task
+      tags:
+      - HRM
+      security:
+      - BearerAuth: []
+      parameters: []
+      responses:
+        '201':
+          description: Task created
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                description:
+                  type: string
+                priority:
+                  type: string
+                due_date:
+                  type: string
+                  format: date
+                status:
+                  type: string
+                employee_id:
+                  type: integer
+              required:
+              - title
+              - employee_id
   "/api/v1/hrm/tasks/{id}":
     parameters:
     - name: id

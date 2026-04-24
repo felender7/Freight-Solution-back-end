@@ -14,6 +14,7 @@ class Admin::Warehouse::ItemsController < Admin::BaseController
 
   def create
     @item = InventoryItem.new(item_params)
+    @item.user = current_user
     if @item.save
       redirect_to admin_warehouse_items_path, notice: "Inventory item was successfully registered."
     else

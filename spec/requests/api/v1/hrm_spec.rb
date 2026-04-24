@@ -1,6 +1,18 @@
 require 'swagger_helper'
 
 RSpec.describe 'Api::V1::Hrm', type: :request do
+  let(:Authorization) { 'Bearer dummy_token' }
+  let(:current_user) { User.new(id: 1, email: 'admin@example.com', role: 'admin') }
+  let(:employee) { Employee.new(id: 1, first_name: 'John', last_name: 'Doe', user: current_user) }
+
+  before do
+    allow(JsonWebToken).to receive(:decode).and_return({ sub: 1 })
+    allow(User).to receive(:find_by).and_return(current_user)
+    allow(current_user).to receive(:employee).and_return(employee)
+    # Ensure current_employee in controller works
+    allow_any_instance_of(Api::V1::Hrm::BaseController).to receive(:current_employee).and_return(employee)
+  end
+
   path '/api/v1/hrm/me' do
     get 'Get Current Employee Profile' do
       tags 'HRM'
@@ -178,6 +190,38 @@ RSpec.describe 'Api::V1::Hrm', type: :request do
       security [ BearerAuth: [] ]
 
       response '200', 'Returns tasks' do
+        before do
+          allow(employee).to receive(:tasks).and_return(double('tasks', order: [Task.new(id: 1, title: 'Test Task')]))
+        end
+        run_test!
+      end
+    end
+
+    post 'Create Task' do
+      tags 'HRM'
+      consumes 'application/json'
+      produces 'application/json'
+      security [ BearerAuth: [] ]
+
+      parameter name: :task, in: :body, schema: {
+        type: :object,
+        properties: {
+          title: { type: :string },
+          description: { type: :string },
+          priority: { type: :string },
+          due_date: { type: :string, format: 'date' },
+          status: { type: :string },
+          employee_id: { type: :integer }
+        },
+        required: [ 'title', 'employee_id' ]
+      }
+
+      response '201', 'Task created' do
+        let(:task) { { title: 'New Task', employee_id: 1 } }
+        before do
+          allow(Task).to receive(:new).and_return(Task.new(id: 1, title: 'New Task'))
+          allow_any_instance_of(Task).to receive(:save).and_return(true)
+        end
         run_test!
       end
     end
@@ -193,6 +237,9 @@ RSpec.describe 'Api::V1::Hrm', type: :request do
 
       response '200', 'Returns task' do
         let(:id) { 1 }
+        before do
+          allow(employee).to receive(:tasks).and_return(double('tasks', find: Task.new(id: 1, title: 'Test Task')))
+        end
         run_test!
       end
     end

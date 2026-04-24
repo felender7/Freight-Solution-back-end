@@ -13,6 +13,7 @@ class Admin::VendorsController < Admin::BaseController
 
   def create
     @vendor = Vendor.new(vendor_params)
+    @vendor.user = current_user
     if @vendor.save
       redirect_to admin_vendors_path, notice: "Vendor was successfully created."
     else

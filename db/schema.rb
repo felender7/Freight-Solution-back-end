@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_04_23_130036) do
+ActiveRecord::Schema[8.1].define(version: 2026_04_24_091701) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -130,8 +130,10 @@ ActiveRecord::Schema[8.1].define(version: 2026_04_23_130036) do
     t.integer "progress", default: 0
     t.bigint "training_course_id", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
     t.index ["employee_id"], name: "index_enrollments_on_employee_id"
     t.index ["training_course_id"], name: "index_enrollments_on_training_course_id"
+    t.index ["user_id"], name: "index_enrollments_on_user_id"
   end
 
   create_table "inventory_items", force: :cascade do |t|
@@ -178,7 +180,9 @@ ActiveRecord::Schema[8.1].define(version: 2026_04_23_130036) do
     t.date "paid_date"
     t.string "status"
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
     t.integer "vendor_id"
+    t.index ["user_id"], name: "index_invoices_on_user_id"
   end
 
   create_table "leave_requests", force: :cascade do |t|
@@ -191,8 +195,10 @@ ActiveRecord::Schema[8.1].define(version: 2026_04_23_130036) do
     t.date "start_date"
     t.string "status", default: "pending"
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
     t.index ["approved_by_id"], name: "index_leave_requests_on_approved_by_id"
     t.index ["employee_id"], name: "index_leave_requests_on_employee_id"
+    t.index ["user_id"], name: "index_leave_requests_on_user_id"
   end
 
   create_table "pallets", force: :cascade do |t|
@@ -267,8 +273,10 @@ ActiveRecord::Schema[8.1].define(version: 2026_04_23_130036) do
     t.string "status", default: "todo"
     t.string "title"
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
     t.index ["assigned_by_id"], name: "index_tasks_on_assigned_by_id"
     t.index ["employee_id"], name: "index_tasks_on_employee_id"
+    t.index ["user_id"], name: "index_tasks_on_user_id"
   end
 
   create_table "timesheets", force: :cascade do |t|
@@ -281,9 +289,11 @@ ActiveRecord::Schema[8.1].define(version: 2026_04_23_130036) do
     t.string "status", default: "pending"
     t.bigint "task_id"
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
     t.index ["approved_by_id"], name: "index_timesheets_on_approved_by_id"
     t.index ["employee_id"], name: "index_timesheets_on_employee_id"
     t.index ["task_id"], name: "index_timesheets_on_task_id"
+    t.index ["user_id"], name: "index_timesheets_on_user_id"
   end
 
   create_table "training_courses", force: :cascade do |t|
@@ -295,6 +305,8 @@ ActiveRecord::Schema[8.1].define(version: 2026_04_23_130036) do
     t.boolean "is_active", default: true
     t.string "title"
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_training_courses_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -382,13 +394,16 @@ ActiveRecord::Schema[8.1].define(version: 2026_04_23_130036) do
   add_foreign_key "employees", "users"
   add_foreign_key "enrollments", "employees"
   add_foreign_key "enrollments", "training_courses"
+  add_foreign_key "enrollments", "users"
   add_foreign_key "inventory_items", "users"
   add_foreign_key "inventory_records", "clients"
   add_foreign_key "inventory_records", "inventory_items"
   add_foreign_key "inventory_records", "pallets"
   add_foreign_key "inventory_records", "users"
   add_foreign_key "inventory_records", "warehouse_locations"
+  add_foreign_key "invoices", "users"
   add_foreign_key "leave_requests", "employees"
+  add_foreign_key "leave_requests", "users"
   add_foreign_key "leave_requests", "users", column: "approved_by_id"
   add_foreign_key "pallets", "clients"
   add_foreign_key "pallets", "warehouse_locations"
@@ -398,10 +413,13 @@ ActiveRecord::Schema[8.1].define(version: 2026_04_23_130036) do
   add_foreign_key "storage_billings", "clients"
   add_foreign_key "storage_billings", "users"
   add_foreign_key "tasks", "employees"
+  add_foreign_key "tasks", "users"
   add_foreign_key "tasks", "users", column: "assigned_by_id"
   add_foreign_key "timesheets", "employees"
   add_foreign_key "timesheets", "tasks"
+  add_foreign_key "timesheets", "users"
   add_foreign_key "timesheets", "users", column: "approved_by_id"
+  add_foreign_key "training_courses", "users"
   add_foreign_key "vendors", "users"
   add_foreign_key "warehouse_locations", "users"
   add_foreign_key "warehouse_transactions", "clients"

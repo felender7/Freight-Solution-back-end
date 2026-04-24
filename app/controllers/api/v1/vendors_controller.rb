@@ -49,6 +49,7 @@ class Api::V1::VendorsController < ApplicationController
 
   def create
     @vendor = Vendor.new(vendor_params)
+    @vendor.user = current_user
     if @vendor.save
       render json: @vendor, status: :created
     else

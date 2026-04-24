@@ -75,7 +75,7 @@ namespace :api do
         end
         resources :performance_reviews, only: [ :index, :show, :update ]
         resources :leave_requests, only: [ :index, :create, :show, :destroy ]
-        resources :tasks, only: [ :index, :show, :update ]
+        resources :tasks, only: [ :index, :create, :show, :update ]
         resources :timesheets, only: [ :index, :create, :show, :destroy ]
         resources :training_courses, only: [ :index, :show ] do
           post "enroll", on: :member

@@ -15,6 +15,7 @@ class Admin::Warehouse::InventoryController < Admin::BaseController
 
   def create
     @inventory_record = InventoryRecord.new(inventory_params)
+    @inventory_record.user = current_user
     if @inventory_record.save
       log_transaction('receiving', @inventory_record.quantity, nil, @inventory_record.warehouse_location)
       redirect_to admin_warehouse_inventory_index_path, notice: "Stock was successfully received and recorded."

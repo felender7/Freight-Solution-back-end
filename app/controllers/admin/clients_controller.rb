@@ -14,6 +14,7 @@ class Admin::ClientsController < Admin::BaseController
 
   def create
     @client = Client.new(client_params)
+    @client.user = current_user
     if @client.save
       redirect_to admin_clients_path, notice: "Client was successfully onboarded."
     else

@@ -14,6 +14,7 @@ class Admin::InvoicesController < Admin::BaseController
 
   def create
     @invoice = Invoice.new(invoice_params)
+    @invoice.user = current_user
     if @invoice.save
       redirect_to admin_invoices_path, notice: "Invoice was successfully created."
     else

@@ -13,6 +13,7 @@ class Admin::ShipmentsController < Admin::BaseController
 
   def create
     @shipment = Shipment.new(shipment_params)
+    @shipment.user = current_user
     if @shipment.save
       redirect_to admin_shipments_path, notice: "Shipment was successfully created."
     else

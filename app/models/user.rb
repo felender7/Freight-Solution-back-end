@@ -24,6 +24,12 @@ class User < ApplicationRecord
   has_many :inventory_items
   has_many :inventory_records
   has_many :storage_billings
+  has_many :tasks
+  has_many :leave_requests
+  has_many :timesheets
+  has_many :invoices
+  has_many :training_courses
+  has_many :enrollments
 
   def set_default_values
     self.role ||= "user"

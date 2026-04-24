@@ -16,6 +16,8 @@ class Admin::HrmTasksController < Admin::BaseController
 
   def create
     @task = Task.new(task_params)
+    @task.user = current_user
+    @task.assigned_by = current_user
     if @task.save
       redirect_to admin_hrm_tasks_path, notice: "Task was successfully created."
     else

@@ -14,6 +14,7 @@ class Admin::Warehouse::LocationsController < Admin::BaseController
 
   def create
     @location = WarehouseLocation.new(location_params)
+    @location.user = current_user
     if @location.save
       redirect_to admin_warehouse_locations_path, notice: "Location was successfully created."
     else

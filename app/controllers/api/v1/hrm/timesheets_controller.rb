@@ -7,6 +7,7 @@ class Api::V1::Hrm::TimesheetsController < Api::V1::Hrm::BaseController
   def create
     @timesheet = current_employee.timesheets.new(timesheet_params)
     @timesheet.status = "pending"
+    @timesheet.user = current_user
 
     if @timesheet.save
       render json: @timesheet, status: :created

@@ -7,6 +7,7 @@ class Api::V1::Hrm::LeaveRequestsController < Api::V1::Hrm::BaseController
   def create
     @leave_request = current_employee.leave_requests.new(leave_request_params)
     @leave_request.status = "pending"
+    @leave_request.user = current_user
 
     if @leave_request.save
       render json: @leave_request, status: :created
