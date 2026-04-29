@@ -32,6 +32,9 @@ Rails.application.configure do
   # Store uploaded files on local disk
   config.active_storage.service = :local
 
+  config.action_mailer.default_url_options = { host: "localhost", port: 3000 }
+  Rails.application.routes.default_url_options = { host: "localhost", port: 3000 }
+
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 

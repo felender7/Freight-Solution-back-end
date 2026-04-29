@@ -74,7 +74,11 @@ namespace :api do
           get "current_status", on: :collection
         end
         resources :performance_reviews, only: [ :index, :show, :update ]
-        resources :leave_requests, only: [ :index, :create, :show, :destroy ]
+        resources :leave_requests, only: [ :index, :create, :show, :update, :destroy ] do
+          patch :approve, on: :member
+          patch :reject, on: :member
+          patch :upload_medical_certificate, on: :member
+        end
         resources :tasks, only: [ :index, :create, :show, :update ]
         resources :timesheets, only: [ :index, :create, :show, :destroy ]
         resources :training_courses, only: [ :index, :show ] do
