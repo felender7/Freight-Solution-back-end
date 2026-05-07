@@ -52,6 +52,6 @@ class Admin::LeaveRequestsController < Admin::BaseController
   end
 
   def leave_request_params
-    params.require(:leave_request).permit(:employee_id, :approved_by_id, :leave_type, :start_date, :end_date, :reason, :status)
+    params.require(:leave_request).permit(:employee_id, :approved_by_id, :leave_type, :start_date, :end_date, :reason, :status, :medical_certificate, :study_timetable, documents: [])
   end
 end

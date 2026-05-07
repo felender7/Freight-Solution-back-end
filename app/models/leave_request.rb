@@ -5,6 +5,7 @@ class LeaveRequest < ApplicationRecord
 
   has_one_attached :medical_certificate
   has_one_attached :study_timetable
+  has_many_attached :documents
 
   enum :leave_type, {
     sick: "sick",
@@ -47,6 +48,11 @@ class LeaveRequest < ApplicationRecord
 
   def study_timetable_url
     study_timetable.url if study_timetable.attached?
+  end
+
+  def document_urls
+    return [] unless documents.attached?
+    documents.map { |doc| doc.url }
   end
 
   private

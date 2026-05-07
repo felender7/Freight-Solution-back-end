@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_04_24_091701) do
+ActiveRecord::Schema[8.1].define(version: 2026_04_30_071257) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -201,6 +201,30 @@ ActiveRecord::Schema[8.1].define(version: 2026_04_24_091701) do
     t.index ["user_id"], name: "index_leave_requests_on_user_id"
   end
 
+  create_table "ledger_entries", force: :cascade do |t|
+    t.string "account_type"
+    t.decimal "amount", precision: 15, scale: 2, default: "0.0"
+    t.datetime "created_at", null: false
+    t.string "description"
+    t.string "entry_type"
+    t.string "reference_number"
+    t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_ledger_entries_on_user_id"
+  end
+
+  create_table "legal_holds", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.text "description"
+    t.integer "entity_id"
+    t.string "entity_type"
+    t.string "status", default: "active"
+    t.string "title"
+    t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_legal_holds_on_user_id"
+  end
+
   create_table "pallets", force: :cascade do |t|
     t.bigint "client_id", null: false
     t.datetime "created_at", null: false
@@ -230,6 +254,17 @@ ActiveRecord::Schema[8.1].define(version: 2026_04_24_091701) do
     t.index ["employee_id"], name: "index_performance_reviews_on_employee_id"
     t.index ["kpi_results"], name: "index_performance_reviews_on_kpi_results", using: :gin
     t.index ["reviewer_id"], name: "index_performance_reviews_on_reviewer_id"
+  end
+
+  create_table "retention_policies", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.text "description"
+    t.integer "duration_months"
+    t.boolean "is_active", default: true
+    t.string "title"
+    t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_retention_policies_on_user_id"
   end
 
   create_table "shipments", force: :cascade do |t|
@@ -405,10 +440,13 @@ ActiveRecord::Schema[8.1].define(version: 2026_04_24_091701) do
   add_foreign_key "leave_requests", "employees"
   add_foreign_key "leave_requests", "users"
   add_foreign_key "leave_requests", "users", column: "approved_by_id"
+  add_foreign_key "ledger_entries", "users"
+  add_foreign_key "legal_holds", "users"
   add_foreign_key "pallets", "clients"
   add_foreign_key "pallets", "warehouse_locations"
   add_foreign_key "performance_reviews", "employees"
   add_foreign_key "performance_reviews", "users", column: "reviewer_id"
+  add_foreign_key "retention_policies", "users"
   add_foreign_key "shipments", "users"
   add_foreign_key "storage_billings", "clients"
   add_foreign_key "storage_billings", "users"

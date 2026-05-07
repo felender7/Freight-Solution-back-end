@@ -1,17 +1,21 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
-  email: MyString
-  phone: MyString
-  address: MyText
-  bank_reference: MyString
-  status: MyString
+  name: Vendor One
+  email: vendor1@example.com
+  phone: "0112223333"
+  address: 123 Street, City
+  bank_reference: VEND001
+  status: active
+  category: "Shipping lines"
+  kyc_status: verified
 
 two:
-  name: MyString
-  email: MyString
-  phone: MyString
-  address: MyText
-  bank_reference: MyString
-  status: MyString
+  name: Vendor Two
+  email: vendor2@example.com
+  phone: "0112224444"
+  address: 456 Avenue, City
+  bank_reference: VEND002
+  status: active
+  category: "Airlines"
+  kyc_status: pending

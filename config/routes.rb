@@ -45,6 +45,17 @@ namespace :api do
       get "auth/me", to: "auth#me"
       get "dashboard/stats", to: "dashboard#stats"
 
+      get "finance/stats", to: "finance#stats"
+      get "finance/ledger", to: "finance#ledger"
+      resources :invoices
+
+      get "records/stats", to: "records#stats"
+      get "records/audit_logs", to: "records#audit_logs"
+      get "records/retention_policies", to: "records#retention_policies"
+      post "records/retention_policies", to: "records#create_retention_policy"
+      get "records/legal_holds", to: "records#legal_holds"
+      post "records/legal_holds", to: "records#create_legal_hold"
+
       resources :vendors do
         collection do
           get :stats
@@ -80,7 +91,11 @@ namespace :api do
           patch :upload_medical_certificate, on: :member
         end
         resources :tasks, only: [ :index, :create, :show, :update ]
-        resources :timesheets, only: [ :index, :create, :show, :destroy ]
+        resources :timesheets, only: [ :index, :create, :show, :update, :destroy ] do
+          patch :submit, on: :member
+          patch :approve, on: :member
+          patch :reject, on: :member
+        end
         resources :training_courses, only: [ :index, :show ] do
           post "enroll", on: :member
         end

@@ -104,6 +104,66 @@
             <p class="text-slate-500 font-mono text-[10px]">#LR-<%= @leave_request.id %></p>
           </div>
         </div>
+
+        <% if @leave_request.medical_certificate.attached? || @leave_request.study_timetable.attached? || @leave_request.documents.attached? %>
+          <div class="mt-8 pt-8 border-t border-slate-700/50">
+            <h3 class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-6">Supporting Documents</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <% if @leave_request.medical_certificate.attached? %>
+                <div class="flex items-center justify-between p-4 rounded-xl bg-slate-900 border border-slate-700 group hover:border-blue-500/50 transition-all">
+                  <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center text-blue-500">
+                      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                    </div>
+                    <div>
+                      <p class="text-slate-200 text-sm font-bold">Medical Certificate</p>
+                      <p class="text-slate-500 text-[10px] uppercase font-bold"><%= number_to_human_size(@leave_request.medical_certificate.byte_size) %></p>
+                    </div>
+                  </div>
+                  <%= link_to rails_blob_path(@leave_request.medical_certificate, disposition: "attachment"), class: "p-2 hover:bg-slate-800 rounded-lg text-slate-400 hover:text-blue-400 transition-all" do %>
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a2 2 0 002 2h12a2 2 0 002-2v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+                  <% end %>
+                </div>
+              <% end %>
+
+              <% if @leave_request.study_timetable.attached? %>
+                <div class="flex items-center justify-between p-4 rounded-xl bg-slate-900 border border-slate-700 group hover:border-purple-500/50 transition-all">
+                  <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-lg bg-purple-500/10 flex items-center justify-center text-purple-500">
+                      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+                    </div>
+                    <div>
+                      <p class="text-slate-200 text-sm font-bold">Study Timetable</p>
+                      <p class="text-slate-500 text-[10px] uppercase font-bold"><%= number_to_human_size(@leave_request.study_timetable.byte_size) %></p>
+                    </div>
+                  </div>
+                  <%= link_to rails_blob_path(@leave_request.study_timetable, disposition: "attachment"), class: "p-2 hover:bg-slate-800 rounded-lg text-slate-400 hover:text-purple-400 transition-all" do %>
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a2 2 0 002 2h12a2 2 0 002-2v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+                  <% end %>
+                </div>
+              <% end %>
+
+              <% if @leave_request.documents.attached? %>
+                <% @leave_request.documents.each_with_index do |doc, index| %>
+                  <div class="flex items-center justify-between p-4 rounded-xl bg-slate-900 border border-slate-700 group hover:border-emerald-500/50 transition-all">
+                    <div class="flex items-center gap-3">
+                      <div class="w-10 h-10 rounded-lg bg-emerald-500/10 flex items-center justify-center text-emerald-500">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13"/></svg>
+                      </div>
+                      <div>
+                        <p class="text-slate-200 text-sm font-bold">Document #<%= index + 1 %></p>
+                        <p class="text-slate-500 text-[10px] uppercase font-bold"><%= number_to_human_size(doc.byte_size) %></p>
+                      </div>
+                    </div>
+                    <%= link_to rails_blob_path(doc, disposition: "attachment"), class: "p-2 hover:bg-slate-800 rounded-lg text-slate-400 hover:text-emerald-400 transition-all" do %>
+                      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a2 2 0 002 2h12a2 2 0 002-2v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+                    <% end %>
+                  </div>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>
