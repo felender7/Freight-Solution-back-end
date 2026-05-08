@@ -37,7 +37,7 @@ Rails.application.routes.draw do
     resources :training_courses
   end
 
-namespace :api do
+  namespace :api do
     namespace :v1 do
       post "auth/login", to: "auth#login"
       post "auth/logout", to: "auth#logout"
@@ -48,6 +48,7 @@ namespace :api do
       get "finance/stats", to: "finance#stats"
       get "finance/ledger", to: "finance#ledger"
       resources :invoices
+      resources :clients
 
       get "records/stats", to: "records#stats"
       get "records/audit_logs", to: "records#audit_logs"
@@ -79,6 +80,7 @@ namespace :api do
       namespace :hrm do
         get "me", to: "profile#show"
         patch "me", to: "profile#update"
+        resources :employees
         resources :attendance_records, only: [ :index, :create, :show ] do
           post "clock_in", on: :collection
           post "clock_out", on: :collection

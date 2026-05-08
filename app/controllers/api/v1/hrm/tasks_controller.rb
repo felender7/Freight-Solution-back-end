@@ -1,11 +1,17 @@
 class Api::V1::Hrm::TasksController < Api::V1::Hrm::BaseController
   def index
-    @tasks = current_employee.tasks.order(due_date: :asc)
+    if current_user.role == "admin" || current_user.role == "hr_manager"
+      @tasks = Task.all.order(due_date: :asc)
+    elsif current_employee
+      @tasks = current_employee.tasks.order(due_date: :asc)
+    else
+      @tasks = []
+    end
     render json: @tasks
   end
 
   def show
-    @task = current_employee.tasks.find(params[:id])
+    @task = Task.find(params[:id])
     render json: @task
   end
 
@@ -22,7 +28,7 @@ class Api::V1::Hrm::TasksController < Api::V1::Hrm::BaseController
   end
 
   def update
-    @task = current_employee.tasks.find(params[:id])
+    @task = Task.find(params[:id])
     if @task.update(task_params)
       render json: @task
     else

@@ -4,8 +4,10 @@ class Api::V1::Hrm::LeaveRequestsController < Api::V1::Hrm::BaseController
   def index
     if current_user.role == "admin" || current_user.role == "hr_manager"
       @leave_requests = LeaveRequest.all.order(start_date: :desc)
-    else
+    elsif current_employee
       @leave_requests = current_employee.leave_requests.order(start_date: :desc)
+    else
+      @leave_requests = []
     end
     render json: @leave_requests.as_json(
       methods: [ :number_of_days, :medical_certificate_attached, :study_timetable_attached, :medical_certificate_url, :study_timetable_url, :document_urls ],
@@ -14,6 +16,10 @@ class Api::V1::Hrm::LeaveRequestsController < Api::V1::Hrm::BaseController
   end
 
   def create
+    unless current_employee
+      return render json: { error: "Employee record not found" }, status: :forbidden
+    end
+
     @leave_request = current_employee.leave_requests.new(leave_request_params)
     @leave_request.status = "pending"
     @leave_request.user = current_user
@@ -26,6 +32,10 @@ class Api::V1::Hrm::LeaveRequestsController < Api::V1::Hrm::BaseController
   end
 
   def update
+    unless current_employee
+      return render json: { error: "Employee record not found" }, status: :forbidden
+    end
+
     @leave_request = current_employee.leave_requests.find(params[:id])
     if @leave_request.status == "pending"
       if @leave_request.update(leave_request_params)
@@ -64,6 +74,10 @@ class Api::V1::Hrm::LeaveRequestsController < Api::V1::Hrm::BaseController
   end
 
   def upload_medical_certificate
+    unless current_employee
+      return render json: { error: "Employee record not found" }, status: :forbidden
+    end
+
     @leave_request = current_employee.leave_requests.find(params[:id])
     if @leave_request.update(medical_certificate: params[:medical_certificate])
       render json: @leave_request.as_json(methods: [ :number_of_days, :medical_certificate_attached, :study_timetable_attached, :medical_certificate_url, :study_timetable_url, :document_urls ])
@@ -73,6 +87,10 @@ class Api::V1::Hrm::LeaveRequestsController < Api::V1::Hrm::BaseController
   end
 
   def destroy
+    unless current_employee
+      return render json: { error: "Employee record not found" }, status: :forbidden
+    end
+
     @leave_request = current_employee.leave_requests.find(params[:id])
     if @leave_request.status == "pending"
       @leave_request.destroy

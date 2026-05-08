@@ -1,5 +1,9 @@
 class Api::V1::Hrm::AttendanceRecordsController < Api::V1::Hrm::BaseController
   def index
+    unless current_employee
+      return render json: { records: [], summary: { total_days: 0, present: 0, absent: 0, late: 0, total_hours: 0 } }
+    end
+
     start_date = params[:start_date]&.to_date || Date.today.beginning_of_month
     end_date = params[:end_date]&.to_date || Date.today.end_of_month
 
@@ -20,6 +24,10 @@ class Api::V1::Hrm::AttendanceRecordsController < Api::V1::Hrm::BaseController
   end
 
   def current_status
+    unless current_employee
+      return render json: { status: "no_record" }
+    end
+
     if AttendanceRecord.has_active_session?(current_employee.id)
       session = AttendanceRecord.current_session(current_employee.id)
       render json: {
@@ -38,6 +46,10 @@ class Api::V1::Hrm::AttendanceRecordsController < Api::V1::Hrm::BaseController
   end
 
   def clock_in
+    unless current_employee
+      return render json: { error: "Employee record not found" }, status: :forbidden
+    end
+
     if AttendanceRecord.has_active_session?(current_employee.id)
       return render json: {
         error: "You already have an active session",
@@ -77,6 +89,10 @@ class Api::V1::Hrm::AttendanceRecordsController < Api::V1::Hrm::BaseController
   end
 
   def clock_out
+    unless current_employee
+      return render json: { error: "Employee record not found" }, status: :forbidden
+    end
+
     session = AttendanceRecord.current_session(current_employee.id)
 
     unless session
@@ -117,6 +133,10 @@ class Api::V1::Hrm::AttendanceRecordsController < Api::V1::Hrm::BaseController
   end
 
   def show
+    unless current_employee
+      return render json: { error: "Employee record not found" }, status: :forbidden
+    end
+
     @attendance_record = current_employee.attendance_records.find(params[:id])
     render json: @attendance_record
   rescue ActiveRecord::RecordNotFound
