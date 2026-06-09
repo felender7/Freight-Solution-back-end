@@ -1,0 +1,170 @@
+<div class="p-8 animate-fade-in space-y-8">
+  
+  <div class="glass-card rounded-2xl border border-slate-700 overflow-hidden shadow-2xl">
+    <!-- Header -->
+    <div class="relative px-8 py-10 bg-slate-800 border-b border-slate-700 overflow-hidden">
+      <div class="absolute top-0 right-0 p-8 opacity-10 text-indigo-500">
+        <svg class="w-32 h-32" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+      </div>
+
+      <div class="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
+        <div class="flex items-center gap-6">
+          <div class="w-20 h-20 rounded-2xl bg-gradient-to-br from-indigo-500 to-blue-600 flex items-center justify-center text-white text-3xl font-black shadow-lg shadow-indigo-500/20">
+            <%= @leave_request.employee.first_name[0] %>
+          </div>
+          <div>
+            <div class="flex items-center gap-3 mb-1">
+              <h1 class="text-3xl font-black text-slate-100 uppercase tracking-tight"><%= "#{@leave_request.employee.first_name} #{@leave_request.employee.last_name}" %></h1>
+              <span class="px-3 py-1 bg-indigo-500/20 text-indigo-400 text-[10px] font-black uppercase tracking-widest rounded-full border border-indigo-500/30">
+                <%= @leave_request.leave_type %> Leave
+              </span>
+            </div>
+            <div class="flex flex-wrap items-center gap-4 text-slate-400 text-sm">
+              <span class="flex items-center gap-1.5 uppercase font-bold tracking-tighter">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                <%= @leave_request.status %>
+              </span>
+              <span class="flex items-center gap-1.5">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                From <%= @leave_request.start_date&.strftime('%d %b %Y') %> to <%= @leave_request.end_date&.strftime('%d %b %Y') %>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-3">
+          <a href="<%= edit_admin_leave_request_path(@leave_request) %>" 
+             class="px-5 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-medium transition-all shadow-lg shadow-blue-600/20 flex items-center gap-2">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>
+            Edit Request
+          </a>
+          <a href="<%= admin_leave_requests_path %>" 
+             class="px-5 py-2.5 bg-slate-700 hover:bg-slate-600 text-slate-200 rounded-xl font-medium transition-all flex items-center gap-2">
+            Back to List
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 divide-y lg:divide-y-0 lg:divide-x border-slate-700">
+      <!-- Duration Quick View -->
+      <div class="p-8 bg-slate-800/30">
+        <h3 class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-6">Time Calculation</h3>
+        <div class="flex items-center justify-center p-6 mb-6 rounded-3xl bg-slate-900/50 border border-slate-700">
+          <div class="text-center">
+            <div class="text-6xl font-black text-blue-500 mb-2">
+              <%= (@leave_request.end_date - @leave_request.start_date).to_i + 1 rescue '?' %>
+            </div>
+            <p class="text-slate-400 text-sm font-bold uppercase tracking-tight">Total Calendar Days</p>
+          </div>
+        </div>
+        
+        <div class="space-y-4">
+          <div class="flex items-center justify-between p-3 rounded-xl bg-slate-900/30 border border-slate-700/50">
+            <span class="text-slate-300 text-sm font-medium">Approval Status</span>
+            <span class="px-3 py-1 text-[10px] font-bold uppercase rounded-full 
+              <%= case @leave_request.status
+                when 'approved' then 'bg-green-500/20 text-green-400'
+                when 'pending' then 'bg-yellow-500/20 text-yellow-400'
+                else 'bg-red-500/20 text-red-400'
+              end %>">
+              <%= @leave_request.status %>
+            </span>
+          </div>
+          <div class="flex items-center justify-between p-3 rounded-xl bg-slate-900/30 border border-slate-700/50">
+            <span class="text-slate-300 text-sm font-medium">Decision By</span>
+            <span class="text-slate-100 font-bold uppercase text-[10px]"><%= @leave_request.approved_by&.first_name || 'Pending' %></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Qualitative Reason -->
+      <div class="p-8 lg:col-span-2">
+        <h3 class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-6">Request Context & Reason</h3>
+        <div class="p-6 rounded-2xl bg-slate-900 border border-slate-700 min-h-[160px] relative overflow-hidden group">
+          <div class="absolute -right-4 -bottom-4 opacity-5 group-hover:opacity-10 transition-opacity text-blue-500">
+            <svg class="w-24 h-24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/></svg>
+          </div>
+          <p class="text-slate-300 leading-relaxed italic text-lg relative z-10">
+            "<%= @leave_request.reason.presence || 'No specific reason provided for this time-off request.' %>"
+          </p>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mt-8 pt-8 border-t border-slate-700/50">
+          <div>
+            <label class="block text-slate-500 text-[10px] font-black uppercase mb-1">Employee ID</label>
+            <p class="text-slate-200 font-bold text-[10px]"><%= @leave_request.employee.employee_code %></p>
+          </div>
+          <div>
+            <label class="block text-slate-500 text-[10px] font-black uppercase mb-1">Department</label>
+            <p class="text-slate-200 font-bold text-[10px]"><%= @leave_request.employee.department %></p>
+          </div>
+          <div>
+            <label class="block text-slate-500 text-[10px] font-black uppercase mb-1">Request ID</label>
+            <p class="text-slate-500 font-mono text-[10px]">#LR-<%= @leave_request.id %></p>
+          </div>
+        </div>
+
+        <% if @leave_request.medical_certificate.attached? || @leave_request.study_timetable.attached? || @leave_request.documents.attached? %>
+          <div class="mt-8 pt-8 border-t border-slate-700/50">
+            <h3 class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-6">Supporting Documents</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <% if @leave_request.medical_certificate.attached? %>
+                <div class="flex items-center justify-between p-4 rounded-xl bg-slate-900 border border-slate-700 group hover:border-blue-500/50 transition-all">
+                  <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center text-blue-500">
+                      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                    </div>
+                    <div>
+                      <p class="text-slate-200 text-sm font-bold">Medical Certificate</p>
+                      <p class="text-slate-500 text-[10px] uppercase font-bold"><%= number_to_human_size(@leave_request.medical_certificate.byte_size) %></p>
+                    </div>
+                  </div>
+                  <%= link_to rails_blob_path(@leave_request.medical_certificate, disposition: "attachment"), class: "p-2 hover:bg-slate-800 rounded-lg text-slate-400 hover:text-blue-400 transition-all" do %>
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a2 2 0 002 2h12a2 2 0 002-2v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+                  <% end %>
+                </div>
+              <% end %>
+
+              <% if @leave_request.study_timetable.attached? %>
+                <div class="flex items-center justify-between p-4 rounded-xl bg-slate-900 border border-slate-700 group hover:border-purple-500/50 transition-all">
+                  <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-lg bg-purple-500/10 flex items-center justify-center text-purple-500">
+                      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+                    </div>
+                    <div>
+                      <p class="text-slate-200 text-sm font-bold">Study Timetable</p>
+                      <p class="text-slate-500 text-[10px] uppercase font-bold"><%= number_to_human_size(@leave_request.study_timetable.byte_size) %></p>
+                    </div>
+                  </div>
+                  <%= link_to rails_blob_path(@leave_request.study_timetable, disposition: "attachment"), class: "p-2 hover:bg-slate-800 rounded-lg text-slate-400 hover:text-purple-400 transition-all" do %>
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a2 2 0 002 2h12a2 2 0 002-2v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+                  <% end %>
+                </div>
+              <% end %>
+
+              <% if @leave_request.documents.attached? %>
+                <% @leave_request.documents.each_with_index do |doc, index| %>
+                  <div class="flex items-center justify-between p-4 rounded-xl bg-slate-900 border border-slate-700 group hover:border-emerald-500/50 transition-all">
+                    <div class="flex items-center gap-3">
+                      <div class="w-10 h-10 rounded-lg bg-emerald-500/10 flex items-center justify-center text-emerald-500">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13"/></svg>
+                      </div>
+                      <div>
+                        <p class="text-slate-200 text-sm font-bold">Document #<%= index + 1 %></p>
+                        <p class="text-slate-500 text-[10px] uppercase font-bold"><%= number_to_human_size(doc.byte_size) %></p>
+                      </div>
+                    </div>
+                    <%= link_to rails_blob_path(doc, disposition: "attachment"), class: "p-2 hover:bg-slate-800 rounded-lg text-slate-400 hover:text-emerald-400 transition-all" do %>
+                      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a2 2 0 002 2h12a2 2 0 002-2v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+                    <% end %>
+                  </div>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

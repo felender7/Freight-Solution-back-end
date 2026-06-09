@@ -1,0 +1,202 @@
+<div class="animate-fade-in p-8 space-y-8">
+
+  <div class="glass-card rounded-2xl border border-slate-700 overflow-hidden w-full">
+    <!-- Header -->
+    <div class="px-8 py-8 border-b border-slate-700 flex flex-col gap-4 md:flex-row md:items-center md:justify-between bg-slate-800/30">
+      <div>
+        <div class="flex items-center gap-2 text-slate-500 text-sm mb-1">
+          <span>Dashboard</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+          </svg>
+          <span>Operations & Finance</span>
+        </div>
+        <h1 class="text-3xl font-black text-slate-100 titlecase tracking-tight">OPS-FIN Command Center</h1>
+        <p class="text-slate-400 mt-1 italic">Integrated oversight of logistics operations and financial performance</p>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <div class="px-4 py-2 bg-blue-500/10 border border-blue-500/20 rounded-xl">
+          <p class="text-[10px] text-slate-500 font-bold uppercase tracking-widest">Total Revenue</p>
+          <p class="text-xl font-black text-blue-400">R<%= number_with_precision(@total_revenue, precision: 0, delimiter: ' ') %></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="p-8">
+      <!-- Quick Stats Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+        <div class="p-6 rounded-2xl bg-slate-900 border border-slate-700 shadow-inner group hover:border-emerald-500/50 transition-all">
+          <p class="text-slate-500 text-xs font-bold uppercase mb-2">Vendors Verified</p>
+          <div class="flex items-end justify-between">
+            <h3 class="text-4xl font-black text-slate-100"><%= @vendors_count %></h3>
+            <div class="p-2 bg-emerald-500/10 rounded-lg text-emerald-500">
+               <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-slate-900 border border-slate-700 shadow-inner group hover:border-indigo-500/50 transition-all">
+          <p class="text-slate-500 text-xs font-bold uppercase mb-2">Clients Managed</p>
+          <div class="flex items-end justify-between">
+            <h3 class="text-4xl font-black text-slate-100"><%= @clients_count %></h3>
+            <div class="p-2 bg-indigo-500/10 rounded-lg text-indigo-500">
+               <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-slate-900 border border-slate-700 shadow-inner group hover:border-blue-500/50 transition-all">
+          <p class="text-slate-500 text-xs font-bold uppercase mb-2">Live Shipments</p>
+          <div class="flex items-end justify-between">
+            <h3 class="text-4xl font-black text-slate-100"><%= @shipments_count %></h3>
+            <div class="p-2 bg-blue-500/10 rounded-lg text-blue-500">
+               <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/></svg>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-slate-900 border border-slate-700 shadow-inner group hover:border-red-500/50 transition-all">
+          <p class="text-slate-500 text-xs font-bold uppercase mb-2">Overdue Invoices</p>
+          <div class="flex items-end justify-between">
+            <h3 class="text-4xl font-black text-slate-100"><%= @overdue_invoices %></h3>
+            <div class="p-2 bg-red-500/10 rounded-lg text-red-500">
+               <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Navigation Grid (Creative Cards) -->
+      <h2 class="text-slate-500 text-[10px] font-black uppercase tracking-[0.2em] mb-6 px-2">Operational Hubs</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+        
+        <!-- Vendors Card -->
+        <a href="<%= admin_vendors_path %>" class="group relative bg-slate-800/40 rounded-3xl p-8 border border-slate-700 hover:border-emerald-500/50 hover:bg-slate-800/60 transition-all duration-500 overflow-hidden shadow-2xl">
+          <div class="absolute -top-12 -right-12 w-32 h-32 bg-emerald-500/5 rounded-full group-hover:scale-150 transition-transform duration-700"></div>
+          <div class="relative z-10">
+            <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-emerald-500 to-green-600 flex items-center justify-center text-white shadow-lg mb-6 group-hover:-translate-y-1 transition-transform">
+              <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+            </div>
+            <h3 class="text-2xl font-black text-slate-100 mb-2">Vendors</h3>
+            <p class="text-slate-500 text-sm leading-relaxed mb-6">Manage onboarding, FICA/AML compliance, and VMS performance data.</p>
+            <span class="inline-flex items-center gap-2 text-emerald-400 text-xs font-bold group-hover:gap-4 transition-all">
+              ENTER VMS <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+            </span>
+          </div>
+        </a>
+
+        <!-- Clients Card -->
+        <a href="<%= admin_clients_path %>" class="group relative bg-slate-800/40 rounded-3xl p-8 border border-slate-700 hover:border-indigo-500/50 hover:bg-slate-800/60 transition-all duration-500 overflow-hidden shadow-2xl">
+          <div class="absolute -top-12 -right-12 w-32 h-32 bg-indigo-500/5 rounded-full group-hover:scale-150 transition-transform duration-700"></div>
+          <div class="relative z-10">
+            <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-white shadow-lg mb-6 group-hover:-translate-y-1 transition-transform">
+              <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+            </div>
+            <h3 class="text-2xl font-black text-slate-100 mb-2">Clients</h3>
+            <p class="text-slate-500 text-sm leading-relaxed mb-6">Oversee client portfolios, KYC status, and credit risk assignments.</p>
+            <span class="inline-flex items-center gap-2 text-indigo-400 text-xs font-bold group-hover:gap-4 transition-all">
+              CLIENT PORTAL <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+            </span>
+          </div>
+        </a>
+
+        <!-- Shipments Card -->
+        <a href="<%= admin_shipments_path %>" class="group relative bg-slate-800/40 rounded-3xl p-8 border border-slate-700 hover:border-blue-500/50 hover:bg-slate-800/60 transition-all duration-500 overflow-hidden shadow-2xl">
+          <div class="absolute -top-12 -right-12 w-32 h-32 bg-blue-500/5 rounded-full group-hover:scale-150 transition-transform duration-700"></div>
+          <div class="relative z-10">
+            <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-cyan-600 flex items-center justify-center text-white shadow-lg mb-6 group-hover:-translate-y-1 transition-transform">
+              <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/></svg>
+            </div>
+            <h3 class="text-2xl font-black text-slate-100 mb-2">Shipments</h3>
+            <p class="text-slate-500 text-sm leading-relaxed mb-6">Track live bookings, containers, and estimated arrival schedules.</p>
+            <span class="inline-flex items-center gap-2 text-blue-400 text-xs font-bold group-hover:gap-4 transition-all">
+              TRACK FREIGHT <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+            </span>
+          </div>
+        </a>
+
+        <!-- Invoices Card -->
+        <a href="<%= admin_invoices_path %>" class="group relative bg-slate-800/40 rounded-3xl p-8 border border-slate-700 hover:border-amber-500/50 hover:bg-slate-800/60 transition-all duration-500 overflow-hidden shadow-2xl">
+          <div class="absolute -top-12 -right-12 w-32 h-32 bg-amber-500/5 rounded-full group-hover:scale-150 transition-transform duration-700"></div>
+          <div class="relative z-10">
+            <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center text-white shadow-lg mb-6 group-hover:-translate-y-1 transition-transform">
+              <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2h-6a2 2 0 01-2-2v-5m-2-4h5m-5 4h3"/></svg>
+            </div>
+            <h3 class="text-2xl font-black text-slate-100 mb-2">Invoices</h3>
+            <p class="text-slate-500 text-sm leading-relaxed mb-6">Review financial records, payment status, and revenue tracking.</p>
+            <span class="inline-flex items-center gap-2 text-amber-400 text-xs font-bold group-hover:gap-4 transition-all">
+              FINANCIALS <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+            </span>
+          </div>
+        </a>
+
+      </div>
+
+      <!-- Recent Data Tables -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <!-- Recent Shipments -->
+        <div class="glass-card rounded-2xl border border-slate-700 overflow-hidden bg-slate-800/20">
+          <div class="px-6 py-4 border-b border-slate-700/50 flex justify-between items-center">
+            <h3 class="text-slate-100 font-bold text-sm tracking-widest uppercase">Global Freight Pulse</h3>
+            <span class="px-2 py-0.5 bg-blue-500/20 text-blue-400 text-[8px] font-black rounded uppercase">Live Feed</span>
+          </div>
+          <div class="p-0">
+             <table class="w-full">
+               <tbody class="divide-y divide-slate-700/30">
+                 <% if @recent_shipments.any? %>
+                   <% @recent_shipments.each do |shipment| %>
+                     <tr class="hover:bg-slate-700/20 transition-colors">
+                       <td class="px-6 py-4">
+                         <p class="text-slate-200 text-xs font-bold"><%= shipment.container_number %></p>
+                         <p class="text-slate-500 text-[10px] font-mono"><%= shipment.booking_reference %></p>
+                       </td>
+                       <td class="px-6 py-4 text-right">
+                         <span class="px-2 py-1 rounded text-[8px] font-black uppercase bg-slate-800 text-slate-400 border border-slate-700">
+                           <%= shipment.status || 'Transit' %>
+                         </span>
+                       </td>
+                     </tr>
+                   <% end %>
+                 <% else %>
+                   <tr><td class="py-12 text-center text-slate-600 text-sm italic">No active shipments in transit</td></tr>
+                 <% end %>
+               </tbody>
+             </table>
+          </div>
+        </div>
+
+        <!-- Recent Invoices -->
+        <div class="glass-card rounded-2xl border border-slate-700 overflow-hidden bg-slate-800/20">
+          <div class="px-6 py-4 border-b border-slate-700/50 flex justify-between items-center">
+            <h3 class="text-slate-100 font-bold text-sm tracking-widest uppercase">Financial Ledger</h3>
+            <span class="px-2 py-0.5 bg-emerald-500/20 text-emerald-400 text-[8px] font-black rounded uppercase">Latest Docs</span>
+          </div>
+          <div class="p-0">
+             <table class="w-full">
+               <tbody class="divide-y divide-slate-700/30">
+                 <% if @recent_invoices.any? %>
+                   <% @recent_invoices.each do |invoice| %>
+                     <tr class="hover:bg-slate-700/20 transition-colors">
+                       <td class="px-6 py-4">
+                         <p class="text-slate-200 text-xs font-bold">INV-<%= invoice.invoice_number %></p>
+                         <p class="text-slate-500 text-[10px] uppercase font-bold"><%= invoice.vendor&.name %></p>
+                       </td>
+                       <td class="px-6 py-4 text-right">
+                         <p class="text-slate-100 text-xs font-black">R<%= number_with_precision(invoice.amount, precision: 2) %></p>
+                         <span class="text-[8px] font-bold uppercase <%= invoice.status == 'paid' ? 'text-emerald-500' : 'text-amber-500' %>"><%= invoice.status %></span>
+                       </td>
+                     </tr>
+                   <% end %>
+                 <% else %>
+                   <tr><td class="py-12 text-center text-slate-600 text-sm italic">No recent financial transactions</td></tr>
+                 <% end %>
+               </tbody>
+             </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

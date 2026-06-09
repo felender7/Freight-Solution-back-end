@@ -1,0 +1,175 @@
+<div class="p-8 animate-fade-in space-y-8">
+ 
+ <div class="glass-card rounded-2xl border border-slate-700 overflow-hidden shadow-2xl">
+  <!-- Header -->
+  <div class="relative px-8 py-10 bg-slate-800 border-b border-slate-700 overflow-hidden">
+   <div class="absolute top-0 right-0 p-8 opacity-10 text-blue-500">
+    <svg class="w-32 h-32" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+   </div>
+
+   <div class="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
+    <div class="flex items-center gap-6">
+     <div class="w-20 h-20 rounded-2xl bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center text-white text-2xl font-bold shadow-lg shadow-blue-500/20">
+      <%= @location.name %>
+     </div>
+     <div>
+      <div class="flex items-center gap-3 mb-1">
+       <h1 class="text-3xl font-bold text-slate-100 tracking-tight"><%= @location.name %></h1>
+       <span class="px-3 py-1 bg-blue-500/20 text-blue-400 text-xs font-bold tracking-widest rounded-full border border-blue-500/30">
+        <%= @location.zone %>
+       </span>
+      </div>
+      <div class="flex flex-wrap items-center gap-4 text-slate-400 text-sm font-medium">
+       <span class="flex items-center gap-1.5 ">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+        <%= @location.location_type %>
+       </span>
+      </div>
+     </div>
+    </div>
+
+    <div class="flex items-center gap-3">
+     <a href="<%= edit_admin_warehouse_location_path(@location) %>" 
+       class="inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 text-white rounded-xl font-medium transition-all shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40">
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>
+      Edit Location
+     </a>
+     <a href="<%= admin_warehouse_locations_path %>" 
+       class="inline-flex items-center gap-2 px-5 py-2.5 bg-slate-700 hover:bg-slate-600 text-slate-200 rounded-xl font-medium transition-all">
+      Back to List
+     </a>
+    </div>
+   </div>
+  </div>
+
+  <div class="grid grid-cols-1 lg:grid-cols-3 divide-y lg:divide-y-0 lg:divide-x border-slate-700">
+   <!-- Utilization Quick View -->
+   <div class="p-8 bg-slate-800/30">
+    <h3 class="text-xs font-bold text-slate-500 tracking-widest mb-6">Capacity Utilization</h3>
+    <div class="flex items-center justify-center p-6 mb-6 rounded-3xl bg-slate-900/50 border border-slate-700">
+     <div class="text-center">
+      <div class="text-5xl font-black <%= @location.utilization_percentage > 90 ? 'text-red-500' : (@location.utilization_percentage > 60 ? 'text-yellow-500' : 'text-blue-500') %> mb-2">
+       <%= @location.utilization_percentage %><span class="text-lg text-slate-600 font-normal">%</span>
+      </div>
+      <p class="text-slate-400 text-sm font-bold tracking-tight">Total Usage</p>
+     </div>
+    </div>
+    
+    <div class="space-y-4">
+     <div class="flex items-center justify-between p-3 rounded-xl bg-slate-900/30 border border-slate-700/50">
+      <span class="text-slate-300 text-sm">Status</span>
+      <span class="px-3 py-1 text-[10px] font-bold rounded-full 
+       <%= @location.is_full ? 'bg-red-500/20 text-red-400' : 'bg-green-500/20 text-green-400' %>">
+       <%= @location.is_full ? 'FULL' : 'AVAILABLE' %>
+      </span>
+     </div>
+     <div class="flex items-center justify-between p-3 rounded-xl bg-slate-900/30 border border-slate-700/50">
+      <span class="text-slate-300 text-sm">Inventory Count</span>
+      <span class="text-slate-100 font-bold"><%= @location.inventory_records.sum(:quantity) %> units</span>
+     </div>
+    </div>
+   </div>
+
+   <!-- Capacity Details -->
+   <div class="p-8 lg:col-span-2">
+    <h3 class="text-xs font-bold text-slate-500 tracking-widest mb-6">Storage Metrics</h3>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
+     
+     <div>
+      <label class="block text-slate-500 text-[10px] font-black mb-2 tracking-widest">Volume Capacity (m³)</label>
+      <div class="flex items-end gap-2">
+       <p class="text-3xl font-bold text-slate-100"><%= @location.current_volume %></p>
+       <p class="text-slate-500 pb-1">/ <%= @location.capacity_volume %> m³</p>
+      </div>
+      <div class="mt-3 w-full bg-slate-800 rounded-full h-1">
+        <div class="h-full bg-blue-500 rounded-full" style="width: <%= (@location.current_volume.to_f / @location.capacity_volume.to_f * 100 rescue 0) %>%"></div>
+      </div>
+     </div>
+
+     <div>
+      <label class="block text-slate-500 text-[10px] font-black mb-2 tracking-widest">Weight Capacity (kg)</label>
+      <div class="flex items-end gap-2">
+       <p class="text-3xl font-bold text-slate-100"><%= @location.current_weight %></p>
+       <p class="text-slate-500 pb-1">/ <%= @location.capacity_weight %> kg</p>
+      </div>
+      <div class="mt-3 w-full bg-slate-800 rounded-full h-1">
+        <div class="h-full bg-indigo-500 rounded-full" style="width: <%= (@location.current_weight.to_f / @location.capacity_weight.to_f * 100 rescue 0) %>%"></div>
+      </div>
+     </div>
+
+     <div class="md:col-span-2 grid grid-cols-2 md:grid-cols-4 gap-4 pt-4 border-t border-slate-700/50">
+      <div>
+       <label class="block text-slate-500 text-[10px] font-black mb-1">Pallet Count</label>
+       <p class="text-slate-200 font-bold"><%= @location.pallets.count %></p>
+      </div>
+      <div>
+       <label class="block text-slate-500 text-[10px] font-black mb-1">Zone Group</label>
+       <p class="text-slate-200 font-bold"><%= @location.zone %></p>
+      </div>
+      <div>
+       <label class="block text-slate-500 text-[10px] font-black mb-1">Location Type</label>
+       <p class="text-slate-200 font-bold text-[10px]"><%= @location.location_type %></p>
+      </div>
+      <div>
+       <label class="block text-slate-500 text-[10px] font-black mb-1">Last Transaction</label>
+       <p class="text-slate-200 font-bold text-[10px]">Today</p>
+      </div>
+     </div>
+
+    </div>
+   </div>
+  </div>
+ </div>
+
+ <!-- Live Inventory in this Location -->
+ <div class="glass-card rounded-2xl border border-slate-700 bg-slate-800/50 overflow-hidden shadow-xl">
+  <div class="px-8 py-6 border-b border-slate-700 flex justify-between items-center">
+   <h3 class="text-lg font-bold text-slate-100 flex items-center gap-2 tracking-widest">
+    <svg class="w-5 h-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
+    Current Inventory
+   </h3>
+   <span class="px-3 py-1 bg-slate-900 border border-slate-700 rounded-lg text-xs font-bold text-slate-400">
+    <%= @location.inventory_records.count %> line items
+   </span>
+  </div>
+  
+  <div class="p-0">
+   <% if @location.inventory_records.any? %>
+    <table class="w-full">
+     <thead>
+      <tr class="text-left text-slate-500 text-[10px] font-black tracking-widest border-b border-slate-700/30">
+       <th class="py-4 px-8">Item (SKU)</th>
+       <th class="py-4 px-4 text-center">Quantity</th>
+       <th class="py-4 px-4">Client</th>
+       <th class="py-4 px-8 text-right">Batch Info</th>
+      </tr>
+     </thead>
+     <tbody>
+      <% @location.inventory_records.includes(:inventory_item, :client).each do |record| %>
+       <tr class="border-b border-slate-700/30 hover:bg-slate-700/20 transition-colors">
+        <td class="py-4 px-8">
+         <p class="text-slate-200 font-bold text-sm"><%= record.inventory_item.name %></p>
+         <p class="text-slate-500 text-[10px] font-mono"><%= record.inventory_item.sku %></p>
+        </td>
+        <td class="py-4 px-4 text-center">
+         <span class="text-slate-100 font-black"><%= record.quantity %></span>
+        </td>
+        <td class="py-4 px-4">
+          <p class="text-slate-300 text-xs font-bold"><%= record.client.name %></p>
+        </td>
+        <td class="py-4 px-8 text-right">
+         <p class="text-slate-400 text-[10px] font-bold ">B: <%= record.batch_number %></p>
+         <p class="text-slate-500 text-[8px] font-bold">E: <%= record.expiry_date || 'None' %></p>
+        </td>
+       </tr>
+      <% end %>
+     </tbody>
+    </table>
+   <% else %>
+    <div class="py-12 text-center">
+     <p class="text-slate-500 text-sm italic">No items currently stored at this location.</p>
+    </div>
+   <% end %>
+  </div>
+ </div>
+</div>

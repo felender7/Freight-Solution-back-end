@@ -1,5 +1,5 @@
 module JsonWebToken
-  SECRET_KEY = Rails.application.credentials.secret_key_base || "fallback_secret_key_for_development"
+  SECRET_KEY = ENV.fetch("SECRET_KEY_BASE") { "dev_fallback_key_123456789012345678901234567890123456789012345678901234" }
 
   def self.encode(payload, exp = 24.hours.from_now)
     payload[:exp] = exp.to_i

@@ -1,4 +1,4 @@
-class Admin::LeaveRequestsController < ApplicationController
+class Admin::LeaveRequestsController < Admin::BaseController
   before_action :set_leave_request, only: [ :show, :edit, :update, :destroy ]
 
   def index
@@ -21,7 +21,7 @@ class Admin::LeaveRequestsController < ApplicationController
     else
       @employees = Employee.all
       @users = User.all
-      render :new
+      render :new, status: :unprocessable_content
     end
   end
 
@@ -36,7 +36,7 @@ class Admin::LeaveRequestsController < ApplicationController
     else
       @employees = Employee.all
       @users = User.all
-      render :edit
+      render :edit, status: :unprocessable_content
     end
   end
 
@@ -52,6 +52,6 @@ class Admin::LeaveRequestsController < ApplicationController
   end
 
   def leave_request_params
-    params.require(:leave_request).permit(:employee_id, :approved_by_id, :leave_type, :start_date, :end_date, :reason, :status)
+    params.require(:leave_request).permit(:employee_id, :approved_by_id, :leave_type, :start_date, :end_date, :reason, :status, :medical_certificate, :study_timetable, documents: [])
   end
 end

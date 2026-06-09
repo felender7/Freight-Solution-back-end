@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_04_15_101210) do
+ActiveRecord::Schema[8.1].define(version: 2026_04_30_071257) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -67,6 +67,35 @@ ActiveRecord::Schema[8.1].define(version: 2026_04_15_101210) do
     t.index ["user_id"], name: "index_attendance_records_on_user_id"
   end
 
+  create_table "clients", force: :cascade do |t|
+    t.text "address"
+    t.boolean "aml_checked", default: false
+    t.boolean "bank_verified", default: false
+    t.string "category"
+    t.datetime "created_at", null: false
+    t.decimal "credit_limit", precision: 15, scale: 2, default: "0.0"
+    t.integer "credit_score", default: 0
+    t.string "email", null: false
+    t.boolean "fica_compliant", default: false
+    t.decimal "fx_exposure", precision: 15, scale: 2, default: "0.0"
+    t.string "kyc_status", default: "pending"
+    t.string "name", null: false
+    t.string "payment_terms"
+    t.string "phone"
+    t.string "registration_number"
+    t.string "risk_category"
+    t.boolean "sanctions_screened", default: false
+    t.string "status", default: "active"
+    t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.string "vat_number"
+    t.index ["category"], name: "index_clients_on_category"
+    t.index ["email"], name: "index_clients_on_email", unique: true
+    t.index ["kyc_status"], name: "index_clients_on_kyc_status"
+    t.index ["status"], name: "index_clients_on_status"
+    t.index ["user_id"], name: "index_clients_on_user_id"
+  end
+
   create_table "employees", force: :cascade do |t|
     t.string "address"
     t.string "city"
@@ -101,8 +130,46 @@ ActiveRecord::Schema[8.1].define(version: 2026_04_15_101210) do
     t.integer "progress", default: 0
     t.bigint "training_course_id", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
     t.index ["employee_id"], name: "index_enrollments_on_employee_id"
     t.index ["training_course_id"], name: "index_enrollments_on_training_course_id"
+    t.index ["user_id"], name: "index_enrollments_on_user_id"
+  end
+
+  create_table "inventory_items", force: :cascade do |t|
+    t.string "barcode"
+    t.string "category"
+    t.datetime "created_at", null: false
+    t.text "description"
+    t.string "name", null: false
+    t.integer "reorder_level", default: 0
+    t.string "sku", null: false
+    t.decimal "unit_volume", precision: 15, scale: 2, default: "0.0"
+    t.decimal "unit_weight", precision: 15, scale: 2, default: "0.0"
+    t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["barcode"], name: "index_inventory_items_on_barcode", unique: true
+    t.index ["category"], name: "index_inventory_items_on_category"
+    t.index ["sku"], name: "index_inventory_items_on_sku", unique: true
+    t.index ["user_id"], name: "index_inventory_items_on_user_id"
+  end
+
+  create_table "inventory_records", force: :cascade do |t|
+    t.string "batch_number"
+    t.bigint "client_id", null: false
+    t.datetime "created_at", null: false
+    t.date "expiry_date"
+    t.bigint "inventory_item_id", null: false
+    t.bigint "pallet_id"
+    t.integer "quantity"
+    t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.bigint "warehouse_location_id", null: false
+    t.index ["client_id"], name: "index_inventory_records_on_client_id"
+    t.index ["inventory_item_id"], name: "index_inventory_records_on_inventory_item_id"
+    t.index ["pallet_id"], name: "index_inventory_records_on_pallet_id"
+    t.index ["user_id"], name: "index_inventory_records_on_user_id"
+    t.index ["warehouse_location_id"], name: "index_inventory_records_on_warehouse_location_id"
   end
 
   create_table "invoices", force: :cascade do |t|
@@ -113,7 +180,9 @@ ActiveRecord::Schema[8.1].define(version: 2026_04_15_101210) do
     t.date "paid_date"
     t.string "status"
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
     t.integer "vendor_id"
+    t.index ["user_id"], name: "index_invoices_on_user_id"
   end
 
   create_table "leave_requests", force: :cascade do |t|
@@ -126,14 +195,56 @@ ActiveRecord::Schema[8.1].define(version: 2026_04_15_101210) do
     t.date "start_date"
     t.string "status", default: "pending"
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
     t.index ["approved_by_id"], name: "index_leave_requests_on_approved_by_id"
     t.index ["employee_id"], name: "index_leave_requests_on_employee_id"
+    t.index ["user_id"], name: "index_leave_requests_on_user_id"
+  end
+
+  create_table "ledger_entries", force: :cascade do |t|
+    t.string "account_type"
+    t.decimal "amount", precision: 15, scale: 2, default: "0.0"
+    t.datetime "created_at", null: false
+    t.string "description"
+    t.string "entry_type"
+    t.string "reference_number"
+    t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_ledger_entries_on_user_id"
+  end
+
+  create_table "legal_holds", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.text "description"
+    t.integer "entity_id"
+    t.string "entity_type"
+    t.string "status", default: "active"
+    t.string "title"
+    t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_legal_holds_on_user_id"
+  end
+
+  create_table "pallets", force: :cascade do |t|
+    t.bigint "client_id", null: false
+    t.datetime "created_at", null: false
+    t.string "pallet_number", null: false
+    t.string "status", default: "active"
+    t.datetime "updated_at", null: false
+    t.decimal "volume", precision: 15, scale: 2, default: "0.0"
+    t.bigint "warehouse_location_id"
+    t.decimal "weight", precision: 15, scale: 2, default: "0.0"
+    t.index ["client_id"], name: "index_pallets_on_client_id"
+    t.index ["pallet_number"], name: "index_pallets_on_pallet_number", unique: true
+    t.index ["status"], name: "index_pallets_on_status"
+    t.index ["warehouse_location_id"], name: "index_pallets_on_warehouse_location_id"
   end
 
   create_table "performance_reviews", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.bigint "employee_id", null: false
     t.text "feedback"
+    t.jsonb "kpi_results", default: {}
     t.integer "rating"
     t.string "review_cycle"
     t.date "review_date"
@@ -141,7 +252,19 @@ ActiveRecord::Schema[8.1].define(version: 2026_04_15_101210) do
     t.string "status", default: "pending"
     t.datetime "updated_at", null: false
     t.index ["employee_id"], name: "index_performance_reviews_on_employee_id"
+    t.index ["kpi_results"], name: "index_performance_reviews_on_kpi_results", using: :gin
     t.index ["reviewer_id"], name: "index_performance_reviews_on_reviewer_id"
+  end
+
+  create_table "retention_policies", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.text "description"
+    t.integer "duration_months"
+    t.boolean "is_active", default: true
+    t.string "title"
+    t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_retention_policies_on_user_id"
   end
 
   create_table "shipments", force: :cascade do |t|
@@ -154,6 +277,25 @@ ActiveRecord::Schema[8.1].define(version: 2026_04_15_101210) do
     t.date "ship_date"
     t.string "status"
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_shipments_on_user_id"
+  end
+
+  create_table "storage_billings", force: :cascade do |t|
+    t.decimal "amount", precision: 15, scale: 2, default: "0.0"
+    t.date "billing_date", null: false
+    t.bigint "client_id", null: false
+    t.datetime "created_at", null: false
+    t.decimal "daily_rate", precision: 15, scale: 2, default: "0.0"
+    t.string "status", default: "pending"
+    t.integer "total_pallets", default: 0
+    t.decimal "total_volume", precision: 15, scale: 2, default: "0.0"
+    t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["billing_date"], name: "index_storage_billings_on_billing_date"
+    t.index ["client_id"], name: "index_storage_billings_on_client_id"
+    t.index ["status"], name: "index_storage_billings_on_status"
+    t.index ["user_id"], name: "index_storage_billings_on_user_id"
   end
 
   create_table "tasks", force: :cascade do |t|
@@ -166,8 +308,10 @@ ActiveRecord::Schema[8.1].define(version: 2026_04_15_101210) do
     t.string "status", default: "todo"
     t.string "title"
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
     t.index ["assigned_by_id"], name: "index_tasks_on_assigned_by_id"
     t.index ["employee_id"], name: "index_tasks_on_employee_id"
+    t.index ["user_id"], name: "index_tasks_on_user_id"
   end
 
   create_table "timesheets", force: :cascade do |t|
@@ -180,9 +324,11 @@ ActiveRecord::Schema[8.1].define(version: 2026_04_15_101210) do
     t.string "status", default: "pending"
     t.bigint "task_id"
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
     t.index ["approved_by_id"], name: "index_timesheets_on_approved_by_id"
     t.index ["employee_id"], name: "index_timesheets_on_employee_id"
     t.index ["task_id"], name: "index_timesheets_on_task_id"
+    t.index ["user_id"], name: "index_timesheets_on_user_id"
   end
 
   create_table "training_courses", force: :cascade do |t|
@@ -194,6 +340,8 @@ ActiveRecord::Schema[8.1].define(version: 2026_04_15_101210) do
     t.boolean "is_active", default: true
     t.string "title"
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_training_courses_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -209,13 +357,66 @@ ActiveRecord::Schema[8.1].define(version: 2026_04_15_101210) do
 
   create_table "vendors", force: :cascade do |t|
     t.text "address"
+    t.boolean "aml_checked", default: false
     t.string "bank_reference"
+    t.boolean "bank_verified", default: false
+    t.boolean "beneficial_ownership_declared", default: false
+    t.string "category"
+    t.date "contract_end_date"
+    t.date "contract_start_date"
     t.datetime "created_at", null: false
     t.string "email"
+    t.boolean "fica_compliant", default: false
+    t.string "kyc_status", default: "pending"
     t.string "name"
+    t.text "penalty_clauses"
     t.string "phone"
+    t.text "rate_card_details"
+    t.string "registration_number"
+    t.integer "risk_score", default: 0
+    t.boolean "sanctions_screened", default: false
+    t.text "sla_details"
     t.string "status"
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.string "vat_number"
+    t.index ["category"], name: "index_vendors_on_category"
+    t.index ["kyc_status"], name: "index_vendors_on_kyc_status"
+    t.index ["user_id"], name: "index_vendors_on_user_id"
+  end
+
+  create_table "warehouse_locations", force: :cascade do |t|
+    t.decimal "capacity_volume", precision: 15, scale: 2, default: "0.0"
+    t.decimal "capacity_weight", precision: 15, scale: 2, default: "0.0"
+    t.datetime "created_at", null: false
+    t.decimal "current_volume", precision: 15, scale: 2, default: "0.0"
+    t.decimal "current_weight", precision: 15, scale: 2, default: "0.0"
+    t.boolean "is_full", default: false
+    t.string "location_type"
+    t.string "name", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.string "zone"
+    t.index ["location_type"], name: "index_warehouse_locations_on_location_type"
+    t.index ["name"], name: "index_warehouse_locations_on_name", unique: true
+    t.index ["user_id"], name: "index_warehouse_locations_on_user_id"
+    t.index ["zone"], name: "index_warehouse_locations_on_zone"
+  end
+
+  create_table "warehouse_transactions", force: :cascade do |t|
+    t.bigint "client_id", null: false
+    t.datetime "created_at", null: false
+    t.integer "from_location_id"
+    t.bigint "inventory_item_id", null: false
+    t.integer "quantity"
+    t.string "reference_number"
+    t.integer "to_location_id"
+    t.string "transaction_type"
+    t.datetime "updated_at", null: false
+    t.bigint "user_id", null: false
+    t.index ["client_id"], name: "index_warehouse_transactions_on_client_id"
+    t.index ["inventory_item_id"], name: "index_warehouse_transactions_on_inventory_item_id"
+    t.index ["user_id"], name: "index_warehouse_transactions_on_user_id"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
@@ -223,17 +424,43 @@ ActiveRecord::Schema[8.1].define(version: 2026_04_15_101210) do
   add_foreign_key "activity_logs", "users", column: "actor_id"
   add_foreign_key "attendance_records", "employees"
   add_foreign_key "attendance_records", "users"
+  add_foreign_key "clients", "users"
   add_foreign_key "employees", "employees", column: "manager_id"
   add_foreign_key "employees", "users"
   add_foreign_key "enrollments", "employees"
   add_foreign_key "enrollments", "training_courses"
+  add_foreign_key "enrollments", "users"
+  add_foreign_key "inventory_items", "users"
+  add_foreign_key "inventory_records", "clients"
+  add_foreign_key "inventory_records", "inventory_items"
+  add_foreign_key "inventory_records", "pallets"
+  add_foreign_key "inventory_records", "users"
+  add_foreign_key "inventory_records", "warehouse_locations"
+  add_foreign_key "invoices", "users"
   add_foreign_key "leave_requests", "employees"
+  add_foreign_key "leave_requests", "users"
   add_foreign_key "leave_requests", "users", column: "approved_by_id"
+  add_foreign_key "ledger_entries", "users"
+  add_foreign_key "legal_holds", "users"
+  add_foreign_key "pallets", "clients"
+  add_foreign_key "pallets", "warehouse_locations"
   add_foreign_key "performance_reviews", "employees"
   add_foreign_key "performance_reviews", "users", column: "reviewer_id"
+  add_foreign_key "retention_policies", "users"
+  add_foreign_key "shipments", "users"
+  add_foreign_key "storage_billings", "clients"
+  add_foreign_key "storage_billings", "users"
   add_foreign_key "tasks", "employees"
+  add_foreign_key "tasks", "users"
   add_foreign_key "tasks", "users", column: "assigned_by_id"
   add_foreign_key "timesheets", "employees"
   add_foreign_key "timesheets", "tasks"
+  add_foreign_key "timesheets", "users"
   add_foreign_key "timesheets", "users", column: "approved_by_id"
+  add_foreign_key "training_courses", "users"
+  add_foreign_key "vendors", "users"
+  add_foreign_key "warehouse_locations", "users"
+  add_foreign_key "warehouse_transactions", "clients"
+  add_foreign_key "warehouse_transactions", "inventory_items"
+  add_foreign_key "warehouse_transactions", "users"
 end

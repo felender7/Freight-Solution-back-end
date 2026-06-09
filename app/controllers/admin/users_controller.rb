@@ -5,6 +5,7 @@ class Admin::UsersController < Admin::BaseController
 
   def show
     @user = User.find(params[:id])
+    @activity_logs = @user.activity_logs.order(created_at: :desc).limit(50)
   end
 
   def new
@@ -16,7 +17,7 @@ class Admin::UsersController < Admin::BaseController
     if @user.save
       redirect_to admin_users_path, notice: "User was successfully created."
     else
-      render :new
+      render :new, status: :unprocessable_content
     end
   end
 
@@ -29,7 +30,7 @@ class Admin::UsersController < Admin::BaseController
     if @user.update(user_params)
       redirect_to admin_users_path, notice: "User was successfully updated."
     else
-      render :edit
+      render :edit, status: :unprocessable_content
     end
   end
 

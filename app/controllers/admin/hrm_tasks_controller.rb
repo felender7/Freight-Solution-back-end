@@ -1,4 +1,4 @@
-class Admin::HrmTasksController < ApplicationController
+class Admin::HrmTasksController < Admin::BaseController
   before_action :set_task, only: [ :show, :edit, :update, :destroy ]
 
   def index
@@ -16,12 +16,14 @@ class Admin::HrmTasksController < ApplicationController
 
   def create
     @task = Task.new(task_params)
+    @task.user = current_user
+    @task.assigned_by = current_user
     if @task.save
       redirect_to admin_hrm_tasks_path, notice: "Task was successfully created."
     else
       @employees = Employee.all
       @users = User.all
-      render :new
+      render :new, status: :unprocessable_content
     end
   end
 
@@ -36,7 +38,7 @@ class Admin::HrmTasksController < ApplicationController
     else
       @employees = Employee.all
       @users = User.all
-      render :edit
+      render :edit, status: :unprocessable_content
     end
   end
 

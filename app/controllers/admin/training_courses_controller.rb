@@ -1,4 +1,4 @@
-class Admin::TrainingCoursesController < ApplicationController
+class Admin::TrainingCoursesController < Admin::BaseController
   before_action :set_training_course, only: [ :show, :edit, :update, :destroy ]
 
   def index
@@ -17,7 +17,7 @@ class Admin::TrainingCoursesController < ApplicationController
     if @training_course.save
       redirect_to admin_training_courses_path, notice: "Training course was successfully created."
     else
-      render :new
+      render :new, status: :unprocessable_content
     end
   end
 
@@ -28,7 +28,7 @@ class Admin::TrainingCoursesController < ApplicationController
     if @training_course.update(training_course_params)
       redirect_to admin_training_courses_path, notice: "Training course was successfully updated."
     else
-      render :edit
+      render :edit, status: :unprocessable_content
     end
   end
 

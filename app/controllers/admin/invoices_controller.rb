@@ -14,11 +14,12 @@ class Admin::InvoicesController < Admin::BaseController
 
   def create
     @invoice = Invoice.new(invoice_params)
+    @invoice.user = current_user
     if @invoice.save
       redirect_to admin_invoices_path, notice: "Invoice was successfully created."
     else
       @vendors = Vendor.all
-      render :new
+      render :new, status: :unprocessable_content
     end
   end
 
@@ -33,7 +34,7 @@ class Admin::InvoicesController < Admin::BaseController
       redirect_to admin_invoices_path, notice: "Invoice was successfully updated."
     else
       @vendors = Vendor.all
-      render :edit
+      render :edit, status: :unprocessable_content
     end
   end
 

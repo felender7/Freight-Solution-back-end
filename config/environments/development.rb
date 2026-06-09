@@ -3,6 +3,9 @@ require "active_support/core_ext/integer/time"
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
+  # Secret key base - must be set via SECRET_KEY_BASE environment variable
+  config.secret_key_base = ENV.fetch("SECRET_KEY_BASE") { "development_secret_key_12345678901234567890123456789012345678901234567890" }
+
   # Make code changes take effect immediately without server restart.
   config.enable_reloading = true
 
@@ -26,8 +29,12 @@ Rails.application.configure do
   # Change to :null_store to avoid any caching.
   config.cache_store = :memory_store
 
-  # Store uploaded files on Cloudinary
-  config.active_storage.service = :cloudinary
+  # Store uploaded files on local disk
+  config.active_storage.service = :local
+
+  config.action_mailer.default_url_options = { host: "localhost", port: 3000 }
+  Rails.application.routes.default_url_options = { host: "localhost", port: 3000 }
+  config.active_storage.default_url_options = { host: "localhost", port: 3000 }
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log

@@ -1,0 +1,114 @@
+<%= form_with model: [:admin, performance_review], local: true, class: "space-y-8" do |form| %>
+
+  <% if performance_review.errors.any? %>
+    <div class="p-4 bg-red-500/10 border border-red-500/30 text-red-400 rounded-lg">
+      <ul class="list-disc list-inside text-sm">
+        <% performance_review.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <!-- Section 1: Review Metadata -->
+  <div class="bg-slate-900/50 p-6 rounded-xl border border-slate-700">
+    <h3 class="text-lg font-semibold text-slate-100 mb-6 flex items-center gap-2">
+      <svg class="w-5 h-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+      </svg>
+      Review Details
+    </h3>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div>
+        <label class="block text-slate-300 text-sm font-medium mb-2.5">Employee</label>
+        <%= form.collection_select :employee_id, Employee.all, :id, ->(e) { "#{e.first_name} #{e.last_name}" }, { prompt: 'Select Employee' }, 
+            class: "w-full px-4 py-3 bg-slate-900 border border-slate-600 rounded-xl text-slate-100 focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all outline-none" %>
+      </div>
+
+      <div>
+        <label class="block text-slate-300 text-sm font-medium mb-2.5">Reviewer</label>
+        <%= form.collection_select :reviewer_id, User.all, :id, ->(u) { "#{u.first_name} #{u.last_name}" }, { prompt: 'Select Reviewer' }, 
+            class: "w-full px-4 py-3 bg-slate-900 border border-slate-600 rounded-xl text-slate-100 focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all outline-none" %>
+      </div>
+
+      <div>
+        <label class="block text-slate-300 text-sm font-medium mb-2.5">Overall Rating (1-5)</label>
+        <%= form.number_field :rating, min: 1, max: 5, 
+            class: "w-full px-4 py-3 bg-slate-900 border border-slate-600 rounded-xl text-slate-100 focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all outline-none" %>
+      </div>
+
+      <div>
+        <label class="block text-slate-300 text-sm font-medium mb-2.5">Review Cycle</label>
+        <%= form.text_field :review_cycle, placeholder: 'e.g., Q1 2024', 
+            class: "w-full px-4 py-3 bg-slate-900 border border-slate-600 rounded-xl text-slate-100 focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all outline-none" %>
+      </div>
+
+      <div>
+        <label class="block text-slate-300 text-sm font-medium mb-2.5">Review Date</label>
+        <%= form.date_field :review_date, 
+            class: "w-full px-4 py-3 bg-slate-900 border border-slate-600 rounded-xl text-slate-100 focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all outline-none" %>
+      </div>
+
+      <div>
+        <label class="block text-slate-300 text-sm font-medium mb-2.5">Status</label>
+        <%= form.select :status, ['pending', 'in_progress', 'completed'], {}, 
+            class: "w-full px-4 py-3 bg-slate-900 border border-slate-600 rounded-xl text-slate-100 focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all outline-none" %>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 2: Industry-Standard KPI Results -->
+  <div class="bg-slate-900/50 p-6 rounded-xl border border-slate-700">
+    <h3 class="text-lg font-semibold text-slate-100 mb-6 flex items-center gap-2">
+      <svg class="w-5 h-5 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+      </svg>
+      Departmental KPI Performance
+    </h3>
+
+    <div class="space-y-8">
+      <% PerformanceReview::KPI_TEMPLATES.each do |dept, kpis| %>
+        <div class="p-4 rounded-xl border border-slate-700 bg-slate-800/30">
+          <h4 class="text-xs font-black text-slate-500   tracking-widest mb-4 border-b border-slate-700 pb-2"><%= dept %> Metrics</h4>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <% kpis.each do |kpi| %>
+              <div>
+                <label class="block text-slate-400 text-[10px] font-bold   mb-2"><%= kpi[:label] %></label>
+                <div class="relative">
+                  <%= number_field_tag "performance_review[kpi_results][#{kpi[:key]}]", performance_review.kpi_results[kpi[:key]], step: :any,
+                      class: "w-full px-4 py-3 bg-slate-900 border border-slate-600 rounded-xl text-slate-100 focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 transition-all outline-none",
+                      placeholder: "Value in #{kpi[:unit]}" %>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <!-- Section 3: Feedback -->
+  <div class="bg-slate-900/50 p-6 rounded-xl border border-slate-700">
+    <h3 class="text-lg font-semibold text-slate-100 mb-6 flex items-center gap-2">
+      <svg class="w-5 h-5 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"/>
+      </svg>
+      Qualitative Feedback
+    </h3>
+    <%= form.text_area :feedback, rows: 4, 
+        class: "w-full px-4 py-3 bg-slate-900 border border-slate-600 rounded-xl text-slate-100 focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all outline-none",
+        placeholder: "Provide detailed feedback on performance and areas for improvement..." %>
+  </div>
+
+  <!-- Actions -->
+  <div class="pt-6 border-t border-slate-700 flex gap-4">
+    <%= form.submit (performance_review.new_record? ? "Create Review" : "Update Review"), 
+        class: "flex-1 py-3 bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 text-white rounded-xl font-medium transition-all shadow-lg shadow-blue-500/25 cursor-pointer" %>
+    <a href="<%= admin_performance_reviews_path %>" 
+       class="px-8 py-3 bg-slate-700 hover:bg-slate-600 text-slate-200 rounded-xl font-medium transition-all">
+      Cancel
+    </a>
+  </div>
+
+<% end %>

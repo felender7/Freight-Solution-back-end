@@ -24,37 +24,50 @@ class Api::V1::LogisticsController < ApplicationController
   private
 
   def index_bookings
-    render json: [
-      { id: 1, booking_number: "BK-2026-001", vendor_name: "Fast Logistics", origin: "Johannesburg", destination: "Cape Town", container_type: "40ft", status: "pending", created_at: "2026-04-10" },
-      { id: 2, booking_number: "BK-2026-002", vendor_name: "Cargo Masters", origin: "Durban", destination: "Pretoria", container_type: "20ft", status: "confirmed", created_at: "2026-04-11", quote_amount: 15000 },
-      { id: 3, booking_number: "BK-2026-003", vendor_name: "Express Freight", origin: "Port Elizabeth", destination: "Johannesburg", container_type: "40ft", status: "in_transit", created_at: "2026-04-12", quote_amount: 22000 },
-      { id: 4, booking_number: "BK-2026-004", vendor_name: "Global Shipping", origin: "Cape Town", destination: "Durban", container_type: "20ft", status: "delivered", created_at: "2026-04-08", quote_amount: 18500 }
-    ]
+    @shipments = Shipment.all.order(created_at: :desc)
+    render json: @shipments
   end
 
   def create_booking
-    booking = {
-      id: Time.now.to_i,
-      booking_number: "BK-2026-#{rand(100..999)}",
-      vendor_name: Vendor.find_by(id: params[:vendor_id])&.name || "Unknown",
-      origin: params[:origin],
-      destination: params[:destination],
-      container_type: params[:container_type] || "20ft",
-      status: "pending",
-      created_at: Date.today.to_s
-    }
-    render json: booking, status: :created
+    @shipment = Shipment.new(shipment_params)
+    @shipment.user = current_user
+    @shipment.booking_reference ||= "BK-#{Time.now.to_i}"
+    @shipment.status ||= "pending"
+
+    if @shipment.save
+      render json: @shipment, status: :created
+    else
+      render json: { errors: @shipment.errors.full_messages }, status: :unprocessable_entity
+    end
   end
 
   def show_booking
-    render json: { id: 1, booking_number: "BK-2026-001", vendor_name: "Fast Logistics", origin: "Johannesburg", destination: "Cape Town", container_type: "40ft", status: "pending", created_at: "2026-04-10", quote_amount: 12000 }
+    @shipment = Shipment.find(params[:id])
+    render json: @shipment
+  rescue ActiveRecord::RecordNotFound
+    render json: { error: "Booking not found" }, status: :not_found
   end
 
   def update_booking
-    render json: { message: "Booking updated" }
+    @shipment = Shipment.find(params[:id])
+    if @shipment.update(shipment_params)
+      render json: @shipment
+    else
+      render json: { errors: @shipment.errors.full_messages }, status: :unprocessable_entity
+    end
+  rescue ActiveRecord::RecordNotFound
+    render json: { error: "Booking not found" }, status: :not_found
   end
 
   def destroy_booking
-    render json: { message: "Booking deleted" }
+    @shipment = Shipment.find(params[:id])
+    @shipment.destroy
+    head :no_content
+  rescue ActiveRecord::RecordNotFound
+    render json: { error: "Booking not found" }, status: :not_found
+  end
+
+  def shipment_params
+    params.permit(:booking_reference, :origin, :destination, :status, :container_number, :ship_date, :estimated_arrival)
   end
 end

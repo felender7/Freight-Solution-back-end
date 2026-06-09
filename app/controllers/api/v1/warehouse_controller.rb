@@ -31,68 +31,75 @@ class Api::V1::WarehouseController < ApplicationController
   end
 
   def locations
-    render json: [
-      { id: 1, name: "Zone A", capacity: 1000, used: 650 },
-      { id: 2, name: "Zone B", capacity: 800, used: 420 },
-      { id: 3, name: "Zone C", capacity: 1200, used: 890 },
-      { id: 4, name: "Zone D", capacity: 500, used: 180 }
-    ]
+    @locations = WarehouseLocation.all
+    render json: @locations
   end
 
   private
 
   def index_inventory
-    render json: [
-      { id: 1, name: "Steel Pipes", sku: "SP-001", quantity: 150, location: "Zone A", category: "Raw Materials", last_updated: "2026-04-10" },
-      { id: 2, name: "Copper Wire", sku: "CW-002", quantity: 45, location: "Zone B", category: "Raw Materials", last_updated: "2026-04-12" },
-      { id: 3, name: "Industrial Motors", sku: "IM-003", quantity: 8, location: "Zone A", category: "Equipment", last_updated: "2026-04-08" },
-      { id: 4, name: "Hydraulic Pumps", sku: "HP-004", quantity: 25, location: "Zone C", category: "Equipment", last_updated: "2026-04-11" }
-    ]
+    @inventory = InventoryRecord.includes(:inventory_item, :warehouse_location, :client).all
+    render json: @inventory, include: [:inventory_item, :warehouse_location, :client]
   end
 
   def create_inventory
-    item = {
-      id: Time.now.to_i,
-      name: params[:name],
-      sku: params[:sku],
-      quantity: params[:quantity] || 0,
-      location: params[:location] || "Zone A",
-      category: params[:category] || "General",
-      last_updated: Date.today.to_s
-    }
-    render json: item, status: :created
+    @record = InventoryRecord.new(inventory_params)
+    @record.user = current_user
+    if @record.save
+      render json: @record, status: :created
+    else
+      render json: { errors: @record.errors.full_messages }, status: :unprocessable_entity
+    end
   end
 
   def show_item
-    render json: { id: 1, name: "Steel Pipes", sku: "SP-001", quantity: 150, location: "Zone A", category: "Raw Materials", last_updated: "2026-04-10" }
+    @record = InventoryRecord.find(params[:id])
+    render json: @record, include: [:inventory_item, :warehouse_location, :client]
+  rescue ActiveRecord::RecordNotFound
+    render json: { error: "Record not found" }, status: :not_found
   end
 
   def update_item
-    render json: { message: "Item updated" }
+    @record = InventoryRecord.find(params[:id])
+    if @record.update(inventory_params)
+      render json: @record
+    else
+      render json: { errors: @record.errors.full_messages }, status: :unprocessable_entity
+    end
+  rescue ActiveRecord::RecordNotFound
+    render json: { error: "Record not found" }, status: :not_found
   end
 
   def destroy_item
-    render json: { message: "Item deleted" }
+    @record = InventoryRecord.find(params[:id])
+    @record.destroy
+    head :no_content
+  rescue ActiveRecord::RecordNotFound
+    render json: { error: "Record not found" }, status: :not_found
   end
 
   def index_transfers
-    render json: [
-      { id: 101, item_name: "Steel Pipes", from_location: "Zone A", to_location: "Zone B", quantity: 50, status: "completed", date: "2026-04-10" },
-      { id: 102, item_name: "Copper Wire", from_location: "Zone B", to_location: "Zone A", quantity: 20, status: "in_transit", date: "2026-04-13" },
-      { id: 103, item_name: "Industrial Motors", from_location: "Zone A", to_location: "Zone C", quantity: 5, status: "pending", date: "2026-04-14" }
-    ]
+    @transactions = WarehouseTransaction.includes(:inventory_item, :from_location, :to_location, :client).order(created_at: :desc)
+    render json: @transactions, include: [:inventory_item, :from_location, :to_location, :client]
   end
 
   def create_transfer
-    transfer = {
-      id: Time.now.to_i,
-      item_name: params[:item_name],
-      from_location: params[:from_location],
-      to_location: params[:to_location],
-      quantity: params[:quantity] || 0,
-      status: "pending",
-      date: Date.today.to_s
-    }
-    render json: transfer, status: :created
+    @transaction = WarehouseTransaction.new(transfer_params)
+    @transaction.user = current_user
+    @transaction.transaction_type ||= 'transfer'
+
+    if @transaction.save
+      render json: @transaction, status: :created
+    else
+      render json: { errors: @transaction.errors.full_messages }, status: :unprocessable_entity
+    end
+  end
+
+  def inventory_params
+    params.permit(:inventory_item_id, :warehouse_location_id, :client_id, :quantity, :batch_number, :expiry_date)
+  end
+
+  def transfer_params
+    params.permit(:inventory_item_id, :from_location_id, :to_location_id, :client_id, :quantity, :transaction_type, :reference_number)
   end
 end

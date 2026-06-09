@@ -1,4 +1,4 @@
-class Admin::PerformanceReviewsController < ApplicationController
+class Admin::PerformanceReviewsController < Admin::BaseController
   before_action :set_performance_review, only: [ :show, :edit, :update, :destroy ]
 
   def index
@@ -19,7 +19,7 @@ class Admin::PerformanceReviewsController < ApplicationController
       redirect_to admin_performance_reviews_path, notice: "Performance review was successfully created."
     else
       @employees = Employee.all
-      render :new
+      render :new, status: :unprocessable_content
     end
   end
 
@@ -34,7 +34,7 @@ class Admin::PerformanceReviewsController < ApplicationController
     else
       @employees = Employee.all
       @users = User.all
-      render :edit
+      render :edit, status: :unprocessable_content
     end
   end
 
@@ -50,6 +50,6 @@ class Admin::PerformanceReviewsController < ApplicationController
   end
 
   def performance_review_params
-    params.require(:performance_review).permit(:employee_id, :reviewer_id, :rating, :feedback, :review_cycle, :review_date, :status)
+    params.require(:performance_review).permit(:employee_id, :reviewer_id, :rating, :feedback, :review_cycle, :review_date, :status, kpi_results: {})
   end
 end

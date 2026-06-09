@@ -1,0 +1,891 @@
+---
+openapi: 3.0.3
+info:
+  title: Freight Solution API
+  version: v1
+  description: API for Tswalanang Freight Solution - Logistics and HR Management
+paths:
+  "/api/v1/auth/login":
+    post:
+      summary: Login
+      tags:
+      - Authentication
+      parameters: []
+      responses:
+        '200':
+          description: Login successful
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  token:
+                    type: string
+                  user:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                      email:
+                        type: string
+                      first_name:
+                        type: string
+                      last_name:
+                        type: string
+                      role:
+                        type: string
+        '401':
+          description: Invalid credentials
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                password:
+                  type: string
+              required:
+              - email
+              - password
+  "/api/v1/auth/logout":
+    post:
+      summary: Logout
+      tags:
+      - Authentication
+      responses:
+        '200':
+          description: Logout successful
+  "/api/v1/auth/me":
+    get:
+      summary: Current User
+      tags:
+      - Authentication
+      security:
+      - BearerAuth: []
+      responses:
+        '200':
+          description: Returns current user
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  email:
+                    type: string
+                  first_name:
+                    type: string
+                  last_name:
+                    type: string
+                  role:
+                    type: string
+  "/api/v1/dashboard/stats":
+    get:
+      summary: Get Dashboard Statistics
+      tags:
+      - Dashboard
+      security:
+      - BearerAuth: []
+      responses:
+        '200':
+          description: Returns dashboard statistics
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  total_shipments:
+                    type: integer
+                  pending_invoices:
+                    type: integer
+                  total_employees:
+                    type: integer
+                  active_shipments:
+                    type: integer
+  "/api/v1/hrm/me":
+    get:
+      summary: Get Current Employee Profile
+      tags:
+      - HRM
+      security:
+      - BearerAuth: []
+      responses:
+        '200':
+          description: Returns employee profile
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  first_name:
+                    type: string
+                  last_name:
+                    type: string
+                  email:
+                    type: string
+                  phone:
+                    type: string
+                  position:
+                    type: string
+                  department:
+                    type: string
+                  hire_date:
+                    type: string
+                    format: date
+    patch:
+      summary: Update Current Employee Profile
+      tags:
+      - HRM
+      security:
+      - BearerAuth: []
+      parameters: []
+      responses:
+        '200':
+          description: Profile updated
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                first_name:
+                  type: string
+                last_name:
+                  type: string
+                phone:
+                  type: string
+  "/api/v1/hrm/employees":
+    get:
+      summary: List Employees
+      tags:
+      - HRM
+      security:
+      - BearerAuth: []
+      parameters:
+        - name: search
+          in: query
+          description: Search term for filtering employees
+          required: false
+          schema:
+            type: string
+        - name: page
+          in: query
+          description: Page number
+          required: false
+          schema:
+            type: integer
+            default: 1
+        - name: per_page
+          in: query
+          description: Number of items per page
+          required: false
+          schema:
+            type: integer
+            default: 20
+      responses:
+        '200':
+          description: Returns paginated list of employees
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  employees:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                        first_name:
+                          type: string
+                        last_name:
+                          type: string
+                        email:
+                          type: string
+                        full_name:
+                          type: string
+                  total:
+                    type: integer
+                  page:
+                    type: integer
+                  per_page:
+                    type: integer
+        '401':
+          description: Unauthorized
+  "/api/v1/hrm/employees/{id}":
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+    get:
+      summary: Get Employee
+      tags:
+      - HRM
+      security:
+      - BearerAuth: []
+      responses:
+        '200':
+          description: Returns employee details
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  first_name:
+                    type: string
+                  last_name:
+                    type: string
+                  email:
+                    type: string
+                  full_name:
+                    type: string
+                  manager:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                      first_name:
+                        type: string
+                      last_name:
+                        type: string
+        '401':
+          description: Unauthorized
+        '404':
+          description: Employee not found
+  "/api/v1/hrm/attendance_records":
+    get:
+      summary: List Attendance Records
+      tags:
+      - HRM
+      security:
+      - BearerAuth: []
+      responses:
+        '200':
+          description: Returns attendance records
+    post:
+      summary: Create Attendance Record
+      tags:
+      - HRM
+      security:
+      - BearerAuth: []
+      responses:
+        '201':
+          description: Attendance record created
+  "/api/v1/hrm/attendance_records/clock_in":
+    post:
+      summary: Clock In
+      tags:
+      - HRM
+      security:
+      - BearerAuth: []
+      responses:
+        '200':
+          description: Clocked in successfully
+  "/api/v1/hrm/attendance_records/clock_out":
+    post:
+      summary: Clock Out
+      tags:
+      - HRM
+      security:
+      - BearerAuth: []
+      responses:
+        '200':
+          description: Clocked out successfully
+  "/api/v1/hrm/performance_reviews":
+    get:
+      summary: List Performance Reviews
+      tags:
+      - HRM
+      security:
+      - BearerAuth: []
+      responses:
+        '200':
+          description: Returns performance reviews
+  "/api/v1/hrm/performance_reviews/{id}":
+    parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        type: integer
+    get:
+      summary: Get Performance Review
+      tags:
+      - HRM
+      security:
+      - BearerAuth: []
+      responses:
+        '200':
+          description: Returns performance review
+  "/api/v1/hrm/leave_requests":
+    get:
+      summary: List Leave Requests
+      tags:
+      - HRM
+      security:
+      - BearerAuth: []
+      responses:
+        '200':
+          description: Returns leave requests
+    post:
+      summary: Create Leave Request
+      tags:
+      - HRM
+      security:
+      - BearerAuth: []
+      parameters: []
+      responses:
+        '201':
+          description: Leave request created
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                leave_type:
+                  type: string
+                start_date:
+                  type: string
+                  format: date
+                end_date:
+                  type: string
+                  format: date
+                reason:
+                  type: string
+              required:
+              - leave_type
+              - start_date
+              - end_date
+  "/api/v1/hrm/leave_requests/{id}":
+    parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        type: integer
+    get:
+      summary: Get Leave Request
+      tags:
+      - HRM
+      security:
+      - BearerAuth: []
+      responses:
+        '200':
+          description: Returns leave request
+  "/api/v1/hrm/tasks":
+    get:
+      summary: List Tasks
+      tags:
+      - HRM
+      security:
+      - BearerAuth: []
+      responses:
+        '200':
+          description: Returns tasks
+    post:
+      summary: Create Task
+      tags:
+      - HRM
+      security:
+      - BearerAuth: []
+      parameters: []
+      responses:
+        '201':
+          description: Task created
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                description:
+                  type: string
+                priority:
+                  type: string
+                due_date:
+                  type: string
+                  format: date
+                status:
+                  type: string
+                employee_id:
+                  type: integer
+              required:
+              - title
+              - employee_id
+  "/api/v1/hrm/tasks/{id}":
+    parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        type: integer
+    get:
+      summary: Get Task
+      tags:
+      - HRM
+      security:
+      - BearerAuth: []
+      responses:
+        '200':
+          description: Returns task
+  "/api/v1/hrm/timesheets":
+    get:
+      summary: List Timesheets
+      tags:
+      - HRM
+      security:
+      - BearerAuth: []
+      responses:
+        '200':
+          description: Returns timesheets
+    post:
+      summary: Create Timesheet
+      tags:
+      - HRM
+      security:
+      - BearerAuth: []
+      parameters: []
+      responses:
+        '201':
+          description: Timesheet created
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                date:
+                  type: string
+                  format: date
+                hours_worked:
+                  type: number
+                description:
+                  type: string
+              required:
+              - date
+              - hours_worked
+  "/api/v1/hrm/training_courses":
+    get:
+      summary: List Training Courses
+      tags:
+      - HRM
+      security:
+      - BearerAuth: []
+      responses:
+        '200':
+          description: Returns training courses
+  "/api/v1/hrm/training_courses/{id}":
+    parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        type: integer
+    get:
+      summary: Get Training Course
+      tags:
+      - HRM
+      security:
+      - BearerAuth: []
+      responses:
+        '200':
+          description: Returns training course
+  "/api/v1/hrm/training_courses/{id}/enroll":
+    parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        type: integer
+    post:
+      summary: Enroll in Training Course
+      tags:
+      - HRM
+      security:
+      - BearerAuth: []
+      responses:
+        '200':
+          description: Enrolled successfully
+  "/api/v1/hrm/enrollments":
+    get:
+      summary: List Enrollments
+      tags:
+      - HRM
+      security:
+      - BearerAuth: []
+      responses:
+        '200':
+          description: Returns enrollments
+  "/api/v1/hrm/enrollments/{id}":
+    parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        type: integer
+    get:
+      summary: Get Enrollment
+      tags:
+      - HRM
+      security:
+      - BearerAuth: []
+      responses:
+        '200':
+          description: Returns enrollment
+  "/api/v1/vendors":
+    get:
+      summary: List Vendors
+      tags:
+      - Vendors
+      security:
+      - BearerAuth: []
+      responses:
+        '200':
+          description: Returns list of vendors
+    post:
+      summary: Create Vendor
+      tags:
+      - Vendors
+      security:
+      - BearerAuth: []
+      parameters: []
+      responses:
+        '201':
+          description: Vendor created
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                email:
+                  type: string
+                phone:
+                  type: string
+                address:
+                  type: string
+                bank_reference:
+                  type: string
+                status:
+                  type: string
+              required:
+              - name
+  "/api/v1/vendors/{id}":
+    parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        type: integer
+    get:
+      summary: Get Vendor
+      tags:
+      - Vendors
+      security:
+      - BearerAuth: []
+      responses:
+        '200':
+          description: Returns vendor
+    put:
+      summary: Update Vendor
+      tags:
+      - Vendors
+      security:
+      - BearerAuth: []
+      parameters: []
+      responses:
+        '200':
+          description: Vendor updated
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                email:
+                  type: string
+                phone:
+                  type: string
+                address:
+                  type: string
+                bank_reference:
+                  type: string
+                status:
+                  type: string
+    delete:
+      summary: Delete Vendor
+      tags:
+      - Vendors
+      security:
+      - BearerAuth: []
+      responses:
+        '204':
+          description: Vendor deleted
+  "/api/v1/logistics/bookings":
+    get:
+      summary: List Bookings
+      tags:
+      - Logistics
+      security:
+      - BearerAuth: []
+      responses:
+        '200':
+          description: Returns list of bookings
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                    booking_reference:
+                      type: string
+                    origin:
+                      type: string
+                    destination:
+                      type: string
+                    ship_date:
+                      type: string
+                      format: date
+                    estimated_arrival:
+                      type: string
+                      format: date
+                    status:
+                      type: string
+                    container_number:
+                      type: string
+    post:
+      summary: Create Booking
+      tags:
+      - Logistics
+      security:
+      - BearerAuth: []
+      parameters: []
+      responses:
+        '201':
+          description: Booking created
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                booking_reference:
+                  type: string
+                origin:
+                  type: string
+                destination:
+                  type: string
+                ship_date:
+                  type: string
+                  format: date
+                estimated_arrival:
+                  type: string
+                  format: date
+                status:
+                  type: string
+                container_number:
+                  type: string
+              required:
+              - booking_reference
+              - origin
+              - destination
+  "/api/v1/logistics/bookings/{id}":
+    parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        type: integer
+    get:
+      summary: Get Booking
+      tags:
+      - Logistics
+      security:
+      - BearerAuth: []
+      responses:
+        '200':
+          description: Returns booking
+        '404':
+          description: Booking not found
+    put:
+      summary: Update Booking
+      tags:
+      - Logistics
+      security:
+      - BearerAuth: []
+      parameters: []
+      responses:
+        '200':
+          description: Booking updated
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                booking_reference:
+                  type: string
+                origin:
+                  type: string
+                destination:
+                  type: string
+                status:
+                  type: string
+    delete:
+      summary: Delete Booking
+      tags:
+      - Logistics
+      security:
+      - BearerAuth: []
+      responses:
+        '200':
+          description: Booking deleted
+  "/api/v1/warehouse/inventory":
+    get:
+      summary: List Inventory
+      tags:
+      - Warehouse
+      security:
+      - BearerAuth: []
+      responses:
+        '200':
+          description: Returns list of inventory items
+    post:
+      summary: Create Inventory Item
+      tags:
+      - Warehouse
+      security:
+      - BearerAuth: []
+      parameters: []
+      responses:
+        '201':
+          description: Inventory item created
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                quantity:
+                  type: integer
+                location:
+                  type: string
+              required:
+              - name
+              - quantity
+  "/api/v1/warehouse/inventory/{id}":
+    parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        type: integer
+    get:
+      summary: Get Inventory Item
+      tags:
+      - Warehouse
+      security:
+      - BearerAuth: []
+      responses:
+        '200':
+          description: Returns inventory item
+    put:
+      summary: Update Inventory Item
+      tags:
+      - Warehouse
+      security:
+      - BearerAuth: []
+      responses:
+        '200':
+          description: Inventory item updated
+    delete:
+      summary: Delete Inventory Item
+      tags:
+      - Warehouse
+      security:
+      - BearerAuth: []
+      responses:
+        '200':
+          description: Inventory item deleted
+  "/api/v1/warehouse/transfers":
+    get:
+      summary: List Transfers
+      tags:
+      - Warehouse
+      security:
+      - BearerAuth: []
+      responses:
+        '200':
+          description: Returns list of transfers
+    post:
+      summary: Create Transfer
+      tags:
+      - Warehouse
+      security:
+      - BearerAuth: []
+      parameters: []
+      responses:
+        '201':
+          description: Transfer created
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                item_id:
+                  type: integer
+                from_location:
+                  type: string
+                to_location:
+                  type: string
+                quantity:
+                  type: integer
+              required:
+              - item_id
+              - from_location
+              - to_location
+              - quantity
+  "/api/v1/warehouse/locations":
+    get:
+      summary: List Locations
+      tags:
+      - Warehouse
+      security:
+      - BearerAuth: []
+      responses:
+        '200':
+          description: Returns list of warehouse locations
+servers:
+- url: http://localhost:3000
+  description: Development server
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+security:
+- BearerAuth: []

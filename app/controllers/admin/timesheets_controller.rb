@@ -1,4 +1,4 @@
-class Admin::TimesheetsController < ApplicationController
+class Admin::TimesheetsController < Admin::BaseController
   before_action :set_timesheet, only: [ :show, :edit, :update, :destroy ]
 
   def index
@@ -23,7 +23,7 @@ class Admin::TimesheetsController < ApplicationController
       @employees = Employee.all
       @users = User.all
       @tasks = Task.all
-      render :new
+      render :new, status: :unprocessable_content
     end
   end
 
@@ -40,7 +40,7 @@ class Admin::TimesheetsController < ApplicationController
       @employees = Employee.all
       @users = User.all
       @tasks = Task.all
-      render :edit
+      render :edit, status: :unprocessable_content
     end
   end
 

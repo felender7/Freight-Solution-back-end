@@ -1,0 +1,23 @@
+admin:
+  email: admin@example.com
+  password_digest: <%= BCrypt::Password.create('password') %>
+  role: admin
+  first_name: Admin
+  last_name: User
+  must_update_password: false
+
+hr_manager:
+  email: hr@example.com
+  password_digest: <%= BCrypt::Password.create('password') %>
+  role: hr_manager
+  first_name: HR
+  last_name: Manager
+  must_update_password: false
+
+employee_user:
+  email: employee@example.com
+  password_digest: <%= BCrypt::Password.create('password') %>
+  role: employee
+  first_name: John
+  last_name: Doe
+  must_update_password: false

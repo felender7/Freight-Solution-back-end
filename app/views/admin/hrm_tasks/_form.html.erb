@@ -1,0 +1,70 @@
+<%= form_with model: [:admin, task], url: (task.new_record? ? admin_hrm_tasks_path : admin_hrm_task_path(task)), local: true, class: "space-y-8" do |form| %>
+        
+  <% if task.errors.any? %>
+    <div class="p-4 bg-red-500/10 border border-red-500/30 text-red-400 rounded-lg">
+      <ul class="list-disc list-inside text-sm">
+        <% task.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="bg-slate-900/50 p-6 rounded-xl border border-slate-700">
+    <h3 class="text-lg font-semibold text-slate-100 mb-6 flex items-center gap-2">
+      <svg class="w-5 h-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/>
+      </svg>
+      Task Information
+    </h3>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="md:col-span-2">
+        <label class="block text-slate-300 text-sm font-medium mb-2.5">Task Title</label>
+        <%= form.text_field :title, required: true,
+            class: "w-full px-4 py-3 bg-slate-900 border border-slate-600 rounded-xl text-slate-100 focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all outline-none" %>
+      </div>
+
+      <div>
+        <label class="block text-slate-300 text-sm font-medium mb-2.5">Assignee (Employee)</label>
+        <%= form.collection_select :employee_id, @employees, :id, ->(e) { "#{e.first_name} #{e.last_name}" }, { prompt: 'Select Employee' }, 
+            class: "w-full px-4 py-3 bg-slate-900 border border-slate-600 rounded-xl text-slate-100 focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all outline-none" %>
+      </div>
+
+      <div>
+        <label class="block text-slate-300 text-sm font-medium mb-2.5">Priority Level</label>
+        <%= form.select :priority, ['low', 'medium', 'high'], {}, 
+            class: "w-full px-4 py-3 bg-slate-900 border border-slate-600 rounded-xl text-slate-100 focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all outline-none" %>
+      </div>
+
+      <div>
+        <label class="block text-slate-300 text-sm font-medium mb-2.5">Due Date</label>
+        <%= form.date_field :due_date, 
+            class: "w-full px-4 py-3 bg-slate-900 border border-slate-600 rounded-xl text-slate-100 focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all outline-none" %>
+      </div>
+
+      <div>
+        <label class="block text-slate-300 text-sm font-medium mb-2.5">Status</label>
+        <%= form.select :status, ['todo', 'in_progress', 'done'], {}, 
+            class: "w-full px-4 py-3 bg-slate-900 border border-slate-600 rounded-xl text-slate-100 focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all outline-none" %>
+      </div>
+
+      <div class="md:col-span-2">
+        <label class="block text-slate-300 text-sm font-medium mb-2.5">Description</label>
+        <%= form.text_area :description, rows: 4, 
+            class: "w-full px-4 py-3 bg-slate-900 border border-slate-600 rounded-xl text-slate-100 focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all outline-none",
+            placeholder: "Provide clear instructions for the assigned task..." %>
+      </div>
+    </div>
+  </div>
+
+  <div class="pt-6 border-t border-slate-700 flex gap-4">
+    <%= form.submit (task.new_record? ? 'Create Task' : 'Update Task'), 
+        class: "flex-1 py-3 bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 text-white rounded-xl font-medium transition-all shadow-lg shadow-blue-500/25 cursor-pointer" %>
+    <a href="<%= admin_hrm_tasks_path %>" 
+       class="px-8 py-3 bg-slate-700 hover:bg-slate-600 text-slate-200 rounded-xl font-medium transition-all">
+      Cancel
+    </a>
+  </div>
+
+<% end %>

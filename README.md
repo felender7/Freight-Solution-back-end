@@ -8,6 +8,7 @@ A Rails 8.1 backend application for Tswalanang Freight Solution - a comprehensiv
 - **Database**: PostgreSQL
 - **Authentication**: JWT + Secure Password
 - **File Storage**: Cloudinary
+- **API Documentation**: Swagger (rswag)
 - **Caching**: Solid Cache
 - **Background Jobs**: Solid Queue
 
@@ -136,6 +137,15 @@ Required variables:
 - `POST /api/v1/hrm/timesheets` - Create timesheet
 - `GET /api/v1/hrm/training_courses` - List courses
 - `POST /api/v1/hrm/training_courses/:id/enroll` - Enroll in course
+
+## API Documentation
+
+Swagger UI is available at `/api-docs` when the server is running.
+
+To generate/update Swagger documentation:
+```bash
+rails rswag:specs:swaggerize
+```
 
 ## Admin Routes
 

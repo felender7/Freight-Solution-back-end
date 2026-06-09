@@ -12,6 +12,7 @@ class Api::V1::Hrm::TrainingCoursesController < Api::V1::Hrm::BaseController
   def enroll
     @course = TrainingCourse.find(params[:id])
     @enrollment = current_employee.enrollments.find_or_initialize_by(training_course_id: @course.id)
+    @enrollment.user = current_user
 
     if @enrollment.persisted?
       render json: { message: "Already enrolled" }, status: :ok

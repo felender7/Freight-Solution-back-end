@@ -11,6 +11,7 @@
   <script>
     function confirmDelete(event, itemName) {
       event.preventDefault();
+      const form = event.target.closest('form');
       Swal.fire({
         title: 'Delete this item?',
         text: `Are you sure you want to delete "${itemName}"? This action cannot be undone.`,
@@ -23,8 +24,8 @@
         backdrop: true,
         customClass: { container: 'swal-dark' }
       }).then((result) => {
-        if (result.isConfirmed) {
-          event.target.submit();
+        if (result.isConfirmed && form) {
+          form.submit();
         }
       });
     }
@@ -114,33 +115,36 @@
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/></svg>
           <span class="text-sm font-medium">Dashboard</span>
         </a>
-        
-        <p class="text-slate-500 text-[10px] font-semibold uppercase tracking-wider px-3 mb-2 mt-4">Management</p>
-  
-        <a href="<%= admin_vendors_path %>" class="sidebar-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-400 hover:text-slate-200 hover:bg-slate-700/30 transition-all <%= 'active bg-slate-700/50 text-blue-400' if controller_path == 'admin/vendors' %>">
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
-          <span class="text-sm font-medium">Vendors</span>
-        </a>
-        <a href="<%= admin_shipments_path %>" class="sidebar-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-400 hover:text-slate-200 hover:bg-slate-700/30 transition-all <%= 'active bg-slate-700/50 text-blue-400' if controller_path == 'admin/shipments' %>">
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/></svg>
-          <span class="text-sm font-medium">Shipments</span>
-        </a>
-        <a href="<%= admin_invoices_path %>" class="sidebar-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-400 hover:text-slate-200 hover:bg-slate-700/30 transition-all <%= 'active bg-slate-700/50 text-blue-400' if controller_path == 'admin/invoices' %>">
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
-          <span class="text-sm font-medium">Invoices</span>
-        </a>
-        
-        <p class="text-slate-500 text-[10px] font-semibold uppercase tracking-wider px-3 mb-2 mt-4">HRM</p>
+
+          <p class="text-slate-500 text-[10px] font-semibold uppercase tracking-wider px-3 mb-2 mt-4">HRM Dashboard</p>
         <a href="<%= admin_hrm_path %>" class="sidebar-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-400 hover:text-slate-200 hover:bg-slate-700/30 transition-all <%= 'active bg-slate-700/50 text-blue-400' if controller_path == 'admin/hrm_dashboard' %>">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
-          <span class="text-sm font-medium">HRM Dashboard</span>
+          <span class="text-sm font-medium">HRM</span>
         </a>
         
-        <p class="text-slate-500 text-[10px] font-semibold uppercase tracking-wider px-3 mb-2 mt-4">System</p>
+        
+        <p class="text-slate-500 text-[10px] font-semibold uppercase tracking-wider px-3 mb-2 mt-4">Management Dashboard</p>
+  
+        <a href="<%= admin_ops_fin_path %>" class="sidebar-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-400 hover:text-slate-200 hover:bg-slate-700/30 transition-all <%= 'active bg-slate-700/50 text-blue-400' if controller_path == 'admin/ops_fin_dashboard' %>">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+          <span class="text-sm font-medium">OPS-FIN</span>
+        </a>
+
+        <p class="text-slate-500 text-[10px] font-semibold uppercase tracking-wider px-3 mb-2 mt-4">Warehousing Dashboard</p>
+        <a href="<%= admin_warehouse_dashboard_path %>" class="sidebar-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-400 hover:text-slate-200 hover:bg-slate-700/30 transition-all <%= 'active bg-slate-700/50 text-blue-400' if controller_path.start_with?('admin/warehouse') %>">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+          <span class="text-sm font-medium">WMS </span>
+        </a>
+     
+        
+      
+        <% if current_user && (current_user.role == 'Admin' || current_user.role == 'admin') %>
+        <p class="text-slate-500 text-[10px] font-semibold uppercase tracking-wider px-3 mb-2 mt-4">System Dashboard</p>
         <a href="<%= admin_users_path %>" class="sidebar-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-400 hover:text-slate-200 hover:bg-slate-700/30 transition-all <%= 'active bg-slate-700/50 text-blue-400' if controller_path == 'admin/users' %>">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"/></svg>
           <span class="text-sm font-medium">Users</span>
         </a>
+        <% end %>
 
         <a href="<%= admin_logout_path %>" class="flex items-center gap-3 px-3 py-2.5 mt-4 w-full rounded-lg text-red-400 hover:bg-red-500/10 hover:text-red-300 transition-all">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

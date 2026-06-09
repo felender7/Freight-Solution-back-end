@@ -5,76 +5,169 @@
     <!-- Header -->
     <div class="px-8 py-6 border-b border-slate-700 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
       
+      <!-- Left -->
       <div>
         <div class="flex items-center gap-2 text-slate-500 text-sm mb-1">
-          <span>Dashboard</span>
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-          <span>Leave Requests</span>
+          <span>HRM</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+          </svg>
+          <span>Leave Management</span>
         </div>
-        <h1 class="text-3xl font-bold text-slate-100">Leave Requests</h1>
-        <p class="text-slate-400 mt-1">Manage employee leave requests</p>
+
+        <h1 class="text-3xl font-bold text-slate-100 uppercase tracking-tight">Request Registry</h1>
+        <p class="text-slate-400 mt-1">
+          Monitor employee time-off, approval workflows, and balance tracking
+        </p>
       </div>
 
-      <a href="<%= new_admin_leave_request_path %>" class="inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white rounded-xl font-medium transition-all shadow-lg shadow-blue-500/25">
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/></svg>
-        Add Request
+      <!-- Right -->
+      <a href="<%= new_admin_leave_request_path %>" 
+         class="inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 text-white rounded-xl font-medium transition-all shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>
+        </svg>
+        New Request
       </a>
     </div>
 
-    <% if notice %><div class="px-8 pt-6"><div class="p-4 bg-green-500/10 border border-green-500/30 text-green-400 rounded-lg"><%= notice %></div></div><% end %>
+    <!-- Notice -->
+    <% if notice %>
+      <div class="px-8 pt-6">
+        <div class="p-4 bg-green-500/10 border border-green-500/30 text-green-400 rounded-lg animate-fade-in">
+          <%= notice %>
+        </div>
+      </div>
+    <% end %>
 
+    <!-- Table -->
     <div class="p-6">
       <% if @leave_requests.any? %>
         <div class="overflow-x-auto">
           <table class="w-full">
+            
             <thead>
               <tr class="border-b border-slate-700/30">
                 <th class="text-left text-slate-500 text-xs font-semibold uppercase tracking-wider py-4 px-4">Employee</th>
                 <th class="text-left text-slate-500 text-xs font-semibold uppercase tracking-wider py-4 px-4">Type</th>
-                <th class="text-left text-slate-500 text-xs font-semibold uppercase tracking-wider py-4 px-4">Dates</th>
+                <th class="text-left text-slate-500 text-xs font-semibold uppercase tracking-wider py-4 px-4">Duration</th>
                 <th class="text-left text-slate-500 text-xs font-semibold uppercase tracking-wider py-4 px-4">Status</th>
                 <th class="text-right text-slate-500 text-xs font-semibold uppercase tracking-wider py-4 px-4">Actions</th>
               </tr>
             </thead>
+
             <tbody>
-              <% @leave_requests.each do |leave| %>
+              <% @leave_requests.each do |request| %>
                 <tr class="border-b border-slate-700/30 hover:bg-slate-700/20 transition-colors group">
+                  
+                  <!-- Employee -->
                   <td class="py-4 px-4">
                     <div class="flex items-center gap-3">
-                      <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white font-semibold text-sm">
-                        <%= leave.employee.first_name[0] %><%= leave.employee.last_name[0] %>
+                      <div class="w-10 h-10 rounded-xl bg-slate-800 border border-slate-700 flex items-center justify-center text-blue-500 font-bold text-xs group-hover:bg-blue-600 group-hover:text-white transition-all shadow-inner">
+                        <%= request.employee.first_name[0] %>
                       </div>
-                      <p class="text-slate-200 font-medium"><%= leave.employee.first_name %> <%= leave.employee.last_name %></p>
+                      <div>
+                        <p class="text-slate-200 font-medium"><%= "#{request.employee.first_name} #{request.employee.last_name}" %></p>
+                        <p class="text-slate-500 text-[10px]"><%= request.employee.department %></p>
+                      </div>
                     </div>
                   </td>
-                  <td class="py-4 px-4"><span class="text-slate-300 text-sm"><%= leave.leave_type || '-' %></span></td>
-                  <td class="py-4 px-4"><span class="text-slate-400 text-sm"><%= leave.start_date ? "#{leave.start_date.strftime('%b %d')} - #{leave.end_date.strftime('%b %d, %Y')}" : '-' %></span></td>
+
+                  <!-- Type -->
                   <td class="py-4 px-4">
-                    <span class="px-3 py-1.5 rounded-full text-xs font-medium 
-                      <%= case leave.status when 'approved' then 'bg-green-500/20 text-green-400 border border-green-500/30' when 'rejected' then 'bg-red-500/20 text-red-400 border border-red-500/30' else 'bg-yellow-500/20 text-yellow-400 border border-yellow-500/30' end %>">
-                      <%= leave.status || 'pending' %>
+                    <div class="flex items-center gap-2">
+                      <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-400 text-[10px] font-bold uppercase border border-slate-700">
+                        <%= request.leave_type %>
+                      </span>
+                      <% if request.medical_certificate.attached? || request.study_timetable.attached? || request.documents.attached? %>
+                        <svg class="w-3 h-3 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" title="Has Documents">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13"/>
+                        </svg>
+                      <% end %>
+                    </div>
+                  </td>
+
+                  <!-- Duration -->
+                  <td class="py-4 px-4">
+                    <p class="text-slate-300 text-xs font-bold"><%= request.start_date&.strftime('%d %b') %> - <%= request.end_date&.strftime('%d %b %Y') %></p>
+                    <p class="text-[10px] text-slate-500 font-medium"><%= (request.end_date - request.start_date).to_i + 1 rescue '?' %> days total</p>
+                  </td>
+
+                  <!-- Status -->
+                  <td class="py-4 px-4">
+                    <span class="px-3 py-1.5 rounded-full text-[10px] font-black border
+                      <%= case request.status 
+                        when 'approved' then 'bg-green-500/10 text-green-400 border-green-500/20' 
+                        when 'rejected' then 'bg-red-500/10 text-red-400 border-red-500/20' 
+                        else 'bg-yellow-500/10 text-yellow-400 border-yellow-500/20' 
+                      end %>">
+                      <%= request.status&.upcase %>
                     </span>
                   </td>
+
+                  <!-- Actions -->
                   <td class="py-4 px-4">
                     <div class="flex gap-2 justify-end opacity-0 group-hover:opacity-100 transition-opacity">
-                      <a href="<%= edit_admin_leave_request_path(leave) %>" class="p-2 bg-slate-700 hover:bg-slate-600 text-slate-300 rounded-lg"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg></a>
-                      <%= button_to '', admin_leave_request_path(leave), method: :delete, class: 'p-2 bg-red-500/10 text-red-400 rounded-lg', onclick: "confirmDelete(event, 'Leave Request')" %>
+                      
+                      <a href="<%= admin_leave_request_path(request) %>" 
+                         class="p-2 bg-slate-700 hover:bg-slate-600 text-slate-300 rounded-lg transition-colors" title="View Detail">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+                        </svg>
+                      </a>
+
+                      <a href="<%= edit_admin_leave_request_path(request) %>" 
+                         class="p-2 bg-slate-700 hover:bg-slate-600 text-slate-300 rounded-lg transition-colors" title="Edit">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>
+                        </svg>
+                      </a>
+
+                      <%= button_to admin_leave_request_path(request),
+                        method: :delete,
+                        form: { class: 'inline-block', data: { turbo: false, confirm: "Are you sure you want to delete this leave request?" } },
+                        class: 'p-2 bg-red-600 hover:bg-red-700 text-white rounded-lg transition-colors cursor-pointer',
+                        title: 'Delete' do %>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/>
+                        </svg>
+                      <% end %>
+
                     </div>
                   </td>
+
                 </tr>
               <% end %>
             </tbody>
+
           </table>
         </div>
+
       <% else %>
+
+        <!-- Empty State -->
         <div class="text-center py-16">
-          <div class="w-20 h-20 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-slate-700 to-slate-800 flex items-center justify-center">
-            <svg class="w-10 h-10 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+          <div class="w-20 h-20 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-slate-700 to-slate-800 flex items-center justify-center text-slate-500">
+            <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
           </div>
-          <h3 class="text-xl font-semibold text-slate-200 mb-2">No leave requests yet</h3>
-          <a href="<%= new_admin_leave_request_path %>" class="inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-xl font-medium">Add First Request</a>
+
+          <h3 class="text-xl font-semibold text-slate-200 mb-2">No active requests</h3>
+          <p class="text-slate-500 mb-6">
+            Leave management registry is currently empty
+          </p>
+
+          <a href="<%= new_admin_leave_request_path %>" 
+             class="inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 text-white rounded-xl font-medium transition-all">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>
+            </svg>
+            Submit First Request
+          </a>
         </div>
+
       <% end %>
     </div>
+
   </div>
 </div>
